@@ -1,0 +1,7 @@
+[user]
+	name = WiiManic
+	email = sc13rjc@leeds.ac.uk
+[color]
+	ui = auto
+[core]
+	editor = nvim
