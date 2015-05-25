@@ -2,3 +2,8 @@
 
 neovim/.nvim/plugged/*
 
+#Ignore log files
+
+*.log
+*.swp
+mpd/.mpd/mpdstate

@@ -6,14 +6,18 @@ set smartcase "Smart Case Matching
 set incsearch "Incremental Search
 set mouse=a "Mouse Usage
 set number "Line Numbers
-set smartindent "Smart Indentation
 syntax on "Syntax Highlighting
 set laststatus=2 "Needed for AirLine to show
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.vim/spell/en.utf-8.add "Vim spell file
+set relativenumber "Show line numbers relative to current line
+set scrolloff=4 "Number of lines to move around on scrolling
 
-set tabstop=4 "Tabstop = 4. Expand Tab for spaces instead of tab. Shiftwidth for spaces inserted
-set shiftwidth=4
+set tabstop=4 "Indent every 4 cols
+set shiftwidth=4 "Indents are 4 spaces
+set smartindent "Smart Indentation
+set expandtab "Spaces not tabs
+set softtabstop=4 "Delete indents
 
 "File building remapping
 "Run Python files on F9
@@ -22,6 +26,7 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)
 autocmd FileType tex nnoremap <buffer> <F9> :w <enter> :exec '!latexmk -pdf -silent % > /dev/null' shellescape(@%,1)<CR><CR>
 autocmd FileType tex nnoremap <buffer> <F8> :w !detex \| wc -w<CR>
 
+"Include QT in Syntastic
 let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
 
 " Highlight over 80 cols in red
