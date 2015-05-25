@@ -22,9 +22,20 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)
 autocmd FileType tex nnoremap <buffer> <F9> :w <enter> :exec '!latexmk -pdf -silent % > /dev/null' shellescape(@%,1)<CR><CR>
 autocmd FileType tex nnoremap <buffer> <F8> :w !detex \| wc -w<CR>
 
+let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
+
 " Highlight over 80 cols in red
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 match OverLength /\%81v.\+/
+
+"Clipboard
+
+if has ('nvim')
+	runtime! python_setup vim
+endif
+if has ('nvim')
+	set clipboard+=unnamedplus
+endif
 
 "Remaps
 
