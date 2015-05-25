@@ -4,6 +4,11 @@ neovim/.nvim/plugged/*
 
 #Ignore log files
 
-*.log
+#mpd/.mpd/mdp.log
+#mpd/.mpd/mpdstate
+#mpd/.mpd/mpd.pid
+#mpd/.mpd/mpd.db
+ncmpcpp/.ncmpcpp/*.log
+
+
 *.swp
-mpd/.mpd/mpdstate
