@@ -1,14 +1,7 @@
 #Ignore all the plugins
-
 neovim/.nvim/plugged/*
-
-#Ignore log files
-
-mpd/.mpd/mdp.log
-mpd/.mpd/mpdstate
-mpd/.mpd/mpd.pid
-mpd/.mpd/mpd.db
+#Ignore log files and such
+!mpd/.mpd/mpd.conf
+mpd/.mpd/*
 ncmpcpp/.ncmpcpp/*.log
-
-
 *.swp

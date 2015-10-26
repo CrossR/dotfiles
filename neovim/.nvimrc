@@ -71,6 +71,10 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree  | endif
 
+"CtrlP
+
+let g:ctrlp_working_path_mode = 'c'
+
 "Plug
 
 call plug#begin('~/.nvim/plugged')
@@ -93,5 +97,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/syntastic'
 "File Finder"
 Plug 'kien/ctrlp.vim'
+"Async Build
+Plug 'benekastah/neomake'
 
 call plug#end()
