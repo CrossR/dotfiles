@@ -1,5 +1,9 @@
 #Ignore all the plugins
 neovim/.nvim/plugged/*
+<<<<<<< 20287cf4b6d4c3a7d2bc4b132551edb518915bf7
+=======
+neovim/.nvim/autoload/*
+>>>>>>> Changed VMShare file to only change resolution, removed plug.vim
 #Ignore log files and such
 !mpd/.mpd/mpd.conf
 mpd/.mpd/*
