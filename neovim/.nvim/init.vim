@@ -10,7 +10,6 @@ syntax on "Syntax Highlighting
 set laststatus=2 "Needed for AirLine to show
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
-set relativenumber "Show line numbers relative to current line
 set scrolloff=4 "Number of lines to move around on scrolling
 
 set tabstop=4 "Indent every 4 cols
@@ -46,10 +45,6 @@ endif
 
 :nmap j gj
 :nmap k gk
-"Move between camel case as seperate words
-:nmap w ,w
-:nmap b ,b
-:nmap e ,e
 :let mapleader = ","
 
 "Airline
