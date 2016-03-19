@@ -18,5 +18,3 @@ fi
 feh --bg-scale /home/Downloads/space-shuttle-16092-1920x1080.jpg
 [[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
 exec i3
-feh --bg-scale /home/Downloads/space-shuttle-16092-1920x1080.jpg
-[[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
