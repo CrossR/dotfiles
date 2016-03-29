@@ -22,7 +22,9 @@ set softtabstop=4 "Delete indents
 "Run Python files on F9
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 "Run Latex PDF make on F9, and word count on F8
-autocmd FileType tex nnoremap <buffer> <F8> :w !detex \| wc -w<CR>
+autocmd FileType tex nnoremap <buffer> <F8> :VimtexWordCount<CR>
+autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
+autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 
 "Include QT in Syntastic
