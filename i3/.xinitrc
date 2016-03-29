@@ -17,4 +17,5 @@ fi
 # ...or the Window Manager of your choice
 feh --bg-scale /home/Downloads/space-shuttle-16092-1920x1080.jpg
 [[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
+xset -b
 exec i3

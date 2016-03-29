@@ -22,8 +22,8 @@ set softtabstop=4 "Delete indents
 "Run Python files on F9
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 "Run Latex PDF make on F9, and word count on F8
-autocmd FileType tex nnoremap <buffer> <F9> :w <enter> :exec '!latexmk -pdf -silent % > /dev/null' shellescape(@%,1)<CR><CR>
 autocmd FileType tex nnoremap <buffer> <F8> :w !detex \| wc -w<CR>
+let g:tex_flavor = 'latex'
 
 "Include QT in Syntastic
 let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
@@ -94,5 +94,7 @@ Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 "Async Build
 Plug 'benekastah/neomake'
+"Vim TeX
+Plug 'lervag/vimtex'
 
 call plug#end()
