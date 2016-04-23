@@ -17,6 +17,7 @@ countfunction() {
 	detex $1 | wc -w
 }
 alias wordcount=countfunction
+alias rm='rm -I'
 
 eval $( dircolors -b $HOME/.ls_col)
 

@@ -11,7 +11,6 @@ set laststatus=2 "Needed for AirLine to show
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
 set scrolloff=4 "Number of lines to move around on scrolling
-
 set tabstop=4 "Indent every 4 cols
 set shiftwidth=4 "Indents are 4 spaces
 set smartindent "Smart Indentation
@@ -23,7 +22,7 @@ set softtabstop=4 "Delete indents
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 "Run Latex PDF make on F9, and word count on F8
 autocmd FileType tex nnoremap <buffer> <F8> :VimtexWordCount<CR>
-autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
+autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompileToggle<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 
@@ -48,6 +47,14 @@ endif
 :nmap j gj
 :nmap k gk
 :let mapleader = ","
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 
 "Airline
 
@@ -90,6 +97,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'bkad/CamelCaseMotion'
 "Change inside things"
 Plug 'tpope/vim-surround'
+"Date Incrementing
+Plug 'tpope/vim-speeddating'
 "Syntax and Build"
 Plug 'scrooloose/syntastic'
 "File Finder"
