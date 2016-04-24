@@ -102,7 +102,7 @@ Plug 'tpope/vim-speeddating'
 "Syntax and Build"
 Plug 'scrooloose/syntastic'
 "File Finder"
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 "Async Build
 Plug 'benekastah/neomake'
 "Vim TeX
