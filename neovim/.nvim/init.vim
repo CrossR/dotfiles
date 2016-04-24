@@ -47,14 +47,6 @@ endif
 :nmap j gj
 :nmap k gk
 :let mapleader = ","
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
 
 "Airline
 
@@ -77,7 +69,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree  | endif
 
 "CtrlP
 
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'ra'
 
 "Plug
 
@@ -93,8 +85,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 "Nicer commenting
 Plug 'scrooloose/nerdcommenter'
-"Move between words in camelcase
-Plug 'bkad/CamelCaseMotion'
 "Change inside things"
 Plug 'tpope/vim-surround'
 "Date Incrementing
