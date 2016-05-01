@@ -85,8 +85,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 "Nicer commenting
 Plug 'scrooloose/nerdcommenter'
-"Change inside things"
+"Change inside things
 Plug 'tpope/vim-surround'
+"Repeat Addons with .
+Plug 'tpope/vim-repeat'
 "Date Incrementing
 Plug 'tpope/vim-speeddating'
 "Syntax and Build"
