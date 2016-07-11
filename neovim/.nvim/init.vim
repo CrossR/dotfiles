@@ -63,11 +63,6 @@ if ! has ('gui_running')
 endif
 
 
-"NerdFile
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree  | endif
-
 "CtrlP
 
 let g:ctrlp_working_path_mode = 'ra'
@@ -83,8 +78,6 @@ call plug#begin('~/.nvim/plugged')
 Plug 'bling/vim-airline'
 "This is the Git Plugin
 Plug 'tpope/vim-fugitive'
-"File Tree Browser
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle'}
 "Nicer commenting
 Plug 'scrooloose/nerdcommenter'
 "Change inside things
