@@ -47,6 +47,7 @@ endif
 :nmap j gj
 :nmap k gk
 :let mapleader = ","
+:vnoremap . :norm.<CR>
 
 "Airline
 
