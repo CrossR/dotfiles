@@ -20,9 +20,10 @@ alias wordcount=countfunction
 alias rm='rm -I'
 
 alias chrome='sh -c "chromium > /dev/null 2>&1 &"'
+alias chromein='sh -c "chromium --incognito > /dev/null 2>&1 &"'
 
 alias poweroff='sudo systemctl poweroff'
-alias reboot='shutdown -r now'
+alias reboot='sudo shutdown -r now'
 alias halt='sudo systemctl halt'
 
 export VISUAL=nvim
