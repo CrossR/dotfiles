@@ -25,9 +25,7 @@ alias poweroff='sudo systemctl poweroff'
 alias restart='sudo systemctl restart'
 alias halt='sudo systemctl halt'
 
-eval $( dircolors -b $HOME/.ls_col)
-
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL" 
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
