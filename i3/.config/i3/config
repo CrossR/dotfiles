@@ -229,4 +229,4 @@ bar {
 
 exec --no-startup-id i3-msg 'workspace 1: default; exec i3-sensible-terminal'
 
-exec_always --no-startup-id feh --bg-scale /home/Downloads/space-shuttle-16092-1920x1080.jpg
+exec_always --no-startup-id exec /home/ryanc/.res.sh
