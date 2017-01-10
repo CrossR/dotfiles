@@ -16,7 +16,7 @@ URxvt.urgentOnBell: True
 URxvt.visualBell: False
 URxvt.useColor: True
 
-URxvt.font: xft:Tewi:pixelsize=12
+URxvt.font: xft:Tewi:pixelsize=22
 URxvt*transparent: true
 URxvt*shading:5
 
