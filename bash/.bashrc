@@ -22,7 +22,7 @@ alias rm='rm -I'
 alias chrome='sh -c "chromium > /dev/null 2>&1 &"'
 
 alias poweroff='sudo systemctl poweroff'
-alias restart='sudo systemctl restart'
+alias reboot='shutdown -r now'
 alias halt='sudo systemctl halt'
 
 export VISUAL=nvim
