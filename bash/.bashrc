@@ -19,6 +19,10 @@ countfunction() {
 alias wordcount=countfunction
 alias rm='rm -I'
 
+alias poweroff='sudo systemctl poweroff'
+alias restart='sudo systemctl restart'
+alias halt='sudo systemctl halt'
+
 eval $( dircolors -b $HOME/.ls_col)
 
 export VISUAL=vim
