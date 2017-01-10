@@ -208,23 +208,6 @@ for_window [window_role="task_dialog"] floating enable
 # other window specific settings
 for_window [class="(?i)pidgin" window_role="^conversation$"] resize grow width 0 px or 30 ppt
 
-bar {
-        status_command	i3status
-        position top
-        font pango:Tewi, Icons 8
-        height 20
-        colors {
-                statusline         $white
-                background         $black
-                separator          $darkgreen
-
-#                                  BORDER      BACKGROUND  TEXT
-                focused_workspace  $black $black $darkgreen
-                inactive_workspace $black $black $white
-                urgent_workspace   $red        $red        $background
-        }
-}
-
 # AUTOSTART
 
 exec --no-startup-id i3-msg 'workspace 1: default; exec i3-sensible-terminal'

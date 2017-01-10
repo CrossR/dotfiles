@@ -7,4 +7,4 @@ do
     sleep 1;
 done
 
-polybar bar1&
+polybar bar1 > /dev/null 2>&1 &
