@@ -17,5 +17,4 @@ fi
 # ...or the Window Manager of your choice
 feh --bg-scale /home/ryanc/Downloads/background.png
 [[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
-xset -b
 exec i3

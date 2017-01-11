@@ -27,6 +27,7 @@ alias reboot='sudo shutdown -r now'
 alias halt='sudo systemctl halt'
 
 eval $( dircolors -b $HOME/.scripts/.ls_col)
+xset -b
 
 export VISUAL=nvim
 export EDITOR="$VISUAL" 
