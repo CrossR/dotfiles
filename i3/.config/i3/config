@@ -30,8 +30,8 @@ set $ws8  "8: 8"
 set $ws9  "9:"
 set $ws10 "10:"
 
-set $default_gaps_inner 10
-set $default_gaps_outer 5
+set $default_gaps_inner 15
+set $default_gaps_outer 10
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
@@ -51,8 +51,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+q kill
 
-bindsym $mod+d exec dmenu_run -i -nb "$background" -nf "$white" -sb "$background" -sf "$cyan"
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -nb "$background" -nf "$white" -sb "$background" -sf "$cyan"'
+bindsym $mod+Shift+Return exec rofi -i -show run -lines 3 -padding 750 -eh 2 -fullscreen -padding 450 -opacity "85" -bw 0 -bc "#525454" -bg "#525454" -fg "$text-color" -hlbg "#525454" -hlfg "#9575cd" -font "Dejavu Sans Mono 25"
+bindsym $mod+d exec rofi -i -show window
+
 
 bindsym $mod+Left focus left
 bindsym $mod+Right focus right
