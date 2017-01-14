@@ -18,25 +18,25 @@ URxvt.useColor: True
 
 URxvt.font: xft:InputMonoNarrow-Thin:pixelsize=22
 URxvt*transparent: true
-URxvt*shading:5
+URxvt*shading:15
 
 *.foreground: #687078
 *.background: #203830
-*.cursorColor: #f79ef0
+*.cursorColor: #fac3ae
 
-*color0:   #252c5c
-*color1:   #5b0b66
-*color2:   #22496c
-*color3:   #46277a
-*color4:   #7c1b84
-*color5:   #5c3499
-*color6:   #8126a7
-*color7:   #6e3abc
-*color8:   #bd0db8
-*color9:   #991fc8
-*color10:  #c944e1
-*color11:  #3872b0
-*color12:  #7492d7
-*color13:  #906cd8
-*color14:  #af7ce4
-*color15:  #8ebedd
+*color0:   #50786d
+*color1:   #688f5d
+*color2:   #65657a
+*color3:   #868d81
+*color4:   #865e7d
+*color5:   #a29c57
+*color6:   #a6627b
+*color7:   #c5a251
+*color8:   #c25c69
+*color9:   #c3a39b
+*color10:  #f0a448
+*color11:  #db5353
+*color12:  #f9c2ad
+*color13:  #f2a885
+*color14:  #ee6949
+*color15:  #f2854a

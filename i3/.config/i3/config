@@ -19,6 +19,10 @@ set $white       #f1edfb
 set $darkwhite   #f1edfb
 set $background  #133B47
 
+set $border      #aea87a
+set $darkborder  #688f5d
+set $warnborder  #ee6949
+
 set $ws1  "1:"
 set $ws2  "2:"
 set $ws3  "3:"
@@ -40,18 +44,18 @@ force_display_urgency_hint 0 ms
 
 font pango:Tewi, Icons 8
 
-#                       BORDER     BACKGROUND TEXT   INDICATOR
-client.focused          $cyan      $cyan      $white $cyan
-client.unfocused        $darkcyan  $darkcyan  $white $darkcyan
-client.focused_inactive $darkcyan  $darkcyan  $white $darkcyan
-client.urgent           $red       $red       $white $red
+#                       BORDER       BACKGROUND   TEXT   INDICATOR
+client.focused          $border      $border      $white $border
+client.unfocused        $darkborder  $darkborder  $white $darkborder
+client.focused_inactive $darkborder  $darkborder  $white $darkborder
+client.urgent           $warnborder  $warnborder  $white $warnborder
 
 floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+q kill
 
-bindsym $mod+Shift+Return exec rofi -i -show run -lines 3 -padding 750 -eh 2 -fullscreen -padding 450 -opacity "85" -bw 0 -bc "#525454" -bg "#525454" -fg "$text-color" -hlbg "#525454" -hlfg "#9575cd" -font "Dejavu Sans Mono 25"
+bindsym $mod+Shift+Return exec rofi -i -show run -lines 3 -padding 750 -eh 2 -fullscreen -padding 450 -opacity "85" -bw 0 -bc "#525454" -bg "#525454" -fg "$text-color" -hlbg "#525454" -hlfg "#9575cd" -font "InputMonoNarrow 22"
 bindsym $mod+d exec rofi -i -show window
 
 
@@ -213,5 +217,5 @@ for_window [class="(?i)pidgin" window_role="^conversation$"] resize grow width 0
 
 # AUTOSTART
 
-exec_always --no-startup-id exec /home/ryanc/.scripts/.res.sh
-exec_always --no-startup-id exec /home/ryanc/.scripts/.polyStart.sh
+exec_always --no-startup-id exec /home/ryanc/.scripts/res.sh
+exec_always --no-startup-id exec /home/ryanc/.scripts/polyStart.sh
