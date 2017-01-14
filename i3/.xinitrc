@@ -15,6 +15,6 @@ fi
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-feh --bg-scale /home/ryanc/Downloads/background.png
+feh --bg-scale /usr/share/backgrounds/background.png
 [[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
 exec i3
