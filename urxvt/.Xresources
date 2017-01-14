@@ -16,27 +16,27 @@ URxvt.urgentOnBell: True
 URxvt.visualBell: False
 URxvt.useColor: True
 
-URxvt.font: xft:Tewi:pixelsize=22
+URxvt.font: xft:InputMonoNarrow-Thin:pixelsize=22
 URxvt*transparent: true
 URxvt*shading:5
 
 *.foreground: #687078
 *.background: #203830
-*.cursorColor: #55888
+*.cursorColor: #f79ef0
 
-*color0: #2c2836
-*color8: #73707e
-*color1: #bb7473
-*color9: #cf9fa4
-*color2: #68b782
-*color10: #9acbad
-*color3: #abb773
-*color11: #c5cba4
-*color4: #7865c5
-*color12: #a396d9
-*color5: #bb65b6
-*color13: #cf96cf
-*color6: #68a8c5
-*color14: #9ac1d9
-*color7: #e3dfed
-*color15: #f1edfb
+*color0:   #252c5c
+*color1:   #5b0b66
+*color2:   #22496c
+*color3:   #46277a
+*color4:   #7c1b84
+*color5:   #5c3499
+*color6:   #8126a7
+*color7:   #6e3abc
+*color8:   #bd0db8
+*color9:   #991fc8
+*color10:  #c944e1
+*color11:  #3872b0
+*color12:  #7492d7
+*color13:  #906cd8
+*color14:  #af7ce4
+*color15:  #8ebedd
