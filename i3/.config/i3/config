@@ -219,3 +219,4 @@ for_window [class="(?i)pidgin" window_role="^conversation$"] resize grow width 0
 
 exec_always --no-startup-id exec /home/ryanc/.scripts/res.sh
 exec_always --no-startup-id exec /home/ryanc/.scripts/polyStart.sh
+exec_always --no-startup-id exec /home/ryanc/.scripts/compStart.sh

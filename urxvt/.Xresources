@@ -24,7 +24,7 @@ URxvt*shading:15
 *.background: #203830
 *.cursorColor: #fac3ae
 
-*color0:   #50786d
+*color0:   #aea87a
 *color1:   #688f5d
 *color2:   #65657a
 *color3:   #868d81
@@ -39,4 +39,4 @@ URxvt*shading:15
 *color12:  #f9c2ad
 *color13:  #f2a885
 *color14:  #ee6949
-*color15:  #f2854a
+*color15:  #d55256
