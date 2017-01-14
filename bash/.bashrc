@@ -21,12 +21,14 @@ alias rm='rm -I'
 
 alias chrome='sh -c "chromium > /dev/null 2>&1 &"'
 alias chromein='sh -c "chromium --incognito > /dev/null 2>&1 &"'
+alias mountMusic='vmhgfs-fuse -o allow_other -o auto_unmount .host:/Music /mnt/virtual/music/'
 
 alias poweroff='sudo systemctl poweroff'
 alias reboot='sudo shutdown -r now'
 alias halt='sudo systemctl halt'
 
 eval $( dircolors -b $HOME/.scripts/ls_col)
+
 xset -b
 
 export VISUAL=nvim
