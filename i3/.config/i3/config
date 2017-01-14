@@ -55,7 +55,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+q kill
 
-bindsym $mod+Shift+Return exec rofi -i -show run -lines 3 -padding 750 -eh 2 -fullscreen -padding 450 -opacity "85" -bw 0 -bc "#525454" -bg "#525454" -fg "$text-color" -hlbg "#525454" -hlfg "#9575cd" -font "InputMonoNarrow 22"
+bindsym $mod+Shift+Return exec rofi -i -show run
 bindsym $mod+d exec rofi -i -show window
 
 

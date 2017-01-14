@@ -16,5 +16,5 @@ fi
 # exec startxfce4
 # ...or the Window Manager of your choice
 feh --bg-scale /usr/share/backgrounds/background.png
-[[ -f ~/.Xresources ]] && xrdb  -merge ~/.Xresources 
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources 
 exec i3

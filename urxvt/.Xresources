@@ -20,6 +20,20 @@ URxvt.font: xft:InputMonoNarrow-Thin:pixelsize=22
 URxvt*transparent: true
 URxvt*shading:15
 
+rofi.color-enabled: true
+rofi.columns: 1
+rofi.font: InputMonoNarrow 22
+rofi.padding: 750
+rofi.case-sensitive: false
+rofi.bw: 0
+rofi.eh: 2
+rofi.fullscreen: true
+rofi.color-normal: argb:00000000, #dbdfbc, argb:00000000, #97a37f, #556975
+rofi.color-urgent: argb:00000000, #9f6b84, argb:00000000, #97a37f, #556975
+rofi.color-active: argb:00000000, #8ac4ff, argb:00000000, #97a37f, #556975
+rofi.color-window: argb:ccaea789, #dbdfbc, #dbdfbc
+
+
 *.foreground: #687078
 *.background: #203830
 *.cursorColor: #fac3ae
