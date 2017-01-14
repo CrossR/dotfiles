@@ -7,4 +7,4 @@ do
     sleep 1;
 done
 
-compton -b
+compton -b --backend xrender 2&>1
