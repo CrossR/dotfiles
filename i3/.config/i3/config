@@ -57,6 +57,7 @@ bindsym $mod+q kill
 
 bindsym $mod+Shift+Return exec rofi -i -show drun
 bindsym $mod+d exec rofi -i -show window
+bindsym $mod+Shift+s exec teiler
 
 
 bindsym $mod+Left focus left

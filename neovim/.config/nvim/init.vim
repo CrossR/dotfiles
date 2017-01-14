@@ -48,6 +48,7 @@ endif
 :nmap k gk
 :let mapleader = ","
 :vnoremap . :norm.<CR>
+command RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
 "Airline
 
