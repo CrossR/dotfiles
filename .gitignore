@@ -1,8 +1,9 @@
 #Ignore all the plugins and spelling
-neovim/.nvim/plugged/*
-neovim/.nvim/autoload/*
-neovim/.nvim/spell
+neovim/.config/nvim/plugged/*
+neovim/.config/nvim/autoload/*
+neovim/.config/nvim/spell
 neovim/.config/nvim/.netrwhist
+
 
 #Ignore log files and such
 !mpd/.config/mpd/mpd.conf

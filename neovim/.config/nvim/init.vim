@@ -69,9 +69,20 @@ endif
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"Plug
+"Plug Install
 
-call plug#begin('~/.nvim/plugged')
+let vimplug=expand('~/.config/nvim/autoload/plug.vim')
+
+if !filereadable(vimplug)
+    echo "Installing vim-plug..."
+    echo  ""
+    silent !mkdir ~/.config/nvim/autoload
+    silent !wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P ~/.config/nvim/autoload
+endif
+
+"Plugin install
+
+call plug#begin('~/.config/nvim/plugged')
 
 " Add new plugins here
 
