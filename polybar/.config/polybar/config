@@ -51,7 +51,7 @@ font-1 = Roboto:size=11:weight=bold
 font-2 = -*-gohufont-medium-*-*-*-11-*-*-*-*-*-*-*-*
 
 modules-left = i3
-modules-center = xwindow
+modules-center = xwindow mpd
 modules-right = volume filesystem xkeyboard memory cpu eth date powermenu
 
 tray-position = right
@@ -70,10 +70,9 @@ wm-restack = i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:50:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -149,6 +148,9 @@ label-visible-padding = ${self.label-focused-padding}
 
 [module/mpd]
 type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
 
 format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
 
