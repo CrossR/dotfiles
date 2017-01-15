@@ -5,7 +5,7 @@ neovim/.nvim/spell
 neovim/.config/nvim/.netrwhist
 
 #Ignore log files and such
-!mpd/.mpd/mpd.conf
-mpd/.mpd/*
+!mpd/.config/mpd/mpd.conf
+mpd/.config/mpd/*
 *.swp
 *.log

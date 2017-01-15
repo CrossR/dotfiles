@@ -7,5 +7,5 @@ do
     sleep 1;
 done
 
-mpd
+mpd ~/.config/mpd/mpd.conf
 vmhgfs-fuse -o allow_other -o auto_unmount .host:/Music /mnt/virtual/music/
