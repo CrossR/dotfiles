@@ -33,6 +33,8 @@ xset -b
 
 export VISUAL=nvim
 export EDITOR="$VISUAL" 
+export GOPATH=~/code/go/
+export PATH=$PATH:$GOPATH/bin
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
