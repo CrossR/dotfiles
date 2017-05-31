@@ -38,14 +38,14 @@ rofi.color-window: argb:ccaea789, #dbdfbc, #dbdfbc
 *.background: #203830
 *.cursorColor: #fac3ae
 
-*color0:   #aea87a
+*color0:   #7b9565
 *color1:   #688f5d
 *color2:   #65657a
 *color3:   #868d81
 *color4:   #865e7d
 *color5:   #a29c57
 *color6:   #a6627b
-*color7:   #c5a251
+*color7:   #777283
 *color8:   #c25c69
 *color9:   #c3a39b
 *color10:  #f0a448
