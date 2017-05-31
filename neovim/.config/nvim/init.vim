@@ -36,10 +36,10 @@ match OverLength /\%81v.\+/
 "Clipboard
 
 if has ('nvim')
-	runtime! python_setup vim
+    runtime! python_setup vim
 endif
 if has ('nvim')
-	set clipboard+=unnamedplus
+    set clipboard+=unnamedplus
 endif
 
 "Remaps
@@ -50,17 +50,36 @@ endif
 :vnoremap . :norm.<CR>
 command RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
+"Map to CamelCase motions
+:map <silent> w <Plug>CamelCaseMotion_w
+:map <silent> b <Plug>CamelCaseMotion_b
+:map <silent> e <Plug>CamelCaseMotion_e
+:map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
+
+"Fix clumsy typing to quit
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+
 "Airline
 
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 
 if ! has ('gui_running')
-		set ttimeoutlen=10
-		augroup FastEscape
-				autocmd!
-				au InsertEnter * set timeoutlen=0
-				au InsertLeave * set timeoutlen=1000
-		augroup END
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
 endif
 
 
@@ -69,15 +88,25 @@ endif
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"IndentLines
+
+let g:indentLine_color_term = 239
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar= '.'
+
 "Plug Install
 
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug)
+    if !executable("curl")
+        echoerr "vim-plug will need to be manually installed, as curl is not available."
+        execute "q!"
+    endif
     echo "Installing vim-plug..."
     echo  ""
-    silent !mkdir ~/.config/nvim/autoload
-    silent !wget https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim -P ~/.config/nvim/autoload
+    silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 "Plugin install
@@ -86,7 +115,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Add new plugins here
 
-"This is the bottom bar 
+"This is the bottom bar
 Plug 'bling/vim-airline'
 "This is the Git Plugin
 Plug 'tpope/vim-fugitive'
@@ -106,5 +135,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'benekastah/neomake'
 "Vim TeX
 Plug 'lervag/vimtex'
+"Tab Complete
+Plug 'ervandew/supertab'
+"CamelCase Motions
+Plug 'bkad/CamelCaseMotion'
+"Git diff in gutter
+Plug 'airblade/vim-gitgutter'
+"Highlight trailing whitespace
+Plug 'bronson/vim-trailing-whitespace'
+"Show line indentation
+Plug 'yggdroot/indentLine'
 
 call plug#end()
