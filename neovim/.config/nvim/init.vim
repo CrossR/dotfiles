@@ -1,21 +1,40 @@
-"Toggles
+"These should be taken care of already in Oni
+if !exists('g:gui_oni')
+    set mouse=a "Mouse Usage
+    syntax on "Syntax Highlighting
+endif
 
-set showmatch "Matching Brackets
-set ignorecase "Case Insensitive Matching
-set smartcase "Smart Case Matching
-set incsearch "Incremental Search
-set mouse=a "Mouse Usage
+if exists('g:gui_oni')
+    colorscheme onedark "Outside of Oni, use the default terminal colourings.
+    set noswapfile
+endif
+
 set number "Line Numbers
-syntax on "Syntax Highlighting
+set incsearch "Incremental Search
+
+"Deal with GUI Duplications
+set noshowmode "Stop the -- INSERT -- Mode text showing. We have a status bar.
+set noshowcmd "Disable the CMD line, shown in the status bar.
+set noruler "Disable the line ruler, again its shown in the status bar.
+
+"Sort out splits
+set splitright "Open VSplits on the Right
+set splitbelow "Open Splits on the Bottom
+
+"Sort out Tabs
+set tabstop=4 "A tab is 4 columns.
+set shiftwidth=4 "This affects >> and <<, to make them move by 4 columns.
+set softtabstop=4 "How many columns to insert when you hit tab.
+set expandtab "Insert spaces not tabs
+set smartindent "Smart Indentation
+set list "Show all Whitespace
+set listchars=trail:. "Character to use for above
+
+set scrolloff=4 "Number of lines to move around on scrolling
+
 set laststatus=2 "Needed for AirLine to show
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
-set scrolloff=4 "Number of lines to move around on scrolling
-set tabstop=4 "Indent every 4 cols
-set shiftwidth=4 "Indents are 4 spaces
-set smartindent "Smart Indentation
-set expandtab "Spaces not tabs
-set softtabstop=4 "Delete indents
 
 "File building remapping
 "Run Python files on F9
@@ -30,8 +49,7 @@ let g:tex_flavor = 'latex'
 let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
 
 " Highlight over 80 cols in red
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%81v.\+/
+match Error /\%80v.\+/
 
 "Clipboard
 
@@ -46,7 +64,7 @@ endif
 
 :nmap j gj
 :nmap k gk
-:let mapleader = ","
+:let mapleader = "," "Set leader to ,
 :vnoremap . :norm.<CR>
 command RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
@@ -68,38 +86,22 @@ cnoreabbrev Wa wa
 cnoreabbrev wQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
-
-"Airline
-
-let g:airline_powerline_fonts = 1
-
-if ! has ('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
-
+cnoreabbrev Wqa wqa
 
 "CtrlP
-
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "IndentLines
-
 let g:indentLine_color_term = 239
 let g:indentLine_enabled = 0
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar= '.'
 
 "Plug Install
-
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
-if !filereadable(vimplug)
+if !filereadable(vimplug) && !exists('g:gui_oni')
     if !executable("curl")
         echoerr "vim-plug will need to be manually installed, as curl is not available."
         execute "q!"
@@ -110,18 +112,15 @@ if !filereadable(vimplug)
 endif
 
 "Plugin install
-
 call plug#begin('~/.config/nvim/plugged')
 
-" Add new plugins here
-
-"This is the bottom bar
-Plug 'bling/vim-airline'
-"This is the Git Plugin
+"Bottom Status Bar
+Plug 'itchyny/lightline.vim'
+"Git Plugin
 Plug 'tpope/vim-fugitive'
 "Nicer commenting
-Plug 'scrooloose/nerdcommenter'
-"Change inside things
+Plug 'tpope/vim-commentary'
+"Change around things
 Plug 'tpope/vim-surround'
 "Repeat Addons with .
 Plug 'tpope/vim-repeat'
