@@ -1,12 +1,10 @@
-let inOni=g:gui_oni
-
 "This should be taken care of already in Oni
-if ! (inOni)
+if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
 endif
 
-if (inOni)
+if exists('g:gui_oni')
     colorscheme onedark
 
     set noswapfile
@@ -120,7 +118,7 @@ let g:indentLine_leadingSpaceChar= '.'
 
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
-if !filereadable(vimplug) && !(inOni)
+if !filereadable(vimplug) && !exists('g:gui_oni')
     if !executable("curl")
         echoerr "vim-plug will need to be manually installed, as curl is not available."
         execute "q!"
