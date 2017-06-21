@@ -1,28 +1,24 @@
-"This should be taken care of already in Oni
+"These should be taken care of already in Oni
 if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
 endif
 
 if exists('g:gui_oni')
-    colorscheme onedark
-
-    set noswapfile
-
-    set noshowmode
-    set noruler
-    set noshowcmd
-
-    set list
-    set listchars=tail:.
-
-    set splitright
-    set splitbelow
-
+    colorscheme onedark "Outside of Oni, use the default terminal colourings.
 endif
 
 set number "Line Numbers
 set incsearch "Incremental Search
+
+"Deal with GUI Duplications
+set noshowmode "Stop the -- INSERT -- Mode text showing. We have a status bar.
+set noshowcmd "Disable the CMD line, shown in the status bar.
+set noruler "Disable the line ruler, again its shown in the status bar.
+
+"Sort out splits
+set splitright "Open VSplits on the Right
+set splitbelow "Open Splits on the Bottom
 
 "Sort out Tabs
 set tabstop=4 "Indent every 4 cols
@@ -30,6 +26,8 @@ set shiftwidth=4 "Indents are 4 spaces
 set softtabstop=4 "Delete indents
 set expandtab "Spaces not tabs
 set smartindent "Smart Indentation
+set list "Show all Whitespace
+set listchars=trail:. "Character to use for above
 
 set scrolloff=4 "Number of lines to move around on scrolling
 
@@ -65,7 +63,7 @@ endif
 
 :nmap j gj
 :nmap k gk
-:let mapleader = ","
+:let mapleader = "," "Set leader to ,
 :vnoremap . :norm.<CR>
 command RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
@@ -87,35 +85,19 @@ cnoreabbrev Wa wa
 cnoreabbrev wQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
-
-"Airline
-
-let g:airline_powerline_fonts = 1
-
-if ! has ('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
-
+cnoreabbrev Wqa wqa
 
 "CtrlP
-
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "IndentLines
-
 let g:indentLine_color_term = 239
 let g:indentLine_enabled = 0
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar= '.'
 
 "Plug Install
-
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug) && !exists('g:gui_oni')
@@ -129,16 +111,15 @@ if !filereadable(vimplug) && !exists('g:gui_oni')
 endif
 
 "Plugin install
-
 call plug#begin('~/.config/nvim/plugged')
 
-"This is the bottom bar
+"Bottom Status Bar
 Plug 'itchyny/lightline.vim'
-"This is the Git Plugin
+"Git Plugin
 Plug 'tpope/vim-fugitive'
 "Nicer commenting
-Plug 'scrooloose/nerdcommenter'
-"Change inside things
+Plug 'tpope/vim-commentary'
+"Change around things
 Plug 'tpope/vim-surround'
 "Repeat Addons with .
 Plug 'tpope/vim-repeat'
