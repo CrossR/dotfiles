@@ -6,6 +6,7 @@ endif
 
 if exists('g:gui_oni')
     colorscheme onedark "Outside of Oni, use the default terminal colourings.
+    set noswapfile
 endif
 
 set number "Line Numbers
@@ -21,10 +22,10 @@ set splitright "Open VSplits on the Right
 set splitbelow "Open Splits on the Bottom
 
 "Sort out Tabs
-set tabstop=4 "Indent every 4 cols
-set shiftwidth=4 "Indents are 4 spaces
-set softtabstop=4 "Delete indents
-set expandtab "Spaces not tabs
+set tabstop=4 "A tab is 4 columns.
+set shiftwidth=4 "This affects >> and <<, to make them move by 4 columns.
+set softtabstop=4 "How many columns to insert when you hit tab.
+set expandtab "Insert spaces not tabs
 set smartindent "Smart Indentation
 set list "Show all Whitespace
 set listchars=trail:. "Character to use for above
