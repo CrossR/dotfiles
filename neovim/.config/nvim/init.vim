@@ -1,21 +1,43 @@
-"Toggles
+let inOni=g:gui_oni
 
-set showmatch "Matching Brackets
-set ignorecase "Case Insensitive Matching
-set smartcase "Smart Case Matching
-set incsearch "Incremental Search
-set mouse=a "Mouse Usage
+"This should be taken care of already in Oni
+if ! (inOni)
+    set mouse=a "Mouse Usage
+    syntax on "Syntax Highlighting
+endif
+
+if (inOni)
+    colorscheme onedark
+
+    set noswapfile
+
+    set noshowmode
+    set noruler
+    set noshowcmd
+
+    set list
+    set listchars=tail:.
+
+    set splitright
+    set splitbelow
+
+endif
+
 set number "Line Numbers
-syntax on "Syntax Highlighting
+set incsearch "Incremental Search
+
+"Sort out Tabs
+set tabstop=4 "Indent every 4 cols
+set shiftwidth=4 "Indents are 4 spaces
+set softtabstop=4 "Delete indents
+set expandtab "Spaces not tabs
+set smartindent "Smart Indentation
+
+set scrolloff=4 "Number of lines to move around on scrolling
+
 set laststatus=2 "Needed for AirLine to show
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
-set scrolloff=4 "Number of lines to move around on scrolling
-set tabstop=4 "Indent every 4 cols
-set shiftwidth=4 "Indents are 4 spaces
-set smartindent "Smart Indentation
-set expandtab "Spaces not tabs
-set softtabstop=4 "Delete indents
 
 "File building remapping
 "Run Python files on F9
@@ -30,8 +52,7 @@ let g:tex_flavor = 'latex'
 let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
 
 " Highlight over 80 cols in red
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%81v.\+/
+match Error /\%80v.\+/
 
 "Clipboard
 
@@ -99,7 +120,7 @@ let g:indentLine_leadingSpaceChar= '.'
 
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
-if !filereadable(vimplug)
+if !filereadable(vimplug) && !(inOni)
     if !executable("curl")
         echoerr "vim-plug will need to be manually installed, as curl is not available."
         execute "q!"
@@ -113,10 +134,8 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" Add new plugins here
-
 "This is the bottom bar
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 "This is the Git Plugin
 Plug 'tpope/vim-fugitive'
 "Nicer commenting
