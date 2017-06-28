@@ -32,7 +32,12 @@ set listchars=trail:. "Character to use for above
 
 set scrolloff=4 "Number of lines to move around on scrolling
 
-set laststatus=2 "Needed for AirLine to show
+if !exists('g:gui_oni')
+    set laststatus=2 "Needed for AirLine to show.
+else
+    set laststatus=0 "Disable any status bar, since we are inside Oni.
+endif
+
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
 
@@ -114,8 +119,11 @@ endif
 "Plugin install
 call plug#begin('~/.config/nvim/plugged')
 
-"Bottom Status Bar
-Plug 'itchyny/lightline.vim'
+if !exists('g:gui_oni')
+    "Bottom Status Bar, not needed for Oni.
+    Plug 'itchyny/lightline.vim'
+endif
+
 "Git Plugin
 Plug 'tpope/vim-fugitive'
 "Nicer commenting
