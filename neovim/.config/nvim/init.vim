@@ -38,6 +38,10 @@ else
     set laststatus=0 "Disable any status bar, since we are inside Oni.
 endif
 
+if exists('&inccommand')
+  set inccommand=nosplit
+endif
+
 autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
 set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
 
