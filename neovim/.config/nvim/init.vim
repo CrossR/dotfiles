@@ -1,4 +1,4 @@
-"These should be taken care of already in Oni
+
 if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
@@ -42,17 +42,20 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
-set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
+if exists('g:gui_oni')
+    autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
+    set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
+endif
 
 "File building remapping
 "Run Python files on F9
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 "Run Latex PDF make on F9, and word count on F8
-autocmd FileType tex nnoremap <buffer> <F8> :VimtexWordCount<CR>
-autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompileToggle<CR>
+autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
+autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
+let g:vimtex_latexmk_progname = 'nvr'
 
 "Include QT in Syntastic
 let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
@@ -126,6 +129,8 @@ call plug#begin('~/.config/nvim/plugged')
 if !exists('g:gui_oni')
     "Bottom Status Bar, not needed for Oni.
     Plug 'itchyny/lightline.vim'
+    "Fuzzy File Finder
+    Plug 'ctrlpvim/ctrlp.vim'
 endif
 
 "Git Plugin
@@ -138,14 +143,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 "Date Incrementing
 Plug 'tpope/vim-speeddating'
-"Syntax and Build"
+"Syntax and Build
 Plug 'scrooloose/syntastic'
-"File Finder"
-Plug 'ctrlpvim/ctrlp.vim'
 "Async Build
 Plug 'benekastah/neomake'
 "Vim TeX
 Plug 'lervag/vimtex'
+"Add Back --remote, needed for above
+Plug 'mhinz/neovim-remote'
 "Tab Complete
 Plug 'ervandew/supertab'
 "CamelCase Motions
