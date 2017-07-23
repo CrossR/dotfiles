@@ -1,4 +1,4 @@
-
+"These are already taken care of already in Oni
 if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
@@ -30,7 +30,7 @@ set smartindent "Smart Indentation
 set list "Show all Whitespace
 set listchars=trail:. "Character to use for above
 
-set scrolloff=4 "Number of lines to move around on scrolling
+set autochdir "Automatically swap the current folder to the current file dir.
 
 if !exists('g:gui_oni')
     set laststatus=2 "Needed for AirLine to show.
@@ -42,7 +42,7 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-if exists('g:gui_oni')
+if !exists('g:gui_oni')
     autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
     set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
 endif
