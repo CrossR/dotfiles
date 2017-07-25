@@ -62,6 +62,11 @@ autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_progname = 'nvr'
 
+"Run HTML make on F8, View on F9 and Make all on F10.
+autocmd FileType vimwiki nnoremap <buffer> <F8> :Vimwiki2HTMLBrowse<CR>
+autocmd FileType vimwiki nnoremap <buffer> <F9> :Vimwiki2HTML<CR>
+autocmd FileType vimwiki nnoremap <buffer> <F10> :VimwikiAll2HTML<CR>
+
 " Highlight over 80 cols in red
 match Error /\%80v.\+/
 
@@ -173,5 +178,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 "Align text on a symbol
 Plug 'junegunn/vim-easy-align'
+"Wiki For Vim
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
