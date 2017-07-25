@@ -1,4 +1,4 @@
-
+"These are already taken care of already in Oni
 if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
@@ -32,6 +32,9 @@ set listchars=trail:. "Character to use for above
 
 set autochdir "Automatically swap the current folder to the current file dir.
 
+set ignorecase "Ignore case for searching
+set smartcase "Use smart cases for search
+
 if !exists('g:gui_oni')
     set laststatus=2 "Needed for AirLine to show.
 else
@@ -57,17 +60,15 @@ autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_progname = 'nvr'
 
-"Include QT in Syntastic
-let g:syntastic_cpp_include_dirs = ['/usr/include/qt4/QtGui']
-
 " Highlight over 80 cols in red
 match Error /\%80v.\+/
 
-"Clipboard
+"Clipboard Setup
 
 if has ('nvim')
     runtime! python_setup vim
 endif
+
 if has ('nvim')
     set clipboard+=unnamedplus
 endif
