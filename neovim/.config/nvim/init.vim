@@ -1,4 +1,4 @@
-"These are already taken care of already in Oni
+
 if !exists('g:gui_oni')
     set mouse=a "Mouse Usage
     syntax on "Syntax Highlighting
@@ -110,6 +110,10 @@ let g:indentLine_enabled = 0
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar= '.'
 
+"Mappings for EasyAlign
+xmap ga <Plug>(EasyAlign) "Interactive EasyAlign for Visual Mode
+nmap ga <Plug>(EasyAlign) "Interactive EasyAlign for Motions/Text Objects
+
 "Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
@@ -161,5 +165,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 "Show line indentation
 Plug 'yggdroot/indentLine'
+"Align text on a symbol
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
