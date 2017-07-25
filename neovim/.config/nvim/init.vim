@@ -1,44 +1,44 @@
 "These are already taken care of already in Oni
 if !exists('g:gui_oni')
-    set mouse=a "Mouse Usage
-    syntax on "Syntax Highlighting
+    set mouse=a         " Mouse Usage
+    syntax on           " Syntax Highlighting
 endif
 
 if exists('g:gui_oni')
-    colorscheme onedark "Outside of Oni, use the default terminal colourings.
+    colorscheme onedark " Outside of Oni, use the default terminal colourings.
     set noswapfile
 endif
 
-set number "Line Numbers
-set incsearch "Incremental Search
+set number              " Line Numbers
+set incsearch           " Incremental Search
 
-"Deal with GUI Duplications
-set noshowmode "Stop the -- INSERT -- Mode text showing. We have a status bar.
-set noshowcmd "Disable the CMD line, shown in the status bar.
-set noruler "Disable the line ruler, again its shown in the status bar.
+" Deal with GUI Duplications
+set noshowmode          " Stop INSERT mode text showing. We have a status bar.
+set noshowcmd           " Disable the CMD line, shown in the status bar.
+set noruler             " Disable the line ruler, its shown in the status bar.
 
-"Sort out splits
-set splitright "Open VSplits on the Right
-set splitbelow "Open Splits on the Bottom
+" Sort out splits
+set splitright          " Open VSplits on the Right
+set splitbelow          " Open Splits on the Bottom
 
-"Sort out Tabs
-set tabstop=4 "A tab is 4 columns.
-set shiftwidth=4 "This affects >> and <<, to make them move by 4 columns.
-set softtabstop=4 "How many columns to insert when you hit tab.
-set expandtab "Insert spaces not tabs
-set smartindent "Smart Indentation
-set list "Show all Whitespace
-set listchars=trail:. "Character to use for above
+" Sort out Tabs
+set tabstop=4           " A tab is 4 columns.
+set shiftwidth=4        " This affects >> and <<, to make them move by 4 columns.
+set softtabstop=4       " How many columns to insert when you hit tab.
+set expandtab           " Insert spaces not tabs
+set smartindent         " Smart Indentation
+set list                " Show all Whitespace
+set listchars=trail:.   " Character to use for above
 
-set autochdir "Automatically swap the current folder to the current file dir.
+set autochdir           " Automatically swap the current folder to the current file dir.
 
-set ignorecase "Ignore case for searching
-set smartcase "Use smart cases for search
+set ignorecase          " Ignore case for searching
+set smartcase           " Use smart cases for search
 
 if !exists('g:gui_oni')
-    set laststatus=2 "Needed for AirLine to show.
+    set laststatus=2    " Needed for AirLine to show.
 else
-    set laststatus=0 "Disable any status bar, since we are inside Oni.
+    set laststatus=0    " Disable any status bar, since we are inside Oni.
 endif
 
 if exists('&inccommand')
@@ -46,13 +46,15 @@ if exists('&inccommand')
 endif
 
 if !exists('g:gui_oni')
-    autocmd FileType tex setlocal spell spelllang=en_gb "Spellchecking for .tex only
-    set spellfile=~/.nvim/spell/en.utf-8.add "Vim spell file
+    autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
+    set spellfile=~/.nvim/spell/en.utf-8.add            " Vim spell file
 endif
 
 "File building remapping
+
 "Run Python files on F9
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
+
 "Run Latex PDF make on F9, and word count on F8
 autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
@@ -114,8 +116,9 @@ if !exists('g:gui_oni')
 endif
 
 "Mappings for EasyAlign
-xmap ga <Plug>(EasyAlign) "Interactive EasyAlign for Visual Mode
-nmap ga <Plug>(EasyAlign) "Interactive EasyAlign for Motions/Text Objects
+"Interactive EasyAlign for Visual Mode, motions and text objects
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 "Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
