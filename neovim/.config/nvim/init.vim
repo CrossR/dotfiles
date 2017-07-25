@@ -104,11 +104,13 @@ cnoreabbrev Wqa wqa
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"IndentLines
-let g:indentLine_color_term = 239
-let g:indentLine_enabled = 0
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar= '.'
+if !exists('g:gui_oni')
+    "IndentLines, but not in Oni
+    let g:indentLine_color_term = 239
+    let g:indentLine_enabled = 0
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar= '.'
+endif
 
 "Mappings for EasyAlign
 xmap ga <Plug>(EasyAlign) "Interactive EasyAlign for Visual Mode
@@ -135,6 +137,8 @@ if !exists('g:gui_oni')
     Plug 'itchyny/lightline.vim'
     "Fuzzy File Finder
     Plug 'ctrlpvim/ctrlp.vim'
+    "Show line indentation
+    Plug 'yggdroot/indentLine'
 endif
 
 "Git Plugin
@@ -163,8 +167,6 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'airblade/vim-gitgutter'
 "Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
-"Show line indentation
-Plug 'yggdroot/indentLine'
 "Align text on a symbol
 Plug 'junegunn/vim-easy-align'
 
