@@ -1,6 +1,5 @@
 "These are already taken care of already in Oni
 if !exists('g:gui_oni')
-    set mouse=a         " Mouse Usage
     syntax on           " Syntax Highlighting
 endif
 
@@ -12,16 +11,16 @@ endif
 set number              " Line Numbers
 set incsearch           " Incremental Search
 
-" Deal with GUI Duplications
+                        " Deal with GUI Duplications
 set noshowmode          " Stop INSERT mode text showing. We have a status bar.
 set noshowcmd           " Disable the CMD line, shown in the status bar.
 set noruler             " Disable the line ruler, its shown in the status bar.
 
-" Sort out splits
+                        " Sort out splits
 set splitright          " Open VSplits on the Right
 set splitbelow          " Open Splits on the Bottom
 
-" Sort out Tabs
+                        " Sort out Tabs
 set tabstop=4           " A tab is 4 columns.
 set shiftwidth=4        " This affects >> and <<, to make them move by 4 columns.
 set softtabstop=4       " How many columns to insert when you hit tab.
@@ -30,7 +29,7 @@ set smartindent         " Smart Indentation
 set list                " Show all Whitespace
 set listchars=trail:.   " Character to use for above
 
-set autochdir           " Automatically swap the current folder to the current file dir.
+set mouse=a             " Mouse Usage
 
 set ignorecase          " Ignore case for searching
 set smartcase           " Use smart cases for search
