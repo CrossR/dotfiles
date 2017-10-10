@@ -27,7 +27,7 @@ set softtabstop=4       " How many columns to insert when you hit tab.
 set expandtab           " Insert spaces not tabs
 set smartindent         " Smart Indentation
 set list                " Show all Whitespace
-set listchars=trail:.   " Character to use for above
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 set mouse=a             " Mouse Usage
 
@@ -179,5 +179,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
 "Wiki For Vim
 Plug 'vimwiki/vimwiki'
+"Jump motion
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
