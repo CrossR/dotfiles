@@ -157,9 +157,9 @@ Plug 'scrooloose/syntastic'
 "Async Build
 Plug 'benekastah/neomake'
 "Vim TeX
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 "Add Back --remote, needed for above
-Plug 'mhinz/neovim-remote'
+Plug 'mhinz/neovim-remote', { 'for': 'tex' }
 "Tab Complete
 Plug 'ervandew/supertab'
 "Git diff in gutter
@@ -174,5 +174,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'justinmk/vim-sneak'
 "Hard Mode (Time to kick those habits!)
 Plug 'takac/vim-hardtime'
+"Fancy startup screen
+Plug 'mhinz/vim-startify'
 
 call plug#end()
