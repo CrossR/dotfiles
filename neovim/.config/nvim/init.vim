@@ -116,6 +116,7 @@ nmap ga <Plug>(EasyAlign)
 
 "Hard Mode
 let g:hardtime_default_on = 1
+let g:hardtime_maxcount = 5
 
 "Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
@@ -152,10 +153,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 "Date Incrementing
 Plug 'tpope/vim-speeddating'
-"Syntax and Build
-Plug 'scrooloose/syntastic'
+"Async Linting
+Plug 'w0rp/ale'
 "Async Build
 Plug 'benekastah/neomake'
+"Language Packs
+Plug 'sheerun/vim-polyglot'
 "Vim TeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
 "Add Back --remote, needed for above
