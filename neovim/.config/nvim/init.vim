@@ -155,8 +155,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 "Async Linting
 Plug 'w0rp/ale'
-"Async Build
-Plug 'benekastah/neomake'
 "Language Packs
 Plug 'sheerun/vim-polyglot'
 "Vim TeX
