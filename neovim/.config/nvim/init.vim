@@ -59,6 +59,12 @@ autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_progname = 'nvr'
 
+if exists('g:gui_oni')
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+endif
+
 "Run HTML make on F8, View on F9 and Make all on F10.
 autocmd FileType vimwiki nnoremap <buffer> <F8> :Vimwiki2HTMLBrowse<CR>
 autocmd FileType vimwiki nnoremap <buffer> <F9> :Vimwiki2HTML<CR>
