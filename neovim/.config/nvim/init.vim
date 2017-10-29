@@ -29,8 +29,6 @@ set smartindent         " Smart Indentation
 set list                " Show all Whitespace
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
-set mouse=a             " Mouse Usage
-
 set ignorecase          " Ignore case for searching
 set smartcase           " Use smart cases for search
 
@@ -61,6 +59,12 @@ autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_progname = 'nvr'
 
+if exists('g:gui_oni')
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+endif
+
 "Run HTML make on F8, View on F9 and Make all on F10.
 autocmd FileType vimwiki nnoremap <buffer> <F8> :Vimwiki2HTMLBrowse<CR>
 autocmd FileType vimwiki nnoremap <buffer> <F9> :Vimwiki2HTML<CR>
@@ -85,19 +89,10 @@ endif
 :nmap k gk
 :let mapleader = "," "Set leader to ,
 :vnoremap . :norm.<CR>
-command RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
-
-"Map to CamelCase motions
-:map <silent> w <Plug>CamelCaseMotion_w
-:map <silent> b <Plug>CamelCaseMotion_b
-:map <silent> e <Plug>CamelCaseMotion_e
-:map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
+command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
 "Fix clumsy typing to quit
+
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Wq wq
@@ -108,6 +103,7 @@ cnoreabbrev Q q
 cnoreabbrev Wqa wqa
 
 "CtrlP
+
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -123,6 +119,10 @@ endif
 "Interactive EasyAlign for Visual Mode, motions and text objects
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+"Hard Mode
+let g:hardtime_default_on = 1
+let g:hardtime_maxcount = 5
 
 "Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
@@ -159,18 +159,16 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 "Date Incrementing
 Plug 'tpope/vim-speeddating'
-"Syntax and Build
-Plug 'scrooloose/syntastic'
-"Async Build
-Plug 'benekastah/neomake'
+"Async Linting
+Plug 'w0rp/ale'
+"Language Packs
+Plug 'sheerun/vim-polyglot'
 "Vim TeX
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 "Add Back --remote, needed for above
-Plug 'mhinz/neovim-remote'
+Plug 'mhinz/neovim-remote', { 'for': 'tex' }
 "Tab Complete
 Plug 'ervandew/supertab'
-"CamelCase Motions
-Plug 'bkad/CamelCaseMotion'
 "Git diff in gutter
 Plug 'airblade/vim-gitgutter'
 "Highlight trailing whitespace
@@ -181,5 +179,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'vimwiki/vimwiki'
 "Jump motion
 Plug 'justinmk/vim-sneak'
+"Hard Mode (Time to kick those habits!)
+Plug 'takac/vim-hardtime'
+"Fancy startup screen
+Plug 'mhinz/vim-startify'
 
 call plug#end()
