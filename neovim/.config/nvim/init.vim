@@ -44,9 +44,9 @@ endif
 
 autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
 if !exists('g:gui_oni')
-    set spellfile=~/.nvim/spell/en.utf-8.add            " Vim spell file
+    set spellfile=~/.nvim/spell/en.utf-8.add              " Vim spell file
 else
-    set spellfile=~/AppData/Local/nvim/en.utf-8.add     " Vim spell file
+    set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add " Vim spell file
 endif
 
 "File building remapping
