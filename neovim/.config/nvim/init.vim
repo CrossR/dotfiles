@@ -92,6 +92,7 @@ endif
 :let mapleader = "," "Set leader to ,
 :vnoremap . :norm.<CR>
 command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
+:tnoremap <Esc> <C-\><C-n>?\$<CR>
 
 "Fix clumsy typing to quit
 
@@ -161,6 +162,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 "Date Incrementing
 Plug 'tpope/vim-speeddating'
+"Bracket Mappings
+Plug 'tpope/vim-unimpaired'
 "Async Linting
 Plug 'w0rp/ale'
 "Language Packs
@@ -185,5 +188,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'takac/vim-hardtime'
 "Fancy startup screen
 Plug 'mhinz/vim-startify'
+"Briefly Highlight the Yanked Region
+Plug 'machakann/vim-highlightedyank'
+"Add additional text objects
+Plug 'wellle/targets.vim'
 
 call plug#end()
