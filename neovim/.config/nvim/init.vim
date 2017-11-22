@@ -79,9 +79,7 @@ match Error /\%80v.\+/
 
 if has ('nvim')
     runtime! python_setup vim
-endif
-
-if has ('nvim')
+    let g:highlightedyank_highlight_duration = 200
     set clipboard+=unnamedplus
 endif
 
