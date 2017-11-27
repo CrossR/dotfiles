@@ -6,6 +6,7 @@ endif
 if exists('g:gui_oni')
     colorscheme onedark " Outside of Oni, use the default terminal colourings.
     set noswapfile
+    set hidden
 endif
 
 set number              " Line Numbers
