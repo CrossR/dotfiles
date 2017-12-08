@@ -4,7 +4,6 @@ if !exists('g:gui_oni')
 endif
 
 if exists('g:gui_oni')
-    colorscheme onedark " Outside of Oni, use the default terminal colourings.
     set noswapfile
     set hidden
 endif
@@ -74,7 +73,8 @@ autocmd FileType vimwiki nnoremap <buffer> <F9> :Vimwiki2HTML<CR>
 autocmd FileType vimwiki nnoremap <buffer> <F10> :VimwikiAll2HTML<CR>
 
 " Highlight over 80 cols in red
-match Error /\%80v.\+/
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%81v.\+/
 
 "Clipboard Setup
 
