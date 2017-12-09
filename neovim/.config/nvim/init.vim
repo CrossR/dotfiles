@@ -109,7 +109,12 @@ cnoreabbrev Wqa wqa
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-if !exists('g:gui_oni')
+"Polygot
+
+let g:polyglot_disabled = ['latex']
+
+"IndentLine
+if exists('g:gui_oni')
     "IndentLines, but not in Oni
     let g:indentLine_color_term = 239
     let g:indentLine_enabled = 0
@@ -151,8 +156,6 @@ if !exists('g:gui_oni')
     Plug 'itchyny/lightline.vim'
     "Fuzzy File Finder
     Plug 'ctrlpvim/ctrlp.vim'
-    "Show line indentation
-    Plug 'yggdroot/indentLine'
 endif
 
 "Git Plugin
@@ -183,8 +186,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 "Align text on a symbol
 Plug 'junegunn/vim-easy-align'
-"Wiki For Vim
-Plug 'vimwiki/vimwiki'
 "Jump motion
 Plug 'justinmk/vim-sneak'
 "Hard Mode (Time to kick those habits!)
@@ -195,5 +196,7 @@ Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
 "Add additional text objects
 Plug 'wellle/targets.vim'
+"Show line indentation
+Plug 'yggdroot/indentLine'
 
 call plug#end()
