@@ -140,7 +140,11 @@ if !filereadable(vimplug) && !exists('g:gui_oni')
 endif
 
 "Plugin install
-call plug#begin('~/.config/nvim/plugged')
+if !exists('g:gui_oni')
+    call plug#begin('~/.config/nvim/plugged')
+else
+    call plug#begin('~/AppData/Local/nvim/plugged')
+endif
 
 if !exists('g:gui_oni')
     "Bottom Status Bar, not needed for Oni.
