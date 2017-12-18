@@ -24,7 +24,7 @@ module.exports = {
 
     "recorder.outputPath": "F:\\User Files\\My Pictures\\Oni",
 
-    "experimental.editor.typingPrediction": true,
+    "experimental.sidebar.enabled": true,
     "debug.showTypingPrediction": true,
 
     "experimental.editor.textMateHighlighting.enabled": true,

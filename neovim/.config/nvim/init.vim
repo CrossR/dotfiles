@@ -190,8 +190,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'justinmk/vim-sneak'
 "Hard Mode (Time to kick those habits!)
 Plug 'takac/vim-hardtime'
-"Fancy startup screen
-Plug 'mhinz/vim-startify'
 "Briefly Highlight the Yanked Region
 Plug 'machakann/vim-highlightedyank'
 "Add additional text objects
