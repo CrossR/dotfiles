@@ -28,4 +28,6 @@ module.exports = {
     "debug.showTypingPrediction": true,
 
     "experimental.editor.textMateHighlighting.enabled": true,
+
+    "vim.setting.autoread": true,
 }
