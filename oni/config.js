@@ -25,6 +25,7 @@ module.exports = {
     "oni.loadInitVim": true,
 
     "editor.fontFamily": "Fira Code Retina",
+    "editor.quickOpen.filterStrategy": "regex",
 
     "editor.maximizeScreenOnStart": true,
 
