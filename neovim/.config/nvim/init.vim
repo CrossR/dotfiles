@@ -86,12 +86,12 @@ endif
 
 "Remaps
 
-:nmap j gj
-:nmap k gk
-:let mapleader = "," "Set leader to ,
-:vnoremap . :norm.<CR>
+nmap j gj
+nmap k gk
+let mapleader = "," "Set leader to ,
+vnoremap . :norm.<CR>
 command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
-:tnoremap <Esc> <C-\><C-n>?\$<CR>
+tnoremap <Esc> <C-\><C-n>
 
 "Fix clumsy typing to quit
 
@@ -106,8 +106,10 @@ cnoreabbrev Wqa wqa
 
 "CtrlP
 
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+if !exists('g:gui_oni')
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+endif
 
 "Polygot
 
