@@ -31,14 +31,17 @@ module.exports = {
 
     "oni.bookmarks": ["F:\\User Files\\My Documents\\Git\\uni_work",
                       "F:\\User Files\\My Documents\\Git\\dotfiles"],
+    "recorder.outputPath": "C:\\Users\\Ryan\\Pictures\\Oni",
 
-    "recorder.outputPath": "F:\\User Files\\My Pictures\\Oni",
+    "experimental.markdownPreview.enabled": true,
 
     "experimental.sidebar.enabled": true,
-    "experimental.commandline.mode": true,
-    "experimental.wildmenu.mode": true,
+
     "experimental.browser.enabled": true,
+
+    "experimental.commandline.mode": true,
     "experimental.commandline.icons": true,
+    "experimental.wildmenu.mode": true,
 
     "debug.showTypingPrediction": true,
 
