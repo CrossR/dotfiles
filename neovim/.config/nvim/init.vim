@@ -104,6 +104,32 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Wqa wqa
 
+" Bash Terminal Toggle
+
+if exists('g:gui_oni')
+
+    let g:term_buf = 0
+
+    function! Term_toggle()
+        if g:term_buf == bufnr("")
+            setlocal bufhidden=hide
+            hide
+        else
+            vert 80new
+            try
+                exec "buffer ".g:term_buf
+            catch
+                e term://bash
+                let g:term_buf = bufnr("")
+            endtry
+            startinsert!
+        endif
+    endfunction
+
+    nnoremap <leader>, :call Term_toggle()<CR>
+
+endif
+
 "CtrlP
 
 if !exists('g:gui_oni')
