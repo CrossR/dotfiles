@@ -1,7 +1,7 @@
-const activate = (oni) => {
+const activate = oni => {
 
-    const currentFile = () => Oni.editors.activeEditor.activeBuffer.filePath
-    const currentExtension = () => currentFile().replace(/^.*\./, '')
+    const currentFile = () => oni.editors.activeEditor.activeBuffer.filePath
+    const currentExtension = () => oni.editors.activeEditor.activeBuffer.language
     const isTexDoc = () => currentExtension() === "tex"
     const pdfFile = () => currentFile().replace(/\.[^/.]+$/, "") + ".pdf"
     const escapedPdf = () => "file:///" + escape(pdfFile.replace(/\\/g,"/"))
@@ -15,14 +15,21 @@ const activate = (oni) => {
     // Set zoom factor to 1 when Control+- is pressed
     oni.input.bind("<c-->", () => require("electron").remote.getCurrentWindow().webContents.setZoomFactor(1))
 
-    oni.input.bind("<s-c-v>", () => Oni.commands.executeCommand("browser.openUrl", escapedPdf), isTexDoc)
+    oni.input.bind("<s-c-v>", () => oni.commands.executeCommand("browser.openUrl", escapedPdf), isTexDoc)
 };
+
+const deactivate = () => {
+    console.log("config deactivated")
+}
 
 module.exports = {
     activate,
+    deactivate,
 
     "oni.useDefaultConfig": false,
     "oni.loadInitVim": true,
+
+    "ui.colorscheme": "onedark",
 
     "editor.fontFamily": "Fira Code Retina",
     "editor.quickOpen.filterStrategy": "regex",
@@ -33,19 +40,15 @@ module.exports = {
                       "F:\\User Files\\My Documents\\Git\\dotfiles"],
     "recorder.outputPath": "C:\\Users\\Ryan\\Pictures\\Oni",
 
+    "experimental.welcome.enabled": false,
     "experimental.markdownPreview.enabled": true,
-
-    "experimental.sidebar.enabled": true,
-
     "experimental.browser.enabled": true,
-
-    "experimental.commandline.mode": true,
-    "experimental.commandline.icons": true,
-    "experimental.wildmenu.mode": true,
+    "experimental.editor.textMateHighlighting.enabled": true,
 
     "debug.showTypingPrediction": true,
 
-    "experimental.editor.textMateHighlighting.enabled": true,
+    "sidebar.marks.enabled": true,
+    "sidebar.plugins.enabled": true,
 
     "vim.setting.autoread": true,
 
