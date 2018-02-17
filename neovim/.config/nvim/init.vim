@@ -59,7 +59,19 @@ autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
+let g:tex_conceal = ""
 let g:vimtex_latexmk_progname = 'nvr'
+
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 
 if exists('g:gui_oni')
     let g:vimtex_view_general_viewer = 'SumatraPDF'
@@ -194,8 +206,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 "Repeat Addons with .
 Plug 'tpope/vim-repeat'
-"Date Incrementing
-Plug 'tpope/vim-speeddating'
 "Bracket Mappings
 Plug 'tpope/vim-unimpaired'
 "Async Linting
@@ -206,8 +216,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 "Add Back --remote, needed for above
 Plug 'mhinz/neovim-remote', { 'for': 'tex' }
-"Tab Complete
-Plug 'ervandew/supertab'
 "Git diff in gutter
 Plug 'airblade/vim-gitgutter'
 "Highlight trailing whitespace
@@ -224,5 +232,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'wellle/targets.vim'
 "Show line indentation
 Plug 'yggdroot/indentLine'
+"Autogen Python Docstrings
+Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 call plug#end()
