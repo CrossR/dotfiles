@@ -232,6 +232,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'wellle/targets.vim'
 "Show line indentation
 Plug 'yggdroot/indentLine'
+"Tab complete
+Plug 'ervandew/supertab'
 "Autogen Python Docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
