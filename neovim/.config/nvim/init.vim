@@ -43,6 +43,7 @@ if exists('&inccommand')
 endif
 
 autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
+
 if !exists('g:gui_oni')
     set spellfile=~/.nvim/spell/en.utf-8.add              " Vim spell file
 else
@@ -167,10 +168,6 @@ endif
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-"Hard Mode
-let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 5
-
 "Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
@@ -224,8 +221,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
 "Jump motion
 Plug 'justinmk/vim-sneak'
-"Hard Mode (Time to kick those habits!)
-Plug 'takac/vim-hardtime'
 "Briefly Highlight the Yanked Region
 Plug 'machakann/vim-highlightedyank'
 "Add additional text objects
