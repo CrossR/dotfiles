@@ -34,8 +34,6 @@ module.exports = {
     "editor.fontFamily": "Fira Code Retina",
     "editor.quickOpen.filterStrategy": "regex",
 
-    "editor.maximizeScreenOnStart": true,
-
     "oni.bookmarks": ["F:\\User Files\\My Documents\\Git\\uni_work",
                       "F:\\User Files\\My Documents\\Git\\dotfiles"],
     "recorder.outputPath": "C:\\Users\\Ryan\\Pictures\\Oni",
