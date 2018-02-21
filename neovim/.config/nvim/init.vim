@@ -1,4 +1,4 @@
-"These are already taken care of already in Oni
+" These are already taken care of already in Oni
 if !exists('g:gui_oni')
     syntax on           " Syntax Highlighting
 endif
@@ -50,17 +50,17 @@ else
     set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add " Vim spell file
 endif
 
-"File building remapping
+" File building remapping
 
-"Run Python files on F9
+" Run Python files on F9
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 
-"Run Latex PDF make on F9, and word count on F8
+" Run Latex PDF make on F9, and word count on F8
 autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
-let g:tex_conceal = ""
+let g:tex_conceal = "" 
 let g:vimtex_latexmk_progname = 'nvr'
 
 let g:vimtex_compiler_latexmk = {
@@ -80,16 +80,11 @@ if exists('g:gui_oni')
     let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 
-"Run HTML make on F8, View on F9 and Make all on F10.
-autocmd FileType vimwiki nnoremap <buffer> <F8> :Vimwiki2HTMLBrowse<CR>
-autocmd FileType vimwiki nnoremap <buffer> <F9> :Vimwiki2HTML<CR>
-autocmd FileType vimwiki nnoremap <buffer> <F10> :VimwikiAll2HTML<CR>
-
 " Highlight over 80 cols in red
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 match OverLength /\%81v.\+/
 
-"Clipboard Setup
+" Clipboard Setup
 
 if has ('nvim')
     runtime! python_setup vim
@@ -97,16 +92,16 @@ if has ('nvim')
     set clipboard+=unnamedplus
 endif
 
-"Remaps
+" Remaps
 
 nmap j gj
 nmap k gk
-let mapleader = "," "Set leader to ,
+let mapleader = ","  " Set leader to ,
 vnoremap . :norm.<CR>
 command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 tnoremap <Esc> <C-\><C-n>
 
-"Fix clumsy typing to quit
+" Fix clumsy typing to quit
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -143,32 +138,32 @@ if exists('g:gui_oni')
 
 endif
 
-"CtrlP
+" CtrlP
 
 if !exists('g:gui_oni')
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 endif
 
-"Polygot
+" Polygot
 
 let g:polyglot_disabled = ['latex']
 
-"IndentLine
+" IndentLine
 if exists('g:gui_oni')
-    "IndentLines, but not in Oni
+    " IndentLines, but not in Oni
     let g:indentLine_color_term = 239
     let g:indentLine_enabled = 0
     let g:indentLine_leadingSpaceEnabled = 1
     let g:indentLine_leadingSpaceChar= '.'
 endif
 
-"Mappings for EasyAlign
-"Interactive EasyAlign for Visual Mode, motions and text objects
+" Mappings for EasyAlign
+" Interactive EasyAlign for Visual Mode, motions and text objects
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-"Plug Install
+" Plug Install
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug) && !exists('g:gui_oni')
@@ -181,7 +176,7 @@ if !filereadable(vimplug) && !exists('g:gui_oni')
     silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-"Plugin install
+" Plugin install
 if !exists('g:gui_oni')
     call plug#begin('~/.config/nvim/plugged')
 else
@@ -189,47 +184,47 @@ else
 endif
 
 if !exists('g:gui_oni')
-    "Bottom Status Bar, not needed for Oni.
+    " Bottom Status Bar, not needed for Oni.
     Plug 'itchyny/lightline.vim'
-    "Fuzzy File Finder
+    " Fuzzy File Finder
     Plug 'ctrlpvim/ctrlp.vim'
 endif
 
-"Git Plugin
+" Git Plugin
 Plug 'tpope/vim-fugitive'
-"Nicer commenting
+" Nicer commenting
 Plug 'tpope/vim-commentary'
-"Change around things
+" Change around things
 Plug 'tpope/vim-surround'
-"Repeat Addons with .
+" Repeat Addons with .
 Plug 'tpope/vim-repeat'
-"Bracket Mappings
+" Bracket Mappings
 Plug 'tpope/vim-unimpaired'
-"Async Linting
+" Async Linting
 Plug 'w0rp/ale'
-"Language Packs
+" Language Packs
 Plug 'sheerun/vim-polyglot'
-"Vim TeX
+" Vim TeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
-"Add Back --remote, needed for above
+" Add Back --remote, needed for above
 Plug 'mhinz/neovim-remote', { 'for': 'tex' }
-"Git diff in gutter
+" Git diff in gutter
 Plug 'airblade/vim-gitgutter'
-"Highlight trailing whitespace
+" Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
-"Align text on a symbol
+" Align text on a symbol
 Plug 'junegunn/vim-easy-align'
-"Jump motion
+" Jump motion
 Plug 'justinmk/vim-sneak'
-"Briefly Highlight the Yanked Region
+" Briefly Highlight the Yanked Region
 Plug 'machakann/vim-highlightedyank'
-"Add additional text objects
+" Add additional text objects
 Plug 'wellle/targets.vim'
-"Show line indentation
+" Show line indentation
 Plug 'yggdroot/indentLine'
-"Tab complete
+" Tab complete
 Plug 'ervandew/supertab'
-"Autogen Python Docstrings
+" Autogen Python Docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 call plug#end()
