@@ -1,6 +1,6 @@
 " These are already taken care of already in Oni
 if !exists('g:gui_oni')
-    syntax on           " Syntax Highlighting
+    syntax on           " Syntax highlighting
 endif
 
 if exists('g:gui_oni')
@@ -8,25 +8,25 @@ if exists('g:gui_oni')
     set hidden
 endif
 
-set number              " Line Numbers
-set incsearch           " Incremental Search
+set number              " Line numbers
+set incsearch           " Incremental search
 
-                        " Deal with GUI Duplications
-set noshowmode          " Stop INSERT mode text showing. We have a status bar.
-set noshowcmd           " Disable the CMD line, shown in the status bar.
-set noruler             " Disable the line ruler, its shown in the status bar.
+                        " Deal with GUI duplications
+set noshowmode          " Stop mode text showing.
+set noshowcmd           " Disable the CMD line
+set noruler             " Disable the line ruler
 
                         " Sort out splits
-set splitright          " Open VSplits on the Right
-set splitbelow          " Open Splits on the Bottom
+set splitright          " Open vsplits on the right
+set splitbelow          " Open splits on the bottom
 
                         " Sort out Tabs
 set tabstop=4           " A tab is 4 columns.
 set shiftwidth=4        " This affects >> and <<, to make them move by 4 columns.
 set softtabstop=4       " How many columns to insert when you hit tab.
 set expandtab           " Insert spaces not tabs
-set smartindent         " Smart Indentation
-set list                " Show all Whitespace
+set smartindent         " Smart indentation
+set list                " Show all whitespace
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 set ignorecase          " Ignore case for searching
@@ -53,9 +53,11 @@ endif
 " File building remapping
 
 " Run Python files on F9
+
 autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 
 " Run Latex PDF make on F9, and word count on F8
+
 autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
@@ -74,15 +76,13 @@ let g:vimtex_compiler_latexmk = {
     \ ],
     \}
 
+" Get Oni to use SumatraPDF as the VimTeX viewer
+
 if exists('g:gui_oni')
     let g:vimtex_view_general_viewer = 'SumatraPDF'
     let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
     let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
-
-" Highlight over 80 cols in red
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%81v.\+/
 
 " Clipboard Setup
 
@@ -133,9 +133,7 @@ if exists('g:gui_oni')
             startinsert!
         endif
     endfunction
-
     nnoremap <leader>, :call Term_toggle()<CR>
-
 endif
 
 " CtrlP
@@ -150,6 +148,7 @@ endif
 let g:polyglot_disabled = ['latex']
 
 " IndentLine
+
 if exists('g:gui_oni')
     " IndentLines, but not in Oni
     let g:indentLine_color_term = 239
@@ -160,10 +159,12 @@ endif
 
 " Mappings for EasyAlign
 " Interactive EasyAlign for Visual Mode, motions and text objects
+
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" Plug Install
+" Install plug.vim automaticaly if possible.
+
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug) && !exists('g:gui_oni')
@@ -176,7 +177,8 @@ if !filereadable(vimplug) && !exists('g:gui_oni')
     silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" Plugin install
+" Plugin install location and list of plugins
+
 if !exists('g:gui_oni')
     call plug#begin('~/.config/nvim/plugged')
 else
@@ -184,47 +186,65 @@ else
 endif
 
 if !exists('g:gui_oni')
-    " Bottom Status Bar, not needed for Oni.
+    " Bottom status bar, not needed for Oni.
     Plug 'itchyny/lightline.vim'
-    " Fuzzy File Finder
+
+    " Fuzzy file finder
     Plug 'ctrlpvim/ctrlp.vim'
 endif
 
 " Git Plugin
 Plug 'tpope/vim-fugitive'
-" Nicer commenting
+
+" Nicer commenting using gcc
 Plug 'tpope/vim-commentary'
+
 " Change around things
 Plug 'tpope/vim-surround'
-" Repeat Addons with .
+
+" Repeat addons with .
 Plug 'tpope/vim-repeat'
-" Bracket Mappings
+
+" Bracket mappings
 Plug 'tpope/vim-unimpaired'
-" Async Linting
+
+" Async linting
 Plug 'w0rp/ale'
-" Language Packs
+
+" Language packs
 Plug 'sheerun/vim-polyglot'
+
 " Vim TeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
-" Add Back --remote, needed for above
+
+" Add back --remote, needed for VimTeX
 Plug 'mhinz/neovim-remote', { 'for': 'tex' }
+
 " Git diff in gutter
 Plug 'airblade/vim-gitgutter'
+
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
-" Align text on a symbol
+
+" Align text on a symbol using ga
 Plug 'junegunn/vim-easy-align'
-" Jump motion
+
+" Jump motion using s
 Plug 'justinmk/vim-sneak'
-" Briefly Highlight the Yanked Region
+
+" Briefly highlight the yanked region
 Plug 'machakann/vim-highlightedyank'
+
 " Add additional text objects
 Plug 'wellle/targets.vim'
+
 " Show line indentation
 Plug 'yggdroot/indentLine'
+
 " Tab complete
 Plug 'ervandew/supertab'
-" Autogen Python Docstrings
+
+" Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 call plug#end()
