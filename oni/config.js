@@ -32,11 +32,8 @@ module.exports = {
     "ui.colorscheme": "onedark",
 
     "editor.fontFamily": "Fira Code Retina",
+    "editor.fontSize" : "14px",
     "editor.quickOpen.filterStrategy": "regex",
-
-    "oni.bookmarks": ["F:\\User Files\\My Documents\\Git\\uni_work",
-                      "F:\\User Files\\My Documents\\Git\\dotfiles"],
-    "recorder.outputPath": "C:\\Users\\Ryan\\Pictures\\Oni",
 
     "experimental.welcome.enabled": false,
     "experimental.markdownPreview.enabled": true,
@@ -57,5 +54,6 @@ module.exports = {
         { "open": "(", "close": ")" },
         { "open": "'", "close": "'" },
         { "open": "`", "close": "`" },
+        { "open": '"', "close": '"' },
     ],
 }
