@@ -118,6 +118,9 @@ function! Term_toggle_setup(term_count)
 
     let g:term_buf = map(range(a:term_count), 0)
 
+    let g:last_term = ""
+    let g:last_term_num = -1
+
 endfunction
 
 function! Term_open(term_num, term)
@@ -139,6 +142,9 @@ function! Term_open(term_num, term)
 
     endif
 
+    let g:last_term = a:term
+    let g:last_term_num = a:term_num
+
 endfunction
 
 function! Term_toggle()
@@ -148,11 +154,15 @@ function! Term_toggle()
     if buf_index != -1
         setlocal bufhidden=hide
         hide
+    elseif g:last_term_num != -1 && g:last_term != ""
+        call Term_open(g:last_term_num, g:last_term)
     endif
 
 endfunction
 
-nnoremap <leader>, :call Term_toggle()<CR>
+if exists('g:gui_oni')
+    nnoremap <leader>, :call Term_toggle()<CR>
+endif
 
 " CtrlP
 
