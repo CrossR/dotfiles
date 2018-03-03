@@ -55,6 +55,37 @@ const activate = oni => {
         })
     }
 
+    // Setup a terminal selection menu.
+    // Needs to have a vim-script setup function called to save references to each
+    // terminal.
+
+    const terminals = oni.configuration.getValue("oni.terminals")
+
+    oni.editors.activeEditor.neovim.command(`call Term_toggle_setup(${terminals.length})`)
+
+    const makeTermMenu = () => {
+        const termMenu = oni.menu.create()
+
+        let termId = 0
+
+        const menuItems = terminals.map((t) => ({
+            icon: "terminal",
+            detail: t.command,
+            label: t.name,
+            metadata: {id: termId++}
+        
+        }))
+
+        termMenu.show()
+        termMenu.setItems(menuItems)
+
+        termMenu.onItemSelected.subscribe(menuItem => {
+            if (menuItem) {
+                oni.editors.activeEditor.neovim.command(`call Term_open(${menuItem.metadata.id},"${menuItem.detail}")`)
+            }
+        })
+    }
+
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
 
@@ -66,6 +97,7 @@ const activate = oni => {
 
     oni.input.bind("<s-c-v>", () => openLatexPDF(), isTexDoc)
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
+    oni.input.bind("<s-c-n>", makeTermMenu)
 };
 
 const deactivate = () => {
@@ -107,4 +139,14 @@ module.exports = {
         { "open": "`", "close": "`" },
         { "open": '"', "close": '"' },
     ],
+
+    "oni.terminals": [
+        {"name": "cmd", "command": "cmd"},
+        {"name": "powershell", "command": "powershell"},
+        {"name": "bash", "command": "bash"},
+        {"name": "anaconda", "command":
+            "cmd /K " + 
+            "F:/ProgramData/Anaconda/Scripts/activate.bat " + 
+            "F:/ProgramData/Anaconda"},
+    ]
 }
