@@ -1,6 +1,6 @@
 " These are already taken care of already in Oni
 if !exists('g:gui_oni')
-    syntax on           " Syntax highlighting
+    syntax on             " Syntax highlighting
 endif
 
 if exists('g:gui_oni')
@@ -8,34 +8,34 @@ if exists('g:gui_oni')
     set hidden
 endif
 
-set number              " Line numbers
-set incsearch           " Incremental search
+set number                " Line numbers
+set incsearch             " Incremental search
 
-                        " Deal with GUI duplications
-set noshowmode          " Stop mode text showing.
-set noshowcmd           " Disable the CMD line
-set noruler             " Disable the line ruler
+                          " Sort out splits
+set splitright            " Open vsplits on the right
+set splitbelow            " Open splits on the bottom
 
-                        " Sort out splits
-set splitright          " Open vsplits on the right
-set splitbelow          " Open splits on the bottom
+                          " Deal with GUI duplications
+set noshowmode            " Stop mode text showing.
+set noshowcmd             " Disable the CMD line
+set noruler               " Disable the line ruler
 
-                        " Sort out Tabs
-set tabstop=4           " A tab is 4 columns.
-set shiftwidth=4        " This affects >> and <<, to make them move by 4 columns.
-set softtabstop=4       " How many columns to insert when you hit tab.
-set expandtab           " Insert spaces not tabs
-set smartindent         " Smart indentation
-set list                " Show all whitespace
+                          " Sort out Tabs
+filetype plugin indent on " Add indentation as needed.
+set tabstop=4             " A tab is 4 spaces.
+set shiftwidth=4          " This affects >> and <<, to make them move by 4 spaces.
+set expandtab             " Insert spaces not tabs
+
+set list                  " Show all whitespace
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
-set ignorecase          " Ignore case for searching
-set smartcase           " Use smart cases for search
+set ignorecase            " Ignore case for searching
+set smartcase             " Use smart cases for search
 
 if !exists('g:gui_oni')
-    set laststatus=2    " Needed for AirLine to show.
+    set laststatus=2      " Needed for AirLine to show.
 else
-    set laststatus=0    " Disable any status bar, since we are inside Oni.
+    set laststatus=0      " Disable any status bar, since we are inside Oni.
 endif
 
 if exists('&inccommand')

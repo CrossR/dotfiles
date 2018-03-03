@@ -1,10 +1,59 @@
 const activate = oni => {
 
-    const currentFile = () => oni.editors.activeEditor.activeBuffer.filePath
-    const currentExtension = () => oni.editors.activeEditor.activeBuffer.language
-    const isTexDoc = () => currentExtension() === "tex"
-    const pdfFile = () => currentFile().replace(/\.[^/.]+$/, "") + ".pdf"
-    const escapedPdf = () => "file:///" + escape(pdfFile.replace(/\\/g,"/"))
+    // General helpers
+
+    const currentFile = oni.editors.activeEditor.activeBuffer.filePath
+    const currentExtension = oni.editors.activeEditor.activeBuffer.language
+
+    // Open the generated PDF from a Latex doc in the embedded browser
+
+    const isTexDoc = () => currentExtension === "tex"
+
+    const openLatexPDF = () => {
+        const pdfFile = currentFile.replace(/\.[^/.]+$/, "") + ".pdf"
+        const escapedPdf = "file:///" + encodeURI(pdfFile.replace(/\\/g,"/"))
+
+        oni.commands.executeCommand("browser.openUrl", escapedPdf)
+    }
+
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const reloadLatexPDF = async () => {
+        if (!isTexDoc()) {
+            return
+        }
+
+        await delay(3000)
+
+        oni.commands.executeCommand("browser.reload")
+    }
+
+    oni.editors.activeEditor.onBufferSaved.subscribe(evt => {
+        reloadLatexPDF()
+    })
+
+    // Add a bookmarks menu to swap easily between different workspaces.
+
+    const makeBookmarksMenu = () => {
+        const bookmarkMenu = oni.menu.create()
+
+        const bookmarks = oni.configuration.getValue("oni.bookmarks")
+
+        const menuItems = bookmarks.map((s) => ({icon: "bookmark",
+                                                 detail: s,
+                                                 label: s.split("\\").pop()}))
+
+        bookmarkMenu.show()
+        bookmarkMenu.setItems(menuItems)
+
+        bookmarkMenu.onItemSelected.subscribe(menuItem => {
+            if (menuItem) {
+                oni.workspace.changeDirectory(menuItem.detail)
+            }
+        })
+    }
 
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
@@ -15,7 +64,8 @@ const activate = oni => {
     // Set zoom factor to 1 when Control+- is pressed
     oni.input.bind("<c-->", () => require("electron").remote.getCurrentWindow().webContents.setZoomFactor(1))
 
-    oni.input.bind("<s-c-v>", () => oni.commands.executeCommand("browser.openUrl", escapedPdf), isTexDoc)
+    oni.input.bind("<s-c-v>", () => openLatexPDF(), isTexDoc)
+    oni.input.bind("<s-c-w>", makeBookmarksMenu)
 };
 
 const deactivate = () => {
@@ -52,6 +102,7 @@ module.exports = {
         { "open": "{", "close": "}" },
         { "open": "[", "close": "]" },
         { "open": "(", "close": ")" },
+        { "open": "<", "close": ">" },
         { "open": "'", "close": "'" },
         { "open": "`", "close": "`" },
         { "open": '"', "close": '"' },
