@@ -44,10 +44,12 @@ endif
 
 autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
 
+" Set the Vim spell file location
+
 if !exists('g:gui_oni')
-    set spellfile=~/.nvim/spell/en.utf-8.add              " Vim spell file
+    set spellfile=~/.nvim/spell/en.utf-8.add
 else
-    set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add " Vim spell file
+    set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add
 endif
 
 " File building remapping
@@ -112,7 +114,8 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Wqa wqa
 
-" Terminal Toggle
+" Terminal toggle setup
+" Setup an array to store the relevant buf nums and last used term
 
 function! Term_toggle_setup(term_count)
 
@@ -122,6 +125,11 @@ function! Term_toggle_setup(term_count)
     let g:last_term_num = -1
 
 endfunction
+
+" Terminal open
+" Open the releavant terminal, passed to nvim by Oni.
+" If currently in the terminal, close it.
+" Otherwise, attempt to swap to it and open it if that fails.
 
 function! Term_open(term_num, term)
 
@@ -137,9 +145,6 @@ function! Term_open(term_num, term)
             exec 'terminal ' . a:term
             let g:term_buf[a:term_num] = bufnr("")
         endtry
-
-        startinsert!
-
     endif
 
     let g:last_term = a:term
@@ -147,6 +152,9 @@ function! Term_open(term_num, term)
 
 endfunction
 
+" Terminal toggle
+" Hide the currently active terminal,
+" or show the last used one.
 function! Term_toggle()
 
     let buf_index = index(g:term_buf, bufnr(""))
