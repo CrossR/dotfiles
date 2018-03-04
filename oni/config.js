@@ -114,7 +114,6 @@ module.exports = {
     "ui.colorscheme": "onedark",
 
     "editor.fontFamily": "Fira Code Retina",
-    "editor.fontSize" : "14px",
     "editor.quickOpen.filterStrategy": "regex",
 
     "experimental.welcome.enabled": false,
@@ -141,12 +140,12 @@ module.exports = {
     ],
 
     "oni.terminals": [
-        {"name": "cmd", "command": "cmd"},
-        {"name": "powershell", "command": "powershell"},
-        {"name": "bash", "command": "bash"},
-        {"name": "anaconda", "command":
+        {"name": "CMD", "command": "cmd"},
+        {"name": "PowerShell", "command": "powershell"},
+        {"name": "Bash", "command": "bash"},
+        {"name": "Anaconda", "command":
             "cmd /K " + 
             "F:/ProgramData/Anaconda/Scripts/activate.bat " + 
             "F:/ProgramData/Anaconda"},
-    ]
+    ],
 }
