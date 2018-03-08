@@ -3,13 +3,12 @@ import * as Oni from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules
 
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
-    // General helpers
 
+    // General helpers
     const currentFile = oni.editors.activeEditor.activeBuffer.filePath
     const currentExtension = oni.editors.activeEditor.activeBuffer.language
 
     // Add a bookmarks menu to swap easily between different workspaces.
-
     const makeBookmarksMenu = () => {
         const bookmarkMenu = oni.menu.create()
 
