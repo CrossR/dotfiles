@@ -1,7 +1,7 @@
 import * as React from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\react"
 import * as Oni from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\oni-api"
 
-import { lstatSync, readdirSync } from "fs";
+import { existsSync, lstatSync, readdirSync } from "fs";
 import { join } from "path";
 
 export const activate = (oni: Oni.Plugin.Api) => {
@@ -24,7 +24,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
 
         // Check if the folder exists, else fall back to C:\ Drive.
         // Perhaps look at a better way of having Oni pick up each machine.
-        if (!isDirectory(gitFolder)) {
+        if (!existsSync(gitFolder)) {
             gitFolder = "C:\\Users\\Ryan\\Documents\\Git"
         }
 
