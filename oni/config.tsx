@@ -1,29 +1,51 @@
 import * as React from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\react"
 import * as Oni from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\oni-api"
 
+import { lstatSync, readdirSync } from "fs";
+import { join } from "path";
+
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
 
     // General helpers
     const currentFile = oni.editors.activeEditor.activeBuffer.filePath
     const currentExtension = oni.editors.activeEditor.activeBuffer.language
+    const currentProject = oni.workspace.activeWorkspace
 
     // Add a bookmarks menu to swap easily between different workspaces.
+    // Dynamically generated from my Git folder.
     const makeBookmarksMenu = () => {
         const bookmarkMenu = oni.menu.create()
 
-        const bookmarks = oni.configuration.getValue("oni.bookmarks") as any[]
+        let gitFolder = "F:\\User Files\\My Documents\\Git"
 
-        const menuItems = bookmarks.map((s) => ({icon: "bookmark",
-                                                 detail: s,
-                                                 label: s.split("\\").pop()}))
+        const isDirectory = source => lstatSync(source).isDirectory()
+        const getDirectories = source => readdirSync(source).map(name => join(source, name)).filter(isDirectory)
+
+        // Check if the folder exists, else fall back to C:\ Drive.
+        // Perhaps look at a better way of having Oni pick up each machine.
+        if (!isDirectory(gitFolder)) {
+            gitFolder = "C:\\Users\\Ryan\\Documents\\Git"
+        }
+
+        const gitProjects = getDirectories(gitFolder)
+
+        let menuItems = gitProjects.map((s) => ({icon: "bookmark",
+                                                   detail: s,
+                                                   label: s.split("\\").pop()}))
+        // Add the open folder option as well.
+        menuItems.unshift({icon: "folder-open",
+                           detail: "Set a folder as the workspace for Oni",
+                           label: "Open Folder"})
 
         bookmarkMenu.show()
         bookmarkMenu.setItems(menuItems)
 
         bookmarkMenu.onItemSelected.subscribe(menuItem => {
-            if (menuItem) {
+            if (menuItem && menuItem.label !== "Open Folder") {
                 oni.workspace.changeDirectory(menuItem.detail)
+            } else if (menuItem && menuItem.label === "Open Folder") {
+                oni.workspace.openFolder()
             }
         })
     }
