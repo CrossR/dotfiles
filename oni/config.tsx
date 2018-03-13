@@ -114,10 +114,13 @@ export const configuration = {
     "experimental.markdownPreview.enabled": true,
     "experimental.browser.enabled": true,
     "experimental.editor.textMateHighlighting.enabled": true,
+    "experimental.achievements.enabled": true,
+    "experimental.learning.enabled": true,
 
     "debug.showTypingPrediction": true,
+    "debug.showNotificationOnError": true,
 
-    "sidebar.marks.enabled": true,
+    "sidebar.marks.enabled": false,
     "sidebar.plugins.enabled": true,
 
     "vim.setting.autoread": true,
