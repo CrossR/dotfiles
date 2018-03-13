@@ -136,13 +136,6 @@ export const configuration = {
         { "open": '"', "close": '"' },
     ],
 
-    "oni.bookmarks": [
-        "C:\\Users\\Ryan\\Documents\\Git\\uni_work",
-        "C:\\Users\\Ryan\\Documents\\Git\\meng_project",
-        "C:\\Users\\Ryan\\Documents\\Git\\oni",
-        "C:\\Users\\Ryan\\Documents\\Git\\dotfiles"
-    ]
-
     "oni.terminals": [
         {"name": "CMD", "command": "cmd"},
         {"name": "PowerShell", "command": "powershell"},
