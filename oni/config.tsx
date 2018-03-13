@@ -31,8 +31,8 @@ export const activate = (oni: Oni.Plugin.Api) => {
         const gitProjects = getDirectories(gitFolder)
 
         let menuItems = gitProjects.map((s) => ({icon: "bookmark",
-                                                   detail: s,
-                                                   label: s.split("\\").pop()}))
+                                                 detail: s,
+                                                 label: s.split("\\").pop()}))
         // Add the open folder option as well.
         menuItems.unshift({icon: "folder-open",
                            detail: "Set a folder as the workspace for Oni",
