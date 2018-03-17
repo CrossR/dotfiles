@@ -88,11 +88,12 @@ endif
 
 " Clipboard Setup
 
-if has ('nvim')
+if has ('nvim') && !exists('g:gui_oni')
     runtime! python_setup vim
-    let g:highlightedyank_highlight_duration = 200
     set clipboard+=unnamedplus
 endif
+
+let g:highlightedyank_highlight_duration = 200
 
 " Remaps
 
