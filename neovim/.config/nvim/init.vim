@@ -82,6 +82,7 @@ let mapleader = ","  " Set leader to ,
 vnoremap . :norm.<CR>
 command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 tnoremap <Esc> <C-\><C-n>
+nnoremap <C-L> :nohlsearch<CR><C-L>
 
 " Fix clumsy typing to quit
 
