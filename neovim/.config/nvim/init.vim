@@ -157,7 +157,7 @@ endif
 
 let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
-if !filereadable(vimplug) && !exists('g:gui_oni')
+if !filereadable(vimplug) && !has('win32')
     if !executable("curl")
         echoerr "vim-plug will need to be manually installed, as curl is not available."
         execute "q!"
