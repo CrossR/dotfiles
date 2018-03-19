@@ -96,6 +96,8 @@ cnoreabbrev Wqa wqa
 
 " Terminal toggle setup
 " Setup an array to store the relevant buf nums and last used term
+" This is called by Oni since that stores an array of each terminal
+" name and its associated command.
 
 function! Term_toggle_setup(term_count)
 
@@ -135,6 +137,7 @@ endfunction
 " Terminal toggle
 " Hide the currently active terminal,
 " or show the last used one.
+
 function! Term_toggle()
 
     let buf_index = index(g:term_buf, bufnr(""))
