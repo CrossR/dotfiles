@@ -64,28 +64,6 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)
 autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
-let g:tex_flavor = 'latex'
-let g:tex_conceal = ""
-let g:vimtex_latexmk_progname = 'nvr'
-
-let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-pdf',
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
-
-" Get Oni to use SumatraPDF as the VimTeX viewer
-
-if exists('g:gui_oni')
-    let g:vimtex_view_general_viewer = 'SumatraPDF'
-    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
-endif
 
 " Clipboard Setup
 
@@ -174,32 +152,6 @@ if exists('g:gui_oni')
     nnoremap <leader>, :call Term_toggle()<CR>
 endif
 
-" CtrlP
-
-if !exists('g:gui_oni')
-    let g:ctrlp_working_path_mode = 'ra'
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-endif
-
-" Polygot
-
-let g:polyglot_disabled = ['latex']
-
-" IndentLine
-
-if exists('g:gui_oni')
-    " IndentLines, but not in Oni
-    let g:indentLine_color_term = 239
-    let g:indentLine_enabled = 0
-    let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_leadingSpaceChar= '.'
-endif
-
-" Mappings for EasyAlign
-" Interactive EasyAlign for Visual Mode, motions and text objects
-
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " Install plug.vim automaticaly if possible.
 
@@ -293,3 +245,55 @@ map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
+
+" CtrlP
+
+if !exists('g:gui_oni')
+    let g:ctrlp_working_path_mode = 'ra'
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+endif
+
+" Polygot
+
+let g:polyglot_disabled = ['latex']
+
+" IndentLine
+
+if exists('g:gui_oni')
+    " IndentLines, but not in Oni
+    let g:indentLine_color_term = 239
+    let g:indentLine_enabled = 0
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar= '.'
+endif
+
+" Mappings for EasyAlign
+" Interactive EasyAlign for Visual Mode, motions and text objects
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Vim Tex Options
+
+let g:tex_flavor = 'latex'
+let g:tex_conceal = ""
+let g:vimtex_latexmk_progname = 'nvr'
+
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+
+" Get Oni to use SumatraPDF as the VimTeX viewer
+
+if exists('g:gui_oni')
+    let g:vimtex_view_general_viewer = 'SumatraPDF'
+    let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
+    let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+endif
