@@ -43,6 +43,7 @@ if exists('&inccommand')
 endif
 
 autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
+autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
 
 " Set the Vim spell file location
 
@@ -64,7 +65,7 @@ autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
 autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
 autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 let g:tex_flavor = 'latex'
-let g:tex_conceal = "" 
+let g:tex_conceal = ""
 let g:vimtex_latexmk_progname = 'nvr'
 
 let g:vimtex_compiler_latexmk = {
