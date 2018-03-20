@@ -141,6 +141,14 @@ endfunction
 
 function! Term_toggle()
 
+    " If the command wasn't called since we aren't
+    " in Oni, only setup bash.
+    if !exists('g:term_buf')
+        call Term_toggle_setup(1)
+        call Term_open(0, 'bash')
+        return
+    endif
+
     let buf_index = index(g:term_buf, bufnr(""))
 
     if buf_index != -1
@@ -152,9 +160,7 @@ function! Term_toggle()
 
 endfunction
 
-if exists('g:gui_oni')
-    nnoremap <leader>, :call Term_toggle()<CR>
-endif
+nnoremap <leader>, :call Term_toggle()<CR>
 
 
 " Install plug.vim automaticaly if possible.
