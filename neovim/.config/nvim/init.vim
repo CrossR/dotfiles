@@ -31,6 +31,7 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
 set ignorecase            " Ignore case for searching
 set smartcase             " Use smart cases for search
+set lazyredraw            " No redraws in macros
 
 if !exists('g:gui_oni')
     set laststatus=2      " Needed for AirLine to show.
@@ -161,7 +162,6 @@ function! Term_toggle()
 endfunction
 
 nnoremap <leader>, :call Term_toggle()<CR>
-
 
 " Install plug.vim automaticaly if possible.
 

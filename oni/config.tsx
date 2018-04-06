@@ -145,4 +145,6 @@ export const configuration = {
             "F:/ProgramData/Anaconda/Scripts/activate.bat " +
             "F:/ProgramData/Anaconda"},
     ],
+
+    "language.python.languageServer.command": "",
 }
