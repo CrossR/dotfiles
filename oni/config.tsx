@@ -106,20 +106,21 @@ export const configuration = {
     "oni.loadInitVim": true,
 
     "ui.colorscheme": "onedark",
+    "configuration.showReferenceBuffer": false,
 
     "editor.fontFamily": "Fira Code Retina",
-    "editor.quickOpen.filterStrategy": "regex",
+    "ui.fontFamily": "Fira Code Retina",
 
     "experimental.welcome.enabled": false,
     "experimental.markdownPreview.enabled": true,
-    "experimental.browser.enabled": true,
-    "experimental.editor.textMateHighlighting.enabled": true,
     "experimental.achievements.enabled": true,
     "experimental.learning.enabled": true,
+    "experimental.particles.enabled": true,
 
     "debug.showTypingPrediction": true,
     "debug.showNotificationOnError": true,
 
+    "sidebar.default.open": false,
     "sidebar.marks.enabled": false,
     "sidebar.plugins.enabled": true,
 
@@ -127,24 +128,54 @@ export const configuration = {
 
     "autoClosingPairs.enabled": true,
     "autoClosingPairs.default": [
-        { "open": "{", "close": "}" },
-        { "open": "[", "close": "]" },
-        { "open": "(", "close": ")" },
-        { "open": "<", "close": ">" },
-        { "open": "'", "close": "'" },
-        { "open": "`", "close": "`" },
-        { "open": '"', "close": '"' },
+        { open: "{", close: "}" },
+        { open: "[", close: "]" },
+        { open: "(", close: ")" },
+        { open: "<", close: ">" },
+        { open: "'", close: "'" },
+        { open: "`", close: "`" },
+        { open: '"', close: '"' },
     ],
 
     "oni.terminals": [
-        {"name": "CMD", "command": "cmd"},
-        {"name": "PowerShell", "command": "powershell"},
-        {"name": "Bash", "command": "bash"},
-        {"name": "Anaconda", "command":
-            "cmd /K " +
-            "F:/ProgramData/Anaconda/Scripts/activate.bat " +
-            "F:/ProgramData/Anaconda"},
+        { name: "CMD", command: "cmd" },
+        { name: "PowerShell", command: "powershell" },
+        { name: "Bash", command: "bash" },
+        {
+            name: "Anaconda",
+            command:
+                "cmd /K " +
+                "C:/ProgramData/Anaconda3/Scripts/activate.bat " +
+                "C:/ProgramData/Anaconda3",
+        },
     ],
 
+    "oni.plugins.prettier": {
+        settings: {
+            semi: false,
+            tabWidth: 4,
+            useTabs: false,
+            singleQuote: false,
+            trailingComma: "es5",
+            bracketSpacing: true,
+            jsxBracketSameLine: false,
+            arrowParens: "avoid",
+            printWidth: 80,
+        },
+        formatOnSave: true,
+        enabled: true,
+        allowedFiletypes: [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".md",
+            ".html",
+            ".json",
+            ".graphql",
+        ],
+    },
+
     "language.python.languageServer.command": "",
+}
 }
