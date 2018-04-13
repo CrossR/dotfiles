@@ -4,6 +4,9 @@ import * as Oni from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs"
 import { join } from "path"
 
+const FONT_STEP = 2
+const SAVE_FONT_CHANGES = false
+
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
 
@@ -94,22 +97,48 @@ export const activate = (oni: Oni.Plugin.Api) => {
         })
     }
 
+    // Add functions to increase and decrease font size in Oni.
+    // Currently it isn't persisted on purpose.
+
+    const increaseFontSize = () => {
+        const currentFontSize = oni.configuration.getValue(
+            "editor.fontSize"
+        ) as string
+
+        let newFontSize = parseInt(currentFontSize) + FONT_STEP
+
+        oni.configuration.setValues(
+            {
+                "editor.fontSize": newFontSize,
+            },
+            SAVE_FONT_CHANGES
+        )
+    }
+
+    const decreaseFontSize = () => {
+        const currentFontSize = oni.configuration.getValue(
+            "editor.fontSize"
+        ) as string
+
+        let newFontSize = parseInt(currentFontSize) - FONT_STEP
+        newFontSize = newFontSize <= 2 ? 2 : newFontSize
+
+        oni.configuration.setValues(
+            {
+                "editor.fontSize": newFontSize,
+            },
+            SAVE_FONT_CHANGES
+        )
+    }
+
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
 
-    // Set zoom factor to 1.5 when Control+= is pressed
-    oni.input.bind("<c-=>", () =>
-        require("electron")
-            .remote.getCurrentWindow()
-            .webContents.setZoomFactor(1.25)
-    )
+    // Increase font size
+    oni.input.bind("<c-=>", () => increaseFontSize())
 
-    // Set zoom factor to 1 when Control+- is pressed
-    oni.input.bind("<c-->", () =>
-        require("electron")
-            .remote.getCurrentWindow()
-            .webContents.setZoomFactor(1)
-    )
+    // Decrease font size
+    oni.input.bind("<c-->", () => decreaseFontSize())
 
     // Move about splits easier.
     oni.input.bind("<c-h>", () =>
@@ -141,10 +170,10 @@ export const configuration = {
     "oni.loadInitVim": true,
 
     "ui.colorscheme": "onedark",
-    "ui.fontSmoothing": "subpixel-antialiased"
-    "configuration.showReferenceBuffer": false,
-
+    "ui.fontSmoothing": "subpixel-antialiased",
     "editor.fontFamily": "Fira Code Retina",
+
+    "configuration.showReferenceBuffer": false,
 
     "tabs.showIndex": true,
 
