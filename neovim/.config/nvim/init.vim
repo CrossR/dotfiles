@@ -295,7 +295,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-shell-escape',
     \   '-verbose',
     \   '-file-line-error',
-    \   '-synctex=1',
+    \   '-synctex=0',
     \   '-interaction=nonstopmode',
     \ ],
     \}

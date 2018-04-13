@@ -17,13 +17,19 @@ export const activate = (oni: Oni.Plugin.Api) => {
     const makeBookmarksMenu = () => {
         const bookmarkMenu = oni.menu.create()
 
-        let gitFolder = process.env.USERPROFILE + "\\Documents\\Git"
+        let gitFolder = "F:\\User Files\\My Documents\\Git"
 
         const isDirectory = source => lstatSync(source).isDirectory()
         const getDirectories = source =>
             readdirSync(source)
                 .map(name => join(source, name))
                 .filter(isDirectory)
+
+        // Check if the folder exists, else fall back to C:\ Drive.
+        // Perhaps look at a better way of having Oni pick up each machine.
+        if (!isDirectory(gitFolder)) {
+            gitFolder = "C:\\Users\\Ryan\\Documents\\Git"
+        }
 
         const gitProjects = getDirectories(gitFolder)
 
@@ -32,6 +38,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
             detail: s,
             label: s.split("\\").pop(),
         }))
+
         // Add the open folder option as well.
         menuItems.unshift({
             icon: "folder-open",
@@ -134,10 +141,12 @@ export const configuration = {
     "oni.loadInitVim": true,
 
     "ui.colorscheme": "onedark",
+    "ui.fontSmoothing": "subpixel-antialiased"
     "configuration.showReferenceBuffer": false,
 
     "editor.fontFamily": "Fira Code Retina",
-    "ui.fontFamily": "Fira Code Retina",
+
+    "tabs.showIndex": true,
 
     "experimental.welcome.enabled": false,
     "experimental.markdownPreview.enabled": true,
@@ -205,5 +214,4 @@ export const configuration = {
     },
 
     "language.python.languageServer.command": "",
-}
 }
