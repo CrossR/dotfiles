@@ -208,6 +208,9 @@ Plug 'tpope/vim-repeat'
 " Bracket mappings
 Plug 'tpope/vim-unimpaired'
 
+" Better sessions
+Plug 'tpope/vim-obsession'
+
 " Async linting
 Plug 'w0rp/ale'
 
