@@ -36,10 +36,10 @@ export const activate = (oni: Oni.Plugin.Api) => {
 
         const gitProjects = getDirectories(gitFolder)
 
-        let menuItems = gitProjects.map(s => ({
+        let menuItems = gitProjects.map(b => ({
             icon: "bookmark",
-            detail: s,
-            label: s.split("\\").pop(),
+            detail: b,
+            label: b.split("\\").pop(),
         }))
 
         // Add the open folder option as well.
@@ -92,6 +92,51 @@ export const activate = (oni: Oni.Plugin.Api) => {
                     `call Term_open(${menuItem.metadata.id},"${
                         menuItem.detail
                     }")`
+                )
+            }
+        })
+    }
+
+    // Create a session loading menu.
+    // Need to add the ability to save sessions to the menu.
+    // Also look at saving additional info like macros and marks.
+
+    const makeSessionsMenu = () => {
+        const sessionMenu = oni.menu.create()
+
+        let sessionsFolder = "C:\\Users\\ryan\\AppData\\Local\\nvim\\sessions"
+
+        const isFile = source => lstatSync(source).isFile()
+        const getDirectories = source =>
+            readdirSync(source)
+                .map(name => join(source, name))
+                .filter(isFile)
+
+        const vimSessions = getDirectories(sessionsFolder)
+
+        const menuItems = vimSessions.map(s => ({
+            icon: "window-restore ",
+            detail: s,
+            label: s
+                .split("\\")
+                .pop()
+                .split(".")[0],
+        })) as any
+
+        menuItems.unshift({
+            icon: "save",
+            detail: "Save the current workspace to the default location.",
+            label: "Save Workspace",
+            pinned: true,
+        })
+
+        sessionMenu.show()
+        sessionMenu.setItems(menuItems)
+
+        sessionMenu.onItemSelected.subscribe(menuItem => {
+            if (menuItem) {
+                oni.editors.activeEditor.neovim.command(
+                    `source ${menuItem.detail}`
                 )
             }
         })
@@ -156,6 +201,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
 
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
     oni.input.bind("<s-c-n>", makeTermMenu)
+    oni.input.bind("<s-c-s>", makeSessionsMenu)
 }
 
 export const deactivate = (oni: Oni.Plugin.Api) => {
