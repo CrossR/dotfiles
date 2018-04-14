@@ -15,6 +15,11 @@ export const activate = (oni: Oni.Plugin.Api) => {
     const currentExtension = oni.editors.activeEditor.activeBuffer.language
     const currentProject = oni.workspace.activeWorkspace
 
+    const isVisualMode = () => oni.editors.activeEditor.mode === "visual"
+    const isNormalMode = () => oni.editors.activeEditor.mode === "normal"
+    const isNotInsertMode = () => oni.editors.activeEditor.mode !== "insert"
+    const isMenuOpen = () => oni.menu.isMenuOpen()
+
     // Add a bookmarks menu to swap easily between different workspaces.
     // Dynamically generated from my Git folder.
     const makeBookmarksMenu = () => {
