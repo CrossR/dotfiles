@@ -145,6 +145,39 @@ export const activate = (oni: Oni.Plugin.Api) => {
                 )
             }
         })
+
+        sessionMenu.onFilterTextChanged.subscribe(filterText => {
+            if (filterText) {
+                if (filterText.startsWith("s! ") && filterText.endsWith(".")) {
+                    const sessionName = filterText.split(" ")[1]
+                    const checkSave = oni.notifications.createItem()
+
+                    checkSave.setContents(
+                        "Save Workspace",
+                        `Would you like to save workspace ${sessionName}?`
+                    )
+
+                    checkSave.setButtons([
+                        {
+                            title: "Yes",
+                            callback: () => {
+                                oni.editors.activeEditor.neovim.command(
+                                    `Obsession ${sessionsFolder}\\${sessionName}.vim`
+                                )
+                                checkSave.hide()
+                                sessionMenu.hide()
+                            },
+                        },
+                        {
+                            title: "No",
+                            callback: () => {},
+                        },
+                    ])
+
+                    checkSave.show()
+                }
+            }
+        })
     }
 
     // Add functions to increase and decrease font size in Oni.
@@ -203,6 +236,9 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.bind("<c-l>", () =>
         oni.editors.activeEditor.neovim.command(`call OniNextWindow('l')<CR>`)
     )
+
+    oni.input.unbind("<c-g>")
+    oni.input.bind("<c-g>", "sneak.show", () => isNormalMode())
 
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
     oni.input.bind("<s-c-n>", makeTermMenu)
