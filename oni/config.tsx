@@ -18,6 +18,8 @@ export const activate = (oni: Oni.Plugin.Api) => {
     const isVisualMode = () => oni.editors.activeEditor.mode === "visual"
     const isNormalMode = () => oni.editors.activeEditor.mode === "normal"
     const isNotInsertMode = () => oni.editors.activeEditor.mode !== "insert"
+    const isNotCommandLine = () =>
+        oni.editors.activeEditor.mode !== "cmdline_normal"
     const isMenuOpen = () => oni.menu.isMenuOpen()
 
     // Add a bookmarks menu to swap easily between different workspaces.
@@ -214,6 +216,11 @@ export const activate = (oni: Oni.Plugin.Api) => {
         )
     }
 
+    // Open the vim auto-complete menu.
+    const openTabComplete = () => {
+        oni.editors.activeEditor.neovim.command(`call feedkeys("\\<C-P>")`)
+    }
+
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
 
@@ -237,13 +244,25 @@ export const activate = (oni: Oni.Plugin.Api) => {
         oni.editors.activeEditor.neovim.command(`call OniNextWindow('l')<CR>`)
     )
 
+    // Let sneak work when a menu is open.
+    // This allows my janky sessions saving code to work,
+    // and lets me sneak to the confirm/deny button.
     oni.input.unbind("<c-g>")
     oni.input.bind("<c-g>", "sneak.show", () => isNormalMode())
 
+    // Let tab work as select for the Oni menu.
+    // But if the Oni menu isn't open, let it open the Vim one instead.
     oni.input.bind(
         "<tab>",
         "contextMenu.select",
-        () => !oni.snippets.isSnippetActive
+        () => !oni.snippets.isSnippetActive && isNotCommandLine()
+    )
+
+    oni.input.bind(
+        "<tab>",
+        () => openTabComplete(),
+        () =>
+            !oni.snippets.isSnippetActive && isNotCommandLine() && !isMenuOpen()
     )
 
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
