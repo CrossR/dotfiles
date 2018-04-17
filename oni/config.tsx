@@ -240,6 +240,12 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.unbind("<c-g>")
     oni.input.bind("<c-g>", "sneak.show", () => isNormalMode())
 
+    oni.input.bind(
+        "<tab>",
+        "contextMenu.select",
+        () => !oni.snippets.isSnippetActive
+    )
+
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
     oni.input.bind("<s-c-n>", makeTermMenu)
     oni.input.bind("<s-c-s>", makeSessionsMenu)
