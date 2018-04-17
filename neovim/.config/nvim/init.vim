@@ -191,6 +191,9 @@ if !exists('g:gui_oni')
 
     " Fuzzy file finder
     Plug 'ctrlpvim/ctrlp.vim'
+
+    " Tab complete
+    Plug 'ervandew/supertab'
 endif
 
 " Git Plugin
@@ -243,9 +246,6 @@ Plug 'wellle/targets.vim'
 
 " Show line indentation
 Plug 'yggdroot/indentLine'
-
-" Tab complete
-Plug 'ervandew/supertab'
 
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
