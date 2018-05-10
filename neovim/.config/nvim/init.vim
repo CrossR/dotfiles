@@ -201,6 +201,9 @@ if !exists('g:gui_oni')
 
     " Tab complete
     Plug 'ervandew/supertab'
+
+    " Show line indentation
+    Plug 'yggdroot/indentLine'
 endif
 
 " Git Plugin
@@ -251,9 +254,6 @@ Plug 'machakann/vim-highlightedyank'
 " Add additional text objects
 Plug 'wellle/targets.vim'
 
-" Show line indentation
-Plug 'yggdroot/indentLine'
-
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
@@ -279,7 +279,7 @@ let g:polyglot_disabled = ['latex']
 
 " IndentLine
 
-if exists('g:gui_oni')
+if !exists('g:gui_oni')
     " IndentLines, but not in Oni
     let g:indentLine_color_term = 239
     let g:indentLine_enabled = 0
