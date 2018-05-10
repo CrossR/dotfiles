@@ -22,7 +22,7 @@ set noruler               " Disable the line ruler
 
                           " Sort out Tabs
 filetype plugin indent on " Add indentation as needed.
-set tabstop=4             " A tab is 4 spaces.
+set softtabstop=4         " A tab feels like 4 spaces.
 set shiftwidth=4          " This affects >> and <<, to make them move by 4 spaces.
 set expandtab             " Insert spaces not tabs
 
