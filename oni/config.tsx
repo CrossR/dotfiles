@@ -27,7 +27,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
     const makeBookmarksMenu = () => {
         const bookmarkMenu = oni.menu.create()
 
-        let gitFolder = "F:\\User Files\\My Documents\\Git"
+        let gitFolder = "F:\\User Files\\Documents\\Git"
 
         const isDirectory = source => lstatSync(source).isDirectory()
         const getDirectories = source =>
