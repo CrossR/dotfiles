@@ -96,9 +96,8 @@ export const activate = (oni: Oni.Plugin.Api) => {
         termMenu.onItemSelected.subscribe(menuItem => {
             if (menuItem) {
                 oni.editors.activeEditor.neovim.command(
-                    `call Term_open(${menuItem.metadata.id},"${
-                        menuItem.detail
-                    }")`
+                    `call Term_open(${menuItem.metadata.id},` +
+                        `"${menuItem.detail}")`
                 )
             }
         })
