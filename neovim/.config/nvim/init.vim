@@ -43,9 +43,6 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
-autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
-autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
-
 " Set the Vim spell file location
 
 if !exists('g:gui_oni')
@@ -54,17 +51,27 @@ else
     set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add
 endif
 
-" File building remapping
+" File type specific config
 
 " Run Python files on F9
 
-autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
+augroup PythonConfig
+    autocmd!
+    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
+augroup END
 
-" Run Latex PDF make on F9, and word count on F8
+" Latex Config
+" Run Count on F8, Compile on F9 and show Contents buffer on F10
+" Also set spell checking and wrapping of text.
 
-autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
-autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
-autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
+augroup TexConfig
+    autocmd!
+    autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
+    autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
+    autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
+    autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
+    autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
+augroup END
 
 " Clipboard Setup
 
