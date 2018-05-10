@@ -216,11 +216,6 @@ export const activate = (oni: Oni.Plugin.Api) => {
         )
     }
 
-    // Open the vim auto-complete menu.
-    const openTabComplete = () => {
-        oni.editors.activeEditor.neovim.command(`call feedkeys("\\<C-P>")`)
-    }
-
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
 
@@ -249,21 +244,6 @@ export const activate = (oni: Oni.Plugin.Api) => {
     // and lets me sneak to the confirm/deny button.
     oni.input.unbind("<c-g>")
     oni.input.bind("<c-g>", "sneak.show", () => isNormalMode())
-
-    // Let tab work as select for the Oni menu.
-    // But if the Oni menu isn't open, let it open the Vim one instead.
-    oni.input.bind(
-        "<tab>",
-        "contextMenu.select",
-        () => !oni.snippets.isSnippetActive && isNotCommandLine()
-    )
-
-    oni.input.bind(
-        "<tab>",
-        () => openTabComplete(),
-        () =>
-            !oni.snippets.isSnippetActive && isNotCommandLine() && !isMenuOpen()
-    )
 
     oni.input.bind("<s-c-w>", makeBookmarksMenu)
     oni.input.bind("<s-c-n>", makeTermMenu)
