@@ -355,4 +355,5 @@ export const configuration = {
     },
 
     "language.python.languageServer.command": "",
+    "editor.renderer": "webgl",
 }
