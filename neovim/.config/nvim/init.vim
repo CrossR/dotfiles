@@ -210,9 +210,6 @@ if !exists('g:gui_oni')
 
     " Tab complete
     Plug 'ervandew/supertab'
-
-    " Show line indentation
-    Plug 'yggdroot/indentLine'
 endif
 
 " Git Plugin
@@ -266,6 +263,9 @@ Plug 'wellle/targets.vim'
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
+" Show line indentation
+Plug 'yggdroot/indentLine'
+
 call plug#end()
 
 " Sneak Options
@@ -288,13 +288,9 @@ let g:polyglot_disabled = ['latex']
 
 " IndentLine
 
-if !exists('g:gui_oni')
-    " IndentLines, but not in Oni
-    let g:indentLine_color_term = 239
-    let g:indentLine_enabled = 0
-    let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_leadingSpaceChar= '.'
-endif
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar= '·'
 
 " Mappings for EasyAlign
 " Interactive EasyAlign for Visual Mode, motions and text objects
