@@ -131,7 +131,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
 
         menuItems.unshift({
             icon: "save",
-            detail: "Save the current workspace to the default location.",
+            detail: "Save the current workspace with s! .",
             label: "Save Workspace",
             pinned: true,
         })
@@ -262,6 +262,8 @@ export const configuration = {
 
     "ui.colorscheme": "onedark",
     "ui.fontSmoothing": "subpixel-antialiased",
+
+    "editor.renderer": "webgl",
     "editor.fontFamily": "Fira Code Retina",
 
     "configuration.showReferenceBuffer": false,
@@ -334,5 +336,4 @@ export const configuration = {
     },
 
     "language.python.languageServer.command": "",
-    "editor.renderer": "webgl",
 }
