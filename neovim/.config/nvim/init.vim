@@ -40,7 +40,7 @@ else
 endif
 
 if exists('&inccommand')
-  set inccommand=nosplit
+    set inccommand=nosplit
 endif
 
 " Set the Vim spell file location
@@ -102,6 +102,12 @@ cnoreabbrev wQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Wqa wqa
+
+" Use Conda Env for Python
+
+if has ('nvim') && exists('g:gui_oni')
+    let g:python3_host_prog = 'F:\ProgramData\Anaconda3\envs\neovim\python.exe'
+endif
 
 " Terminal toggle setup
 " Setup an array to store the relevant buf nums and last used term
@@ -262,6 +268,9 @@ Plug 'wellle/targets.vim'
 
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
+
+" Better Python Highlighting
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " Show line indentation
 Plug 'yggdroot/indentLine'
