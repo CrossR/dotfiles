@@ -109,7 +109,7 @@ cnoreabbrev Wqa wqa
 
 " Use Conda Env for Python
 
-if has ('nvim') && exists('g:gui_oni')
+if has ('nvim') and has('win32')
     let g:python3_host_prog = 'F:\ProgramData\Anaconda3\envs\neovim\python.exe'
 endif
 
