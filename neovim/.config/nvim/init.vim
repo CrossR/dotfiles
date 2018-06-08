@@ -205,7 +205,7 @@ endif
 
 " Plugin install location and list of plugins
 
-if !exists('g:gui_oni')
+if !has('win32')
     call plug#begin('~/.config/nvim/plugged')
 else
     call plug#begin('~/AppData/Local/nvim/plugged')
