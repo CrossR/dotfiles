@@ -33,6 +33,8 @@ set ignorecase            " Ignore case for searching
 set smartcase             " Use smart cases for search
 set lazyredraw            " No redraws in macros
 
+set undofile
+
 if !exists('g:gui_oni')
     set laststatus=2      " Needed for AirLine to show.
 else
@@ -43,12 +45,14 @@ if exists('&inccommand')
     set inccommand=nosplit
 endif
 
-" Set the Vim spell file location
+" Set the Vim undo and spell file location
 
 if !exists('g:gui_oni')
-    set spellfile=~/.nvim/spell/en.utf-8.add
+    set spellfile=~/.config/nvim/spell/en.utf-8.add
+    set undodir=~/.config/nvim/undodir
 else
     set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add
+    set undodir=~/AppData/Local/nvim/undodir
 endif
 
 " File type specific config
