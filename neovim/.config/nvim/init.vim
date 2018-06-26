@@ -45,12 +45,34 @@ if exists('&inccommand')
     set inccommand=nosplit
 endif
 
-" Set the Vim undo and spell file location
+" Set the Vim undo and spell file location after checking the relevant
+" folders exist first.
+
+function Check_folder_exists(folder_name) abort
+
+    let full_folder_path = expand(a:folder_name)
+
+    if !isdirectory(full_folder_path)
+        call mkdir(full_folder_path)
+    endif
+endfunction
+
 
 if !exists('g:gui_oni')
+
+    call Check_folder_exists("~/.config/nvim")
+    call Check_folder_exists("~/.config/nvim/spell")
+    call Check_folder_exists("~/.config/nvim/undodir")
+    call Check_folder_exists("~/.config/nvim/sessions")
+
     set spellfile=~/.config/nvim/spell/en.utf-8.add
     set undodir=~/.config/nvim/undodir
 else
+    call Check_folder_exists("~/AppData/Local/nvim")
+    call Check_folder_exists("~/AppData/Local/nvim/spell")
+    call Check_folder_exists("~/AppData/Local/nvim/undodir")
+    call Check_folder_exists("~/AppData/Local/nvim/sessions")
+
     set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add
     set undodir=~/AppData/Local/nvim/undodir
 endif
