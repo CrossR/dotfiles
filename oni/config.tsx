@@ -154,8 +154,6 @@ export const configuration = {
     "language.tex.tokenRegex": "[/$_a-zA-Z0-9]",
 
     "language.python.languageServer.command": "",
-    "debug.neovimPath":
-        "F:\\User Files\\Desktop\\Stuff\\Utilities\\Software\\Neovim\\bin\\nvim.exe",
 }
 
 const isDirectory = source => lstatSync(source).isDirectory()
