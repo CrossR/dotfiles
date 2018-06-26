@@ -96,7 +96,7 @@ export const configuration = {
     "debug.showNotificationOnError": true,
 
     "sidebar.default.open": false,
-    "sidebar.marks.enabled": false,
+    "sidebar.marks.enabled": true,
     "sidebar.plugins.enabled": true,
 
     "vim.setting.autoread": true,
