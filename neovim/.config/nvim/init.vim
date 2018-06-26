@@ -61,7 +61,7 @@ endif
 
 augroup PythonConfig
     autocmd!
-    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
+    autocmd FileType python nnoremap <buffer> <F9> <cmd>exec '!python' shellescape(@%,1)<CR>
 augroup END
 
 " Latex Config
@@ -70,9 +70,9 @@ augroup END
 
 augroup TexConfig
     autocmd!
-    autocmd FileType tex nnoremap <buffer> <F8> :VimtexCountWords<CR>
-    autocmd FileType tex nnoremap <buffer> <F9> :VimtexCompile<CR>
-    autocmd FileType tex nnoremap <buffer> <F10> :VimtexTocToggle<CR>
+    autocmd FileType tex nnoremap <buffer> <F8> <cmd>VimtexCountWords<CR>
+    autocmd FileType tex nnoremap <buffer> <F9> <cmd>VimtexCompile<CR>
+    autocmd FileType tex nnoremap <buffer> <F10> <cmd>VimtexTocToggle<CR>
     autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
     autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
 augroup END
@@ -91,10 +91,10 @@ let g:highlightedyank_highlight_duration = 200
 nmap j gj
 nmap k gk
 let mapleader = ","  " Set leader to ,
-vnoremap . :norm.<CR>
-command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
+vnoremap . <cmd>norm.<CR>
+command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
 tnoremap <Esc> <C-\><C-n>
-nnoremap <C-L> :nohlsearch<CR><C-L>
+nnoremap <C-L> <cmd>nohlsearch<CR><C-L>
 
 " Fix clumsy typing to quit
 
