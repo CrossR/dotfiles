@@ -26,6 +26,7 @@ alias mountMusic='vmhgfs-fuse -o allow_other -o auto_unmount .host:/Music /mnt/v
 alias poweroff='sudo systemctl poweroff'
 alias reboot='sudo shutdown -r now'
 alias halt='sudo systemctl halt'
+alias lock='i3lock -i /usr/share/backgrounds/lock.png'
 
 eval $( dircolors -b $HOME/.scripts/ls_col)
 
@@ -42,3 +43,7 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)" &> /dev/null
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
