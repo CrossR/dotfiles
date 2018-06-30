@@ -3,6 +3,8 @@ neovim/.config/nvim/plugged/*
 neovim/.config/nvim/autoload/*
 neovim/.config/nvim/spell
 neovim/.config/nvim/.netrwhist
+neovim/.config/nvim/undodir/*
+neovim/.config/nvim/sessions/*
 
 
 #Ignore log files and such
