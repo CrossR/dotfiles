@@ -48,7 +48,7 @@ endif
 " Set the Vim undo and spell file location after checking the relevant
 " folders exist first.
 
-function Check_folder_exists(folder_name) abort
+function! Check_folder_exists(folder_name) abort
 
     let full_folder_path = expand(a:folder_name)
 
@@ -58,8 +58,7 @@ function Check_folder_exists(folder_name) abort
 endfunction
 
 
-if !exists('g:gui_oni')
-
+if !has('win32')
     call Check_folder_exists("~/.config/nvim")
     call Check_folder_exists("~/.config/nvim/spell")
     call Check_folder_exists("~/.config/nvim/undodir")
