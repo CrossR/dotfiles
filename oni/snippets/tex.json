@@ -1,0 +1,12 @@
+{
+    "env": {
+        "prefix": "begin",
+        "body": [
+            "\\begin{${1:env}}",
+            "    \\label{${2:<label>}}",
+            "    ${0:content}",
+            "\\end{${1:env}"
+        ],
+        "description": "Insert a blank environment"
+    }
+}

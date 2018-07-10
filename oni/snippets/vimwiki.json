@@ -1,0 +1,52 @@
+{
+    "Todo": {
+        "prefix": "todo",
+        "body": ["- [ ] ${1:content}"],
+        "description": "An incomplete todo."
+    },
+    "Schedule": {
+        "prefix": "event",
+        "body": ["- ${1:start} - ${2:end}: ${3:content}"],
+        "description": "An new schedule event for today."
+    },
+    "Code": {
+        "prefix": "code",
+        "body": ["```${1:lang}", "    ${2:code}", "```"],
+        "description": "An new schedule event for today."
+    },
+    "Link": {
+        "prefix": "link",
+        "body": ["[[${1:link}|${2:description}]]"],
+        "description": "A link to a different part of the wiki."
+    },
+    "Absolute_File": {
+        "prefix": "abs_file",
+        "body": ["[[file:${1:file_path}|${2:description}]]"],
+        "description": "An absolute file path."
+    },
+    "Relative_File": {
+        "prefix": "file",
+        "body": ["[[local:${1:file_path}|${2:description}]]"],
+        "description": "A relative file path."
+    },
+    "Diary": {
+        "prefix": "diary",
+        "body": ["[[diary:${1:file_path}]]"],
+        "description": "A link to a diary entry."
+    },
+    "Include": {
+        "prefix": "include",
+        "body": ["{{${1:path}|${2:description}}}"],
+        "description": "A link to a file to be included inline."
+    },
+    "Image": {
+        "prefix": "image",
+        "body": ["![${1:description}](${2:url})"],
+        "description": "An inline image link."
+    },
+    "URL": {
+        "prefix": "url",
+        "body": ["[${1:description}](${2:url})"],
+        "description": "A markdown URL link."
+    }
+}
