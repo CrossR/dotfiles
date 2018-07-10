@@ -300,6 +300,10 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " Show line indentation
 Plug 'yggdroot/indentLine'
 
+" VimWiki + Template Generation
+Plug 'vimwiki/vimwiki'
+Plug 'CrossR/nvim_diary_template', {'do': ':UpdateRemotePlugins'}
+
 call plug#end()
 
 " Sneak Options
@@ -356,3 +360,28 @@ if exists('g:gui_oni')
     let g:vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
     let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
+
+" VimWiki
+
+let default_wiki = {}
+
+let default_wiki.path = $GIT_DEFAULT_DIR . "/notes"
+let default_wiki.syntax = 'markdown'
+let default_wiki.ext = ".md"
+
+let g:vimwiki_list = [default_wiki]
+let g:vimwiki_conceallevel = 0
+
+augroup WikiConfig
+    autocmd!
+    autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable 
+    autocmd FileType vimwiki setlocal spell spelllang=en_gb " Spellchecking for .tex only
+    autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in .tex files.
+    autocmd FileType vimwiki setlocal conceallevel=0        " Wrap at 80 cols in .tex files.
+augroup END
+
+" Nvim Notes config
+
+let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/notes"
+let g:nvim_diary_template#google_cal_name = 'NVim Notes'
+let g:nvim_diary_template#calendar_filter_list = ['Holidays in United Kingdom']
