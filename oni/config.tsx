@@ -77,7 +77,8 @@ export const configuration = {
     "ui.colorscheme": "onedark",
 
     "editor.renderer": "webgl",
-    "editor.fontFamily": "Fira Code Retina",
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": "14",
 
     "configuration.showReferenceBuffer": false,
 
@@ -91,6 +92,7 @@ export const configuration = {
     "experimental.achievements.enabled": true,
     "experimental.learning.enabled": true,
     "experimental.particles.enabled": true,
+    "experimental.indentLines.enabled": true,
 
     "debug.showTypingPrediction": true,
     "debug.showNotificationOnError": true,
