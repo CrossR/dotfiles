@@ -1,5 +1,5 @@
-import * as React from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\react"
-import * as Oni from "C:\\Program Files (x86)\\Oni\\resources\\app\\node_modules\\oni-api"
+import * as React from "react"
+import * as Oni from "oni-api"
 
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs"
 import { join } from "path"
@@ -52,6 +52,9 @@ export const activate = (oni: Oni.Plugin.Api) => {
         oni.editors.activeEditor.neovim.command(`call OniNextWindow('l')<CR>`)
     )
 
+    // Unbind the symbols menu, so I can use Ctrl-t again.
+    oni.input.unbind("<c-t>")
+
     // Let sneak work when a menu is open.
     // This allows my janky sessions saving code to work,
     // and lets me sneak to the confirm/deny button.
@@ -61,6 +64,15 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.bind("<s-c-w>", () => makeBookmarksMenu(oni))
     oni.input.bind("<s-c-n>", () => makeTermMenu(oni, terminals))
     oni.input.bind("<s-c-s>", () => makeSessionsMenu(oni))
+
+    oni.input.bind("<a-c-w>", () => makeWikiMenu(oni))
+
+    oni.input.bind("<s-c-{>", () =>
+        oni.editors.activeEditor.neovim.command("tabprevious")
+    )
+    oni.input.bind("<s-c-}>", () =>
+        oni.editors.activeEditor.neovim.command("tabnext")
+    )
 }
 
 export const deactivate = (oni: Oni.Plugin.Api) => {
@@ -74,7 +86,7 @@ export const configuration = {
     "oni.useDefaultConfig": false,
     "oni.loadInitVim": true,
 
-    "ui.colorscheme": "onedark",
+    "ui.colorscheme": "gruvbox_dark",
 
     "editor.renderer": "webgl",
     "editor.fontFamily": "Consolas",
@@ -87,7 +99,7 @@ export const configuration = {
     "experimental.welcome.enabled": false,
 
     "experimental.markdownPreview.enabled": true,
-    "experimental.markdownPreview.syntaxTheme": "solarized-dark",
+    "experimental.markdownPreview.syntaxTheme": "gruvbox",
 
     "experimental.achievements.enabled": true,
     "experimental.learning.enabled": true,
@@ -146,7 +158,6 @@ export const configuration = {
             ".jsx",
             ".ts",
             ".tsx",
-            ".md",
             ".html",
             ".json",
             ".graphql",
@@ -172,15 +183,15 @@ const getFiles = source =>
 
 // Add a bookmarks menu to swap easily between different workspaces.
 // Dynamically generated from my Git folder.
-function makeBookmarksMenu(oni: Oni.Plugin.Api) {
+async function makeBookmarksMenu(oni: Oni.Plugin.Api) {
     const bookmarkMenu = oni.menu.create()
 
-    let gitFolder = "F:\\User Files\\Documents\\Git"
+    const gitFolder = await oni.editors.activeEditor.neovim.eval(
+        "$GIT_DEFAULT_DIR"
+    )
 
-    // Check if the folder exists, else fall back to C:\ Drive.
-    // Perhaps look at a better way of having Oni pick up each machine.
-    if (!isDirectory(gitFolder)) {
-        gitFolder = "C:\\Users\\Ryan\\Documents\\Git"
+    if (!gitFolder) {
+        return
     }
 
     const gitProjects = getDirectories(gitFolder)
@@ -206,6 +217,40 @@ function makeBookmarksMenu(oni: Oni.Plugin.Api) {
             oni.workspace.changeDirectory(menuItem.detail)
         } else if (menuItem && menuItem.label === "Open Folder") {
             oni.workspace.openFolder()
+        }
+    })
+}
+
+// Menu to fuzzy search Wiki files.
+async function makeWikiMenu(oni: Oni.Plugin.Api) {
+    const wikiMenu = oni.menu.create()
+
+    const gitFolder = await oni.editors.activeEditor.neovim.eval(
+        "$GIT_DEFAULT_DIR"
+    )
+
+    if (!gitFolder) {
+        return
+    }
+
+    const wikiFolder = join(gitFolder, "notes")
+    const wikiEntries = getFiles(wikiFolder)
+
+    let menuItems = wikiEntries.map(e => ({
+        icon: "wikipedia-w",
+        detail: e,
+        label: e
+            .split("\\")
+            .pop()
+            .split(".")[0],
+    }))
+
+    wikiMenu.show()
+    wikiMenu.setItems(menuItems)
+
+    wikiMenu.onItemSelected.subscribe(menuItem => {
+        if (menuItem && menuItem.label !== "Open Folder") {
+            oni.editors.openFile(menuItem.detail)
         }
     })
 }
@@ -265,7 +310,9 @@ function makeSessionsMenu(oni: Oni.Plugin.Api) {
 
     sessionMenu.onItemSelected.subscribe(menuItem => {
         if (menuItem) {
-            oni.editors.activeEditor.neovim.command(`source ${menuItem.detail}`)
+            oni.editors.activeEditor.neovim.command(
+                `source ${menuItem.detail}`
+            )
         }
     })
 
