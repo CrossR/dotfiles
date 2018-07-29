@@ -62,6 +62,13 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.unbind("<c-g>")
     oni.input.bind("<c-g>", "sneak.show", () => isNormalMode())
 
+    oni.input.unbind("<s-c-f>")
+    oni.input.bind("<s-c-f>", "quickOpen.searchFileByContent", () =>
+        isNormalMode()
+    )
+
+    oni.input.bind("<F9>", "markdown.togglePreview")
+
     oni.input.bind("<s-c-w>", () => makeBookmarksMenu(oni))
     oni.input.bind("<s-c-n>", () => makeTermMenu(oni, terminals))
     oni.input.bind("<s-c-s>", () => makeSessionsMenu(oni))
@@ -96,16 +103,19 @@ export const configuration = {
     "configuration.showReferenceBuffer": false,
 
     "tabs.showIndex": true,
+    // "browser.enabled": true,
 
     "experimental.welcome.enabled": false,
 
     "experimental.markdownPreview.enabled": true,
-    "experimental.markdownPreview.syntaxTheme": "gruvbox",
+    "experimental.markdownPreview.syntaxTheme": "gruvbox-dark",
 
     "experimental.achievements.enabled": true,
     "experimental.learning.enabled": true,
     "experimental.particles.enabled": true,
+    "experimental.colorHighlight.enabled": true,
     "experimental.indentLines.enabled": true,
+    "experimental.vcs.sidebar": true,
 
     "debug.showTypingPrediction": true,
     "debug.showNotificationOnError": true,
