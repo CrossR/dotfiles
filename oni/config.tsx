@@ -2,10 +2,11 @@ import * as React from "react"
 import * as Oni from "oni-api"
 
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs"
-import { join } from "path"
+import { extname, join } from "path"
 
 const FONT_STEP = 2
 const SAVE_FONT_CHANGES = false
+const LEADER = ","
 
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
@@ -164,22 +165,24 @@ export const configuration = {
         ],
     },
 
-    "language.tex.tokenRegex": "[/$_a-zA-Z0-9]",
-
     "language.python.languageServer.command": "",
 }
 
 const isDirectory = source => lstatSync(source).isDirectory()
 const isFile = source => lstatSync(source).isFile()
+const extensionMatches = (source, extension) => extname(source) === extension
 
-const getDirectories = source =>
-    readdirSync(source)
+function getDirectories(source: string) {
+    return readdirSync(source)
         .map(name => join(source, name))
         .filter(isDirectory)
-const getFiles = source =>
-    readdirSync(source)
+}
+
+function getFiles(source: string) {
+    return readdirSync(source)
         .map(name => join(source, name))
         .filter(isFile)
+}
 
 // Add a bookmarks menu to swap easily between different workspaces.
 // Dynamically generated from my Git folder.
@@ -235,9 +238,10 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
 
     const wikiFolder = join(gitFolder, "notes")
     const wikiEntries = getFiles(wikiFolder)
+    const markdownFiles = wikiEntries.filter(f => extensionMatches(f, ".md"))
 
-    let menuItems = wikiEntries.map(e => ({
-        icon: "wikipedia-w",
+    let menuItems = markdownFiles.map(e => ({
+        icon: "sticky-note",
         detail: e,
         label: e
             .split("\\")
@@ -249,7 +253,7 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
     wikiMenu.setItems(menuItems)
 
     wikiMenu.onItemSelected.subscribe(menuItem => {
-        if (menuItem && menuItem.label !== "Open Folder") {
+        if (menuItem) {
             oni.editors.openFile(menuItem.detail)
         }
     })
@@ -273,9 +277,12 @@ function makeTermMenu(oni: Oni.Plugin.Api, terminals: any[]) {
 
     termMenu.onItemSelected.subscribe(menuItem => {
         if (menuItem) {
-            oni.editors.activeEditor.neovim.command(
-                `call Term_open(${menuItem.metadata.id},` +
-                    `"${menuItem.detail}")`
+            oni.editors.activeEditor.neovim.callFunction(
+                "Term_open",
+                [
+                    menuItem.metadata.id,
+                    menuItem.detail,
+                ]
             )
         }
     })
