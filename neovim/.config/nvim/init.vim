@@ -367,25 +367,33 @@ endif
 
 " VimWiki
 
+if empty($GIT_DEFAULT_DIR)
+    echoerr "$GIT_DEFAULT_DIR isn't set."
+endif
+
 let default_wiki = {}
 
-let default_wiki.path = $GIT_DEFAULT_DIR . "/notes"
+let default_wiki.path = $GIT_DEFAULT_DIR . "/wiki"
 let default_wiki.syntax = 'markdown'
 let default_wiki.ext = ".md"
+let default_wiki.auto_tags = 1
+let default_wiki.list_margin = 0
 
 let g:vimwiki_list = [default_wiki]
 let g:vimwiki_conceallevel = 0
+let g:vimwiki_folding = 'custom'
 
 augroup WikiConfig
     autocmd!
     autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable 
-    autocmd FileType vimwiki setlocal spell spelllang=en_gb " Spellchecking for .tex only
-    autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in .tex files.
-    autocmd FileType vimwiki setlocal conceallevel=0        " Wrap at 80 cols in .tex files.
+    autocmd FileType vimwiki nnoremap <buffer> <leader>wc :VimwikiTOC<CR>
+    autocmd FileType vimwiki setlocal spell spelllang=en_gb " Spellchecking for VimWiki only
+    autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in VimWiki files.
 augroup END
 
 " Nvim Notes config
 
-let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/notes"
+let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/wiki"
 let g:nvim_diary_template#google_cal_name = 'NVim Notes'
+let g:nvim_diary_template#repo_name = 'CrossR/wiki'
 let g:nvim_diary_template#calendar_filter_list = ['Holidays in United Kingdom']
