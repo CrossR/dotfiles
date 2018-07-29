@@ -241,6 +241,10 @@ if !exists('g:gui_oni')
 
     " Tab complete
     Plug 'ervandew/supertab'
+
+    " Show line indentation
+    Plug 'yggdroot/indentLine'
+
 endif
 
 " Git Plugin
@@ -297,8 +301,6 @@ Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 " Better Python Highlighting
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" Show line indentation
-Plug 'yggdroot/indentLine'
 
 " VimWiki + Template Generation
 Plug 'vimwiki/vimwiki'
@@ -326,9 +328,11 @@ let g:polyglot_disabled = ['latex']
 
 " IndentLine
 
-let g:indentLine_enabled = 0
-let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar= '·'
+if !exists('g:gui_oni')
+    let g:indentLine_enabled = 0
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar= '·'
+endif
 
 " Mappings for EasyAlign
 " Interactive EasyAlign for Visual Mode, motions and text objects
