@@ -298,11 +298,7 @@ Plug 'wellle/targets.vim'
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
-" Better Python Highlighting
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-
-" VimWiki + Template Generation
+" VimWiki, Helpers and Diary Generation
 Plug 'vimwiki/vimwiki'
 Plug 'CrossR/nvim_diary_template', {'do': ':UpdateRemotePlugins'}
 
@@ -383,6 +379,35 @@ let g:vimwiki_list = [default_wiki]
 let g:vimwiki_conceallevel = 0
 let g:vimwiki_folding = 'custom'
 
+let g:wiki_scratch_open = 0
+let g:wiki_scratch_buf_nr = 0
+
+function! Wiki_Scratch() abort
+
+    if g:wiki_scratch_open == 1
+        if g:wiki_scratch_buf_nr == bufnr("")
+            setlocal bufhidden=hide
+            hide
+            let g:wiki_scratch_open = 0
+        endif
+    elseif g:wiki_scratch_open == 0
+
+        botright 15new
+        let g:wiki_scratch_open = 1
+
+        try
+            exec "buffer " . g:wiki_scratch_buf_nr
+        catch
+            exec 'edit ' . g:vimwiki_list[0].path . "/Temporary Notes.md"
+            let g:wiki_scratch_buf_nr = bufnr("")
+        endtry
+    endif
+
+endfunction
+
+nnoremap <leader>sw <Plug>VimwikiUISelect
+nnoremap <leader>ws :call Wiki_Scratch()<CR>
+
 augroup WikiConfig
     autocmd!
     autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable 
@@ -391,9 +416,10 @@ augroup WikiConfig
     autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in VimWiki files.
 augroup END
 
-" Nvim Notes config
+" Nvim Diary config
 
 let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/wiki"
 let g:nvim_diary_template#google_cal_name = 'NVim Notes'
 let g:nvim_diary_template#repo_name = 'CrossR/wiki'
 let g:nvim_diary_template#calendar_filter_list = ['Holidays in United Kingdom']
+
