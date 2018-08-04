@@ -48,5 +48,14 @@
         "prefix": "url",
         "body": ["[${1:description}](${2:url})"],
         "description": "A markdown URL link."
+    },
+    "Today": {
+        "prefix": "td",
+        "body": [
+            "## ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}",
+            "",
+            "$0"
+        ],
+        "description": "A heading for today."
     }
 }
