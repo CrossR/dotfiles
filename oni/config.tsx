@@ -2,11 +2,18 @@ import * as React from "react"
 import * as Oni from "oni-api"
 
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs"
-import { extname, join } from "path"
+import { extname, join, posix } from "path"
+import { platform } from "os"
 
 const FONT_STEP = 2
 const SAVE_FONT_CHANGES = false
 const LEADER = ","
+
+const isWindows = platform == "win32"
+const isLinux = platform == "linux"
+const isMac = platform == "darwin"
+
+const pathSeparator = isWindows ? "\\" : "/"
 
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
@@ -73,7 +80,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.bind("<s-c-n>", () => makeTermMenu(oni, terminals))
     oni.input.bind("<s-c-s>", () => makeSessionsMenu(oni))
 
-    oni.input.bind("<a-c-w>", () => makeWikiMenu(oni))
+    oni.input.bind("<s-c-q>", () => makeWikiMenu(oni))
 
     oni.input.bind("<s-c-{>", () =>
         oni.editors.activeEditor.neovim.command("tabprevious")
@@ -175,12 +182,27 @@ export const configuration = {
         ],
     },
 
-    "language.python.languageServer.command": "",
+    "experimental.indentLines.bannedFiletypes": [".md"],
+
+    "language.python.languageServer.command":
+        "F:\\ProgramData\\Anaconda3\\Scripts\\pyls.exe",
 }
 
+// Various helpers for dealing with files easier.
 const isDirectory = source => lstatSync(source).isDirectory()
 const isFile = source => lstatSync(source).isFile()
 const extensionMatches = (source, extension) => extname(source) === extension
+const getFileName = source => source.split(pathSeparator).pop()
+const getFileNameNoExtension = source =>
+    source
+        .split(pathSeparator)
+        .pop()
+        .split(".")[0]
+const getFolder = source =>
+    source
+        .split(pathSeparator)
+        .slice(0, -1)
+        .join(pathSeparator)
 
 function getDirectories(source: string) {
     return readdirSync(source)
@@ -212,7 +234,7 @@ async function makeBookmarksMenu(oni: Oni.Plugin.Api) {
     let menuItems = gitProjects.map(b => ({
         icon: "bookmark",
         detail: b,
-        label: b.split("\\").pop(),
+        label: b.split(pathSeparator).pop(),
     }))
 
     // Add the open folder option as well.
@@ -234,6 +256,23 @@ async function makeBookmarksMenu(oni: Oni.Plugin.Api) {
     })
 }
 
+// Remove unwanted files from the Wiki menu.
+function inWikiBlackList(filename: string) {
+    const ignoredFiles = [
+        "index.md", // Easily accessible with <leader>ww
+        "navigation.md", // Only needed for MDWiki
+        "README.md", // GitHub README file
+    ]
+
+    const matchIndex = ignoredFiles.indexOf(getFileName(filename))
+
+    if (matchIndex !== -1) {
+        return true
+    }
+
+    return false
+}
+
 // Menu to fuzzy search Wiki files.
 async function makeWikiMenu(oni: Oni.Plugin.Api) {
     const wikiMenu = oni.menu.create()
@@ -246,17 +285,16 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
         return
     }
 
-    const wikiFolder = join(gitFolder, "notes")
+    const wikiFolder = join(gitFolder, "wiki")
     const wikiEntries = getFiles(wikiFolder)
-    const markdownFiles = wikiEntries.filter(f => extensionMatches(f, ".md"))
+    const markdownFiles = wikiEntries.filter(
+        f => extensionMatches(f, ".md") && !inWikiBlackList(f)
+    )
 
     let menuItems = markdownFiles.map(e => ({
         icon: "sticky-note",
         detail: e,
-        label: e
-            .split("\\")
-            .pop()
-            .split(".")[0],
+        label: getFileNameNoExtension(e),
     }))
 
     wikiMenu.show()
@@ -287,32 +325,29 @@ function makeTermMenu(oni: Oni.Plugin.Api, terminals: any[]) {
 
     termMenu.onItemSelected.subscribe(menuItem => {
         if (menuItem) {
-            oni.editors.activeEditor.neovim.callFunction(
-                "Term_open",
-                [
-                    menuItem.metadata.id,
-                    menuItem.detail,
-                ]
-            )
+            oni.editors.activeEditor.neovim.callFunction("Term_open", [
+                menuItem.metadata.id,
+                menuItem.detail,
+            ])
         }
     })
 }
 
 // Create a session loading menu.
-function makeSessionsMenu(oni: Oni.Plugin.Api) {
+async function makeSessionsMenu(oni: Oni.Plugin.Api) {
     const sessionMenu = oni.menu.create()
 
-    let sessionsFolder = "C:\\Users\\ryan\\AppData\\Local\\nvim\\sessions"
+    const neovimConfigPath = await oni.editors.activeEditor.neovim.eval(
+        "$MYVIMRC"
+    )
+    const sessionsFolder = join(getFolder(neovimConfigPath), "sessions")
 
     const vimSessions = getFiles(sessionsFolder)
 
     const menuItems = vimSessions.map(s => ({
         icon: "window-restore ",
         detail: s,
-        label: s
-            .split("\\")
-            .pop()
-            .split(".")[0],
+        label: getFileNameNoExtension(s),
     })) as any
 
     menuItems.unshift({
@@ -327,9 +362,7 @@ function makeSessionsMenu(oni: Oni.Plugin.Api) {
 
     sessionMenu.onItemSelected.subscribe(menuItem => {
         if (menuItem) {
-            oni.editors.activeEditor.neovim.command(
-                `source ${menuItem.detail}`
-            )
+            oni.editors.activeEditor.neovim.command(`source ${menuItem.detail}`)
         }
     })
 
