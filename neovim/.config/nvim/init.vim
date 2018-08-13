@@ -96,6 +96,7 @@ augroup TexConfig
     autocmd FileType tex nnoremap <buffer> <F10> <cmd>VimtexTocToggle<CR>
     autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
     autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
+    autocmd FileType tex let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 augroup END
 
 " Clipboard Setup
@@ -300,9 +301,18 @@ Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 " VimWiki, Helpers and Diary Generation
 Plug 'vimwiki/vimwiki'
-Plug 'CrossR/nvim_diary_template', {'do': ':UpdateRemotePlugins'}
+Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins' }
+
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
+
+" Fugitive
+" Add leader bindings
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
 
 " Sneak Options
 " Rebind f/t to use a 1 char sneak.
@@ -369,7 +379,7 @@ endif
 
 let default_wiki = {}
 
-let default_wiki.path = $GIT_DEFAULT_DIR . "/wiki"
+let default_wiki.path = $GIT_DEFAULT_DIR . "/wiki/docs"
 let default_wiki.syntax = 'markdown'
 let default_wiki.ext = ".md"
 let default_wiki.auto_tags = 1
@@ -410,16 +420,64 @@ nnoremap <leader>ws :call Wiki_Scratch()<CR>
 
 augroup WikiConfig
     autocmd!
-    autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable 
+    autocmd FileType vimwiki nnoremap <buffer> <leader>wt ":VimwikiTable "
     autocmd FileType vimwiki nnoremap <buffer> <leader>wc :VimwikiTOC<CR>
+
+    autocmd FileType vimwiki nnoremap <buffer> <F10> <cmd>exec '!mkdocs serve' shellescape(@%,1)<CR>
+
     autocmd FileType vimwiki setlocal spell spelllang=en_gb " Spellchecking for VimWiki only
     autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in VimWiki files.
 augroup END
 
 " Nvim Diary config
 
-let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/wiki"
+let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/wiki/docs/"
+let g:nvim_diary_template#config_path = $GIT_DEFAULT_DIR . "/wiki/config/"
 let g:nvim_diary_template#google_cal_name = 'NVim Notes'
 let g:nvim_diary_template#repo_name = 'CrossR/wiki'
 let g:nvim_diary_template#calendar_filter_list = ['Holidays in United Kingdom']
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+
+" <TAB>: completion.
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+  return deoplete#cancel_popup() . "\<CR>"
+endfunction
+
+if !exists('g:deoplete#sources')
+  let g:deoplete#sources = {}
+endif
+
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer']
+let g:deoplete#sources.vimwiki = ['gh_label', 'file', 'vw_tag', 'omni']
+
+augroup DisableDeoplete
+    autocmd!
+    autocmd FileType typescript let b:deoplete_disable_auto_complete = 1
+    autocmd FileType javascript let b:deoplete_disable_auto_complete = 1
+    autocmd FileType python let b:deoplete_disable_auto_complete = 1
+augroup END
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+
+let g:deoplete#omni#input_patterns.vimwiki = [':']
