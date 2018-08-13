@@ -12,7 +12,7 @@
     "Code": {
         "prefix": "code",
         "body": ["```${1:lang}", "${2:code}", "```"],
-        "description": "An new schedule event for today."
+        "description": "A code block."
     },
     "Link": {
         "prefix": "link",
@@ -72,7 +72,7 @@
     "Code_tab": {
         "prefix": "codetab",
         "body": ["```${1:lang} tab=\"${2:tab}\"", "${3:code}", "```"],
-        "description": "An new schedule event for today."
+        "description": "A code block, with tab to store multiple."
     },
     "Today": {
         "prefix": "td",
