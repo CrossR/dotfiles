@@ -11,7 +11,7 @@
     },
     "Code": {
         "prefix": "code",
-        "body": ["```${1:lang}", "    ${2:code}", "```"],
+        "body": ["```${1:lang}", "${2:code}", "```"],
         "description": "An new schedule event for today."
     },
     "Link": {
@@ -48,6 +48,31 @@
         "prefix": "url",
         "body": ["[${1:description}](${2:url})"],
         "description": "A markdown URL link."
+    },
+    "Footnote": {
+        "prefix": "ftn",
+        "body": ["[^${1:description}]"],
+        "description": "A markdown footnote link."
+    },
+    "Footnote_Content": {
+        "prefix": "ftnc",
+        "body": ["[^${1:description}]:"],
+        "description": "A markdown footnote link."
+    },
+    "tldr": {
+        "prefix": "tldr",
+        "body": ["!!! tldr", "    ${1:content}"],
+        "description": "An abstract block."
+    },
+    "info": {
+        "prefix": "info",
+        "body": ["!!! info", "    ${1:content}"],
+        "description": "An info block."
+    },
+    "Code_tab": {
+        "prefix": "codetab",
+        "body": ["```${1:lang} tab=\"${2:tab}\"", "${3:code}", "```"],
+        "description": "An new schedule event for today."
     },
     "Today": {
         "prefix": "td",
