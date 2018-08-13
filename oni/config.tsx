@@ -277,15 +277,14 @@ function inWikiBlackList(filename: string) {
 async function makeWikiMenu(oni: Oni.Plugin.Api) {
     const wikiMenu = oni.menu.create()
 
-    const gitFolder = await oni.editors.activeEditor.neovim.eval(
-        "$GIT_DEFAULT_DIR"
+    const wikiFolder = await oni.editors.activeEditor.neovim.eval(
+        "g:nvim_diary_template#notes_path"
     )
 
-    if (!gitFolder) {
+    if (!wikiFolder) {
         return
     }
 
-    const wikiFolder = join(gitFolder, "wiki")
     const wikiEntries = getFiles(wikiFolder)
     const markdownFiles = wikiEntries.filter(
         f => extensionMatches(f, ".md") && !inWikiBlackList(f)
