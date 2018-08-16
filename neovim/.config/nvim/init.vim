@@ -132,7 +132,7 @@ cnoreabbrev Wqa wqa
 " Use Conda Env for Python
 
 if has ('nvim') && has('win32')
-    let g:python3_host_prog = $HOME . "/.virtualenvs/nvim_diary_template-mn4AiCuT/Scripts/python.exe"
+    let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template-py3.6/Scripts/python.exe"
 endif
 
 " Terminal toggle setup
