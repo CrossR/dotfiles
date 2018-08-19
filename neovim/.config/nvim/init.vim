@@ -396,6 +396,15 @@ let g:vimwiki_folding = 'custom'
 let g:wiki_scratch_open = 0
 let g:wiki_scratch_buf_nr = 0
 
+" Set all the headers to different colours.
+" Uses highlight groups that should be bound in most colour schemes.
+highlight link VimwikiHeader1 Statement
+highlight link VimwikiHeader2 Identifier
+highlight link VimwikiHeader3 Type
+highlight link VimwikiHeader4 Constant
+highlight link VimwikiHeader5 Include
+highlight link VimwikiHeader6 Title
+
 function! Wiki_Scratch() abort
 
     if g:wiki_scratch_open == 1
