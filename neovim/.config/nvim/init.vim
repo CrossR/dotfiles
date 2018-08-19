@@ -132,7 +132,8 @@ cnoreabbrev Wqa wqa
 " Use Conda Env for Python
 
 if has ('nvim') && has('win32')
-    let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template-py3.6/Scripts/python.exe"
+    let venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.6"
+    let g:python3_host_prog = venv_folder . "/Scripts/python.exe"
 endif
 
 " Terminal toggle setup
@@ -305,6 +306,9 @@ Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins' }
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Python Formatting
+Plug 'ambv/black'
 
 call plug#end()
 
@@ -483,3 +487,8 @@ if !exists('g:deoplete#omni#input_patterns')
 endif
 
 let g:deoplete#omni#input_patterns.vimwiki = [':']
+
+" Black formatter
+
+autocmd BufWritePost *.py execute ':Black'
+let g:black_virtualenv = venv_folder
