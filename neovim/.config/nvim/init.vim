@@ -424,13 +424,17 @@ nnoremap <leader>ws :call Wiki_Scratch()<CR>
 
 augroup WikiConfig
     autocmd!
-    autocmd FileType vimwiki nnoremap <buffer> <leader>wt ":VimwikiTable "
+    autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable<space>
     autocmd FileType vimwiki nnoremap <buffer> <leader>wc :VimwikiTOC<CR>
 
-    autocmd FileType vimwiki nnoremap <buffer> <F10> <cmd>exec '!mkdocs serve' shellescape(@%,1)<CR>
+    autocmd FileType vimwiki nmap <F9> i<C-R>=strftime("%H:%M %p")<CR>
+    autocmd FileType vimwiki imap <F9> <C-R>=strftime("%H:%M %p")<CR>
+
+    autocmd FileType vimwiki nmap <F10> i<C-R>=strftime("%Y-%m-%d %H:%M %p")<CR>
+    autocmd FileType vimwiki imap <F10> <C-R>=strftime("%Y-%m-%d %H:%M %p")<CR>
 
     autocmd FileType vimwiki setlocal spell spelllang=en_gb " Spellchecking for VimWiki only
-    autocmd FileType vimwiki setlocal textwidth=80          " Wrap at 80 cols in VimWiki files.
+    autocmd FileType vimwiki setlocal textwidth=88          " Wrap at 88 cols in VimWiki files.
 augroup END
 
 " Nvim Diary config
