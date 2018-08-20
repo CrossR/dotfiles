@@ -505,3 +505,21 @@ let g:deoplete#omni#input_patterns.vimwiki = [':']
 
 autocmd BufWritePost *.py execute ':Black'
 let g:black_virtualenv = venv_folder
+
+" Spell Highlights
+function! Sort_Spell_Highlights() abort
+
+    if exists('g:gui_oni')
+        highlight clear SpellBad
+        highlight clear SpellCap
+        highlight clear SpellLocal
+        highlight clear SpellRare
+
+        highlight link SpellBad WarningMsg
+        highlight link SpellCap ModeMsg
+        highlight link SpellLocal ModeMsg
+        highlight link SpellRare Question
+    endif
+
+endfunction
+
