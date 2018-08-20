@@ -2,7 +2,7 @@ import * as React from "react"
 import * as Oni from "oni-api"
 
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs"
-import { extname, join, posix } from "path"
+import { extname, join, posix, sep } from "path"
 import { platform } from "os"
 
 const FONT_STEP = 2
@@ -12,8 +12,6 @@ const LEADER = ","
 const isWindows = platform == "win32"
 const isLinux = platform == "linux"
 const isMac = platform == "darwin"
-
-const pathSeparator = isWindows ? "\\" : "/"
 
 export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
@@ -183,26 +181,24 @@ export const configuration = {
     },
 
     "experimental.indentLines.bannedFiletypes": [".md"],
-
-    "language.python.languageServer.command":
-        "F:\\ProgramData\\Anaconda3\\Scripts\\pyls.exe",
 }
 
 // Various helpers for dealing with files easier.
 const isDirectory = source => lstatSync(source).isDirectory()
 const isFile = source => lstatSync(source).isFile()
 const extensionMatches = (source, extension) => extname(source) === extension
-const getFileName = source => source.split(pathSeparator).pop()
+const getFileName = source => source.split(sep).pop()
+const getFolderName = source => source.split(sep).pop()
 const getFileNameNoExtension = source =>
     source
-        .split(pathSeparator)
+        .split(sep)
         .pop()
         .split(".")[0]
 const getFolder = source =>
     source
-        .split(pathSeparator)
+        .split(sep)
         .slice(0, -1)
-        .join(pathSeparator)
+        .join(sep)
 
 function getDirectories(source: string) {
     return readdirSync(source)
@@ -234,7 +230,7 @@ async function makeBookmarksMenu(oni: Oni.Plugin.Api) {
     let menuItems = gitProjects.map(b => ({
         icon: "bookmark",
         detail: b,
-        label: b.split(pathSeparator).pop(),
+        label: b.split(sep).pop(),
     }))
 
     // Add the open folder option as well.
@@ -260,13 +256,18 @@ async function makeBookmarksMenu(oni: Oni.Plugin.Api) {
 function inWikiBlackList(filename: string) {
     const ignoredFiles = [
         "index.md", // Easily accessible with <leader>ww
-        "navigation.md", // Only needed for MDWiki
-        "README.md", // GitHub README file
     ]
 
-    const matchIndex = ignoredFiles.indexOf(getFileName(filename))
+    const ignoredFolders = [
+        "diary", // No need for these.
+    ]
 
-    if (matchIndex !== -1) {
+    const fileMatchIndex = ignoredFiles.indexOf(getFileName(filename))
+    const folderMatchIndex = ignoredFolders.indexOf(
+        getFolderName(getFolder(filename))
+    )
+
+    if (fileMatchIndex !== -1 || folderMatchIndex !== -1) {
         return true
     }
 
@@ -285,7 +286,14 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
         return
     }
 
-    const wikiEntries = getFiles(wikiFolder)
+    const allFolders = getDirectories(wikiFolder)
+
+    let wikiEntries = getFiles(wikiFolder)
+
+    for (const folder of allFolders) {
+        wikiEntries = wikiEntries.concat(getFiles(folder))
+    }
+
     const markdownFiles = wikiEntries.filter(
         f => extensionMatches(f, ".md") && !inWikiBlackList(f)
     )
