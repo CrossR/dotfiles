@@ -210,9 +210,21 @@ function getDirectories(source: string) {
 }
 
 function getFiles(source: string) {
-    return readdirSync(source)
-        .map(name => join(source, name))
-        .filter(isFile)
+    const allFolderContents = readdirSync(source).map(name =>
+        join(source, name)
+    )
+
+    let files = []
+
+    for (const folderContent of allFolderContents) {
+        if (isDirectory(folderContent)) {
+            files = files.concat(getFiles(folderContent))
+        } else if (isFile(folderContent)) {
+            files.push(folderContent)
+        }
+    }
+
+    return files
 }
 
 // Add a bookmarks menu to swap easily between different workspaces.
@@ -289,13 +301,7 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
         return
     }
 
-    const allFolders = getDirectories(wikiFolder)
-
     let wikiEntries = getFiles(wikiFolder)
-
-    for (const folder of allFolders) {
-        wikiEntries = wikiEntries.concat(getFiles(folder))
-    }
 
     const markdownFiles = wikiEntries.filter(
         f => extensionMatches(f, ".md") && !inWikiBlackList(f)
