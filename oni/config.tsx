@@ -209,7 +209,7 @@ function getDirectories(source: string) {
         .filter(isDirectory)
 }
 
-function getFiles(source: string) {
+function getAllFiles(source: string) {
     const allFolderContents = readdirSync(source).map(name =>
         join(source, name)
     )
@@ -218,7 +218,7 @@ function getFiles(source: string) {
 
     for (const folderContent of allFolderContents) {
         if (isDirectory(folderContent)) {
-            files = files.concat(getFiles(folderContent))
+            files = files.concat(getAllFiles(folderContent))
         } else if (isFile(folderContent)) {
             files.push(folderContent)
         }
@@ -301,7 +301,7 @@ async function makeWikiMenu(oni: Oni.Plugin.Api) {
         return
     }
 
-    let wikiEntries = getFiles(wikiFolder)
+    let wikiEntries = getAllFiles(wikiFolder)
 
     const markdownFiles = wikiEntries.filter(
         f => extensionMatches(f, ".md") && !inWikiBlackList(f)
@@ -358,7 +358,7 @@ async function makeSessionsMenu(oni: Oni.Plugin.Api) {
     )
     const sessionsFolder = join(getFolder(neovimConfigPath), "sessions")
 
-    const vimSessions = getFiles(sessionsFolder)
+    const vimSessions = getAllFiles(sessionsFolder)
 
     const menuItems = vimSessions.map(s => ({
         icon: "window-restore ",
