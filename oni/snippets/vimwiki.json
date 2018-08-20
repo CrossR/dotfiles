@@ -59,11 +59,6 @@
         "body": ["[^${1:description}]: $0"],
         "description": "The content for a footnote link."
     },
-    "tldr": {
-        "prefix": "tldr",
-        "body": ["!!! tldr", "    ${1:content}"],
-        "description": "An abstract block."
-    },
     "info": {
         "prefix": "info",
         "body": ["!!! info", "    ${1:content}"],
@@ -92,5 +87,15 @@
         "prefix": "abstract",
         "body": ["??? abstract", "    $1"],
         "description": "A closed abstract block."
+    },
+    "Paper": {
+        "prefix": "paper",
+        "body": [
+            "**Full Paper Name:** ${1: title} [^${2}].",
+            "",
+            "??? abstract",
+            "    $3"
+        ],
+        "description": "A papers full name."
     }
 }
