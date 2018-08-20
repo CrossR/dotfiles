@@ -56,8 +56,8 @@
     },
     "Footnote_Content": {
         "prefix": "ftnc",
-        "body": ["[^${1:description}]:"],
-        "description": "A markdown footnote link."
+        "body": ["[^${1:description}]: $0"],
+        "description": "The content for a footnote link."
     },
     "tldr": {
         "prefix": "tldr",
@@ -82,5 +82,15 @@
             "$0"
         ],
         "description": "A heading for today."
+    },
+    "tags": {
+        "prefix": "tags",
+        "body": ["**Tags:**"],
+        "description": "VimWiki Tags list."
+    },
+    "abstract": {
+        "prefix": "abstract",
+        "body": ["??? abstract", "    $1"],
+        "description": "A closed abstract block."
     }
 }
