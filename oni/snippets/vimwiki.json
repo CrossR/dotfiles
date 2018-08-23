@@ -91,7 +91,7 @@
     "Paper": {
         "prefix": "paper",
         "body": [
-            "**Full Paper Name:** ${1: title} [^${2}].",
+            "**Full Paper Name:** ${1: title} [^${2}]",
             "",
             "??? abstract",
             "    $3"
