@@ -17,9 +17,10 @@ export const activate = (oni: Oni.Plugin.Api) => {
     console.log("Config activated.")
 
     // General helpers
-    const currentFile = oni.editors.activeEditor.activeBuffer.filePath
-    const currentExtension = oni.editors.activeEditor.activeBuffer.language
-    const currentProject = oni.workspace.activeWorkspace
+    const currentFile = () => oni.editors.activeEditor.activeBuffer.filePath
+    const currentExtension = () =>
+        oni.editors.activeEditor.activeBuffer.language
+    const currentProject = () => oni.workspace.activeWorkspace
 
     const isVisualMode = () => oni.editors.activeEditor.mode === "visual"
     const isNormalMode = () => oni.editors.activeEditor.mode === "normal"
