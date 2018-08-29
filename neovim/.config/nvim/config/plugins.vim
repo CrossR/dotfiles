@@ -1,22 +1,31 @@
 "Plugin Config
 
 " Auto install vim-plug
-let vimplug=expand('~/.config/nvim/autoload/plug.vim')
 
-if !filereadable(vimplug) && !has('win32')
-    if !executable("curl")
-        echoerr "vim-plug will need to be manually installed, as curl is not available."
-        execute "q!"
+if has('win32')
+    let vimplug=expand('~/AppData/Local/nvim/autoload/plug.vim')
+
+    if !filereadable(vimplug)
+        echo "Installing vim-plug..."
+        silent !powershell -Command "new-item \%LOCALAPPDATA\%/nvim/autoload -itemtype directory"
+        silent !powershell -Command "(new-object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim', '\%LOCALAPPDATA\%/nvim/autoload/plug.vim')"
     endif
-    echo "Installing vim-plug..."
-    echo  ""
-    silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
-" Plugin install location and list of plugins
 if !has('win32')
-    call plug#begin('~/.config/nvim/plugged')
-else
+    let vimplug=expand('~/.config/nvim/autoload/plug.vim')
+
+    if !filereadable(vimplug)
+        if !executable("curl")
+            echoerr "vim-plug will need to be manually installed, as curl is not available."
+            execute "q!"
+        endif
+        echo "Installing vim-plug..."
+        silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    endif
+
     call plug#begin('~/AppData/Local/nvim/plugged')
 endif
 
