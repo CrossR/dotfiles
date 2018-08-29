@@ -1,5 +1,9 @@
 " Black
 
+if !has('python3')
+    finish
+endif
+
 autocmd BufWritePost *.py execute ':Black'
 
 if exists('g:venv_folder')

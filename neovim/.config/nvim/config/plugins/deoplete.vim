@@ -1,5 +1,9 @@
 " Deoplete
 
+if !has('python3')
+    finish
+endif
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
 

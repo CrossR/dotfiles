@@ -1,5 +1,9 @@
 " nvim_diary_template
 
+if !has('python3')
+    finish
+endif
+
 let g:nvim_diary_template#notes_path = $GIT_DEFAULT_DIR . "/wiki/docs/"
 let g:nvim_diary_template#config_path = $GIT_DEFAULT_DIR . "/wiki/config/"
 let g:nvim_diary_template#auto_generate_diary_index = 1

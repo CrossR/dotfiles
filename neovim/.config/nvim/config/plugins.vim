@@ -86,13 +86,16 @@ Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
 " VimWiki, Helpers and Diary Generation
 Plug 'vimwiki/vimwiki'
-Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins' }
 
-" Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('python3')
+    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins' }
 
-" Python Formatting
-Plug 'ambv/black'
+    " Autocomplete
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+    " Python Formatting
+    Plug 'ambv/black'
+endif
 
 call plug#end()
 
