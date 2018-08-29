@@ -111,7 +111,7 @@ export const configuration = {
     "tabs.showIndex": true,
     "browser.enabled": true,
 
-    "experimental.welcome.enabled": false,
+    "experimental.welcome.enabled": true,
 
     "experimental.markdownPreview.enabled": true,
     "experimental.markdownPreview.syntaxTheme": "gruvbox-dark",

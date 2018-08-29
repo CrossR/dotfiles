@@ -45,7 +45,7 @@ function! Wiki_Scratch() abort
         try
             exec "buffer " . g:wiki_scratch_buf_nr
         catch
-            exec 'edit ' . g:vimwiki_list[0].path . "/Temporary Notes.md"
+            exec 'edit ' . g:vimwiki_list[0].path . "/misc/TemporaryNotes.md"
             let g:wiki_scratch_buf_nr = bufnr("")
         endtry
     endif

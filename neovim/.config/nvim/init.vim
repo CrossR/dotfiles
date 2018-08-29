@@ -28,7 +28,7 @@ function! Source(file) abort
     catch
         echohl WarningMsg
         echom 'Error: ----->' . v:exception
-        echom 'Could not load' . a:file
+        echom 'Could not load ' . a:file
         echohl none
     endtry
 endfunction
