@@ -11,3 +11,4 @@ endfunction
 command! ProjectFiles execute 'Files' s:find_git_root()
 
 nnoremap <c-p> :ProjectFiles<cr>
+

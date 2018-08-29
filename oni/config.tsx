@@ -36,9 +36,6 @@ export const activate = (oni: Oni.Plugin.Api) => {
         `call Term_toggle_setup(${terminals.length})`
     )
 
-    // Call the highlight linking when activating.
-    oni.editors.activeEditor.neovim.command(`call Sort_Spell_Highlights()`)
-
     // Take a screenshot on Control+Enter is pressed
     oni.input.bind("<c-enter>", () => oni.recorder.takeScreenshot())
 

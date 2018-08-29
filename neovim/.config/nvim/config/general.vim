@@ -78,10 +78,9 @@ endif
 " Setup Python Env
 if has ('nvim') && has('win32')
     let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.6"
-
     let g:python3_host_prog = g:venv_folder . "/Scripts/python.exe"
 elseif has('nvim') && !has('win32')
-    let g:python3_host_prog = $PYTHONPATH
+    let g:python3_host_prog = expand($PYTHONPATH) . '/python'
 endif
 
 " Fix spell highlights in Oni.
