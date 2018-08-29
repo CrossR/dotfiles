@@ -8,7 +8,7 @@ neovim/\.config/nvim/sessions/*
 neovim/\.config/nvim/rplugin\.vim
 
 # Ignore everything in the Oni folder, except the config and snippets.
-oni
+oni/*
 !oni/config.tsx
 !oni/snippets/*
 

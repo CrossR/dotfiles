@@ -112,7 +112,7 @@ export const configuration = {
     "configuration.showReferenceBuffer": false,
 
     "tabs.showIndex": true,
-    // "browser.enabled": true,
+    "browser.enabled": true,
 
     "experimental.welcome.enabled": false,
 
