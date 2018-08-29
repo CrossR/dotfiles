@@ -13,11 +13,23 @@
 
 ### How to Unpack
 
+#### Linux/MacOS
+
 Use GNU Stow to unpack the folders, and it will symlink them to the correct
 location. This is achieved with the following command:
 `stow config`
 By default this will unpack to the folder above the current one, so the
 repo should be cloned to the home directory.
+
+#### Windows
+
+For neovim and Oni, instead just setup folder junctions such that the git
+folder is used to store the config in. This is achieved with:
+
+```batch
+mklink /J %APPDATA%\Oni oni
+mklink /J %LOCALAPPDATA%\nvim neovim\.config\nvim
+```
 
 ### Other Steps
 
