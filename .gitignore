@@ -1,10 +1,11 @@
 #Ignore all the plugins and spelling
-neovim/.config/nvim/plugged/*
-neovim/.config/nvim/autoload/*
-neovim/.config/nvim/spell
-neovim/.config/nvim/.netrwhist
-neovim/.config/nvim/undodir/*
-neovim/.config/nvim/sessions/*
+neovim/\.config/nvim/plugged/*
+neovim/\.config/nvim/autoload/*
+neovim/\.config/nvim/spell
+neovim/\.config/nvim/\.netrwhist
+neovim/\.config/nvim/undodir/*
+neovim/\.config/nvim/sessions/*
+neovim/\.config/nvim/rplugin\.vim
 
 
 #Ignore log files and such
@@ -12,3 +13,4 @@ neovim/.config/nvim/sessions/*
 mpd/.config/mpd/*
 *.swp
 *.log
+
