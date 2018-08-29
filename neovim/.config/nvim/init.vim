@@ -1,5 +1,10 @@
 " Most config is stored in an individual file in the `config` folder.
 
+" Clear all
+augroup initvim
+    autocmd!
+augroup END
+
 " Function to load multiple config files.
 function! LoadPluginConfig() abort
     let l:plugin_folder = g:config_folder . 'plugins'

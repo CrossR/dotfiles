@@ -101,6 +101,9 @@ function! Sort_Spell_Highlights() abort
 endfunction
 
 if exists('g:gui_oni')
-    call Sort_Spell_Highlights()
+    augroup FixSpelling
+        autocmd!
+        autocmd BufEnter * call Sort_Spell_Highlights()
+    augroup END
 endif
 
