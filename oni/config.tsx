@@ -125,6 +125,7 @@ export const configuration = {
     "experimental.colorHighlight.enabled": true,
     "experimental.indentLines.enabled": true,
     "experimental.vcs.sidebar": true,
+    "experimental.sessions.enabled": true,
 
     "debug.showTypingPrediction": true,
     "debug.showNotificationOnError": true,
