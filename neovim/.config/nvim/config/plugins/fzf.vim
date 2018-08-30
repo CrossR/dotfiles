@@ -12,3 +12,10 @@ command! ProjectFiles execute 'Files' s:find_git_root()
 
 nnoremap <c-p> :ProjectFiles<cr>
 
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+            \       'rg --column --line-number --no-heading --smart-case --color=always '.shellescape(<q-args>), 0,
+            \       {'options': '--no-hscroll --delimiter : --nth 4..'},
+            \       <bang>0)
+
+nnoremap <c-f> :Rg<cr>
