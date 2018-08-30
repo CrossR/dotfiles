@@ -40,7 +40,12 @@ endfunction
 
 " Source all the other config.
 
-let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/config/'
+if has('win32')
+    let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/config/'
+else
+    let g:config_folder = expand('~/.config/nvim/config/')
+endif
+
 call Source('general.vim')
 call Source('mappings.vim')
 call Source('plugins.vim')
