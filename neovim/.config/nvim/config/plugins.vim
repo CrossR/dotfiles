@@ -104,6 +104,13 @@ if has('python3')
 
     " Python Formatting
     Plug 'ambv/black', { 'for': 'python' }
+
+    if !has('win32')
+        " Autocomplete for Python
+        Plug 'ncm2/ncm2'
+        Plug 'roxma/nvim-yarp'
+        Plug 'ncm2/ncm2-jedi'
+    endif
 endif
 
 call plug#end()

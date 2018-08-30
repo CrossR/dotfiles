@@ -20,6 +20,7 @@ set expandtab             " Insert spaces not tabs
 
 set list                  " Show all whitespace
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set shortmess+=c          " Remove match x of y etc
 
 set ignorecase            " Ignore case for searching
 set smartcase             " Use smart cases for search
