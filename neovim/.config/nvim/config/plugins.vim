@@ -26,7 +26,7 @@ if !has('win32')
         silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 
-    call plug#begin('~/AppData/Local/nvim/plugged')
+    call plug#begin('~/.config/nvim/plugged')
 endif
 
 if !exists('g:gui_oni')
