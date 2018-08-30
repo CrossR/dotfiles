@@ -103,8 +103,10 @@ if has('python3')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
     " Python Formatting
-    Plug 'ambv/black'
+    Plug 'ambv/black', { 'for': 'python' }
 endif
+
+Plug 'tweekmonster/startuptime.vim'
 
 call plug#end()
 
