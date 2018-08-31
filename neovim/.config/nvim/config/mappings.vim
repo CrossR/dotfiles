@@ -1,13 +1,20 @@
 " Mappings
 
 " Remaps
+let mapleader = ","  " Set leader to ,
+
 nmap j gj
 nmap k gk
-let mapleader = ","  " Set leader to ,
-vnoremap . <cmd>norm.<CR>
+
+vnoremap . :normal .<CR>
+
 command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
+
+" Esc to leave terminal
 tnoremap <Esc> <C-\><C-n>
-nnoremap <C-L> <cmd>nohlsearch<CR><C-L>
+
+" Stop highlighting the current search on enter
+nnoremap <CR> <cmd>nohlsearch<CR><CR>
 
 " Setup moving between splits.
 " Not set in Oni since Oni needs a more complete solution to work
