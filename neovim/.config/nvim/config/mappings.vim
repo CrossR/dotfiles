@@ -9,6 +9,17 @@ command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edi
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-L> <cmd>nohlsearch<CR><C-L>
 
+" Setup moving between splits.
+" Not set in Oni since Oni needs a more complete solution to work
+" with the various nvim instance in its UI, so this is set in the
+" Oni config.tsx.
+if !exists('g:gui_oni')
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
+endif
+
 " Fix clumsy typing to quit
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
