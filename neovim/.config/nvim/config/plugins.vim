@@ -37,6 +37,9 @@ if !exists('g:gui_oni')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
+    " Set working folder
+    Plug 'airblade/vim-rooter'
+
     " Show line indentation
     Plug 'yggdroot/indentLine'
 
