@@ -14,8 +14,10 @@ nnoremap <c-p> :ProjectFiles<cr>
 
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
-            \       'rg --column --line-number --no-heading --smart-case --color=always '.shellescape(<q-args>), 0,
-            \       {'options': '--no-hscroll --delimiter : --nth 4..'},
-            \       <bang>0)
+            \ 'rg --vimgrep --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>),
+            \ 1,
+            \ {'options': '--delimiter : --nth 4..'},
+            \ <bang>0
+            \ )
 
-nnoremap <c-f> :Rg<cr>
+nnoremap <c-f> :Rg<space>
