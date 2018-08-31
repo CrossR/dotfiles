@@ -43,6 +43,11 @@ if !exists('g:gui_oni')
     " Show line indentation
     Plug 'yggdroot/indentLine'
 
+    " Focused writing
+    " Can be moved to Oni once fixed.
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+
 endif
 
 " Git Plugin
