@@ -6,7 +6,7 @@ endif
 
 nnoremap <c-p> :GFiles<cr>
 
-command! -bang -nargs=* Rg
+command! -bang -nargs=* GLines
             \ call fzf#vim#grep(
             \ 'rg --vimgrep --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>),
             \ 1,
@@ -14,4 +14,4 @@ command! -bang -nargs=* Rg
             \ <bang>0
             \ )
 
-nnoremap <c-f> :Rg<space>
+nnoremap <c-f> :GLines<space>
