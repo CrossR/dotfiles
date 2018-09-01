@@ -101,11 +101,14 @@ Plug 'wellle/targets.vim'
 " Autogen Python docstrings
 Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 
-" VimWiki, Helpers and Diary Generation
+" VimWiki, a personal wiki
 Plug 'vimwiki/vimwiki'
 
+" Write slides in MarkDown
+Plug 'idbrii/vim-remarkjs', { 'on': 'RemarkPreview' }
+
 if has('python3')
-    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins' }
+    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'vimwiki' }
 
     " Autocomplete
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -117,7 +120,7 @@ if has('python3')
         " Autocomplete for Python
         Plug 'ncm2/ncm2'
         Plug 'roxma/nvim-yarp'
-        Plug 'ncm2/ncm2-jedi'
+        Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
     endif
 endif
 
