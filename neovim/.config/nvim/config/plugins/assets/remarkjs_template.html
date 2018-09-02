@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<!--
+    Taken from https://github.com/whiteinge/presentations/blob/master/index.html
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+        @page {
+            size: 908px 681px;
+            margin: 0;
+        }
+        @media print {
+            .remark-slide-scaler {
+                width: 100% !important;
+                height: 100% !important;
+                transform: scale(1) !important;
+                top: 0 !important;
+                left: 0 !important;
+            }
+        }
+        body { font-family: 'Times'; }
+        h1, h2, h3 {
+            font-family: 'Times';
+            font-weight: normal;
+        }
+        .footnote {
+            position: absolute;
+            bottom: 3em;
+        }
+        .remark-code, .remark-inline-code { font-family: 'Hasklig'; }
+        a, a > code {
+            color: rgb(249, 38, 114);
+            text-decoration: none;
+        }
+        code {
+            background: #e7e8e2;
+            border-radius: 5px;
+        }
+        .remark-code-line-highlighted     { background-color: #373832; }
+        .pull-left {
+            float: left;
+            width: 47%;
+        }
+        .pull-right {
+            float: right;
+            width: 47%;
+        }
+        .pull-right ~ p {
+            clear: both;
+        }
+        .remark-slide blockquote {
+            text-align: left;
+        }
+        .remark-slide pre code {
+            font-family: 'Hasklig';
+            font-size: 0.9em;
+            padding: 15px;
+            text-align: left;
+        }
+        .inverse {
+            background: #272822;
+            color: #777872;
+            text-shadow: 0 0 20px #333;
+        }
+        .inverse h1, .inverse h2 {
+            color: #f3f3f3;
+            line-height: 0.8em;
+        }
+        .left-column {
+            color: #777;
+            width: 20%;
+            height: 92%;
+            float: left;
+        }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+            color: #000;
+        }
+        .right-column {
+            width: 75%;
+            float: right;
+            padding-top: 1em;
+        }
+        </style>
+
+        <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    </head>
+    <body>
+    <textarea id="source">
+
+REPLACE_ME
+
+    </textarea>
+        <script>
+        var slideshow = remark.create({
+            navigation: {
+                scroll: false,
+            },
+            highlightLines: true,
+            countIncrementalSlides: false,
+        });
+
+        /**
+        Copy examples to clipboard on click
+         **/
+        setTimeout(function() {
+            var xs = document.querySelectorAll('pre')
+            Array.prototype.forEach.call(xs, x => {
+                x.addEventListener('click', function() {
+                    var sel = window.getSelection();
+                    sel.removeAllRanges();
+                    var range = document.createRange();
+                    sel.addRange(range);
+                    range.selectNodeContents(this);
+                    document.execCommand('copy');
+                    sel.removeAllRanges();
+                });
+            });
+        }, 500);
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+        <script type="text/javascript">
+            var options = {};
+            var renderMath = function() {
+                renderMathInElement(
+                    document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "$", right: "$", display: false},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\(", right: "\\)", display: false},
+                        ]
+                    }
+                );
+            }
+            var slideshow = remark.create(options, renderMath);
+
+        </script>
+    </body>
+</html>
