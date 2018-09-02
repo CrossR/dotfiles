@@ -100,7 +100,7 @@ Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
 Plug 'vimwiki/vimwiki'
 
 " Write slides in MarkDown
-Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' , 'branch': 'custom_config'}
+Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
 
 " Focused writing
 Plug 'junegunn/goyo.vim'
