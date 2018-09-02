@@ -43,11 +43,6 @@ if !exists('g:gui_oni')
     " Show line indentation
     Plug 'yggdroot/indentLine'
 
-    " Focused writing
-    " Can be moved to Oni once fixed.
-    Plug 'junegunn/goyo.vim'
-    Plug 'junegunn/limelight.vim'
-
 endif
 
 " Git Plugin
@@ -106,6 +101,10 @@ Plug 'vimwiki/vimwiki'
 
 " Write slides in MarkDown
 Plug 'idbrii/vim-remarkjs', { 'on': 'RemarkPreview' }
+
+" Focused writing
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 if has('python3')
     Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'vimwiki' }
