@@ -107,6 +107,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
 if has('python3')
+    " Diary templates with GitHub + GCal integration
     Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'vimwiki' }
 
     " Autocomplete

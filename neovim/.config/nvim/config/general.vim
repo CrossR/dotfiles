@@ -51,7 +51,6 @@ function! Check_folder_exists(folder_name) abort
     endif
 endfunction
 
-
 if !has('win32')
     call Check_folder_exists("~/.config/nvim")
     call Check_folder_exists("~/.config/nvim/spell")
@@ -107,4 +106,7 @@ if exists('g:gui_oni')
         autocmd BufEnter * call Sort_Spell_Highlights()
     augroup END
 endif
+
+" Save as root.
+command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
 

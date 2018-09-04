@@ -8,8 +8,6 @@ nmap k gk
 
 vnoremap . :normal .<CR>
 
-command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
-
 " Esc to leave terminal
 tnoremap <Esc> <C-\><C-n>
 
