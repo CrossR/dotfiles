@@ -41,7 +41,7 @@
     },
     "Image": {
         "prefix": "image",
-        "body": ["![${1:description}](${2:url})"],
+        "body": ["![${1:description}](./images/${2})"],
         "description": "An inline image link."
     },
     "URL": {
