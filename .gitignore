@@ -12,7 +12,6 @@ oni/*
 !oni/config.tsx
 !oni/snippets/*
 
-
 # Ignore log files and such.
 !mpd/.config/mpd/mpd.conf
 mpd/.config/mpd/*

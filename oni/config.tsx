@@ -103,9 +103,9 @@ export const configuration = {
     "ui.colorscheme": "gruvbox_dark",
 
     "editor.renderer": "webgl",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Consolas",
     "editor.fontSize": "14",
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
 
     "configuration.showReferenceBuffer": false,
 
