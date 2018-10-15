@@ -103,5 +103,10 @@
             "[^1]: ${5:url}"
         ],
         "description": "Page template for a paper."
+    },
+    "filter": {
+        "prefix": "filter",
+        "body": ["$${1:size} \\times ${1:size}$"],
+        "description": "A filter size placeholder."
     }
 }
