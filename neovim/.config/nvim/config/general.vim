@@ -110,3 +110,11 @@ endif
 " Save as root.
 command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
 
+" Automatically swap the current working directory.
+" However, only in insert mode so we maintain the project wide directory
+" normally.
+augroup AutoChdirHack
+    autocmd!
+    autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+    autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
+augroup END
