@@ -55,18 +55,18 @@ endfunction
 if !has('win32')
 
     if has('nvim')
-        call check_folder_exists("~/.config/nvim")
-        call check_folder_exists("~/.config/nvim/spell")
-        call check_folder_exists("~/.config/nvim/undodir")
-        call check_folder_exists("~/.config/nvim/sessions")
+        call Check_folder_exists("~/.config/nvim")
+        call Check_folder_exists("~/.config/nvim/spell")
+        call Check_folder_exists("~/.config/nvim/undodir")
+        call Check_folder_exists("~/.config/nvim/sessions")
 
         set spellfile=~/.config/nvim/spell/en.utf-8.add
         set undodir=~/.config/nvim/undodir
     else
-        call check_folder_exists("~/.vim")
-        call check_folder_exists("~/.vim/spell")
-        call check_folder_exists("~/.vim/undodir")
-        call check_folder_exists("~/.vim/sessions")
+        call Check_folder_exists("~/.vim")
+        call Check_folder_exists("~/.vim/spell")
+        call Check_folder_exists("~/.vim/undodir")
+        call Check_folder_exists("~/.vim/sessions")
 
         set spellfile=~/.vim/spell/en.utf-8.add
         set undodir=~/.vim/undodir
