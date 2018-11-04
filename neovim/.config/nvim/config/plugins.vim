@@ -74,9 +74,6 @@ Plug 'tpope/vim-unimpaired'
 " Better sessions
 Plug 'tpope/vim-obsession'
 
-" Async linting
-Plug 'w0rp/ale'
-
 " Language packs
 Plug 'sheerun/vim-polyglot'
 
@@ -120,6 +117,17 @@ Plug 'CrossR/vim-fhicl'
 if has('nvim')
     " Add back --remote, needed for VimTeX
     Plug 'mhinz/neovim-remote', { 'for': 'tex' }
+endif
+
+if has('nvim')
+    let s:has_features = has('timers') && has('nvim-0.2.0')
+else
+    let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')
+endif
+
+if s:has_fearures
+    " Async linting
+    Plug 'w0rp/ale'
 endif
 
 if has('python3') && has('nvim')
