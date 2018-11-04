@@ -52,13 +52,23 @@ function! Check_folder_exists(folder_name) abort
 endfunction
 
 if !has('win32')
-    call Check_folder_exists("~/.config/nvim")
-    call Check_folder_exists("~/.config/nvim/spell")
-    call Check_folder_exists("~/.config/nvim/undodir")
-    call Check_folder_exists("~/.config/nvim/sessions")
 
-    set spellfile=~/.config/nvim/spell/en.utf-8.add
-    set undodir=~/.config/nvim/undodir
+    if has('nvim')
+        let l:version = "nvim"
+    else
+        let l:version = "vim"
+    endif
+
+    call Check_folder_exists("~/.config/" . l:version)
+    call Check_folder_exists("~/.config/" . l:version . "/spell")
+    call Check_folder_exists("~/.config/" . l:version . "/undodir")
+    call Check_folder_exists("~/.config/" . l:version . "/sessions")
+
+    let l:spellfile= "~/.config/" . l:version . "/spell/en.utf-8.add"
+    set spellfile=l:spell_file
+
+    let l:undodir= "~/.config/" . l:version . "/undodir"
+    set undodir=l:undodir
 else
     call Check_folder_exists("~/AppData/Local/nvim")
     call Check_folder_exists("~/AppData/Local/nvim/spell")
@@ -77,7 +87,7 @@ endif
 
 " Setup Python Env
 if has ('nvim') && has('win32')
-    let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.6"
+    let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.7"
     let g:python3_host_prog = g:venv_folder . "/Scripts/python.exe"
 elseif has('nvim') && !has('win32')
     let g:python3_host_prog = expand($PYTHONPATH) . '/python'

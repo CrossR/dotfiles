@@ -15,7 +15,14 @@ if has('win32')
 endif
 
 if !has('win32')
-    let vimplug=expand('~/.config/nvim/autoload/plug.vim')
+
+    if has('nvim')
+        let l:install_dir = "~/.config/nvim/autoload/plug.vim"
+    else
+        let l:install_dir = "~/.vim/autoload/plug.vim"
+    endif
+
+    let vimplug=expand(l:install_dir)
 
     if !filereadable(vimplug)
         if !executable("curl")
@@ -23,10 +30,10 @@ if !has('win32')
             execute "q!"
         endif
         echo "Installing vim-plug..."
-        silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        silent !\curl -fLo l:install_dir --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 
-    call plug#begin('~/.config/nvim/plugged')
+    call plug#begin(l:install_dir)
 endif
 
 if !exists('g:gui_oni')
@@ -72,9 +79,6 @@ Plug 'sheerun/vim-polyglot'
 " Vim TeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
-" Add back --remote, needed for VimTeX
-Plug 'mhinz/neovim-remote', { 'for': 'tex' }
-
 " Git diff in gutter
 Plug 'airblade/vim-gitgutter'
 
@@ -106,7 +110,15 @@ Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-if has('python3')
+" Helpers for FHICL files
+Plug 'CrossR/vim-fhicl'
+
+if has('nvim')
+    " Add back --remote, needed for VimTeX
+    Plug 'mhinz/neovim-remote', { 'for': 'tex' }
+endif
+
+if has('python3') && has('nvim')
     " Diary templates with GitHub + GCal integration
     Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'vimwiki' }
 
