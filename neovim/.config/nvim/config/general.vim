@@ -55,20 +55,19 @@ endfunction
 if !has('win32')
 
     if has('nvim')
-        let s:version = "nvim"
-    else
-        let s:version = "vim"
-    endif
+        call check_folder_exists("~/.config/nvim")
+        call check_folder_exists("~/.config/nvim/spell")
+        call check_folder_exists("~/.config/nvim/undodir")
+        call check_folder_exists("~/.config/nvim/sessions")
 
-    call Check_folder_exists("~/.config/" . s:version)
-    call Check_folder_exists("~/.config/" . s:version . "/spell")
-    call Check_folder_exists("~/.config/" . s:version . "/undodir")
-    call Check_folder_exists("~/.config/" . s:version . "/sessions")
-
-    if has('nvim')
         set spellfile=~/.config/nvim/spell/en.utf-8.add
         set undodir=~/.config/nvim/undodir
     else
+        call check_folder_exists("~/.vim")
+        call check_folder_exists("~/.vim/spell")
+        call check_folder_exists("~/.vim/undodir")
+        call check_folder_exists("~/.vim/sessions")
+
         set spellfile=~/.vim/spell/en.utf-8.add
         set undodir=~/.vim/undodir
     endif
