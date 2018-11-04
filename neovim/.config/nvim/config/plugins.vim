@@ -33,7 +33,11 @@ if !has('win32')
         silent !\curl -fLo s:install_dir --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 
-    call plug#begin(s:install_dir)
+    if has('nvim')
+        call plug#begin("~/.config/nvim/plugged")
+    else
+        call plug#begin("~/.vim/plugged")
+    endif
 endif
 
 if !exists('g:gui_oni')
