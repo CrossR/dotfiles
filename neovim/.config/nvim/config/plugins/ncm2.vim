@@ -1,6 +1,6 @@
 " ncm2
 
-if exists('g:gui_oni')
+if exists('g:gui_oni') || !has('nvim')
     finish
 endif
 

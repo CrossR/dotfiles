@@ -9,7 +9,9 @@ nmap k gk
 vnoremap . :normal .<CR>
 
 " Esc to leave terminal
-tnoremap <Esc> <C-\><C-n>
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
 
 " Stop highlighting the current search on enter
 nnoremap <CR> <cmd>nohlsearch<CR><CR>

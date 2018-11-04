@@ -17,12 +17,12 @@ endif
 if !has('win32')
 
     if has('nvim')
-        let l:install_dir = "~/.config/nvim/autoload/plug.vim"
+        let s:install_dir = "~/.config/nvim/autoload/plug.vim"
     else
-        let l:install_dir = "~/.vim/autoload/plug.vim"
+        let s:install_dir = "~/.vim/autoload/plug.vim"
     endif
 
-    let vimplug=expand(l:install_dir)
+    let vimplug=expand(s:install_dir)
 
     if !filereadable(vimplug)
         if !executable("curl")
@@ -30,10 +30,10 @@ if !has('win32')
             execute "q!"
         endif
         echo "Installing vim-plug..."
-        silent !\curl -fLo l:install_dir --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        silent !\curl -fLo s:install_dir --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     endif
 
-    call plug#begin(l:install_dir)
+    call plug#begin(s:install_dir)
 endif
 
 if !exists('g:gui_oni')

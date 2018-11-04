@@ -28,6 +28,7 @@ set lazyredraw            " No redraws in macros
 
 set undofile
 set hidden
+set mouse=a               " Enable the mouse
 
 if !exists('g:gui_oni')
     set laststatus=2      " Needed for AirLine to show.
@@ -54,21 +55,23 @@ endfunction
 if !has('win32')
 
     if has('nvim')
-        let l:version = "nvim"
+        let s:version = "nvim"
     else
-        let l:version = "vim"
+        let s:version = "vim"
     endif
 
-    call Check_folder_exists("~/.config/" . l:version)
-    call Check_folder_exists("~/.config/" . l:version . "/spell")
-    call Check_folder_exists("~/.config/" . l:version . "/undodir")
-    call Check_folder_exists("~/.config/" . l:version . "/sessions")
+    call Check_folder_exists("~/.config/" . s:version)
+    call Check_folder_exists("~/.config/" . s:version . "/spell")
+    call Check_folder_exists("~/.config/" . s:version . "/undodir")
+    call Check_folder_exists("~/.config/" . s:version . "/sessions")
 
-    let l:spellfile= "~/.config/" . l:version . "/spell/en.utf-8.add"
-    set spellfile=l:spell_file
-
-    let l:undodir= "~/.config/" . l:version . "/undodir"
-    set undodir=l:undodir
+    if has('nvim')
+        set spellfile=~/.config/nvim/spell/en.utf-8.add
+        set undodir=~/.config/nvim/undodir
+    else
+        set spellfile=~/.vim/spell/en.utf-8.add
+        set undodir=~/.vim/undodir
+    endif
 else
     call Check_folder_exists("~/AppData/Local/nvim")
     call Check_folder_exists("~/AppData/Local/nvim/spell")

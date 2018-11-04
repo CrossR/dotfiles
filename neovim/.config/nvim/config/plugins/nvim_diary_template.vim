@@ -1,6 +1,6 @@
 " nvim_diary_template
 
-if !has('python3')
+if !has('python3') || !has('nvim')
     finish
 endif
 
