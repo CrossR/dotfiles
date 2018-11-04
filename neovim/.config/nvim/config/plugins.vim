@@ -54,6 +54,8 @@ if !exists('g:gui_oni')
     " Show line indentation
     Plug 'yggdroot/indentLine'
 
+    " Colourscheme
+    Plug 'morhetz/gruvbox'
 endif
 
 " Git Plugin
@@ -125,7 +127,7 @@ else
     let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')
 endif
 
-if s:has_fearures
+if s:has_features
     " Async linting
     Plug 'w0rp/ale'
 endif
