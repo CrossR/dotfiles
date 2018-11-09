@@ -130,3 +130,10 @@ augroup AutoChdirHack
     autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
     autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 augroup END
+
+" Tidy up the colour scheme when on SSH.
+" desert seems to be similar to the default, without the awful dark blue
+" comments.
+if $SSH_CONNECTION
+    colorscheme desert
+endif
