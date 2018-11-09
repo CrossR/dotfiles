@@ -13,9 +13,6 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 endif
 
-" Stop highlighting the current search on enter
-nnoremap <CR> <cmd>nohlsearch<CR><CR>
-
 " Setup moving between splits.
 " Not set in Oni since Oni needs a more complete solution to work
 " with the various nvim instance in its UI, so this is set in the
