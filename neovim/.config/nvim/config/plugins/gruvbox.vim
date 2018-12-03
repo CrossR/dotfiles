@@ -5,4 +5,5 @@ if exists('g:gui_oni')
 endif
 
 colorscheme gruvbox
+set background=dark
 

@@ -56,6 +56,12 @@ if !exists('g:gui_oni')
 
     " Colourscheme
     Plug 'morhetz/gruvbox'
+
+    " Tmux bingings
+    Plug 'christoomey/vim-tmux-navigator'
+
+    " Start screen
+    Plug 'mhinz/vim-startify'
 endif
 
 " Git Plugin
@@ -115,6 +121,9 @@ Plug 'junegunn/limelight.vim'
 
 " Helpers for FHICL files
 Plug 'CrossR/vim-fhicl'
+
+" C++ Enhancments
+Plug 'bfrg/vim-cpp-modern'
 
 if has('nvim')
     " Add back --remote, needed for VimTeX
