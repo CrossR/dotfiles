@@ -57,9 +57,6 @@ if !exists('g:gui_oni')
     " Colourscheme
     Plug 'morhetz/gruvbox'
 
-    " Tmux bingings
-    Plug 'christoomey/vim-tmux-navigator'
-
     " Start screen
     Plug 'mhinz/vim-startify'
 endif
@@ -147,9 +144,6 @@ if has('python3') && has('nvim')
 
     " Autocomplete
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-    " Python Formatting
-    Plug 'ambv/black', { 'for': 'python' }
 
     if !has('win32')
         " Autocomplete for Python
