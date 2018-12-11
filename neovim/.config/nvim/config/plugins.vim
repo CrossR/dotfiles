@@ -51,9 +51,6 @@ if !exists('g:gui_oni')
     " Set working folder
     Plug 'airblade/vim-rooter'
 
-    " Show line indentation
-    Plug 'yggdroot/indentLine'
-
     " Colourscheme
     Plug 'morhetz/gruvbox'
 
