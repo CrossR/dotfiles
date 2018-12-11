@@ -103,9 +103,6 @@ Plug 'machakann/vim-highlightedyank'
 " Add additional text objects
 Plug 'wellle/targets.vim'
 
-" Autogen Python docstrings
-Plug 'heavenshell/vim-pydocstring', { 'for': 'python' }
-
 " VimWiki, a personal wiki
 Plug 'vimwiki/vimwiki'
 
@@ -119,7 +116,7 @@ Plug 'junegunn/limelight.vim'
 " Helpers for FHICL files
 Plug 'CrossR/vim-fhicl'
 
-" C++ Enhancments
+" C++ Enhancements
 Plug 'bfrg/vim-cpp-modern'
 
 if has('nvim')

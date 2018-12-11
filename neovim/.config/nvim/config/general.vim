@@ -1,37 +1,40 @@
-" General config
+" General configuration
 
-set number                " Line numbers
-set incsearch             " Incremental search
+set number                " Line numbers.
+set incsearch             " Incremental search.
 
-                          " Sort out splits
-set splitright            " Open vsplits on the right
-set splitbelow            " Open splits on the bottom
+                          " Sort out splits.
+set splitright            " Open vsplits on the right.
+set splitbelow            " Open splits on the bottom.
 
-                          " Deal with GUI duplications
+                          " Deal with GUI duplications.
 set noshowmode            " Stop mode text showing.
-set noshowcmd             " Disable the CMD line
-set noruler               " Disable the line ruler
+set noshowcmd             " Disable the CMD line.
+set noruler               " Disable the line ruler.
 
-                          " Sort out Tabs
+                          " Sort out Tabs.
 filetype plugin indent on " Add indentation as needed.
 set softtabstop=4         " A tab feels like 4 spaces.
-set shiftwidth=4          " This affects >> and <<, to make them move by 4 spaces.
-set expandtab             " Insert spaces not tabs
+set shiftwidth=4          " This affects >> and <<, to make them move by 4 spaces..
+set expandtab             " Insert spaces not tabs.
 
-set list                  " Show all whitespace
+set list                  " Show all whitespace.
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set shortmess+=c          " Remove match x of y etc
+set shortmess+=c          " Remove match x of y etc.
+set conceallevel=0        " Don't conceal anything.
 
-set ignorecase            " Ignore case for searching
-set smartcase             " Use smart cases for search
-set lazyredraw            " No redraws in macros
+set ignorecase            " Ignore case for searching.
+set smartcase             " Use smart cases for search.
+set lazyredraw            " No redraws in macros.
 
-set undofile
-set hidden
-set mouse=a               " Enable the mouse
+set undofile              " Store changes in an undo file (location below).
+set hidden                " Don't dispose of buffers when unloaded.
+set mouse=a               " Enable the mouse.
+
+set spell spelllang=en_gb " Spell checking.
 
 if !exists('g:gui_oni')
-    set laststatus=2      " Needed for AirLine to show.
+    set laststatus=2      " Needed for LightLine to show.
     syntax on             " Syntax highlighting
 else
     set laststatus=0      " Disable any status bar, since we are inside Oni.
@@ -141,5 +144,5 @@ endif
 " Remove line numbers from the terminal.
 augroup TerminalFix
    au!
-  autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd TermOpen * setlocal nonumber norelativenumber nospell
 augroup END
