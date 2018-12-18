@@ -56,6 +56,9 @@ if !exists('g:gui_oni')
 
     " Start screen
     Plug 'mhinz/vim-startify'
+
+    " Tmux helper
+    Plug 'tmux-plugins/vim-tmux-focus-events'
 endif
 
 " Git Plugin
@@ -144,6 +147,7 @@ if has('python3') && has('nvim')
         Plug 'ncm2/ncm2'
         Plug 'roxma/nvim-yarp'
         Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
+        Plug 'ncm2/ncm2-pyclang', { 'for': 'cpp' }
     endif
 endif
 
