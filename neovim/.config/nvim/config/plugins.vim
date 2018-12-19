@@ -43,6 +43,7 @@ endif
 if !exists('g:gui_oni')
     " Bottom status bar, not needed for Oni.
     Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
 
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
