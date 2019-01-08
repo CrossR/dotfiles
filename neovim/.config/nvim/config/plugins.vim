@@ -120,6 +120,9 @@ Plug 'CrossR/vim-fhicl'
 " C++ Enhancements
 Plug 'bfrg/vim-cpp-modern'
 
+" Buffer closing
+Plug 'artnez/vim-wipeout'
+
 if has('nvim')
     " Add back --remote, needed for VimTeX
     Plug 'mhinz/neovim-remote', { 'for': 'tex' }
