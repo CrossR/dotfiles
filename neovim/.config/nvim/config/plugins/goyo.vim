@@ -1,20 +1,17 @@
 " goyo
 
-if exists('g:gui_oni')
-    let g:goyo_width = 90
-    let g:goyo_linenr = 1
-else
-    let g:goyo_width = 90
-    let g:goyo_linenr = 1
-endif
+let g:goyo_linenr = 0
+let g:goyo_width = 90
 
 function! Toggle_goyo()
-  if has('termguicolors') && !&termguicolors
+  if exists('g:gui_oni') && has('termguicolors') && !&termguicolors
       set termguicolors
       :Goyo
-  elseif has('termguicolors') && &termguicolors
+  elseif exists('g:gui_oni') && has('termguicolors') && &termguicolors
       :Goyo
       set notermguicolors
+  else
+    :Goyo
   endif
 endfunction
 
