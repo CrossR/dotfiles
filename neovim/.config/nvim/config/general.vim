@@ -84,12 +84,6 @@ else
     set undodir=~/AppData/Local/nvim/undodir
 endif
 
-" Clipboard Setup
-if has ('nvim') && !exists('g:gui_oni')
-    runtime! python_setup vim
-    set clipboard+=unnamedplus
-endif
-
 " Setup Python Env
 if has ('nvim') && has('win32')
     let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.7"
@@ -99,6 +93,8 @@ elseif has('nvim') && !has('win32')
 endif
 
 " Fix spell highlights in Oni.
+" Oni doesn't currently have all forms of highlights (undercurls/lines, bold
+" etc), so clear the default highlighting and use stuff we know will work.
 function! Sort_Spell_Highlights() abort
 
     if exists('g:gui_oni')
@@ -143,6 +139,6 @@ endif
 
 " Remove line numbers from the terminal.
 augroup TerminalFix
-   au!
-  autocmd TermOpen * setlocal nonumber norelativenumber nospell
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber nospell
 augroup END
