@@ -1,7 +1,5 @@
 " Fugitive
 
-" Add leader bindings
-nnoremap <leader>gd :Gdiff<CR>
+" Bindings
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit<CR>
 
