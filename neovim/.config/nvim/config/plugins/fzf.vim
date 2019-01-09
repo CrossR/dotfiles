@@ -4,7 +4,7 @@ if exists('g:gui_oni')
     finish
 endif
 
-nnoremap <c-p> :GFiles<cr>
+nnoremap <c-p> <cmd>GFiles<cr>
 
 command! -bang -nargs=* GLines
             \ call fzf#vim#grep(

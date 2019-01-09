@@ -1,5 +1,5 @@
 " Fugitive
 
 " Bindings
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs <cmd>Gstatus<CR>
 

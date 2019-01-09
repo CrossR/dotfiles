@@ -6,7 +6,7 @@ let mapleader = ","  " Set leader to ,
 nmap j gj
 nmap k gk
 
-vnoremap . :normal .<CR>
+vnoremap . <cmd>normal .<CR>
 
 " Esc to leave terminal
 if has('nvim')

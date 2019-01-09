@@ -53,12 +53,12 @@ function! Wiki_Scratch() abort
 endfunction
 
 nnoremap <leader>sw <Plug>VimwikiUISelect
-nnoremap <leader>ws :call Wiki_Scratch()<CR>
+nnoremap <leader>ws <cmd>call Wiki_Scratch()<CR>
 
 augroup WikiConfig
     autocmd!
     autocmd FileType vimwiki nnoremap <buffer> <leader>wt :VimwikiTable<space>
-    autocmd FileType vimwiki nnoremap <buffer> <leader>wc :VimwikiTOC<CR>
+    autocmd FileType vimwiki nnoremap <buffer> <leader>wc <cmd>VimwikiTOC<CR>
 
     autocmd FileType vimwiki nmap <F7> i<C-R>=strftime("%H:%M %p")<CR>
     autocmd FileType vimwiki imap <F7> <C-R>=strftime("%H:%M %p")<CR>

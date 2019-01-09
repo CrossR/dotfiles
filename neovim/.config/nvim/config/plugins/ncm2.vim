@@ -5,7 +5,7 @@ if exists('g:gui_oni') || !has('nvim')
 endif
 
 autocmd BufEnter python,c,cpp call ncm2#enable_for_buffer()
-autocmd FileType c,cpp nnoremap <buffer> gd :<c-u>call ncm2_pyclang#goto_declaration()<cr>
+autocmd FileType c,cpp nnoremap <buffer> gd <cmd><c-u>call ncm2_pyclang#goto_declaration()<cr>
 
 set completeopt=noinsert,menuone,noselect
 
