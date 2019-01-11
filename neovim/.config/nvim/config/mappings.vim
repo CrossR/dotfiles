@@ -6,6 +6,9 @@ let mapleader = ","  " Set leader to ,
 nmap j gj
 nmap k gk
 
+noremap <Leader>y "+y
+noremap <Leader>p "+p
+
 vnoremap . <cmd>normal .<CR>
 
 " Esc to leave terminal
