@@ -58,8 +58,9 @@ if !exists('g:gui_oni')
     " Start screen
     Plug 'mhinz/vim-startify'
 
-    " Tmux helper
+    " Tmux helpers
     Plug 'tmux-plugins/vim-tmux-focus-events'
+    Plug 'christoomey/vim-tmux-navigator'
 endif
 
 " Git Plugin

@@ -16,17 +16,6 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 endif
 
-" Setup moving between splits.
-" Not set in Oni since Oni needs a more complete solution to work
-" with the various nvim instance in its UI, so this is set in the
-" Oni config.tsx.
-if !exists('g:gui_oni')
-    nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
-    nnoremap <C-L> <C-W><C-L>
-    nnoremap <C-H> <C-W><C-H>
-endif
-
 " Fix clumsy typing to quit
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
