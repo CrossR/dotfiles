@@ -13,7 +13,7 @@ endif
 
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer']
-let g:deoplete#sources.vimwiki = ['gh_label', 'gh_repo', 'file', 'vw_tag', 'omni']
+let g:deoplete#sources.vimwiki = ['gh_label', 'gh_repo', 'google_cals', 'file', 'vw_tag', 'omni']
 let g:deoplete#sources.python = []
 let g:deoplete#sources.typescript = []
 let g:deoplete#sources.javascript = []
