@@ -19,7 +19,6 @@ set shiftwidth=4          " This affects >> and <<, to make them move by 4 space
 set expandtab             " Insert spaces not tabs.
 
 set list                  " Show all whitespace.
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set shortmess+=c          " Remove match x of y etc.
 set conceallevel=0        " Don't conceal anything.
 
@@ -32,6 +31,9 @@ set hidden                " Don't dispose of buffers when unloaded.
 set mouse=a               " Enable the mouse.
 
 set spell spelllang=en_gb " Spell checking.
+
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set fillchars=fold:\ 
 
 if !exists('g:gui_oni')
     set laststatus=2      " Needed for LightLine to show.
