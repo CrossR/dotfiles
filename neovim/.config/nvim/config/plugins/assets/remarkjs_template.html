@@ -9,6 +9,7 @@
         <title>REPLACE_TITLE</title>
         <meta charset="utf-8">
         <style>
+
         @page {
             size: 908px 681px;
             margin: 0;
@@ -24,66 +25,31 @@
             }
         }
 
-        body { font-family: 'Times'; }
-
-        h1, h2, h3 {
-            font-family: 'Times';
-            font-weight: normal;
-        }
-
-        .footnote {
-            position: absolute;
-            bottom: 3em;
-        }
-
-        .remark-code, .remark-inline-code { font-family: 'Consolas'; }
-
         a, a > code {
             color: rgb(249, 38, 114);
             text-decoration: none;
         }
 
-        code {
-            background: #e7e8e2;
-            border-radius: 5px;
+        .footnote {
+            position: absolute;
+            bottom: 3em;
+            padding-right: 4em;
+            font-size: 90%;
         }
 
-        .pull-left {
-            float: left;
-            width: 47%;
-        }
-
-        .pull-right {
-            float: right;
-            width: 47%;
-        }
-
-        .pull-right ~ p {
-            clear: both;
-        }
-
-        .remark-slide blockquote {
-            text-align: left;
-        }
-
-        .remark-slide pre code {
-            font-family: 'Consolas';
-            font-size: 0.9em;
-            padding: 15px;
-            text-align: left;
-        }
+        .remark-code-line-highlighted     { background-color: #ffff88; }
 
         .inverse {
-            background: #272822;
-            color: #777872;
+            background-color: #272822;
+            color: #d6d6d6;
             text-shadow: 0 0 20px #333;
         }
 
-        .inverse h1, .inverse h2 {
+        .inverse h1, .inverse h2, .inverse h3 {
             color: #f3f3f3;
-            line-height: 0.8em;
         }
 
+        /* Two-column layout */
         .left-column {
             color: #777;
             width: 20%;
@@ -99,6 +65,53 @@
             width: 75%;
             float: right;
             padding-top: 1em;
+        }
+
+        .pull-left {
+            float: left;
+            width: 47%;
+        }
+
+        .pull-right {
+            float: right;
+            width: 47%;
+        }
+
+        .pull-right ~ * {
+            clear: both;
+        }
+
+        img, video, iframe {
+            max-width: 100%;
+        }
+
+        blockquote {
+            border-left: solid 5px lightgray;
+            padding-left: 1em;
+        }
+
+        .remark-slide table {
+            margin: auto;
+            border-top: 1px solid #666;
+            border-bottom: 1px solid #666;
+        }
+
+        .remark-slide table thead th { border-bottom: 1px solid #ddd; }
+
+        th, td {
+            padding: 1px;
+            font-size: 0.6em;
+        }
+
+        .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+
+        .remark-code, .remark-inline-code { font-family: 'Consolas'; }
+
+        .remark-slide pre code {
+            font-family: 'Consolas';
+            font-size: 0.9em;
+            padding: 15px;
+            text-align: left;
         }
         </style>
 
@@ -133,6 +146,14 @@ REPLACE_ME
                     ]
                 }
             );
+        }
+
+        /*
+        Image macro for scaling
+        */
+        remark.macros.img = function (altText, width) {
+            var url = this;
+            return `<img alt="${altText}" src="${url}" style="width: ${width}" />`
         }
 
         var slideshow = remark.create(options, renderMath);
