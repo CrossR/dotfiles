@@ -98,8 +98,6 @@ endif
 " Oni doesn't currently have all forms of highlights (undercurls/lines, bold
 " etc), so clear the default highlighting and use stuff we know will work.
 function! Sort_Spell_Highlights() abort
-
-    if exists('g:gui_oni')
         highlight clear SpellBad
         highlight clear SpellCap
         highlight clear SpellLocal
@@ -109,16 +107,12 @@ function! Sort_Spell_Highlights() abort
         highlight link SpellCap ModeMsg
         highlight link SpellLocal ModeMsg
         highlight link SpellRare Question
-    endif
-
 endfunction
 
-if exists('g:gui_oni')
-    augroup FixSpelling
-        autocmd!
-        autocmd BufEnter * call Sort_Spell_Highlights()
-    augroup END
-endif
+augroup FixSpelling
+    autocmd!
+    autocmd BufEnter * call Sort_Spell_Highlights()
+augroup END
 
 " Save as root.
 command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
