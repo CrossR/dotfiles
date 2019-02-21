@@ -12,7 +12,7 @@ function! Gstatus_Wrapper() abort
         if winwidth(0) >= 160
             exec 'vertical topleft 80Gstatus'
         else
-            exec 'bottom 20Gstatus'
+            exec 'botright Gstatus'
         endif
     endif
 endfunction
