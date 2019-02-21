@@ -1,6 +1,11 @@
 " Fugitive
 
 function! Gstatus_Wrapper() abort
+
+    if ! exists(':Gstatus')
+        return
+    endif
+
     if buflisted(bufname('.git/index'))
         bd .git/index
     else
