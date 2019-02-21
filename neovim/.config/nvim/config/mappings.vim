@@ -9,7 +9,7 @@ nmap k gk
 noremap <Leader>y "+y
 noremap <Leader>p "+p
 
-vnoremap . <cmd>normal .<CR>
+vnoremap <silent> . :normal .<CR>
 
 " Esc to leave terminal
 if has('nvim')
