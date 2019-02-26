@@ -9,232 +9,338 @@
         <title>REPLACE_TITLE</title>
         <meta charset="utf-8">
         <style>
-        @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700');
-        @import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i');
-        @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
+            @import url("https://fonts.googleapis.com/css?family=Oswald:300,400,700");
+            @import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i");
+            @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700");
 
-
-        @page {
-            size: 908px 681px;
-            margin: 0;
-        }
-
-        @media print {
-            .remark-slide-scaler {
-                width: 100% !important;
-                height: 100% !important;
-                transform: scale(1) !important;
-                top: 0 !important;
-                left: 0 !important;
+            @media print {
+                .remark-slide-scaler {
+                    width: 100% !important;
+                    height: 100% !important;
+                    transform: scale(1) !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                }
             }
-        }
 
-        /* Default */
-        a, a > code {
-            color: rgb(249, 38, 114);
-            text-decoration: none;
-        }
+            /* Default */
+            a,
+            a > code {
+                color: rgb(249, 38, 114);
+                text-decoration: none;
+            }
 
-        .footnote {
-            position: absolute;
-            bottom: 3em;
-            padding-right: 4em;
-            font-size: 70%;
-            font-family: 'EB Garamond';
-        }
+            .footnote {
+                position: absolute;
+                bottom: 3em;
+                padding-right: 4em;
+                font-size: 60%;
+            }
 
-        /* Two-column layout */
-        .left-column {
-            color: #777;
-            width: 20%;
-            height: 92%;
-            float: left;
-        }
+            /* Two-column layout */
+            .left-column {
+                color: #777;
+                width: 20%;
+                height: 92%;
+                float: left;
+            }
 
-        .left-column h2:last-of-type, .left-column h3:last-child {
-            color: #000;
-        }
+            .left-column h2:last-of-type,
+            .left-column h3:last-child {
+                color: #000;
+            }
 
-        .right-column {
-            width: 75%;
-            float: right;
-            padding-top: 1em;
-        }
+            .right-column {
+                width: 75%;
+                float: right;
+                padding-top: 1em;
+            }
 
-        .pull-left {
-            float: left;
-            width: 47%;
-        }
+            .pull-left {
+                float: left;
+                width: 47%;
+            }
 
-        .pull-right {
-            float: right;
-            width: 47%;
-        }
+            .pull-right {
+                float: right;
+                width: 47%;
+            }
 
-        .pull-right ~ * {
-            clear: both;
-        }
+            .pull-right ~ * {
+                clear: both;
+            }
 
-        img, video, iframe {
-            max-width: 100%;
-        }
+            img,
+            video,
+            iframe {
+                max-width: 100%;
+            }
 
-        blockquote {
-            border-left: solid 5px lightgray;
-            padding-left: 1em;
-        }
+            blockquote {
+                border-left: solid 5px lightgray;
+                padding-left: 1em;
+            }
 
-        .remark-slide table {
-            margin: auto;
-            border-top: 1px solid #666;
-            border-bottom: 1px solid #666;
-        }
+            .remark-slide table {
+                margin: auto;
+                border-top: 1px solid #666;
+                border-bottom: 1px solid #666;
+            }
 
-        .remark-slide table thead th { border-bottom: 1px solid #ddd; }
+            .remark-slide table thead th {
+                border-bottom: 1px solid #ddd;
+            }
 
-        th, td {
-            padding: 1px;
-            font-size: 0.6em;
-        }
+            th,
+            td {
+                padding: 1px;
+                font-size: 0.6em;
+            }
 
-        .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+            .remark-slide thead,
+            .remark-slide tfoot,
+            .remark-slide tr:nth-child(even) {
+                background: #eee;
+            }
 
-        /* Various left and right split columns*/
+            /* Various left and right split columns*/
 
-        .pull-left-70 { float: left; width: 66.5%; }
-        .pull-right-30 { float: right; width: 28.5%; }
-        .pull-right-30 ~ * { clear: both; }
+            .pull-left-70 {
+                float: left;
+                width: 66.5%;
+            }
+            .pull-right-30 {
+                float: right;
+                width: 28.5%;
+            }
+            .pull-right-30 ~ * {
+                clear: both;
+            }
 
-        .pull-left-60 { float: left; width: 57%; }
-        .pull-right-40 { float: right; width: 38%; }
-        .pull-right-40 ~ * { clear: both; }
+            .pull-left-60 {
+                float: left;
+                width: 57%;
+            }
+            .pull-right-40 {
+                float: right;
+                width: 38%;
+            }
+            .pull-right-40 ~ * {
+                clear: both;
+            }
 
-        .pull-left-50 { float: left; width: 47.5%; }
-        .pull-right-50 { float: right; width: 47.5%; }
-        .pull-right-50 ~ * { clear: both; }
+            .pull-left-50 {
+                float: left;
+                width: 47.5%;
+            }
+            .pull-right-50 {
+                float: right;
+                width: 47.5%;
+            }
+            .pull-right-50 ~ * {
+                clear: both;
+            }
 
-        .pull-left-40 { float: left; width: 38%; }
-        .pull-right-60 { float: right; width: 57%; }
-        .pull-right-60 ~ * { clear: both; }
+            .pull-left-40 {
+                float: left;
+                width: 38%;
+            }
+            .pull-right-60 {
+                float: right;
+                width: 57%;
+            }
+            .pull-right-60 ~ * {
+                clear: both;
+            }
 
-        .pull-left-30 { float: left; width: 28.5%; }
-        .pull-right-70 { float: right; width: 66.5%; }
-        .pull-right-70 ~ * { clear: both; }
+            .pull-left-30 {
+                float: left;
+                width: 28.5%;
+            }
+            .pull-right-70 {
+                float: right;
+                width: 66.5%;
+            }
+            .pull-right-70 ~ * {
+                clear: both;
+            }
 
-        /* headers and fonts*/
-        h1, h2, h3 {
-          margin-top: 0;
-          padding-top: 0.5em;
-          font-family: 'Oswald';
-          font-weight: 400;
-          margin-left: 0;
-        }
+            /* headers and fonts*/
+            h1,
+            h2,
+            h3 {
+                margin-top: 0;
+                padding-top: 0.5em;
+                font-family: "Oswald";
+                font-weight: 400;
+                margin-left: 0;
+            }
 
-        .large {
-          font-size: 23px;
-        }
+            .large {
+                font-size: 23px;
+            }
 
-        .medium {
-          font-size: 20px;
-        }
+            .medium {
+                font-size: 20px;
+            }
 
-        .small {
-          font-size: 15px;
-        }
+            .small {
+                font-size: 15px;
+            }
 
-        .remark-slide-content {
-          border-bottom: 8px solid #B5121B;
-          padding: 1em 2em 1em 2em;
-        }
+            .remark-slide-content {
+                padding: 1em 2em 1em 2em;
+            }
 
-        .inverse {
-          background-color: #121316;
-          color: #ffffff;
-        }
+            .inverse {
+                background-color: #121316;
+                color: #ffffff;
+            }
 
-        /* header colors are the same regardless of inverse or not*/
-        .remark-slide-content h1, .inverse h1 {
-          color: #B5121B;
-          font-size: 35px;
-        }
+            /* header colors are the same regardless of inverse or not*/
+            .remark-slide-content h1,
+            .inverse h1 {
+                color: #b5121b;
+                font-size: 35px;
+            }
 
-        .remark-slide-content h2, .inverse h2 {
-          color: #b7b7b7;
-          font-size: 30px;
-        }
+            .remark-slide-content h2,
+            .inverse h2 {
+                color: #b7b7b7;
+                font-size: 30px;
+            }
 
-        .remark-slide-content h3, .inverse h3 {
-          color: #5b5b5b;
-          font-size: 25px;
-        }
+            .remark-slide-content h3,
+            .inverse h3 {
+                color: #5b5b5b;
+                font-size: 25px;
+            }
 
-        .title-slide h1  {
-          color: #B5121B;
-          font-size: 50px;
-          font-weight: 500;
-          text-align: left;
-          margin-left: 40px;
-          padding-top: 60px;
-        }
-        .title-slide h2  {
-          color: #555656;
-          font-size: 35px;
-          font-weight: 350;
-          text-align: left;
-          margin-left: 40px;
-          margin-top: -25px;
-          padding-bottom: -20px;
-        }
-        .title-slide h3  {
-          color: #555656;
-          font-size: 25px;
-          font-weight: 300;
-          text-align: left;
-          margin-left: 40px;
-          margin-bottom: 0;
-        }
+            .title-slide h1 {
+                color: #b5121b;
+                font-size: 50px;
+                font-weight: 500;
+                text-align: left;
+                margin-left: 40px;
+                padding-top: 60px;
+            }
+            .title-slide h2 {
+                color: #555656;
+                font-size: 35px;
+                font-weight: 350;
+                text-align: left;
+                margin-left: 40px;
+                margin-top: -25px;
+                padding-bottom: -20px;
+            }
+            .title-slide h3 {
+                color: #555656;
+                font-size: 25px;
+                font-weight: 300;
+                text-align: left;
+                margin-left: 40px;
+                margin-bottom: 0;
+            }
 
-        /* slide number */
-        .remark-slide-number {
-          font-size: 10pt;
-          font-family: 'EB Garamond';
-          color: #272822;
-          opacity: 1;
-        }
-        .inverse .remark-slide-number {
-          font-size: 10pt;
-          font-family: 'EB Garamond';
-          color: #FAFAFA;
-          opacity: 1;
-        }
+            /* slide number */
+            .remark-slide-number {
+                font-size: 10pt;
+                font-family: "Oswald";
+                color: #272822;
+                opacity: 1;
+                height: 13px;
+            }
+            .inverse .remark-slide-number {
+                font-size: 10pt;
+                font-family: "Oswald";
+                color: #fafafa;
+                opacity: 1;
+                height: 13px;
+            }
 
-        /* code */
-        .remark-inline-code {
-          border-radius: 1px;
-          padding: 0;
-          background: #e0e0e0;
-        }
+            /* code */
+            .remark-inline-code {
+                border-radius: 1px;
+                padding: 0;
+                background: #e0e0e0;
+            }
 
-        .inverse .remark-inline-code {
-          background: #333333;
-        }
+            .inverse .remark-inline-code {
+                background: #333333;
+            }
 
-        .remark-code-line-highlighted {
-          background-color: #ffead3;
-        }
+            .remark-code-line-highlighted {
+                background-color: #ffead3;
+            }
 
-        body { font-family: 'EB Garamond', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif; }
-        h1, h2, h3 { font-family: 'Oswald'; }
-        .remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; font-size: 80%;}
+            /* Header / Footer */
+            div.my-header {
+                background-color: #b5121b;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                height: 5px;
+                width: 100%;
+                text-align: left;
+            }
+
+            div.my-footer {
+                border-top: 5px solid #b5121b;
+                font-size: 10pt;
+                font-family: "Oswald";
+                text-align: center;
+                position: fixed;
+                bottom: 0px;
+                left: 0px;
+                height: 30px;
+                width: 100%;
+                display: table;
+            }
+
+            div.my-footer p {
+                margin-top: 10px;
+                height: 30px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            div.my-footer img {
+                height: 30px;
+                bottom: 0px;
+                left: 0px;
+                position: fixed;
+            }
+
+            body {
+                font-family: "EB Garamond", "Palatino Linotype", "Book Antiqua",
+                    Palatino, "Microsoft YaHei", "Songti SC", serif;
+            }
+            h1,
+            h2,
+            h3 {
+                font-family: "Oswald";
+            }
+            .remark-code,
+            .remark-inline-code {
+                font-family: "Source Code Pro", "Lucida Console", Monaco,
+                    monospace;
+                font-size: 80%;
+            }
+>>>>>>> Stashed changes
         </style>
 
         <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
     </head>
     <body>
-    <textarea id="source">
+        <textarea id="source">
+layout: true
+<div class="my-header"></div>
+<div class="my-footer"><p>REPLACE_DATE_HERE</p></div>
 
+---
 REPLACE_ME
 
+<<<<<<< Updated upstream
     </textarea>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js"></script>
@@ -251,43 +357,78 @@ REPLACE_ME
             renderMathInElement(
                 document.body,
                 {
-                    delimiters: [
-                        {left: "$$", right: "$$", display: true},
-                        {left: "$", right: "$", display: false},
-                        {left: "\\[", right: "\\]", display: true},
-                        {left: "\\(", right: "\\)", display: false},
-                    ]
-                }
-            );
-        }
+=======
+    </textarea
+        >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/contrib/auto-render.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"
+        />
+        <script type="text/javascript">
+            /* Set the page size dynamically */
+            ;(function() {
+                var d = document,
+                    s = d.createElement("style"),
+                    r = d.querySelector(".remark-slide-scaler")
+                if (!r) return
+                s.type = "text/css"
+                s.innerHTML =
+                    "@page { size: " +
+                    r.style.width +
+                    " " +
+                    r.style.height +
+                    "; }"
+                d.head.appendChild(s)
+            })()
 
-        /*
+            var options = {
+                highlightLines: true,
+                highlightStyle: "github",
+
+                countIncrementalSlides: false,
+            }
+
+            var renderMath = function() {
+                renderMathInElement(document.body, {
+>>>>>>> Stashed changes
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\[", right: "\\]", display: true },
+                        { left: "\\(", right: "\\)", display: false },
+                    ],
+                })
+            }
+
+            /*
         Image macro for scaling
         */
-        remark.macros.img = function (altText, width) {
-            var url = this;
-            return `<img alt="${altText}" src="${url}" style="width: ${width}" />`
-        }
+            remark.macros.img = function(altText, width) {
+                var url = this
+                return `<img alt="${altText}" src="${url}" style="width: ${width}" />`
+            }
 
-        var slideshow = remark.create(options, renderMath);
+            var slideshow = remark.create(options, renderMath)
 
-        /**
+            /**
         Copy examples to clipboard on click
          **/
-        setTimeout(function() {
-            var xs = document.querySelectorAll('pre')
-            Array.prototype.forEach.call(xs, x => {
-                x.addEventListener('click', function() {
-                    var sel = window.getSelection();
-                    sel.removeAllRanges();
-                    var range = document.createRange();
-                    sel.addRange(range);
-                    range.selectNodeContents(this);
-                    document.execCommand('copy');
-                    sel.removeAllRanges();
-                });
-            });
-        }, 500);
-    </script>
+            setTimeout(function() {
+                var xs = document.querySelectorAll("pre")
+                Array.prototype.forEach.call(xs, x => {
+                    x.addEventListener("click", function() {
+                        var sel = window.getSelection()
+                        sel.removeAllRanges()
+                        var range = document.createRange()
+                        sel.addRange(range)
+                        range.selectNodeContents(this)
+                        document.execCommand("copy")
+                        sel.removeAllRanges()
+                    })
+                })
+            }, 500)
+        </script>
     </body>
 </html>
