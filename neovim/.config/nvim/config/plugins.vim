@@ -30,7 +30,7 @@ if !has('win32')
             execute "q!"
         endif
         echo "Installing vim-plug..."
-        silent !\curl -fLo s:install_dir --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        execute "!curl -fLo " . s:install_dir . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     endif
 
     if has('nvim')
