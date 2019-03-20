@@ -16,10 +16,6 @@ let g:lightline = {
             \             ['percent'],
             \             ['fileformat', 'fileencoding', 'filetype']]
             \ },
-            \ 'tabline': {
-            \   'left': [['buffers']],
-            \   'right': [['close']]
-            \ },
             \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
             \ 'component_type': {'buffers': 'tabsel'},
             \ 'component_function': {'gitbranch': 'fugitive#head'},

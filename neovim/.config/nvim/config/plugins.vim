@@ -43,7 +43,6 @@ endif
 if !exists('g:gui_oni')
     " Bottom status bar, not needed for Oni.
     Plug 'itchyny/lightline.vim'
-    Plug 'mengelbrecht/lightline-bufferline'
 
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -145,13 +144,6 @@ if has('python3') && has('nvim')
 
     " Autocomplete
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-    if !has('win32')
-        " Autocomplete for Python
-        Plug 'ncm2/ncm2'
-        Plug 'roxma/nvim-yarp'
-        Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
-    endif
 endif
 
 call plug#end()
