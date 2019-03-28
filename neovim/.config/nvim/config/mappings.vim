@@ -37,6 +37,9 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Wqa wqa
 
+" Use Ctrl-L in insert mode to fix the previous typo
+inoremap <C-L> <C-G>u<Esc>[s1z=`]a<C-G>u
+
 nnoremap <leader>, <cmd>call Term_toggle()<CR>
 
 " When the <Enter> key is pressed while the pop-up menu is visible, it only
