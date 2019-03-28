@@ -15,3 +15,5 @@ command! -bang -nargs=* GLines
             \ )
 
 nnoremap <c-f> :GLines<space>
+
+nnoremap <leader>b :Buffers<CR>
