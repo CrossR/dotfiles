@@ -103,8 +103,10 @@ Plug 'machakann/vim-highlightedyank'
 " Add additional text objects
 Plug 'wellle/targets.vim'
 
-" VimWiki, a personal wiki
-Plug 'vimwiki/vimwiki'
+" A personal wiki and some markdown plugins
+Plug 'lervag/wiki.vim'
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Write slides in MarkDown
 Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
@@ -140,7 +142,7 @@ endif
 
 if has('python3') && has('nvim')
     " Diary templates with GitHub + GCal integration
-    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'vimwiki' }
+    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
 
     " Autocomplete
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

@@ -112,7 +112,7 @@ export const configuration = {
     "tabs.showIndex": true,
     "browser.enabled": true,
 
-    "experimental.welcome.enabled": true,
+    // "experimental.welcome.enabled": true,
 
     "experimental.markdownPreview.enabled": true,
     "experimental.markdownPreview.syntaxTheme": "gruvbox-dark",
@@ -134,7 +134,7 @@ export const configuration = {
 
     "vim.setting.autoread": true,
 
-    "autoClosingPairs.enabled": true,
+    "autoClosingPairs.enabled": false,
     "autoClosingPairs.default": [
         { open: "{", close: "}" },
         { open: "[", close: "]" },
