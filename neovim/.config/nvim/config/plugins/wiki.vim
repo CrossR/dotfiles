@@ -8,9 +8,11 @@ let g:wiki_root = $GIT_DEFAULT_DIR . "/wiki/docs"
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
 
+" Setup the type of links I want, and how they should look
 let g:wiki_link_target_map = 'WikiLinkFunction'
 let g:wiki_link_target_type = 'md'
 
+" Convert "My Wiki Link" to "my_wiki_link"
 function WikiLinkFunction(text) abort
     return substitute(tolower(a:text), '\s\+', '_', 'g')
 endfunction
@@ -25,12 +27,20 @@ let g:wiki_journal = {
             \ },
             \ }
 
+" Set the export configuration.
 let g:wiki_export = {
             \ 'args' : '',
             \ 'from_format' : 'markdown',
             \ 'ext' : 'pdf',
             \ 'view' : v:true,
             \ }
+
+" Override some default bindings.
+" Remove the Page-TOC bind, since I barely use it and prefer ,wt for enabling
+" the writing of wiki tables.
+let g:wiki_mappings_local = {
+            \ '<plug>(wiki-page-toc)' : '',
+            \}
 
 " Markdown options
 let g:vim_markdown_folding_disabled = 1
@@ -70,7 +80,7 @@ nnoremap <leader>ws <cmd>call Wiki_Scratch()<CR>
 augroup WikiConfig
     autocmd!
 
-    autocmd FileType markdown nnoremap <buffer> <leader>wt :TableModeToggle<CR>
+    autocmd FileType markdown nnoremap <buffer> <leader>wt <cmd>TableModeToggle<CR>
     autocmd FileType markdown nnoremap <buffer> <leader>wc <cmd>WikiPageToc<CR>
 
     autocmd FileType markdown nmap <F7> i<C-R>=strftime("%H:%M %p")<CR>
