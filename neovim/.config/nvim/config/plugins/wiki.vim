@@ -48,6 +48,13 @@ let g:vim_markdown_override_foldtext = 0
 let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+let g:vim_markdown_fenced_languages = [
+            \ 'c++=cpp',
+            \ 'viml=vim',
+            \ 'bash=sh',
+            \ 'ini=dosini',
+            \ 'py=python',
+            \ 'md=markdown']
 
 let g:wiki_scratch_open = 0
 let g:wiki_scratch_buf_nr = 0
