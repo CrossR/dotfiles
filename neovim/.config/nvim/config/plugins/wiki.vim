@@ -23,7 +23,14 @@ let g:wiki_journal = {
             \   'weekly' : '%Y_w%V',
             \   'monthly' : '%Y_m%m',
             \ },
-            \}
+            \ }
+
+let g:wiki_export = {
+            \ 'args' : '',
+            \ 'from_format' : 'markdown',
+            \ 'ext' : 'pdf',
+            \ 'view' : v:true,
+            \ }
 
 " Markdown options
 let g:vim_markdown_folding_disabled = 1
