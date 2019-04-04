@@ -60,21 +60,8 @@ endfunction
 
 nnoremap <leader>ws <cmd>call Wiki_Scratch()<CR>
 
-function! Set_Markdown_Highlights() abort
-    " Set all the headers to different colours.
-    " Uses highlight groups that should be bound in most colour schemes.
-    highlight link htmlH1 Statement
-    highlight link htmlH2 Identifier
-    highlight link htmlH3 Type
-    highlight link htmlH4 Constant
-    highlight link htmlH5 Include
-    highlight link htmlH6 Title
-endfunction
-
 augroup WikiConfig
     autocmd!
-
-    autocmd ColorScheme * call Set_Markdown_Highlights()
 
     autocmd FileType markdown nnoremap <buffer> <leader>wt :TableModeToggle<CR>
     autocmd FileType markdown nnoremap <buffer> <leader>wc <cmd>WikiPageToc<CR>
