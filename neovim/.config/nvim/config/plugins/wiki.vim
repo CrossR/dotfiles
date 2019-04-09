@@ -96,7 +96,7 @@ augroup WikiConfig
     autocmd FileType markdown nmap <F8> i<C-R>=strftime("%Y-%m-%d %H:%M %p")<CR>
     autocmd FileType markdown imap <F8> <C-R>=strftime("%Y-%m-%d %H:%M %p")<CR>
 
-    autocmd FileType markdown setlocal spell spelllang=en_gb " Spellchecking for VimWiki only
-    autocmd FileType markdown setlocal textwidth=88          " Wrap at 88 cols in VimWiki files.
+    autocmd FileType markdown setlocal spell spelllang=en_gb " Spellchecking for Wiki only
+    autocmd FileType markdown setlocal textwidth=88          " Wrap at 88 cols in Wiki files.
 augroup END
 
