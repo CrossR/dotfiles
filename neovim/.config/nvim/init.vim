@@ -44,8 +44,10 @@ if has('win32')
     let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/config/'
 else
     if has('nvim')
+        let g:vim_folder = expand('~/.config/nvim/')
         let g:config_folder = expand('~/.config/nvim/config/')
     else
+        let g:vim_folder = expand('~/.vim/')
         let g:config_folder = expand('~/.vim/config/')
     endif
 endif
@@ -53,4 +55,5 @@ endif
 call Source('general.vim')
 call Source('mappings.vim')
 call Source('plugins.vim')
+call Source('filetypes.vim')
 call LoadPluginConfig()
