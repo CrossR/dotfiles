@@ -14,7 +14,7 @@ let g:wiki_link_target_type = 'md'
 
 " Convert "My Wiki Link" to "my_wiki_link"
 function WikiLinkFunction(text) abort
-    return substitute(tolower(a:text), '\s\+', '_', 'g')
+    return substitute(tolower(a:text), '\s', '', 'g')
 endfunction
 
 let g:wiki_journal = {
