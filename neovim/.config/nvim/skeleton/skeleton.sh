@@ -5,7 +5,6 @@ OPTIND=1 # Reset so getopts works!
 SUCCESS=0
 FAIL=1
 
-HOME="/home/lar/rcross"
 GIT_DIR="${HOME}/git"
 TOOLS="${HOME}/tools"
 
@@ -24,6 +23,18 @@ LogWarning() {
 
 LogError() {
     echo -e "${RED}$(date +'%d/%m/%Y %X')" : "$*${NC}"
+}
+
+RunAndCheck() {
+    eval "$1"
+    RETURN_CODE=$?
+
+    if [ $RETURN_CODE -ne 0 ] && [ "$3" = "ERR" ]; then
+        LogError "$2"
+        exit ${FAIL}
+    elif [ $RETURN_CODE -ne 0 ] && [ "$3" = "WARN" ]; then
+        LogWarning "$2"
+    fi
 }
 
 show_help () {
