@@ -54,9 +54,6 @@ if !exists('g:gui_oni')
     " Colourscheme
     Plug 'morhetz/gruvbox'
 
-    " Start screen
-    Plug 'mhinz/vim-startify'
-
     " Tmux helper
     Plug 'tmux-plugins/vim-tmux-focus-events'
 endif
@@ -72,9 +69,6 @@ Plug 'tpope/vim-surround'
 
 " Repeat addons with .
 Plug 'tpope/vim-repeat'
-
-" Bracket mappings
-Plug 'tpope/vim-unimpaired'
 
 " Better sessions
 Plug 'tpope/vim-obsession'
