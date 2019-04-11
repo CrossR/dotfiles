@@ -1,4 +1,4 @@
-# WiiManic's dotfiles
+# CrossR dotfiles
 
 ### Info
 
