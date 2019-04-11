@@ -1,46 +1,47 @@
 " General configuration
+" Remember that hitting `K` on any of the options
+" will open the help page for that option!
 
-set number                " Line numbers.
-set incsearch             " Incremental search.
+set number
+set incsearch
 
-                          " Sort out splits.
-set splitright            " Open vsplits on the right.
-set splitbelow            " Open splits on the bottom.
+set splitright
+set splitbelow
 
-                          " Deal with GUI duplications.
-set noshowmode            " Stop mode text showing.
-set noshowcmd             " Disable the CMD line.
-set noruler               " Disable the line ruler.
+set noshowmode
+set noshowcmd
+set noruler
 
-                          " Sort out Tabs.
-filetype plugin indent on " Add indentation as needed.
-set softtabstop=4         " A tab feels like 4 spaces.
-set shiftwidth=4          " This affects >> and <<, to make them move by 4 spaces..
-set expandtab             " Insert spaces not tabs.
+filetype plugin indent on
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
-set list                  " Show all whitespace.
-set shortmess+=c          " Remove match x of y etc.
-set conceallevel=0        " Don't conceal anything.
+set list
+set shortmess+=c
+set conceallevel=0
+set virtualedit=block
 
-set ignorecase            " Ignore case for searching.
-set smartcase             " Use smart cases for search.
-set lazyredraw            " No redraws in macros.
+set ignorecase
+set smartcase
+set lazyredraw
 
-set undofile              " Store changes in an undo file (location below).
-set hidden                " Don't dispose of buffers when unloaded.
-set mouse=a               " Enable the mouse.
+set undofile
+set hidden
+set mouse=a
+set nowrap
 
-set spell spelllang=en_gb " Spell checking.
+set spell spelllang=en_gb
 
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set fillchars=fold:\ 
 
 if !exists('g:gui_oni')
-    set laststatus=2      " Needed for LightLine to show.
-    syntax on             " Syntax highlighting
+    set laststatus=2
+    syntax on
 else
-    set laststatus=0      " Disable any status bar, since we are inside Oni.
-    set noswapfile        " No swap files, since we are on Windows most likely.
+    set laststatus=0
+    set noswapfile
 endif
 
 if exists('&inccommand')
@@ -94,9 +95,9 @@ elseif has('nvim') && !has('win32')
     let g:python3_host_prog = $HOME . "/.python/virtualenvs/nvim-diary-template-py3.6/bin/python"
 endif
 
-" Fix spell highlights in Oni.
-" Oni doesn't currently have all forms of highlights (undercurls/lines, bold
-" etc), so clear the default highlighting and use stuff we know will work.
+" Fix spell highlights by linking to an obvious syntax class.
+" Just avoids issues when terms/tmux/anything isn't happy with
+" displaying bold characters etc.
 function! Sort_Spell_Highlights() abort
         highlight clear SpellBad
         highlight clear SpellCap
