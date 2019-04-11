@@ -1,4 +1,4 @@
 " vim-polygot
 
-let g:polyglot_disabled = ['latex', 'cpp']
+let g:polyglot_disabled = ['latex', 'cpp', 'markdown']
 
