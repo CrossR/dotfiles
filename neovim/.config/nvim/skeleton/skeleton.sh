@@ -8,21 +8,21 @@ FAIL=1
 GIT_DIR="${HOME}/git"
 TOOLS="${HOME}/tools"
 
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
+GRN='\033[1;32m'
+YEL='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Colour
 
 LogMessage() {
-    echo -e "${GREEN}$(date +'%d/%m/%Y %X')" : "$*${NC}"
+    echo -e "${GRN}$(date +'%d/%m/%Y %X') : INFO    : $*${NC}"
 }
 
 LogWarning() {
-    echo -e "${YELLOW}$(date +'%d/%m/%Y %X')" : "$*${NC}"
+    echo -e "${YEL}$(date +'%d/%m/%Y %X') : WARN    : $*${NC}"
 }
 
 LogError() {
-    echo -e "${RED}$(date +'%d/%m/%Y %X')" : "$*${NC}"
+    echo -e "${RED}$(date +'%d/%m/%Y %X') : ERR     : $*${NC}"
 }
 
 RunAndCheck() {
