@@ -13,7 +13,7 @@ endif
 
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer']
-let g:deoplete#sources.vimwiki = ['gh_label', 'gh_repo', 'google_cals', 'file', 'vw_tag', 'omni']
+let g:deoplete#sources.markdown = ['gh_label', 'gh_repo', 'google_cals', 'file', 'omni']
 let g:deoplete#sources.python = []
 let g:deoplete#sources.typescript = []
 let g:deoplete#sources.javascript = []
@@ -21,7 +21,4 @@ let g:deoplete#sources.javascript = []
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
-
-" Enable in VimWiki for tags.
-let g:deoplete#omni#input_patterns.vimwiki = [':']
 
