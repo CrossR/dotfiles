@@ -8,7 +8,9 @@ if empty($GIT_DEFAULT_DIR)
     echoerr "$GIT_DEFAULT_DIR isn't set."
 endif
 
-nnoremap <c-p> <cmd>GFiles<cr>
+" Bind Ctrl-p to be the files search.
+" Calls GFiles in a git repository, and files otherwise.
+nnoremap <expr> <c-p> (len(system('git rev-parse')) ? '<cmd>Files' : '<cmd>:GFiles') . "\<CR>"
 
 command! -bang -nargs=* GLines
             \ call fzf#vim#grep(
