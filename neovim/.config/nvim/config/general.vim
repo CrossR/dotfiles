@@ -36,6 +36,10 @@ set spell spelllang=en_gb
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set fillchars=fold:\ 
 
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
+
 if !exists('g:gui_oni')
     set laststatus=2
     syntax on
