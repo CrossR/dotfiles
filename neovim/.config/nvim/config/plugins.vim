@@ -79,8 +79,8 @@ Plug 'sheerun/vim-polyglot'
 " Vim TeX
 Plug 'lervag/vimtex', { 'for': 'tex' }
 
-" Git diff in gutter
-Plug 'airblade/vim-gitgutter'
+" Git diff in sign column
+Plug 'mhinz/vim-signify'
 
 " Highlight trailing whitespace
 Plug 'bronson/vim-trailing-whitespace'
