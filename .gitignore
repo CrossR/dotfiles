@@ -18,3 +18,5 @@ mpd/.config/mpd/*
 *.swp
 *.log
 
+
+\.DS_Store
