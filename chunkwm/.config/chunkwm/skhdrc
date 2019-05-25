@@ -2,7 +2,7 @@
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # Open Firefox
-cmd + shift - return : open -na /Applications/Firefox.app
+cmd + shift - return : open -a /Applications/Firefox.app
 
 # Close focused window
 cmd - w : chunkc tiling::window --close
@@ -83,32 +83,32 @@ shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-wind
 shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
 
 # Toggle desktop offset
-cmd - a : chunkc tiling::desktop --toggle offset
+alt - a : chunkc tiling::desktop --toggle offset
 
 # Toggle window fullscreen
-cmd - f : chunkc tiling::window --toggle fullscreen
+alt - f : chunkc tiling::window --toggle fullscreen
 
 # Toggle window native fullscreen
 shift + cmd - f : chunkc tiling::window --toggle native-fullscreen
 
 # Toggle window parent zoom
-cmd - d : chunkc tiling::window --toggle parent
+alt - d : chunkc tiling::window --toggle parent
 
 # Toggle window split type
-cmd - e : chunkc tiling::window --toggle split
+alt - e : chunkc tiling::window --toggle split
 
 # Toggle window fade
-cmd - q : chunkc tiling::window --toggle fade
+alt - q : chunkc tiling::window --toggle fade
 
 # Float / unfloat window and center on screen
-cmd - t : chunkc tiling::window --toggle float;\
+alt - t : chunkc tiling::window --toggle float;\
           chunkc tiling::window --grid-layout 4:4:1:1:2:2
 
 # Toggle sticky
-cmd - s : chunkc tiling::window --toggle sticky
+alt - s : chunkc tiling::window --toggle sticky
 
 # Toggle sticky, float and resize to picture-in-picture size
-cmd - p : chunkc tiling::window --toggle sticky;\
+alt - p : chunkc tiling::window --toggle sticky;\
           chunkc tiling::window --grid-layout 5:5:4:0:1:1
 
 # Change layout of desktop
