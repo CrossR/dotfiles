@@ -3,7 +3,7 @@ cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d
 
 # Open Firefox
 cmd + shift - return : open -a /Applications/Firefox.app
-# cmd + alt - return : open -a /Applications/Firefox.app --args -incognito
+cmd + ctrl - return : killall firefox; /Applications/Firefox.app/Contents/MacOS/firefox -private > /dev/null 2>&1 & disown
 
 # Close focused window
 cmd - w : chunkc tiling::window --close
