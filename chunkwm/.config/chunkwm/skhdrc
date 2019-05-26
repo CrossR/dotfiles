@@ -6,7 +6,7 @@ cmd + shift - return : ~/.config/chunkwm/startFirefox.sh
 cmd + ctrl - return : ~/.config/chunkwm/startFirefox.sh -p
 
 # Close focused window
-cmd - w : chunkc tiling::window --close
+alt - w : chunkc tiling::window --close
 
 # Toggle chunkwm
 ctrl + cmd - c : ~/.config/chunkwm/toggleChunkwm.sh
