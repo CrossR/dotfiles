@@ -55,7 +55,7 @@ else
     if [ ${PRIVATE_MODE} -eq 0 ]; then
         open -a ${FIREFOX}
     else
-        ${FIREFOX}/Contents/MacOS/firefox -private-window ${DISOWN}
+        bash -c "${FIREFOX}/Contents/MacOS/firefox -private-window ${DISOWN}"
     fi
 fi
 
