@@ -12,7 +12,7 @@ if !exists('g:deoplete#sources')
 endif
 
 let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer']
+let g:deoplete#sources._ = ['buffer', 'file']
 let g:deoplete#sources.markdown = ['gh_label', 'gh_repo', 'google_cals', 'file', 'omni']
 let g:deoplete#sources.python = []
 let g:deoplete#sources.typescript = []
