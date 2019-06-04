@@ -44,12 +44,12 @@ OSA_KEYS="tell application \"System Events\" to keystroke "
 # If it isn't then open it.
 if pgrep -x "firefox" > /dev/null; then
 
-    osascript -e "${OSA_FIREFOX}"
+    # osascript -e "${OSA_FIREFOX}"
 
     if [ ${PRIVATE_MODE} -eq 0 ]; then
-        osascript -e "${OSA_KEYS} \"n\" using command down"
+        osascript -e "${OSA_FIREFOX}" -e "${OSA_KEYS} \"n\" using command down"
     else
-        osascript -e "${OSA_KEYS} \"p\" using {command down, shift down}"
+        osascript -e "${OSA_FIREFOX}" "${OSA_KEYS} \"p\" using {command down, shift down}"
     fi
 else
     if [ ${PRIVATE_MODE} -eq 0 ]; then
