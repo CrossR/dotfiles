@@ -118,6 +118,9 @@ Plug 'bfrg/vim-cpp-modern'
 " Buffer closing
 Plug 'artnez/vim-wipeout'
 
+" Pop-up terminal
+Plug 'Lenovsky/nuake'
+
 if has('nvim')
     " Add back --remote, needed for VimTeX
     Plug 'mhinz/neovim-remote', { 'for': 'tex' }
