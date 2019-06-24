@@ -52,9 +52,13 @@ EOF
 while getopts "h?" opt;
 do
     case $opt in
-        h|\?)
+        h)
             show_help
             return ${SUCCESS} 2> /dev/null || exit ${SUCCESS}
+            ;;
+        \?)
+            show_help
+            return ${FAIL} 2> /dev/null || exit ${FAIL}
             ;;
     esac
 done
