@@ -11,7 +11,7 @@ let g:nvim_diary_template#google_cal_name = 'NVim Notes'
 let g:nvim_diary_template#repo_name = 'CrossR/wiki'
 let g:nvim_diary_template#user_name = 'CrossR'
 let g:nvim_diary_template#calendar_filter_list = ['Holidays in United Kingdom']
-let g:nvim_diary_template#issue_groups = ['work', 'personal']
+let g:nvim_diary_template#issue_groups = [['work', 'personal'], ['inprogress', 'todo']]
 let g:nvim_diary_template#sort_order = {
             \ "issue.complete": 10000,
             \ "backlog": 5000,
