@@ -5,9 +5,9 @@
 
 augroup TexConfig
     autocmd!
-    autocmd FileType tex nnoremap <buffer> <F8> <cmd>VimtexCountWords<CR>
-    autocmd FileType tex nnoremap <buffer> <F9> <cmd>VimtexCompile<CR>
-    autocmd FileType tex nnoremap <buffer> <F10> <cmd>VimtexTocToggle<CR>
+    autocmd FileType tex nnoremap <silent><buffer> <F8> :VimtexCountWords<CR>
+    autocmd FileType tex nnoremap <silent><buffer> <F9> :VimtexCompile<CR>
+    autocmd FileType tex nnoremap <silent><buffer> <F10> :VimtexTocToggle<CR>
     autocmd FileType tex setlocal spell spelllang=en_gb " Spellchecking for .tex only
     autocmd FileType tex setlocal textwidth=80          " Wrap at 80 cols in .tex files.
     autocmd FileType tex let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete

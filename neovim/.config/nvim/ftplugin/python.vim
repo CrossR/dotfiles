@@ -3,6 +3,6 @@
 " Run Python files on F9
 augroup PythonConfig
     autocmd!
-    autocmd FileType python nnoremap <buffer> <F9> <cmd>exec '!python' shellescape(@%,1)<CR>
+    autocmd FileType python nnoremap <silent><buffer> <F9> :exec '!python' shellescape(@%,1)<CR>
 augroup END
 

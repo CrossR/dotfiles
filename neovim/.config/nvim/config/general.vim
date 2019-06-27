@@ -120,7 +120,7 @@ augroup FixSpelling
 augroup END
 
 " Save as root.
-command! RootSave <cmd>execute '<cmd>silent w !sudo tee % >/dev/null' | <cmd>edit
+command! RootSave :execute ':silent w !sudo tee % >/dev/null' | :edit
 
 " Automatically swap the current working directory.
 " However, only in insert mode so we maintain the project wide directory

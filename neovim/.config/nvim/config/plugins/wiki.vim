@@ -82,13 +82,13 @@ function! Wiki_Scratch() abort
 
 endfunction
 
-nnoremap <leader>ws <cmd>call Wiki_Scratch()<CR>
+nnoremap <silent> <leader>ws :call Wiki_Scratch()<CR>
 
 augroup WikiConfig
     autocmd!
 
-    autocmd FileType markdown nnoremap <buffer> <leader>wt <cmd>TableModeToggle<CR>
-    autocmd FileType markdown nnoremap <buffer> <leader>wc <cmd>WikiPageToc<CR>
+    autocmd FileType markdown nnoremap <silent><buffer> <leader>wt :TableModeToggle<CR>
+    autocmd FileType markdown nnoremap <silent><buffer> <leader>wc :WikiPageToc<CR>
 
     autocmd FileType markdown nmap <F7> i<C-R>=strftime("%H:%M %p")<CR>
     autocmd FileType markdown imap <F7> <C-R>=strftime("%H:%M %p")<CR>

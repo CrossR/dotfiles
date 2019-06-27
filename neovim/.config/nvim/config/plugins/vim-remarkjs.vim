@@ -31,4 +31,4 @@ endfunction
 
 " Bindings
 nnoremap <silent> <leader>rr :RemarkPreview<CR>
-nnoremap <leader>rl <cmd>call Remark_Local()<CR>
+nnoremap <silent> <leader>rl :call Remark_Local()<CR>

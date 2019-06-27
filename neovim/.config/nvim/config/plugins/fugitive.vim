@@ -18,5 +18,5 @@ function! Gstatus_Wrapper() abort
 endfunction
 
 " Bindings
-nnoremap <leader>gs <cmd>call Gstatus_Wrapper()<CR>
+nnoremap <silent> <leader>gs :call Gstatus_Wrapper()<CR>
 

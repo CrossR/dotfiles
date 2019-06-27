@@ -40,7 +40,7 @@ cnoreabbrev Wqa wqa
 " Use Ctrl-L in insert mode to fix the previous typo
 inoremap <C-L> <C-G>u<Esc>[s1z=`]a<C-G>u
 
-nnoremap <leader>, <cmd>Nuake<CR>
+nnoremap <silent> <leader>, :Nuake<CR>
 
 " When the <Enter> key is pressed while the pop-up menu is visible, it only
 " hides the menu. Use this mapping to close the menu and also start a new

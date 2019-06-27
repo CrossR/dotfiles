@@ -15,5 +15,5 @@ function! Toggle_goyo()
   endif
 endfunction
 
-nnoremap <leader>go <cmd>call Toggle_goyo()<CR>
+nnoremap <silent> <leader>go :call Toggle_goyo()<CR>
 

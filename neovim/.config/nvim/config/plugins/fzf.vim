@@ -10,7 +10,7 @@ endif
 
 " Bind Ctrl-p to be the files search.
 " Calls GFiles in a git repository, and files otherwise.
-nnoremap <expr> <c-p> (len(system('git rev-parse')) ? '<cmd>Files' : '<cmd>:GFiles') . "\<CR>"
+nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles') . "\<CR>"
 
 command! -bang -nargs=* GLines
             \ call fzf#vim#grep(
@@ -48,5 +48,5 @@ command! -bang Sessions
             \ <bang>0
             \ ))
 
-nnoremap <c-w> <cmd>Projects<CR>
-nnoremap <leader>b <cmd>Buffers<CR>
+nnoremap <silent> <c-w> :Projects<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
