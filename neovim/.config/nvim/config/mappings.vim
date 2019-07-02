@@ -14,6 +14,8 @@ vnoremap <silent> . :normal .<CR>
 " Esc to leave terminal
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
+else
+    tnoremap <ESC> <C-w>:q!<CR>
 endif
 
 " Setup moving between splits.

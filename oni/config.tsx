@@ -125,7 +125,7 @@ export const configuration = {
     "experimental.vcs.sidebar": true,
     "experimental.sessions.enabled": true,
 
-    "debug.showTypingPrediction": true,
+    "debug.showTypingPrediction": false,
     "debug.showNotificationOnError": true,
 
     "sidebar.default.open": false,

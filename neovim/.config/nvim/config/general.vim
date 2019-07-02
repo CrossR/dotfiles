@@ -17,7 +17,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-set list
 set shortmess+=c
 set conceallevel=0
 set virtualedit=block
@@ -33,8 +32,11 @@ set nowrap
 
 set spell spelllang=en_gb
 
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set fillchars=fold:\ 
+if has ('nvim')
+    set list
+    set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+    set fillchars=fold:\ 
+endif
 
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -138,8 +140,19 @@ if $SSH_CONNECTION
     colorscheme desert
 endif
 
-" Remove line numbers from the terminal.
-augroup TerminalFix
-    autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber nospell
-augroup END
+" Remove line numbers from the terminal in neovim.
+if has ('nvim')
+    augroup TerminalFix
+        autocmd!
+        autocmd TermOpen * setlocal nonumber norelativenumber nospell
+    augroup END
+endif
+
+" Set the shell variable for vim, so that we can use the WSL terminal.
+" The other terminals can still be used with :term cmd etc.
+if has("windows") && ! has('nvim')
+    set shell=C:\Windows\Sysnative\wsl.exe
+    set shellpipe=|
+    set shellredir=>
+    set shellcmdflag=
+endif

@@ -41,7 +41,12 @@ endfunction
 " Source all the other config.
 
 if has('win32')
-    let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/config/'
+    if has('nvim')
+        let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/config/'
+    else
+        let g:vim_folder = expand('~/.vim/')
+        let g:config_folder = fnamemodify(expand($MYVIMRC), ':p:h') . '/.vim/config/'
+    endif
 else
     if has('nvim')
         let g:vim_folder = expand('~/.config/nvim/')
