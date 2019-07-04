@@ -50,7 +50,7 @@ alt - a : chunkc tiling::desktop --toggle offset
 alt - f : chunkc tiling::window --toggle fullscreen
 
 # Toggle window native fullscreen
-shift + cmd - f : chunkc tiling::window --toggle native-fullscreen
+shift + ctrl - f : chunkc tiling::window --toggle native-fullscreen
 
 # Toggle window parent zoom
 alt - d : chunkc tiling::window --toggle parent
