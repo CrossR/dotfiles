@@ -13,7 +13,7 @@ let g:wiki_link_target_map = 'WikiLinkFunction'
 let g:wiki_link_target_type = 'md'
 
 " Convert "My Wiki Link" to "my_wiki_link"
-function WikiLinkFunction(text) abort
+function! WikiLinkFunction(text) abort
     return substitute(tolower(a:text), '\s', '', 'g')
 endfunction
 
@@ -29,7 +29,7 @@ let g:wiki_journal = {
 
 " Set the export configuration.
 let g:wiki_export = {
-            \ 'args' : '',
+            \ 'args' : '-V geometry:margin=1in',
             \ 'from_format' : 'markdown',
             \ 'ext' : 'pdf',
             \ 'view' : v:true,
@@ -89,6 +89,8 @@ augroup WikiConfig
 
     autocmd FileType markdown nnoremap <silent><buffer> <leader>wt :TableModeToggle<CR>
     autocmd FileType markdown nnoremap <silent><buffer> <leader>wc :WikiPageToc<CR>
+
+    autocmd FileType markdown nnoremap <silent><buffer> <leader>wv :silent WikiExport<CR>
 
     autocmd FileType markdown nmap <F7> i<C-R>=strftime("%H:%M %p")<CR>
     autocmd FileType markdown imap <F7> <C-R>=strftime("%H:%M %p")<CR>
