@@ -49,7 +49,7 @@ if pgrep -x "firefox" > /dev/null; then
     if [ ${PRIVATE_MODE} -eq 0 ]; then
         osascript -e "${OSA_FIREFOX}" -e "${OSA_KEYS} \"n\" using command down"
     else
-        osascript -e "${OSA_FIREFOX}" "${OSA_KEYS} \"p\" using {command down, shift down}"
+        osascript -e "${OSA_FIREFOX}" -e "${OSA_KEYS} \"p\" using {command down, shift down}"
     fi
 else
     if [ ${PRIVATE_MODE} -eq 0 ]; then
