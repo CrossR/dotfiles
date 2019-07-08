@@ -24,3 +24,7 @@ if exists('g:gui_oni')
     let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 endif
 
+if has('macunix')
+    let g:vimtex_view_method = 'skim'
+endif
+
