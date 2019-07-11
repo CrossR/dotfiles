@@ -4,7 +4,7 @@ let g:quicktex_math = {
     \' ':      "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
     \'eq':     '= ',
     \'frac':   '\frac{<+++>}{<++>} <++>',
-    \'x10':    '\times 10^{<+++>}',
+    \'x10':    '\times 10^{<+++>}<++>',
     \'nu':     '\nu_\mu ',
     \'nue':    '\nu_e ',
     \'nutau':  '\nu_\ta ',
