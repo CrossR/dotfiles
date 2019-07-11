@@ -77,7 +77,8 @@ Plug 'tpope/vim-obsession'
 Plug 'sheerun/vim-polyglot'
 
 " Vim TeX
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': ['tex', 'markdown'] }
+Plug 'brennier/quicktex', { 'for': ['tex', 'markdown'] }
 
 " Git diff in sign column
 Plug 'mhinz/vim-signify'
