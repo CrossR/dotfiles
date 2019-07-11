@@ -1,6 +1,6 @@
 " quicktex
 
-let g:quicktex_markdown = {
+let g:quicktex_math = {
     \' ':      "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
     \'eq':     '= ',
     \'frac':   '\frac{<+++>}{<++>} <++>',
