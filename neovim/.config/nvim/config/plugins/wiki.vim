@@ -29,7 +29,7 @@ let g:wiki_journal = {
 
 " Set the export configuration.
 let g:wiki_export = {
-            \ 'args' : '-V geometry:margin=1in',
+            \ 'args' : '-V geometry:margin=0.5in',
             \ 'from_format' : 'markdown',
             \ 'ext' : 'pdf',
             \ 'view' : v:true,
