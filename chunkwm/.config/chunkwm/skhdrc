@@ -2,8 +2,8 @@
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # Open Firefox
-cmd + shift - return : ~/.config/chunkwm/startFirefox.sh
-cmd + ctrl - return : ~/.config/chunkwm/startFirefox.sh -p
+cmd + shift - return : ~/.config/chunkwm/startBrowser.sh
+cmd + ctrl - return : ~/.config/chunkwm/startBrowser.sh -p
 
 # Close focused window
 alt - w : chunkc tiling::window --close
