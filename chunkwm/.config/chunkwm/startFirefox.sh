@@ -3,7 +3,6 @@
 # Setup some global variables
 OPTIND=1 # Reset so getopts works!
 SUCCESS=0
-FAIL=1
 
 PRIVATE_MODE=0
 
@@ -11,10 +10,13 @@ show_help () {
 
     cat << EOF
 USAGE
-    startFirefox.sh
+    startBrowser.sh
+
+    Launch Firefox or Safari.
+    Firefox on AC Power, Safari otherwise.
 
 FLAGS
-    -p PrivateMode  [optional] Start firefox in private mode.
+    -p PrivateMode  [optional] Start browser in private mode.
 
 DEFAULTS
 
@@ -34,29 +36,26 @@ do
     esac
 done
 
-FIREFOX="/Applications/Firefox.app"
-DISOWN="> /dev/null 2>&1 & disown"
+if [[ $(pmset -g ps | head -1) =~ "AC Power" ]]; then
+    BROWSER="firefox"
+    PRIVATE="p"
+else
+    BROWSER="Safari"
+    PRIVATE="n"
+fi
 
-OSA_FIREFOX="tell application \"Firefox\" to activate"
-OSA_KEYS="tell application \"System Events\" to keystroke "
+ACTIVATE_BROWSER="tell application \"${BROWSER}\" to activate"
+ACTIVATE_KEYS="tell application \"System Events\" to keystroke "
 
-# If Firefox is running, interact with it via osascript.
-# If it isn't then open it.
-if pgrep -x "firefox" > /dev/null; then
-
-    # osascript -e "${OSA_FIREFOX}"
-
-    if [ ${PRIVATE_MODE} -eq 0 ]; then
-        osascript -e "${OSA_FIREFOX}" -e "${OSA_KEYS} \"n\" using command down"
+# Now the browser is running, interact with it via osascript.
+if [ ${PRIVATE_MODE} -eq 0 ]; then
+    if pgrep -x "${BROWSER}" > /dev/null; then
+        osascript -e "${ACTIVATE_BROWSER}"  -e "${ACTIVATE_KEYS} \"n\" using command down"
     else
-        osascript -e "${OSA_FIREFOX}" -e "${OSA_KEYS} \"p\" using {command down, shift down}"
+        osascript -e "${ACTIVATE_BROWSER}"
     fi
 else
-    if [ ${PRIVATE_MODE} -eq 0 ]; then
-        open -a ${FIREFOX}
-    else
-        bash -c "${FIREFOX}/Contents/MacOS/firefox -private-window ${DISOWN}"
-    fi
+    osascript -e "${ACTIVATE_BROWSER}" -e "${ACTIVATE_KEYS} \"${PRIVATE}\" using {command down, shift down}"
 fi
 
 return ${SUCCESS} 2> /dev/null || exit ${SUCCESS}
