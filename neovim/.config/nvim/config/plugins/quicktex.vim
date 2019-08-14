@@ -40,6 +40,6 @@ let g:quicktex_tex = {
     \'\bfi':  '\begin{figure}[tph]',
     \'\efi':  '\end{figure}',
     \'\cen':  '\centering',
-    \'\inc':  '\includegraphics[width=<+++>\textwidth]{<++>}',
-    \'\cap':  '\caption{<+++>}<++>',
+    \'\inc':  '\includegraphics[width=<+++>\textwidth]{<++>}<++>',
+    \'\cap':  '\caption{<+++>}%<++>',
     \}
