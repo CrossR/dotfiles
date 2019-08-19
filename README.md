@@ -2,14 +2,7 @@
 
 ### Info
 
-*   Window Manager - i3-gaps
-*   Term Emu - urxvt
-*   Launcher - Rofi
-*   Bar - Polybar
-*   Login - LightDM
-*   Font - Input
-*   Composite Manager - Compton
-*   Editor - NeoVim/Oni
+*   Editor - NeoVim/Oni2
 
 ### How to Unpack
 
@@ -39,6 +32,3 @@ mklink /J %LOCALAPPDATA%\nvim neovim\.config\nvim
 *   Activate the env and install NeoVim package: `conda activate neovim` and `conda install -c conda-forge neovim`
 *   Use `conda env list` to find the location if not known and set `g:python3_host_prog` to this value if needed.
 
-### Sources
-
-Wallpaper - [Reddit User Madisor\_](https://www.reddit.com/user/Madisor_).
