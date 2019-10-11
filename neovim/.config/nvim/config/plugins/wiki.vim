@@ -92,6 +92,10 @@ augroup WikiConfig
 
     autocmd FileType markdown nnoremap <silent><buffer> <leader>wv :silent WikiExport<CR>
 
+    " Screenshot binds
+    autocmd FileType markdown nnoremap <buffer> <leader>ss :Screenshot<SPACE>
+    autocmd FileType markdown nnoremap <silent><buffer> <leader>s<leader>s :silent InsertScreenshot<CR>a
+
     autocmd FileType markdown nmap <F7> i<C-R>=strftime("%H:%M %p")<CR>
     autocmd FileType markdown imap <F7> <C-R>=strftime("%H:%M %p")<CR>
 

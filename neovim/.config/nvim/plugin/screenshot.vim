@@ -5,6 +5,8 @@
 " That is `screencapture` on mac, and `___` on Linux.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:last_image_taken = ""
+
 " Actually build up the screen shot command and run it.
 " If a second argument is given, we treat it as a number
 " of seconds to pause by, before the screenshot.
@@ -25,7 +27,19 @@ function! Take_Screenshot(...) abort
         let final_command = sleep_command . ' && ' . screenshot_command
     endif
 
+    let g:last_image_taken = './' . file_name
+
     call system(final_command)
+endfunction
+
+" Generate the markdown for the previous screenshot.
+function! Insert_Screenshot() abort
+    if g:last_image_taken != ""
+        let cur_pos = getpos(".")
+        let markdown = '![](' . g:last_image_taken .')'
+        call setline('.', markdown)
+        call setpos('.', [0, cur_pos[1], 2, 0])
+    endif
 endfunction
 
 " If we can find an image dir, lets auto complete that alongside any folders
@@ -45,3 +59,4 @@ function! ImageDirComplete(arg, cli, cur_pos)
 endfunction
 
 command! -nargs=+ -complete=customlist,ImageDirComplete Screenshot call Take_Screenshot(<f-args>)
+command! -nargs=0 InsertScreenshot call Insert_Screenshot()
