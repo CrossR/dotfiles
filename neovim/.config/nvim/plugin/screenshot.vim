@@ -1,15 +1,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Screenshot loader
 "
-" Prompt the user for a file name and the launch a screen shot tool.
+" Prompt the user for a file name and then launch a screen shot tool.
 " That is `screencapture` on mac, and `___` on Linux.
-"
-" Going to try and include some logic to find the most appropriate folder for
-" the given file.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Actually build up the screen shot command and run it.
 function! Take_Screenshot(file_name) abort
     let cwd = expand('%:p:h')
+    "TODO: Add a Linux/Unix switch here.
     let screenshot_command = 'screencapture -s ' . cwd . '/' . a:file_name . '.png'
     call system(screenshot_command)
 endfunction
