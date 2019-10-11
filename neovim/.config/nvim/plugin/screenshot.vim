@@ -11,7 +11,6 @@
 function! Take_Screenshot(file_name) abort
     let cwd = expand('%:p:h')
     let screenshot_command = 'screencapture -s ' . cwd . '/' . a:file_name . '.png'
-    echom screenshot_command
     call system(screenshot_command)
 endfunction
 
