@@ -6,6 +6,7 @@ let g:quicktex_math = {
     \'frac':   '\frac{<+++>}{<++>}<++>',
     \'x10':    '\times 10^{<+++>}<++>',
     \'sum':    '\sum_{<+++>}<++>',
+    \'delta':  '\Delta <+++>',
     \'nu':     '\nu_\mu',
     \'nue':    '\nu_e',
     \'nutau':  '\nu_\tau',

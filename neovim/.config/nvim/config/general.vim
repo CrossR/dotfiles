@@ -97,8 +97,12 @@ endif
 if has ('nvim') && has('win32')
     let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.7"
     let g:python3_host_prog = g:venv_folder . "/Scripts/python.exe"
-elseif has('nvim') && !has('win32')
-    let g:python3_host_prog = $HOME . "/.python/virtualenvs/nvim-diary-template-py3.6/bin/python"
+elseif has('nvim') && has('unix')
+    if (system('uname') =~ "darwin")
+        let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template-py3.7/bin/python"
+    else
+        let g:python3_host_prog = $HOME . "/.python/virtualenvs/nvim-diary-template-py3.6/bin/python"
+    endif
 endif
 
 " Fix spell highlights by linking to an obvious syntax class.
