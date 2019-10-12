@@ -2,7 +2,7 @@
 " Screenshot Plugin
 "
 " Prompt the user for a file name and then launch a screen shot tool.
-" That is `screencapture` on mac, and `___` on Linux.
+" That is `screencapture` on mac, and `input` on Linux.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:last_image_taken = ""
