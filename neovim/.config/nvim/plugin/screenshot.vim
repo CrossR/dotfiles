@@ -7,16 +7,25 @@
 
 let g:last_image_taken = ""
 
-" Actually build up the screen shot command and run it.
+" Build up the screenshot command and run it.
+"
 " If a second argument is given, we treat it as a number
 " of seconds to pause by, before the screenshot.
 function! Take_Screenshot(...) abort
 
     let file_name = a:1
     let cwd = expand('%:p:h')
+    let screenshot_command = ''
 
-    "TODO: Add a Linux/Unix switch here.
-    let screenshot_command = 'screencapture -s ' . cwd . '/' . file_name . '.png'
+    if has("unix")
+        " Use the built-in command on Mac, and ImageMagick on Linux.
+        if (system('uname') =~ "darwin)
+            let screenshot_command = 'screencapture -s ' . cwd . '/' . file_name . '.png'
+        else
+            let screenshot_command = 'import ' . cwd . '/' . file_name . '.png'
+        endif
+    endif
+
     let final_command = screenshot_command
 
     " If we were given a time, lets use that to sleep for that long.
@@ -29,6 +38,7 @@ function! Take_Screenshot(...) abort
 
     let g:last_image_taken = './' . file_name
 
+    " Actually run the screenshot command now.
     call system(final_command)
 endfunction
 
@@ -42,10 +52,10 @@ function! Insert_Screenshot() abort
     endif
 endfunction
 
-" If we can find an image dir, lets auto complete that alongside any folders
-" directly inside it.
+" If we can find an image folder, lets auto complete that alongside any
+" folders inside it.
 "
-" If we can't... then just don't give anything and let the user do it.
+" If we can't... Then just don't give anything and let the user do it.
 function! ImageDirComplete(arg, cli, cur_pos)
     let cwd = expand('%:p:h')
     if isdirectory(cwd . '/images')
@@ -58,5 +68,7 @@ function! ImageDirComplete(arg, cli, cur_pos)
     return []
 endfunction
 
+" Link the two functions up to commands, with the auto-complete function for
+" picking the save location.
 command! -nargs=+ -complete=customlist,ImageDirComplete Screenshot call Take_Screenshot(<f-args>)
 command! -nargs=0 InsertScreenshot call Insert_Screenshot()
