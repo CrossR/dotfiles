@@ -51,7 +51,7 @@ if !exists('g:gui_oni')
     " Set working folder
     Plug 'airblade/vim-rooter'
 
-    " Colourscheme
+    " Colour scheme
     Plug 'morhetz/gruvbox'
 
     " Tmux helper
@@ -105,8 +105,9 @@ Plug 'wellle/targets.vim'
 Plug 'lervag/wiki.vim'
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
-" Write slides in MarkDown
+" Write slides in Markdown
 Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
 
 " Focused writing
