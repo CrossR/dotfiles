@@ -82,7 +82,6 @@ Plug 'sheerun/vim-polyglot'
 " Vim TeX
 Plug 'lervag/vimtex', { 'for': ['tex', 'markdown'] }
 Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
-Plug 'dpelle/vim-LanguageTool', { 'for': ['tex', 'markdown'] }
 
 " Git diff in sign column
 Plug 'mhinz/vim-signify'
