@@ -19,7 +19,7 @@ function! Take_Screenshot(...) abort
 
     if has("unix")
         " Use the built-in command on Mac, and ImageMagick on Linux.
-        if (system('uname') =~ "darwin)
+        if (system('uname') =~ "darwin")
             let screenshot_command = 'screencapture -s ' . cwd . '/' . file_name . '.png'
         else
             let screenshot_command = 'import ' . cwd . '/' . file_name . '.png'
