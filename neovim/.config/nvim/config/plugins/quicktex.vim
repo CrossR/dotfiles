@@ -3,7 +3,7 @@
 let g:quicktex_math = {
     \' ':      "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
     \'eq':     '= ',
-    \'frac':   '\frac{<+++>}{<++>}<++>',
+    \'frac':   '\frac{<+++>}{<++>} <++>',
     \'x10':    '\times 10^{<+++>}<++>',
     \'sum':    '\sum_{<+++>}<++>',
     \'delta':  '\Delta <+++>',
@@ -31,6 +31,8 @@ let g:quicktex_math = {
     \'t23':    '\theta_{23}',
     \'dcp':    '\delta_{CP}',
     \'eeq':    '\end{equation}',
+    \'->':     '\rightarrow ',
+    \'<-':     '\leftarrow ',
     \}
 
 let g:quicktex_tex = {
