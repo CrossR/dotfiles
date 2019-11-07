@@ -11,6 +11,8 @@ let g:last_image_taken = ""
 "
 " If a second argument is given, we treat it as a number
 " of seconds to pause by, before the screenshot.
+"
+" For now, lets always insert the screenshot link too, since I always do that.
 function! Take_Screenshot(...) abort
 
     let file_name = a:1
@@ -36,10 +38,12 @@ function! Take_Screenshot(...) abort
         let final_command = sleep_command . ' && ' . screenshot_command
     endif
 
-    let g:last_image_taken = './' . file_name
+    let g:last_image_taken = './' . file_name . '.png'
 
     " Actually run the screenshot command now.
     call system(final_command)
+
+    call Insert_Screenshot()
 endfunction
 
 " Generate the markdown for the previous screenshot.
