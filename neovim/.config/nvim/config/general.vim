@@ -154,8 +154,8 @@ endif
 
 " Set the shell variable for vim, so that we can use the WSL terminal.
 " The other terminals can still be used with :term cmd etc.
-if has("windows") && ! has('nvim')
-    set shell=C:\Windows\Sysnative\wsl.exe
+if has("win32") && ! has('nvim')
+    set shell=C:\\Windows\\Sysnative\\wsl.exe
     set shellpipe=|
     set shellredir=>
     set shellcmdflag=
