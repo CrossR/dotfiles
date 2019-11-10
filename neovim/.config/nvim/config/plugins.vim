@@ -142,9 +142,16 @@ if s:has_features
     Plug 'w0rp/ale'
 endif
 
-if has('python3') && has('nvim')
+if has('python3')
+
     " Diary templates with GitHub + GCal integration
-    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
+    if has('nvim')
+        Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
+    else
+        Plug 'CrossR/nvim_diary_template', { 'for': 'markdown' }
+        Plug 'roxma/vim-hug-neovim-rpc'
+        Plug 'roxma/nvim-yarp'
+    endif
 
     " Autocomplete
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

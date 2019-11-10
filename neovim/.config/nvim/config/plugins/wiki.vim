@@ -39,7 +39,7 @@ let g:wiki_export = {
 " Remove the Page-TOC bind, since I barely use it and prefer ,wt for enabling
 " the writing of wiki tables.
 let g:wiki_mappings_local = {
-            \ '<plug>(wiki-page-toc)' : '',
+            \ '<plug>(wiki-page-toc)' : '<leader>wtoc',
             \}
 
 " Markdown options

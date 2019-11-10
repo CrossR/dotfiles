@@ -97,7 +97,7 @@ endif
 if has ('nvim') && has('win32')
     let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.7"
     let g:python3_host_prog = g:venv_folder . "/Scripts/python.exe"
-elseif has('nvim') && has('unix')
+elseif has('unix')
     if (system('uname') =~ "darwin")
         let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template-py3.7/bin/python"
     else
