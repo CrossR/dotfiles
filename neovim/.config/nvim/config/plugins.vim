@@ -149,7 +149,7 @@ if has('python3')
         Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
     else
         Plug 'CrossR/nvim_diary_template', { 'for': 'markdown' }
-        Plug 'roxma/vim-hug-neovim-rpc'
+        Plug 'CrossR/vim-hug-neovim-rpc'
         Plug 'roxma/nvim-yarp'
     endif
 
