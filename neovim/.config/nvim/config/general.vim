@@ -4,6 +4,7 @@
 
 set number
 set incsearch
+set hlsearch
 
 set splitright
 set splitbelow
@@ -16,27 +17,36 @@ filetype plugin indent on
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set autoindent
+set smarttab
 
 set shortmess+=c
+set complete-=i
 set conceallevel=0
 set virtualedit=block
+set backspace+=indent,eol,start
 
 set ignorecase
 set smartcase
 set lazyredraw
+set wildmenu
+set autoread
 
 set undofile
+set history=10000
+set tabpagemax=50
 set hidden
 set mouse=a
 set nowrap
 
 set spell spelllang=en_gb
 
-if has ('nvim')
-    set list
-    set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-    set fillchars=fold:\ 
-endif
+set list
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set fillchars=fold:\ 
+set display+=lastline
+set formatoptions+=j
+set sessionoptions-=options
 
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
