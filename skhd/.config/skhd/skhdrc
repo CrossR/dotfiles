@@ -1,0 +1,44 @@
+# Open terminal
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+# Open Firefox
+cmd + shift - return : ~/.config/chunkwm/startBrowser.sh
+cmd + ctrl - return : ~/.config/chunkwm/startBrowser.sh -p
+
+# Toggle chunkwm
+ctrl + cmd - c : ~/.config/chunkwm/toggleChunkwm.sh
+
+# Focus window
+cmd - h : yabai -m window --focus west
+cmd - j : yabai -m window --focus south
+cmd - k : yabai -m window --focus north
+cmd - l : yabai -m window --focus east
+
+# Equalize size of windows
+shift + alt - 0 : yabai -m space --balance
+
+# Move window
+shift + cmd - h : yabai -m window --swap west
+shift + cmd - j : yabai -m window --swap south
+shift + cmd - k : yabai -m window --swap north
+shift + cmd - l : yabai -m window --swap east
+
+# Toggle desktop offset
+alt - a : yabai -m space --toggle padding
+
+# Toggle window fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# Toggle window native fullscreen
+shift + ctrl - f : yabai -m window --toggle native-fullscreen
+
+# Toggle window parent zoom
+alt - d : yabai -m window --toggle zoom-parent
+
+# Float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float
+
+# Change layout of desktop
+ctrl + cmd - a : yabai -m space --layout bsp
+ctrl + cmd - d : yabai -m space --layout float
+

@@ -15,10 +15,10 @@ do
     esac
 done
 
-if pgrep -x "chunkwm" > /dev/null; then
-    launchctl unload /Library/LaunchAgents/com.koekeishiya.chunkwm.plist
+if pgrep -x "yabai" > /dev/null; then
+    launchctl unload /Library/LaunchAgents/com.koekeishiya.yabai.plist
 else
-    launchctl load /Library/LaunchAgents/com.koekeishiya.chunkwm.plist
+    launchctl load /Library/LaunchAgents/com.koekeishiya.yabai.plist
 fi
 
 return ${SUCCESS} 2> /dev/null || exit ${SUCCESS}
