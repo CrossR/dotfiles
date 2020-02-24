@@ -2,11 +2,11 @@
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 # Open Firefox
-cmd + shift - return : ~/.config/chunkwm/startBrowser.sh
-cmd + ctrl - return : ~/.config/chunkwm/startBrowser.sh -p
+cmd + shift - return : ~/.config/yabai/startBrowser.sh
+cmd + ctrl - return : ~/.config/yabai/startBrowser.sh -p
 
-# Toggle chunkwm
-ctrl + cmd - c : ~/.config/chunkwm/toggleChunkwm.sh
+# Toggle yabai
+ctrl + cmd - c : ~/.config/yabai/toggleYabai.sh
 
 # Focus window
 cmd - h : yabai -m window --focus west
@@ -23,8 +23,16 @@ shift + cmd - j : yabai -m window --swap south
 shift + cmd - k : yabai -m window --swap north
 shift + cmd - l : yabai -m window --swap east
 
-# Toggle desktop offset
-alt - a : yabai -m space --toggle padding
+# Swap Desktop
+alt - 1 : yabai -m space --focus 1
+alt - 2 : yabai -m space --focus 2
+alt - 3 : yabai -m space --focus 3
+alt - 4 : yabai -m space --focus 4
+alt - 5 : yabai -m space --focus 5
+alt - 6 : yabai -m space --focus 6
+alt - 7 : yabai -m space --focus 7
+alt - 8 : yabai -m space --focus 8
+alt - 9 : yabai -m space --focus 9
 
 # Toggle window fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
@@ -33,7 +41,7 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 shift + ctrl - f : yabai -m window --toggle native-fullscreen
 
 # Toggle window parent zoom
-alt - d : yabai -m window --toggle zoom-parent
+alt - z : yabai -m window --toggle zoom-parent
 
 # Float / unfloat window and center on screen
 alt - t : yabai -m window --toggle float
