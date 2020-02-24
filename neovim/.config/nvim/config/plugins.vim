@@ -102,7 +102,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'wellle/targets.vim'
 
 " A personal wiki and some markdown plugins
-Plug 'lervag/wiki.vim'
+Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
