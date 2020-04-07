@@ -2,11 +2,16 @@
 
 let g:quicktex_math = {
     \' ':      "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-    \'eq':     '= ',
     \'frac':   '\frac{<+++>}{<++>} <++>',
     \'x10':    '\times 10^{<+++>}<++>',
     \'sum':    '\sum_{<+++>}<++>',
     \'delta':  '\Delta <+++>',
+    \'to':     '\to ',
+    \'pa2b':   'P(<+++> \to <++>)<++>',
+    \'eeq':    '\end{equation}',
+    \'->':     '\rightarrow ',
+    \'<-':     '\leftarrow ',
+    \'~t':     '\text{<+++>}<++>',
     \'nu':     '\nu_\mu ',
     \'nue':    '\nu_e ',
     \'nutau':  '\nu_\tau ',
@@ -27,16 +32,12 @@ let g:quicktex_math = {
     \'cos':    '\cos(<+++>)<++>',
     \'sin2':   '\sin^2(<+++>)<++>',
     \'cos2':   '\cos^2(<+++>)<++>',
-    \'to':     '\to ',
-    \'pa2b':   'P(<+++> \to <++>)<++>',
     \'dm2':    '\Delta m^2',
     \'t12':    '\theta_{12}',
     \'t13':    '\theta_{13}',
     \'t23':    '\theta_{23}',
     \'dcp':    '\delta_{CP}',
-    \'eeq':    '\end{equation}',
-    \'->':     '\rightarrow ',
-    \'<-':     '\leftarrow ',
+    \'GeV':    '\text{GeV}'
     \}
 
 let g:quicktex_tex = {
