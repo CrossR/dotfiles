@@ -51,9 +51,15 @@ yabai -m rule --add app="^Slack$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
 yabai -m rule --add app="^Archive Utility$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^.*Zoom.*$" manage=off
+yabai -m rule --add app="^Microsoft Teams$" manage=off
+yabai -m rule --add app="^Installer$" manage=off
 
 yabai -m rule --add title=".*Mayavi Scene.*" manage=off
 yabai -m rule --add title=".*Eve Main Window.*" manage=off
 yabai -m rule --add title="^Opening .*$" manage=off
 yabai -m rule --add title="^Copy$" manage=off
-yabai -m rule --add title='Preferences$' manage=off topmost=on
+
+yabai -m rule --add title="Preferences$" manage=off topmost=on
+yabai -m rule --add title="Picture-In-Picture$" manage=off topmost=on
