@@ -1,15 +1,8 @@
 #!/usr/bin/env sh
 
-# Status Bar settings
-yabai -m config status_bar                   on
-yabai -m config status_bar_text_font         "Helvetica Neue:Bold:12.0"
-yabai -m config status_bar_icon_font         "Font Awesome 5 Free:Solid:12.0"
-yabai -m config status_bar_background_color  0xf0202020
-yabai -m config status_bar_foreground_color  0xf0a8a8a8
-yabai -m config status_bar_space_icon_strip  1 2 3 4 5 6 7 8 9 10
-yabai -m config status_bar_power_icon_strip   
-yabai -m config status_bar_space_icon        
-yabai -m config status_bar_clock_icon        
+# Disable status bar, and add space for spacehar
+yabai -m config status_bar                   off
+yabai -m config top_padding                  26
 
 # Global settings
 yabai -m config mouse_follows_focus          off
@@ -37,7 +30,6 @@ yabai -m config mouse_action2                resize
 
 # General space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  0
 yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
 yabai -m config right_padding                0
