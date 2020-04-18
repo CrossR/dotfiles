@@ -5,3 +5,4 @@ if has('nvim-0.3.2')
   let g:ale_virtualtext_prefix = '→ '
 endif
 
+let g:ale_linters = {'markdown': []}

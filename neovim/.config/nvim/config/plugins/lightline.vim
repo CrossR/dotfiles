@@ -5,7 +5,7 @@ if exists('g:gui_oni')
 endif
 
 let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
+            \ 'colorscheme': 'gruvbox8',
             \ 'separator': {'left': '', 'right': ''},
             \ 'subseparator': {'left': '', 'right': ''},
             \ 'active': {

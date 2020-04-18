@@ -52,7 +52,7 @@ if !exists('g:gui_oni')
     Plug 'airblade/vim-rooter'
 
     " Colour scheme
-    Plug 'morhetz/gruvbox'
+    Plug 'CrossR/vim-gruvbox8'
 
     " Tmux helper
     Plug 'tmux-plugins/vim-tmux-focus-events'
