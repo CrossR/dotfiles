@@ -48,9 +48,7 @@ set display+=lastline
 set formatoptions+=j
 set sessionoptions-=options
 
-if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-endif
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
 if !exists('g:gui_oni')
     set laststatus=2
@@ -75,41 +73,30 @@ function! Check_folder_exists(folder_name) abort
 endfunction
 
 if !has('win32')
-
     if has('nvim')
-        call Check_folder_exists("~/.config/nvim")
-        call Check_folder_exists("~/.config/nvim/spell")
-        call Check_folder_exists("~/.config/nvim/undodir")
-        call Check_folder_exists("~/.config/nvim/sessions")
-
-        set spellfile=~/.config/nvim/spell/en.utf-8.add
-        set undodir=~/.config/nvim/undodir
+        let s:base_folder = "~/.config/nvim"
     else
-        call Check_folder_exists("~/.vim")
-        call Check_folder_exists("~/.vim/spell")
-        call Check_folder_exists("~/.vim/undodir")
-        call Check_folder_exists("~/.vim/sessions")
-
-        set spellfile=~/.vim/spell/en.utf-8.add
-        set undodir=~/.vim/undodir
+        let s:base_folder = "~/.vim"
     endif
 else
-    call Check_folder_exists("~/AppData/Local/nvim")
-    call Check_folder_exists("~/AppData/Local/nvim/spell")
-    call Check_folder_exists("~/AppData/Local/nvim/undodir")
-    call Check_folder_exists("~/AppData/Local/nvim/sessions")
-
-    set spellfile=~/AppData/Local/nvim/spell/en.utf-8.add
-    set undodir=~/AppData/Local/nvim/undodir
+    let s:base_folder = "~/AppData/Local/nvim"
 endif
+
+call Check_folder_exists(s:base_folder)
+call Check_folder_exists(s:base_folder . "/spell")
+call Check_folder_exists(s:base_folder . "/undodir")
+call Check_folder_exists(s:base_folder . "/sessions")
+
+let &spellfile = s:base_folder . "/spell/en.utf-8.add"
+let &undodir = s:base_folder . "/undodir"
 
 " Setup Python Env
 if has ('nvim') && has('win32')
     let g:venv_folder = $HOME . "/.virtualenvs/nvim-diary-template-py3.7"
     let g:python3_host_prog = g:venv_folder . "/Scripts/python.exe"
-elseif has('unix')
+elseif has('nvim') && has('unix')
     if (system('uname') =~ "darwin")
-        let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template-py3.7/bin/python"
+        let g:python3_host_prog = $HOME . "/.virtualenvs/nvim-diary-template--Z3Z6Czd-py3.7/bin/python"
     else
         let g:python3_host_prog = $HOME . "/.python/virtualenvs/nvim-diary-template-py3.6/bin/python"
     endif
