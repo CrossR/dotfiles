@@ -4,8 +4,12 @@ if !has('python3') || !has('nvim')
     finish
 endif
 
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
+
+augroup DeopleteInsertEnable
+    autocmd!
+    autocmd InsertEnter * call deoplete#enable()
+augroup END
 
 if !exists('g:deoplete#sources')
   let g:deoplete#sources = {}
