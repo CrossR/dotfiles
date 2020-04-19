@@ -39,7 +39,7 @@ set hidden
 set mouse=a
 set nowrap
 
-set spell spelllang=en_gb
+set spelllang=en_gb
 
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
@@ -74,12 +74,12 @@ endfunction
 
 if !has('win32')
     if has('nvim')
-        let s:base_folder = "~/.config/nvim"
+        let s:base_folder = $HOME . "/.config/nvim"
     else
-        let s:base_folder = "~/.vim"
+        let s:base_folder = $HOME . "/.vim"
     endif
 else
-    let s:base_folder = "~/AppData/Local/nvim"
+    let s:base_folder = $HOME . "/AppData/Local/nvim"
 endif
 
 call Check_folder_exists(s:base_folder)
@@ -102,9 +102,6 @@ elseif has('nvim') && has('unix')
     endif
 endif
 
-" Fix spell highlights by linking to an obvious syntax class.
-" Just avoids issues when terms/tmux/anything isn't happy with
-" displaying bold characters etc.
 function! Sort_Spell_Highlights() abort
         highlight clear SpellBad
         highlight clear SpellCap
@@ -117,9 +114,13 @@ function! Sort_Spell_Highlights() abort
         highlight link SpellRare Question
 endfunction
 
+" Fix spell highlights by linking to some more basic highlights.
+" Also only enable spelling in buffers we are editing, rather
+" than globally.
 augroup FixSpelling
     autocmd!
     autocmd BufEnter * call Sort_Spell_Highlights()
+    autocmd InsertEnter * setlocal spell
 augroup END
 
 " Save as root.
