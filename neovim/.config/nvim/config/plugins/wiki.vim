@@ -5,6 +5,7 @@ if empty($GIT_DEFAULT_DIR)
 endif
 
 let g:wiki_root = $GIT_DEFAULT_DIR . "/wiki/docs"
+let g:code_notes#notes_root = g:wiki_root . "/code/"
 let g:wiki_filetypes = ['md']
 let g:wiki_link_extension = '.md'
 

@@ -53,6 +53,7 @@ if !exists('g:gui_oni')
 
     " Colour scheme
     Plug 'CrossR/vim-gruvbox8'
+    Plug 'lifepillar/vim-colortemplate'
 
     " Tmux helper
     Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -102,7 +103,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'wellle/targets.vim'
 
 " A personal wiki and some markdown plugins
-Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
+Plug 'lervag/wiki.vim'
+Plug 'CrossR/vim-code-notes'
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
