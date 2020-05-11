@@ -79,6 +79,7 @@ Plug 'simnalamburt/vim-mundo'
 
 " Additional language support
 Plug 'vim-python/python-syntax'
+Plug 'chrisbra/csv.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'lervag/vimtex'
 Plug 'bfrg/vim-cpp-modern'
