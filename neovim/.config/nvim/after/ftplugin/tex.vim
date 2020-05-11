@@ -7,4 +7,3 @@ nnoremap <buffer> <F9> :VimtexCompile<CR>
 nnoremap <buffer> <F10> :VimtexTocToggle<CR>
 setlocal spell spelllang=en_gb " Spellchecking for .tex only
 setlocal textwidth=80          " Wrap at 80 cols in .tex files.
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete

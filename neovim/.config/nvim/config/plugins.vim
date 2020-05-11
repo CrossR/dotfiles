@@ -103,7 +103,7 @@ Plug 'wellle/targets.vim'
 Plug 'lervag/wiki.vim'
 Plug 'CrossR/vim-code-notes'
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Write slides in Markdown
@@ -151,9 +151,6 @@ if has('python3')
         Plug 'CrossR/vim-hug-neovim-rpc'
         Plug 'roxma/nvim-yarp'
     endif
-
-    " Autocomplete
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
 call plug#end()
