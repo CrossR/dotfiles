@@ -77,11 +77,8 @@ Plug 'tpope/vim-obsession'
 " Undo Tree Visualise
 Plug 'simnalamburt/vim-mundo'
 
-" Language packs
-Plug 'sheerun/vim-polyglot'
-
 " Vim TeX
-Plug 'lervag/vimtex', { 'for': ['tex', 'markdown'] }
+Plug 'lervag/vimtex'
 Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
 
 " Git diff in sign column
