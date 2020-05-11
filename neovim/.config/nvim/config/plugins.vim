@@ -77,8 +77,16 @@ Plug 'tpope/vim-obsession'
 " Undo Tree Visualise
 Plug 'simnalamburt/vim-mundo'
 
-" Vim TeX
+" Additional language support
+Plug 'vim-python/python-syntax'
+Plug 'plasticboy/vim-markdown'
 Plug 'lervag/vimtex'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'ocaml/vim-ocaml'
+Plug 'CrossR/vim-fhicl'
+
+" Vim TeX
 Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
 
 " Git diff in sign column
@@ -103,7 +111,6 @@ Plug 'wellle/targets.vim'
 Plug 'lervag/wiki.vim'
 Plug 'CrossR/vim-code-notes'
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Write slides in Markdown
@@ -112,12 +119,6 @@ Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
 " Focused writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
-" Helpers for FHICL files
-Plug 'CrossR/vim-fhicl'
-
-" C++ Enhancements
-Plug 'bfrg/vim-cpp-modern'
 
 " Buffer closing
 Plug 'artnez/vim-wipeout'
