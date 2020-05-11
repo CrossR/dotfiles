@@ -49,7 +49,7 @@ yabai -m rule --add app="^.*Zoom.*$" manage=off
 yabai -m rule --add app="^Microsoft Teams$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 
-yabai -m rule --add title=".*Mayavi Scene.*" manage=off
+yabai -m rule --add title=".*Mayavi.*" manage=off
 yabai -m rule --add title=".*Eve Main Window.*" manage=off
 yabai -m rule --add title="^Opening .*$" manage=off
 yabai -m rule --add title="^Copy$" manage=off
