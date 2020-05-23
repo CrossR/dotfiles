@@ -8,9 +8,9 @@ neovim/.config/nvim/sessions/*
 neovim/.config/nvim/rplugin.vim
 
 # Ignore everything in the Oni folder, except the configuration files.
-oni2/*
-!oni2/configuration.json
-!oni2/keybindings.json
+oni2/.config/oni2/*
+!oni2/.config/oni2/configuration.json
+!oni2/.config/oni2/keybindings.json
 
 # Ignore log files and such.
 !mpd/.config/mpd/mpd.conf

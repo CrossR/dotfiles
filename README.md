@@ -2,11 +2,16 @@
 
 ### Info
 
-*   Editor - NeoVim/Oni2
+* Editor - Oni2 (GUI) / nvim (TUI)
+* Tiling Window Manager (Mac) - Yabai
+* Window Manager Status Bar (Mac) - Spacebar
+* Keybindings (Mac) - skhd
+* Terminal - kitty
+* Session Management - tmux
 
 ### How to Unpack
 
-#### Linux/MacOS
+#### Linux/macOS
 
 Use GNU Stow to unpack the folders, and it will symlink them to the correct
 location. This is achieved with the following command:
@@ -20,7 +25,7 @@ For neovim and Oni2, instead just setup folder junctions such that the git
 folder is used to store the config in. This is achieved with:
 
 ```batch
-mklink /J %APPDATA%\Oni2 oni2
+mklink /J %LOCALAPPDATA%\Oni2 oni2\.config\oni2
 mklink /J %LOCALAPPDATA%\nvim neovim\.config\nvim
 ```
 
