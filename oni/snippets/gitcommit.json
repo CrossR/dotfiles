@@ -1,9 +1,0 @@
-{
-    "Diary": {
-        "prefix": "diary",
-        "body": [
-            "Added diary for ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}."
-        ],
-        "description": "Default diary commit message."
-    }
-}
