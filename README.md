@@ -16,11 +16,11 @@ repo should be cloned to the home directory.
 
 #### Windows
 
-For neovim and Oni, instead just setup folder junctions such that the git
+For neovim and Oni2, instead just setup folder junctions such that the git
 folder is used to store the config in. This is achieved with:
 
 ```batch
-mklink /J %APPDATA%\Oni oni
+mklink /J %APPDATA%\Oni2 oni2
 mklink /J %LOCALAPPDATA%\nvim neovim\.config\nvim
 ```
 
