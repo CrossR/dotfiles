@@ -10,4 +10,4 @@ spacebar -m config status_bar_space_icon_strip  1 2 3 4 5 6 7 8 9 10
 spacebar -m config status_bar_power_icon_strip   
 spacebar -m config status_bar_space_icon        
 spacebar -m config status_bar_clock_icon        
-spacebar -m config status_bar_clock_format      "%A %d %B %R"
+spacebar -m config status_bar_clock_format      "%a %d %B %R"
