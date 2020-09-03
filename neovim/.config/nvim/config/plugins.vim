@@ -151,17 +151,5 @@ if s:has_features
     Plug 'w0rp/ale'
 endif
 
-if has('python3')
-
-    " Diary templates with GitHub + GCal integration
-    if has('nvim')
-        Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
-    else
-        Plug 'CrossR/nvim_diary_template', { 'for': 'markdown' }
-        Plug 'CrossR/vim-hug-neovim-rpc'
-        Plug 'roxma/nvim-yarp'
-    endif
-endif
-
 call plug#end()
 
