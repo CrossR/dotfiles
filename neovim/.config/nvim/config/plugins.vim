@@ -109,10 +109,18 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'wellle/targets.vim'
 
 " A personal wiki and some markdown plugins
-Plug 'lervag/wiki.vim'
-Plug 'CrossR/vim-code-notes'
+Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
+Plug 'CrossR/vim-code-notes',
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+if has('nvim')
+    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
+else
+    Plug 'CrossR/nvim_diary_template', { 'for': 'markdown' }
+    Plug 'CrossR/vim-hug-neovim-rpc'
+    Plug 'roxma/nvim-yarp'
+endif
 
 " Write slides in Markdown
 Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }

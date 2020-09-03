@@ -48,7 +48,9 @@ set display+=lastline
 set formatoptions+=j
 set sessionoptions-=options
 
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+endif
 
 if !exists('g:gui_oni')
     set laststatus=2
