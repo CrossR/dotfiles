@@ -44,7 +44,8 @@ shift + ctrl - f : yabai -m window --toggle native-fullscreen
 alt - z : yabai -m window --toggle zoom-parent
 
 # Float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float
+shift + alt - f : yabai -m window --toggle float;\
+                  yabai -m window --grid 4:4:1:1:2:2
 
 # Change layout of desktop
 ctrl + cmd - a : yabai -m space --layout bsp

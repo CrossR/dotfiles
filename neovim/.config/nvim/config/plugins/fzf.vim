@@ -8,20 +8,6 @@ if empty($GIT_DEFAULT_DIR)
     echoerr "$GIT_DEFAULT_DIR isn't set."
 endif
 
-" Bind Ctrl-p to be the files search.
-" Calls GFiles in a git repository, and files otherwise.
-nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles') . "\<CR>"
-
-command! -bang -nargs=* GLines
-            \ call fzf#vim#grep(
-            \ 'rg --vimgrep --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>),
-            \ 1,
-            \ {'options': '--delimiter : --nth 4..'},
-            \ <bang>0
-            \ )
-
-nnoremap <c-f> :GLines<space>
-
 command! -bang Projects
             \ call fzf#run(
             \ fzf#wrap(
@@ -48,5 +34,10 @@ command! -bang Sessions
             \ <bang>0
             \ ))
 
+" Bind Ctrl-p to be the files search.
+" Calls GFiles in a git repository, and files otherwise.
+nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles') . "\<CR>"
+
+nnoremap <c-f> :Rg<space>
 nnoremap <silent> <c-w> :Projects<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
