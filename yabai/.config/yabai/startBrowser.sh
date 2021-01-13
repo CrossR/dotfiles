@@ -36,13 +36,8 @@ do
     esac
 done
 
-if [[ $(pmset -g ps | head -1) =~ "AC Power" ]]; then
-    BROWSER="firefox"
-    PRIVATE="p"
-else
-    BROWSER="Safari"
-    PRIVATE="n"
-fi
+BROWSER="firefox"
+PRIVATE="p"
 
 ACTIVATE_BROWSER="tell application \"${BROWSER}\" to activate"
 ACTIVATE_KEYS="tell application \"System Events\" to keystroke "

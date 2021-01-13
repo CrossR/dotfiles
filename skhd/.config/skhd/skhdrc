@@ -37,6 +37,9 @@ cmd - 9 : yabai -m space --focus 9
 # Toggle window fullscreen
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# Toggle window floating
+alt - t : yabai -m window --toggle float
+
 # Toggle window native fullscreen
 shift + ctrl - f : yabai -m window --toggle native-fullscreen
 
