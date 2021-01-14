@@ -46,9 +46,10 @@ shift + ctrl - f : yabai -m window --toggle native-fullscreen
 # Toggle window parent zoom
 alt - z : yabai -m window --toggle zoom-parent
 
-# Float / unfloat window and center on screen
-shift + alt - f : yabai -m window --toggle float;\
-                  yabai -m window --grid 4:4:1:1:2:2
+# Send window to monitor and follow focus.
+# Try next first, use first if fails.
+shift + cmd - e : yabai -m window --display next || yabai -m window --display first; \
+                  yabai -m display --focus next || yabai -m display --focus first
 
 # Change layout of desktop
 ctrl + cmd - a : yabai -m space --layout bsp
