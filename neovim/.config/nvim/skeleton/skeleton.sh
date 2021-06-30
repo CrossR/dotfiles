@@ -35,6 +35,8 @@ RunAndCheck() {
     elif [ $RETURN_CODE -ne 0 ] && [ "$3" = "WARN" ]; then
         LogWarning "$2"
     fi
+
+    return ${RETURN_CODE}
 }
 
 show_help () {

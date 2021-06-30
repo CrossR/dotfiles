@@ -50,7 +50,9 @@ endfunction
 function! Insert_Screenshot() abort
     if g:last_image_taken != ""
         let cur_pos = getpos(".")
-        let markdown = '![](' . g:last_image_taken .')'
+        let file_name = g:last_image_taken
+        let desc = substitute(g:last_image_taken, '_', ' ', "g")
+        let markdown = '![' . desc . '](' . file_name .')'
         call setline('.', markdown)
         call setpos('.', [0, cur_pos[1], 2, 0])
     endif

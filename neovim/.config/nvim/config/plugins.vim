@@ -40,43 +40,6 @@ if !has('win32')
     endif
 endif
 
-if !exists('g:gui_oni')
-    " Bottom status bar, not needed for Oni.
-    Plug 'itchyny/lightline.vim'
-
-    " Fuzzy finder
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-
-    " Set working folder
-    Plug 'airblade/vim-rooter'
-
-    " Colour scheme
-    Plug 'CrossR/vim-gruvbox8'
-    Plug 'lifepillar/vim-colortemplate'
-
-    " Tmux helper
-    Plug 'tmux-plugins/vim-tmux-focus-events'
-endif
-
-" Git Plugin
-Plug 'tpope/vim-fugitive'
-
-" Nicer commenting using gcc
-Plug 'tpope/vim-commentary'
-
-" Change around things
-Plug 'tpope/vim-surround'
-
-" Repeat addons with .
-Plug 'tpope/vim-repeat'
-
-" Better sessions
-Plug 'tpope/vim-obsession'
-
-" Undo Tree Visualise
-Plug 'simnalamburt/vim-mundo'
-
 " Additional language support
 Plug 'vim-python/python-syntax'
 Plug 'chrisbra/csv.vim'
@@ -87,32 +50,41 @@ Plug 'reasonml-editor/vim-reason-plus'
 Plug 'ocaml/vim-ocaml'
 Plug 'CrossR/vim-fhicl'
 
-" Vim TeX
-Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'simnalamburt/vim-mundo'
+Plug 'Lenovsky/nuake'
 
-" Git diff in sign column
 Plug 'mhinz/vim-signify'
-
-" Highlight trailing whitespace
+Plug 'unblevable/quick-scope'
 Plug 'bronson/vim-trailing-whitespace'
-
-" Align text on a symbol using ga
-Plug 'junegunn/vim-easy-align'
-
-" Jump motion using s
 Plug 'justinmk/vim-sneak'
-
-" Briefly highlight the yanked region
 Plug 'machakann/vim-highlightedyank'
+Plug 'CrossR/vim-gruvbox8'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" Add additional text objects
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'airblade/vim-rooter'
+Plug 'artnez/vim-wipeout'
+Plug 'lifepillar/vim-colortemplate'
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
 Plug 'wellle/targets.vim'
 
-" A personal wiki and some markdown plugins
+" Writing notes/LaTeX plugins
 Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
 Plug 'CrossR/vim-code-notes',
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
+Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 if has('nvim')
     Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
@@ -121,19 +93,6 @@ else
     Plug 'CrossR/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
 endif
-
-" Write slides in Markdown
-Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
-
-" Focused writing
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-
-" Buffer closing
-Plug 'artnez/vim-wipeout'
-
-" Pop-up terminal
-Plug 'Lenovsky/nuake'
 
 if has('nvim')
     " Add back --remote, needed for VimTeX
