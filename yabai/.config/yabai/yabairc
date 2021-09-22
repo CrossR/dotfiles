@@ -46,6 +46,7 @@ yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Calendar$" manage=off
 yabai -m rule --add app="^.*Zoom.*$" manage=off
+yabai -m rule --add app="^.*zoom.*$" manage=off
 yabai -m rule --add app="^Microsoft Teams$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^.*Arduino.*$" manage=off
