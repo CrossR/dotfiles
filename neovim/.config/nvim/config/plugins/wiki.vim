@@ -34,6 +34,7 @@ let g:wiki_export = {
             \ 'from_format' : 'markdown',
             \ 'ext' : 'pdf',
             \ 'view' : v:true,
+            \ 'output' : 'pdfs/'
             \ }
 
 " Override some default bindings.
