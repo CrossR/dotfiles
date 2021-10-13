@@ -30,7 +30,7 @@ let g:wiki_journal = {
 
 " Set the export configuration.
 let g:wiki_export = {
-            \ 'args' : '-V geometry:margin=0.5in',
+            \ 'args' : '-V geometry:margin=0.5in -H ' . $GIT_DEFAULT_DIR . '/wiki/pandoc/listings-setup.tex --listings',
             \ 'from_format' : 'markdown',
             \ 'ext' : 'pdf',
             \ 'view' : v:true,
