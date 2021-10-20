@@ -53,15 +53,19 @@ let g:quicktex_math = {
     \}
 
 let g:quicktex_tex = {
-    \' ':      "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
-    \'beq':    '\begin{equation}',
-    \'\b':    '\begin{<+++>}<++>',
-    \'\e':    '\end{<+++>}<++>',
-    \'\bfi':  '\begin{figure}[tph]',
-    \'\efi':  '\end{figure}',
-    \'\cen':  '\centering',
-    \'\inc':  '\includegraphics[width=<+++>\textwidth]{<++>}<++>',
-    \'\cap':  '\caption{<+++>}%<++>',
+    \' ':    "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \'\beg': '\begin{<+++>}<++>',
+    \'\end': '\end{<+++>}<++>',
+    \'\eq':  "\\begin{equation}\<CR>" .
+           \ "<+++>\<CR>" .
+           \ "\\label{<++>}\<CR>" .
+           \ "\\end{equation}",
+    \'\fig': "\\begin{figure}[tph]\<CR>" .
+           \ "\\centering\<CR>" .
+           \ "\\includegraphics[width=<+++>\\textwidth]{<++>}\<CR>" .
+           \ "\\caption{<++>}%\<CR>" .
+           \ "\\label{<++>}\<CR>" .
+           \ "\\end{figure}"
     \}
 
 let s:current_path = expand('<sfile>:p')
