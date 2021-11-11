@@ -14,40 +14,45 @@ let g:quicktex_math = {
     \'->':     '\rightarrow ',
     \'<-':     '\leftarrow ',
     \'~t':     '\text{<+++>}<++>',
-    \'v<':     '\bm{<+++>}<++>',
-    \'nul':    '\nu_l',
-    \'nu':     '\nu_\mu',
-    \'nue':    '\nu_e',
-    \'nutau':  '\nu_\tau',
-    \'anul':   '\bar{\nu}_l',
-    \'anu':    '\bar{\nu}_\mu',
-    \'anue':   '\bar{\nu}_e',
-    \'anutau': '\bar{\nu}_\tau',
-    \'l+':     'l^+',
-    \'l-':     'l^-',
-    \'e+':     'e^+',
-    \'e-':     'e^-',
-    \'mu+':    '\mu^+',
-    \'mu-':    '\mu^-',
-    \'t+':     '\tau^+',
-    \'t-':     '\tau^-',
-    \'pi+':    '\pi^+',
-    \'pi-':    '\pi^-',
-    \'pi0':    '\pi^0',
-    \'w+-':    'W^\pm',
-    \'w+':     'W^+',
-    \'w-':     'W^-',
-    \'z0':     'Z^0',
-    \'decay':  '\Gamma',
+    \'v<':     '\vec{<+++>}<++>',
+    \'b<':     '\bra{<+++>}<++>',
+    \'k<':     '\ket{<+++>}<++>',
+    \'bk<':    '\braket{<+++>|<++>}<++>',
+    \'nui':    '\nu_i ',
+    \'nul':    '\nu_l ',
+    \'nu':     '\nu_\mu ',
+    \'nue':    '\nu_e ',
+    \'nutau':  '\nu_\tau ',
+    \'anui':   '\bar{\nu}_i ',
+    \'anul':   '\bar{\nu}_l ',
+    \'anu':    '\bar{\nu}_\mu ',
+    \'anue':   '\bar{\nu}_e ',
+    \'anutau': '\bar{\nu}_\tau ',
+    \'l+':     'l^+ ',
+    \'l-':     'l^- ',
+    \'e+':     'e^+ ',
+    \'e-':     'e^- ',
+    \'mu+':    '\mu^+ ',
+    \'mu-':    '\mu^- ',
+    \'t+':     '\tau^+ ',
+    \'t-':     '\tau^- ',
+    \'pi+':    '\pi^+ ',
+    \'pi-':    '\pi^- ',
+    \'pi0':    '\pi^0 ',
+    \'w+-':    'W^\pm ',
+    \'w+':     'W^+ ',
+    \'w-':     'W^- ',
+    \'z0':     'Z^0 ',
+    \'decay':  '\Gamma ',
     \'sin':    '\sin(<+++>)<++>',
     \'cos':    '\cos(<+++>)<++>',
     \'sin2':   '\sin^2(<+++>)<++>',
     \'cos2':   '\cos^2(<+++>)<++>',
-    \'dm2':    '\Delta m^2',
+    \'dm2':    '\Delta m^2 ',
     \'t12':    '\theta_{12}',
     \'t13':    '\theta_{13}',
     \'t23':    '\theta_{23}',
-    \'dcp':    '\delta_{CP}',
+    \'dcp':    '\delta_{CP} ',
     \'GeV':    '\text{ GeV}',
     \'GeVc':   '\text{ GeV} / c^2'
     \}
@@ -58,14 +63,19 @@ let g:quicktex_tex = {
     \'\end': '\end{<+++>}<++>',
     \'\eq':  "\\begin{equation}\<CR>" .
            \ "<+++>\<CR>" .
-           \ "\\label{<++>}\<CR>" .
+           \ "\\label{eq:<++>}\<CR>" .
            \ "\\end{equation}",
     \'\fig': "\\begin{figure}[tph]\<CR>" .
            \ "\\centering\<CR>" .
            \ "\\includegraphics[width=<+++>\\textwidth]{<++>}\<CR>" .
            \ "\\caption{<++>}%\<CR>" .
-           \ "\\label{<++>}\<CR>" .
-           \ "\\end{figure}"
+           \ "\\label{fig:<++>}\<CR>" .
+           \ "\\end{figure}",
+    \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long  = <++>.}",
+    \'\daL': "\\DeclareAcronym{<+++>}{\<CR>" .
+           \ "short = <++>,\<CR>" .
+           \ "long  = <++>.\<CR>" .
+           \ "}"
     \}
 
 let s:current_path = expand('<sfile>:p')

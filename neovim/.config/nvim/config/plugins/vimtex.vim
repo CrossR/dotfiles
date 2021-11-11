@@ -9,7 +9,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-shell-escape',
     \   '-verbose',
     \   '-file-line-error',
-    \   '-synctex=0',
+    \   '-synctex=1',
     \   '-interaction=nonstopmode',
     \ ],
     \}
