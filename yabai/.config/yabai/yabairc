@@ -1,6 +1,10 @@
 #!/usr/bin/env sh
 
-# Disable status bar, and add space for spacehar
+# Load the Yabai scripting addon
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# Disable status bar, and add space for top bar
 yabai -m config status_bar                   off
 yabai -m config top_padding                  26
 
