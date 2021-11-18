@@ -28,47 +28,47 @@ sketchybar -m --add event window_focus \
               --add event title_change
 
 # Spaces
-sketchybar -m --add space space1 left                            \
-              --set space1 associated_space=1                    \
-                         associated_display=1                    \
-                         icon=1                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 1" \
-                                                                 \
-              --add space space2 left                            \
-              --set space2 associated_display=1                  \
-                         associated_space=2                      \
-                         icon=2                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 2" \
-                                                                 \
-              --add space space3 left                            \
-              --set space3 associated_display=1                  \
-                         associated_space=3                      \
-                         icon=3                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 3" \
-                                                                 \
-              --add space space4 left                            \
-              --set space4 associated_display=1                  \
-                         associated_space=4                      \
-                         icon=4                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 4" \
-                                                                 \
-              --add space space5 left                            \
-              --set space5 associated_display=1                  \
-                         associated_space=5                      \
-                         icon=5                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 5" \
-                                                                 \
-              --add space space6 left                            \
-              --set space6  associated_display=1                 \
-                         associated_space=6                      \
-                         icon=6                                  \
-                         icon.font='Helvetica Neue:Bold:14.0'    \
-                         click_script="yabai -m space --focus 6"
+sketchybar -m --add space space1 left                              \
+              --set space1 associated_space=1                      \
+                           associated_display=1                    \
+                           icon=1                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 1" \
+                                                                   \
+              --add space space2 left                              \
+              --set space2 associated_display=1                    \
+                           associated_space=2                      \
+                           icon=2                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 2" \
+                                                                   \
+              --add space space3 left                              \
+              --set space3 associated_display=1                    \
+                           associated_space=3                      \
+                           icon=3                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 3" \
+                                                                   \
+              --add space space4 left                              \
+              --set space4 associated_display=1                    \
+                           associated_space=4                      \
+                           icon=4                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 4" \
+                                                                   \
+              --add space space5 left                              \
+              --set space5 associated_display=1                    \
+                           associated_space=5                      \
+                           icon=5                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 5" \
+                                                                   \
+              --add space space6 left                              \
+              --set space6 associated_display=1                    \
+                           associated_space=6                      \
+                           icon=6                                  \
+                           icon.font='Helvetica Neue:Bold:14.0'    \
+                           click_script="yabai -m space --focus 6"
 
 # Item defaults
 sketchybar -m --default label.padding_left=2  \
@@ -77,14 +77,15 @@ sketchybar -m --default label.padding_left=2  \
                         label.padding_right=6
 
 # Right hand side items
-sketchybar -m --add item clock right                                             \
-              --set clock         update_freq=10                                 \
-                                  script="~/.config/sketchybar/plugins/clock.sh" \
-                                                                                 \
-              --add item battery right                                           \
-              --set battery update_freq=3                                        \
-              --set battery script="~/.config/sketchybar/plugins/battery.sh"     \
-              --set battery icon=
+sketchybar -m --add item clock right                                         \
+              --set clock update_freq=10                                     \
+                          script="~/.config/sketchybar/plugins/clock.sh"     \
+                                                                             \
+              --add item battery right                                       \
+              --set battery update_freq=3                                    \
+                            script="~/.config/sketchybar/plugins/battery.sh" \
+                            icon.font="Hack Nerd Font:Bold:14.0"             \
+                            icon=
 
 # Central items
 sketchybar -m --add item title center                                        \

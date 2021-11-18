@@ -3,9 +3,6 @@
 BATT_PERCENT=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
 
-echo $BATT_PERCENT
-echo $CHARGING
-
 if [[ $CHARGING != "" ]]; then
   sketchybar -m --set battery \
     icon.color=0xFF5DFE67 \
@@ -14,7 +11,13 @@ if [[ $CHARGING != "" ]]; then
   exit 0
 fi
 
-[[ ${BATT_PERCENT} -gt 10 ]] && COLOR=0xFF${color5:1} || COLOR=0xFFFF0000
+case ${BATT_PERCENT} in
+    100|9[0-9]|8[0-9]) COLOR=0xFF5DFE67 ;;
+    7[0-9]|6[0-9]) COLOR=0xFFBCFE5D ;;
+    5[0-9]|4[0-9]) COLOR=0xFFFEEF5D ;;
+    3[0-9]|2[0-9]) COLOR=0xFFFF8D00 ;;
+    1[0-9]|*) COLOR=0xFFFF0000
+esac
 
 case ${BATT_PERCENT} in
     100) ICON="" ;;
@@ -30,9 +33,7 @@ case ${BATT_PERCENT} in
     *) ICON=""
 esac
 
-echo $ICON
-
-sketchybar -m -set battery ICON ${ICON}
-sketchybar -m --set battery\
-  icon.color=$COLOR \
-  label=$(printf "${BATT_PERCENT}%%")
+sketchybar -m --set battery \
+    icon.color=${COLOR} \
+    icon=${ICON} \
+    label=$(printf "${BATT_PERCENT}%%")
