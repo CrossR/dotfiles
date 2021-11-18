@@ -1,0 +1,91 @@
+# Bar config
+sketchybar -m --bar height=25        \
+                    blur_radius=50   \
+                    position=top     \
+                    padding_left=10  \
+                    padding_right=10 \
+                    color=0xF0202020
+
+# Global defaults
+sketchybar -m --default updates=when_shown                    \
+                        drawing=on                            \
+                        cache_scripts=on                      \
+                        icon.font="Hack Nerd Font:Bold:14.0"  \
+                        icon.color=0xF0A8A8A8                 \
+                        icon.highlight_color=0xFFFE8019       \
+                        label.font="Hack Nerd Font:Bold:14.0" \
+                        label.color=0xF0A8A8A8                \
+                        label.highlight_color=0xFFFE8019
+
+# Space Defaults
+sketchybar -m --default label.padding_left=2  \
+                        label.padding_right=2 \
+                        icon.padding_left=8   \
+                        label.padding_right=8
+
+# Events
+sketchybar -m --add event window_focus \
+              --add event title_change
+
+# Spaces
+sketchybar -m --add space space1 left                            \
+              --set space1 associated_space=1                    \
+                         associated_display=1                    \
+                         icon=1                                 \
+                         click_script="yabai -m space --focus 1" \
+                                                                 \
+              --add space space2 left                            \
+              --set space2 associated_display=1                  \
+                         associated_space=2                      \
+                         icon=2                                 \
+                         click_script="yabai -m space --focus 2" \
+                                                                 \
+              --add space space3 left                            \
+              --set space3 associated_display=1                  \
+                         associated_space=3                      \
+                         icon=3                                 \
+                         click_script="yabai -m space --focus 3" \
+                                                                 \
+              --add space space4 left                            \
+              --set space4 associated_display=1                  \
+                         associated_space=4                      \
+                         icon=4                                 \
+                         click_script="yabai -m space --focus 4" \
+                                                                 \
+              --add space space5 left                            \
+              --set space5 associated_display=1                  \
+                         associated_space=5                      \
+                         icon=5                                 \
+                         click_script="yabai -m space --focus 5" \
+                                                                 \
+              --add space space6 left                            \
+              --set space6  associated_display=1                 \
+                         associated_space=6                      \
+                         icon=6                                 \
+                         click_script="yabai -m space --focus 6"
+
+# Item defaults
+sketchybar -m --default label.padding_left=2  \
+                        icon.padding_right=2  \
+                        icon.padding_left=6   \
+                        label.padding_right=6
+
+# Right hand side items
+sketchybar -m --add item clock right                                             \
+              --set clock         update_freq=10                                 \
+                                  script="~/.config/sketchybar/plugins/clock.sh" \
+                                                                                 \
+              --add item battery right                                           \
+              --set battery update_freq=3                                        \
+              --set battery script="~/.config/sketchybar/plugins/battery.sh"     \
+              --set battery icon=
+
+# Central items
+sketchybar -m --add item title center                                        \
+              --set title script="$HOME/.config/sketchybar/plugins/title.sh" \
+              --subscribe title window_focus front_app_switched space_change title_change
+
+############## FINALIZING THE SETUP ##############
+sketchybar -m --update
+
+echo "sketchybar configuration loaded.."
