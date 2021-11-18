@@ -4,7 +4,7 @@
 
 * Editor - Oni2 (GUI) / nvim (TUI)
 * Tiling Window Manager (Mac) - Yabai
-* Window Manager Status Bar (Mac) - Spacebar
+* Window Manager Status Bar (Mac) - Sketchybar
 * Keybindings (Mac) - skhd
 * Terminal - kitty
 * Session Management - tmux
