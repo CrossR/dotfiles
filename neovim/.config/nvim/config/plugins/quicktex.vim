@@ -65,7 +65,11 @@ let g:quicktex_tex = {
            \ "<+++>\<CR>" .
            \ "\\label{eq:<++>}\<CR>" .
            \ "\\end{equation}",
-    \'\fig': "\\begin{figure}[tph]\<CR>" .
+    \'\eqa': "\\begin{align}\<CR>" .
+           \ "<+++>\<CR>" .
+           \ "\\label{eq:<++>}\<CR>" .
+           \ "\\end{align}",
+    \'\fig': "\\begin{figure}[hbtp]\<CR>" .
            \ "\\centering\<CR>" .
            \ "\\includegraphics[width=<+++>\\textwidth]{<++>}\<CR>" .
            \ "\\caption{<++>}%\<CR>" .
