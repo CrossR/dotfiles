@@ -23,9 +23,12 @@ sketchybar -m --default label.padding_left=2  \
                         icon.padding_left=8   \
                         label.padding_right=8
 
-# Events
+# Custom events - triggered by Yabai (in yabairc)
 sketchybar -m --add event window_focus \
-              --add event title_change
+              --add event title_change \
+              --add event window_created \
+              --add event window_destroyed \
+              --add event mission_control_exit
 
 # 10 default spaces
 sketchybar -m --add space space1 left                              \
@@ -102,13 +105,13 @@ sketchybar -m --add space space1 left                              \
 sketchybar -m \
   --add item dummy_windows left \
   --set dummy_windows script="~/.config/sketchybar/plugins/space_in_use.sh" \
-  --subscribe dummy_windows space_change
+  --subscribe dummy_windows space_change window_created window_destroyed
 
 # Show or hide the logos of spaces that are not active
 sketchybar -m \
   --add item dummy_active left \
   --set dummy_active script="~/.config/sketchybar/plugins/space_active.sh" \
-  --subscribe dummy_active space_change
+  --subscribe dummy_active space_change mission_control_exit
 
 # Item defaults
 sketchybar -m --default label.padding_left=2  \

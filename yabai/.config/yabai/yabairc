@@ -4,6 +4,15 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
+# Forward events to sketchybar
+yabai -m signal --add event=window_focused action="sketchybar -m --trigger window_focus &> /dev/null"
+yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger title_changed &> /dev/null"
+
+yabai -m signal --add event=window_created action="sketchybar -m --trigger window_created &> /dev/null"
+yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger window_destroyed &> /dev/null"
+
+yabai -m signal --add event=mission_control_exit action="sketchybar -m --trigger mission_control_exit &> /dev/null"
+
 # Disable status bar, and add space for top bar
 yabai -m config status_bar                   off
 yabai -m config top_padding                  26
