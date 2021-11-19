@@ -105,7 +105,7 @@ sketchybar -m --add space space1 left                              \
 sketchybar -m \
   --add item dummy_windows left \
   --set dummy_windows script="~/.config/sketchybar/plugins/space_in_use.sh" \
-  --subscribe dummy_windows space_change window_created window_destroyed
+  --subscribe dummy_windows space_change window_created window_destroyed mission_control_exit
 
 # Show or hide the logos of spaces that are not active
 sketchybar -m \
