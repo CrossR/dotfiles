@@ -24,13 +24,13 @@ while read -r index is_full windows; do
                 jq -r '[.[] | select(
                     .app != "Slack" and
                     .app != "Discord" and
-                    .app != "Spotify"
+                    .app != "Spotify" and
+                    ."is-minimized" == false
                 )] | length | @sh'
         )
     fi
 
     if [ "${filtered_window_num}" -gt 0 ]; then
-
         i=$((filtered_window_num - 1))
         args+=(--set "space${index}" "icon=${index}${COUNTERS[$i]}")
     fi
