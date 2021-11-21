@@ -25,7 +25,7 @@ sketchybar -m --default label.padding_left=2  \
 
 # Custom events - triggered by Yabai (in yabairc)
 sketchybar -m --add event window_focus \
-              --add event title_change \
+              --add event title_changed \
               --add event window_created \
               --add event window_destroyed \
               --add event mission_control_exit
@@ -143,7 +143,7 @@ sketchybar -m --add item time right                                          \
 # Central items
 sketchybar -m --add item title center                                        \
               --set title script="$HOME/.config/sketchybar/plugins/title.sh" \
-              --subscribe title window_focus front_app_switched space_change title_change
+              --subscribe title title_changed window_focus front_app_switched space_change window_created window_destroyed mission_control_exit
 
 ############## FINALIZING THE SETUP ##############
 sketchybar -m --update
