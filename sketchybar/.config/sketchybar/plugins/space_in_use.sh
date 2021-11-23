@@ -18,13 +18,12 @@ while read -r index is_full windows; do
     filtered_window_num=0
 
     if [ "$windows" -gt 0 ] && [ "${is_full}" == "false" ]; then
+
         # Ignore certain windows (mostly ones that persist over every space).
         filtered_window_num=$(
             yabai -m query --windows --space ${index} | \
                 jq -r '[.[] | select(
-                    .app != "Slack" and
-                    .app != "Discord" and
-                    .app != "Spotify" and
+                    ."is-sticky" == false and
                     ."is-minimized" == false
                 )] | length | @sh'
         )
