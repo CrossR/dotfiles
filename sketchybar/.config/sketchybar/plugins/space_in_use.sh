@@ -11,10 +11,6 @@ COUNTERS=(¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹)
 args=()
 while read -r index is_full windows; do
 
-    if [ "$windows" -eq 0 ] && [ "${is_full}" == false ]; then
-        args+=(--set "space${index}" "icon=${index}")
-    fi
-
     filtered_window_num=0
 
     if [ "$windows" -gt 0 ] && [ "${is_full}" == "false" ]; then
@@ -30,8 +26,14 @@ while read -r index is_full windows; do
     fi
 
     if [ "${filtered_window_num}" -gt 0 ]; then
+        echo "$index: $filtered_window_num"
         i=$((filtered_window_num - 1))
         args+=(--set "space${index}" "icon=${index}${COUNTERS[$i]}")
+    fi
+
+    if [ "$filtered_window_num" -eq 0 ] && [ "${is_full}" == false ]; then
+        echo "$index: nothin"
+        args+=(--set "space${index}" "icon=${index}")
     fi
 
     if [[ ${is_full} == "true" ]]; then
