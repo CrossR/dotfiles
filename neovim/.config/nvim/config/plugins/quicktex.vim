@@ -72,15 +72,15 @@ let g:quicktex_tex = {
     \'\fig': "\\begin{figure}[hbtp]\<CR>" .
            \ "\\centering\<CR>" .
            \ "\\includegraphics[width=<+++>\\textwidth]{<++>}\<CR>" .
-           \ "\\caption[<++>]{\<CR>"
-           \ "<++>\<CR>"
-           \" }%\<CR>" .
+           \ "\\caption[<++>]{\<CR>" .
+           \ "<++>\<CR>" .
+           \ "}%\<CR>" .
            \ "\\label{fig:<++>}\<CR>" .
            \ "\\end{figure}",
-    \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long  = <++>.}",
+    \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long  = <++>}",
     \'\daL': "\\DeclareAcronym{<+++>}{\<CR>" .
            \ "short = <++>,\<CR>" .
-           \ "long  = <++>.\<CR>" .
+           \ "long  = <++>\<CR>" .
            \ "}"
     \}
 
