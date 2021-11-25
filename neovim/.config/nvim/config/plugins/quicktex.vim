@@ -52,7 +52,7 @@ let g:quicktex_math = {
     \'t12':    '\theta_{12}',
     \'t13':    '\theta_{13}',
     \'t23':    '\theta_{23}',
-    \'dcp':    '\delta_{CP} ',
+    \'dcp':    '\delta_{\mathrm{CP}} ',
     \'GeV':    '\text{ GeV}',
     \'GeVc':   '\text{ GeV} / c^2'
     \}
@@ -72,7 +72,9 @@ let g:quicktex_tex = {
     \'\fig': "\\begin{figure}[hbtp]\<CR>" .
            \ "\\centering\<CR>" .
            \ "\\includegraphics[width=<+++>\\textwidth]{<++>}\<CR>" .
-           \ "\\caption{<++>}%\<CR>" .
+           \ "\\caption[<++>]{\<CR>"
+           \ "<++>\<CR>"
+           \" }%\<CR>" .
            \ "\\label{fig:<++>}\<CR>" .
            \ "\\end{figure}",
     \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long  = <++>.}",
