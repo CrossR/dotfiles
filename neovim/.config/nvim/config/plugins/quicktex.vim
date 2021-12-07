@@ -81,7 +81,9 @@ let g:quicktex_tex = {
     \'\daL': "\\DeclareAcronym{<+++>}{\<CR>" .
            \ "short = <++>,\<CR>" .
            \ "long  = <++>\<CR>" .
-           \ "}"
+           \ "}",
+    \ '\s': '\acs{<+++>} <++>',  '\S': '\Acs{<+++>} <++>',
+    \ '\f': '\acf{<+++>} <++>',  '\F': '\Acf{<+++>} <++>',
     \}
 
 let s:current_path = expand('<sfile>:p')
