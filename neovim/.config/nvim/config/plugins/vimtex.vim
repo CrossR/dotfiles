@@ -5,14 +5,19 @@ let g:tex_conceal = ""
 let g:vimtex_syntax_enabled = 1
 
 let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=0',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+            \ 'build_dir' : '',
+            \ 'callback' : 1,
+            \ 'continuous' : 1,
+            \ 'executable' : 'latexmk',
+            \ 'hooks' : [],
+            \ 'options' : [
+                \   '-shell-escape',
+                \   '-verbose',
+                \   '-file-line-error',
+                \   '-synctex=1',
+                \   '-interaction=nonstopmode',
+                \ ],
+            \}
 
 " Filter these warnings
 "   - First is due to a LaTeX update and translations.sty not being updated yet
