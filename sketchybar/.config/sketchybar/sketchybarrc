@@ -102,15 +102,13 @@ sketchybar -m --add space space1 left                              \
                            click_script="yabai -m space --focus 10"\
 
 # Add a ° symbol to any space with active windows on it
-sketchybar -m \
-  --add item dummy_windows left \
-  --set dummy_windows script="~/.config/sketchybar/plugins/space_in_use.sh" \
-  --subscribe dummy_windows space_change window_created window_destroyed mission_control_exit
-
-# Show or hide the logos of spaces that are not active
-sketchybar -m \
-  --add item dummy_active left \
-  --set dummy_active script="~/.config/sketchybar/plugins/space_active.sh" \
+sketchybar -m                                                                                 \
+  --add item dummy_windows left                                                               \
+  --set dummy_windows script="~/.config/sketchybar/plugins/space_in_use.sh"                   \
+  --subscribe dummy_windows space_change window_created window_destroyed mission_control_exit \
+                                                                                              \
+  --add item dummy_active left                                                                \
+  --set dummy_active script="~/.config/sketchybar/plugins/space_active.sh"                    \
   --subscribe dummy_active space_change mission_control_exit
 
 # Item defaults
@@ -140,16 +138,19 @@ sketchybar -m --add item time right                                             
                             icon.font="Hack Nerd Font:Bold:14.0"                    \
                             icon=                                                  \
                                                                                     \
+              --add event bluetooth_change "com.apple.bluetooth.status"             \
+                                                                                    \
+              --add item headphones right                                           \
+              --set headphones icon=                                               \
+                               script="~/.config/sketchybar/plugins/headphones.sh"  \
+              --subscribe headphones bluetooth_change                               \
+                                                                                    \
               --add item apps right                                                 \
               --set apps icon.font="Hack Nerd Font:Bold:14.0"                       \
                             icon.drawing=off                                        \
-                            icon=""
-
-# Show or hide the logos of apps
-sketchybar -m \
-  --add item dummy_apps right \
-  --set dummy_apps script="~/.config/sketchybar/plugins/app_icons.sh" \
-  --subscribe dummy_apps front_app_switched
+                            icon=""                                                 \
+                            script="~/.config/sketchybar/plugins/app_icons.sh"      \
+              --subscribe apps front_app_switched
 
 # Central items
 sketchybar -m --add item title center                                        \
