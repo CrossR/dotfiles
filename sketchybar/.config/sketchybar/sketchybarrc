@@ -140,23 +140,10 @@ sketchybar -m --add item time right                                             
                             icon.font="Hack Nerd Font:Bold:14.0"                    \
                             icon=                                                  \
                                                                                     \
-              --add item dropbox right                                              \
-              --set dropbox icon.font="Hack Nerd Font:Bold:14.0"                    \
+              --add item apps right                                                 \
+              --set apps icon.font="Hack Nerd Font:Bold:14.0"                       \
                             icon.drawing=off                                        \
-                            click_script="~/.config/sketchybar/plugins/app_open.sh" \
-                            icon=                                                  \
-                                                                                    \
-              --add item slack right                                                \
-              --set slack icon.font="Hack Nerd Font:Bold:14.0"                      \
-                          icon.drawing=off                                          \
-                          click_script="~/.config/sketchybar/plugins/app_open.sh"   \
-                          icon=                                                    \
-                                                                                    \
-              --add item discord right                                              \
-              --set discord icon.font="Hack Nerd Font:Bold:14.0"                    \
-                            icon.drawing=off                                        \
-                            click_script="~/.config/sketchybar/plugins/app_open.sh" \
-                            icon=ﭮ
+                            icon=""
 
 # Show or hide the logos of apps
 sketchybar -m \
