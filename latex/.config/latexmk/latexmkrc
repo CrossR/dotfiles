@@ -1,2 +1,2 @@
 
-$clean_ext = 'synctex.gz synctex.gz(busy) run.xml tex.bak bbl acr fls bcf fdb_latexmk run tdo %R-blx.bib log aux'
+$clean_ext = 'synctex.gz synctex.gz(busy) synctex(busy) run.xml tex.bak bbl acr fls bcf fdb_latexmk run tdo %R-blx.bib log aux'
