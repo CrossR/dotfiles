@@ -93,6 +93,18 @@ endif
 if has('nvim')
     " Add back --remote, needed for VimTeX
     Plug 'mhinz/neovim-remote', { 'for': 'tex' }
+
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
 endif
 
 if has('nvim')
