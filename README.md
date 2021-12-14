@@ -8,6 +8,8 @@
 * Keybindings (Mac) - skhd
 * Terminal - kitty
 * Session Management - tmux
+* LaTeX configuration
+* [ROOT](https://root.cern/) configuration
 
 ### How to Unpack
 
