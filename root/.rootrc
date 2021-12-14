@@ -1,6 +1,6 @@
-Browser.Name:      TRootBrowser
+Browser.Name: TRootBrowser
 
-Rint.Load:               rootalias.C $(HOME)/.config/root/rootalias.C
-Rint.Logon:              rootlogon.C $(HOME)/.config/root/rootlogon.C
-Rint.Logoff:             rootlogoff.C $(HOME)/.config/root/rootalogoff.C
-Rint.History:            $(HOME)/.config/root/root_hist
+Rint.Load:    $(HOME)/.config/root/rootalias.C
+Rint.Logon:   $(HOME)/.config/root/rootlogon.C
+Rint.Logoff:  $(HOME)/.config/root/rootalogoff.C
+Rint.History: $(HOME)/.config/root/root_hist

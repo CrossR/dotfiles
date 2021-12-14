@@ -1,6 +1,6 @@
+{
+    TString homeDir = gSystem->Getenv("HOME");
+    TString macroDir = homeDir + "/.config/root/";
 
-TTree* getTree(TFile *file, TString treeName) {
-    TTree *tree = nullptr;
-    file->GetObject("ana/pandoraOutput", tree);
-    return tree;
+    gROOT->LoadMacro(macroDir + "GetTree.C");
 }
