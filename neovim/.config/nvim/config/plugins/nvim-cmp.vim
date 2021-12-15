@@ -5,8 +5,9 @@ if !has('nvim')
 endif
 
 lua <<EOF
-  -- Setup nvim-cmp.
+
   local cmp = require'cmp'
+  local lspkind = require('lspkind')
 
   cmp.setup({
     snippet = {
@@ -26,9 +27,19 @@ lua <<EOF
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
       ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
+    formatting = {
+       format = lspkind.cmp_format({
+            with_text = false,
+            maxwidth = 50,
+            before = function (entry, vim_item)
+                return vim_item
+            end
+        })
+    },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
+      { name = 'latex-symbols' },
     }, {
       { name = 'buffer' },
     })

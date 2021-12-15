@@ -57,7 +57,6 @@ Plug 'mhinz/vim-signify'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-highlightedyank'
-Plug 'CrossR/vim-gruvbox8'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -94,28 +93,30 @@ if has('nvim')
     " Add back --remote, needed for VimTeX
     Plug 'mhinz/neovim-remote', { 'for': 'tex' }
 
+    Plug 'github/copilot.vim'
+
     " LSP
     Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+    " Nvim-Cmp
+    Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
-endif
+    Plug 'hrsh7th/vim-vsnip-integ'
+    Plug 'hrsh7th/cmp-copilot'
+    Plug 'onsails/lspkind-nvim'
+    Plug 'kdheepak/cmp-latex-symbols'
 
-if has('nvim')
-    let s:has_features = has('timers') && has('nvim-0.2.0')
-else
-    let s:has_features = has('timers') && exists('*job_start') && exists('*ch_close_in')
-endif
-
-if s:has_features
-    " Async linting
-    Plug 'w0rp/ale'
+    " Treesitter + Colour scheme for it
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'lewis6991/spellsitter.nvim'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'ellisonleao/gruvbox.nvim'
 endif
 
 call plug#end()

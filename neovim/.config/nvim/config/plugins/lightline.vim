@@ -9,7 +9,7 @@ function! CheckForNote() abort
 endfunction
 
 let g:lightline = {
-            \ 'colorscheme': 'gruvbox8',
+            \ 'colorscheme': 'gruvbox',
             \ 'separator': {'left': '', 'right': ''},
             \ 'subseparator': {'left': '', 'right': ''},
             \ 'active': {
