@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d',         '<cmd>lua vim.diagnostic.goto_next()<CR>',                               opts)
 end
 
-local servers = { 'pyright', 'clangd', 'texlab' }
+local servers = { 'pyright', 'clangd' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

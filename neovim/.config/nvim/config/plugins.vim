@@ -41,30 +41,30 @@ if !has('win32')
 endif
 
 " Additional language support
-Plug 'vim-python/python-syntax'
-Plug 'chrisbra/csv.vim'
-Plug 'plasticboy/vim-markdown'
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'lervag/vimtex'
-Plug 'bfrg/vim-cpp-modern'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'ocaml/vim-ocaml'
 Plug 'CrossR/vim-fhicl'
 
+" Tools
 Plug 'tpope/vim-fugitive'
 Plug 'Lenovsky/nuake'
+Plug 'dstein64/vim-startuptime'
 
+" UI
 Plug 'mhinz/vim-signify'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'justinmk/vim-sneak'
-Plug 'machakann/vim-highlightedyank'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Helpers
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'airblade/vim-rooter'
+Plug 'machakann/vim-highlightedyank'
 Plug 'artnez/vim-wipeout'
+Plug 'bronson/vim-trailing-whitespace'
 
+" Extend vim-isms
+Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -73,51 +73,37 @@ Plug 'wellle/targets.vim'
 
 " Writing notes/LaTeX plugins
 Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
-Plug 'CrossR/vim-code-notes',
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
 Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
 
-if has('nvim')
-    Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
-else
-    Plug 'CrossR/nvim_diary_template', { 'for': 'markdown' }
-    Plug 'CrossR/vim-hug-neovim-rpc'
-    Plug 'roxma/nvim-yarp'
-endif
+" Add back --remote, needed for VimTeX
+Plug 'mhinz/neovim-remote', { 'for': 'tex' }
 
-if has('nvim')
-    " Add back --remote, needed for VimTeX
-    Plug 'mhinz/neovim-remote', { 'for': 'tex' }
+" LSP
+Plug 'neovim/nvim-lspconfig'
 
-    Plug 'github/copilot.vim'
+" Nvim-Cmp
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'hrsh7th/cmp-copilot'
+Plug 'onsails/lspkind-nvim'
+Plug 'kdheepak/cmp-latex-symbols'
+Plug 'github/copilot.vim'
 
-    " LSP
-    Plug 'neovim/nvim-lspconfig'
-
-    " Nvim-Cmp
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-cmdline'
-    Plug 'hrsh7th/cmp-vsnip'
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
-    Plug 'hrsh7th/cmp-copilot'
-    Plug 'onsails/lspkind-nvim'
-    Plug 'kdheepak/cmp-latex-symbols'
-
-    " Treesitter + Colour scheme for it
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'lewis6991/spellsitter.nvim'
-    Plug 'rktjmp/lush.nvim'
-    Plug 'ellisonleao/gruvbox.nvim'
-endif
+" Treesitter + Colour scheme for it
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'lewis6991/spellsitter.nvim'
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
 
