@@ -53,8 +53,9 @@ let g:quicktex_math = {
     \'t13':    '\theta_{13}',
     \'t23':    '\theta_{23}',
     \'dcp':    '\delta_{\mathrm{CP}} ',
-    \'GeV':    '\text{ GeV}',
-    \'GeVc':   '\text{ GeV} / c^2'
+    \'gev':    '\text{ GeV}',
+    \'gevc':   '\text{ GeV} / \text{c}',
+    \'gevc2':  '\text{ GeV} / \text{c}^2'
     \}
 
 let g:quicktex_tex = {
@@ -77,10 +78,10 @@ let g:quicktex_tex = {
            \ "}%\<CR>" .
            \ "\\label{fig:<++>}\<CR>" .
            \ "\\end{figure}",
-    \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long  = <++>}",
+    \'\daS': "\\DeclareAcronym{<+++>}{short = <++>, long = <++>}",
     \'\daL': "\\DeclareAcronym{<+++>}{\<CR>" .
            \ "short = <++>,\<CR>" .
-           \ "long  = <++>\<CR>" .
+           \ "long = <++>\<CR>" .
            \ "}",
     \ '\s': '\acs{<+++>} <++>',  '\S': '\Acs{<+++>} <++>',
     \ '\f': '\acf{<+++>} <++>',  '\F': '\Acf{<+++>} <++>',
