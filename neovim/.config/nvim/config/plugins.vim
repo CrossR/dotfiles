@@ -85,20 +85,17 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'hrsh7th/cmp-copilot'
 Plug 'onsails/lspkind-nvim'
-Plug 'kdheepak/cmp-latex-symbols'
 Plug 'github/copilot.vim'
+Plug 'hrsh7th/cmp-copilot'
 
 " Treesitter + Colour scheme for it
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'lewis6991/spellsitter.nvim'
-Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
