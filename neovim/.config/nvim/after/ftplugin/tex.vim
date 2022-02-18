@@ -11,10 +11,10 @@ setlocal textwidth=80          " Wrap at 80 cols in .tex files.
 
 
 lua << EOF
-local nvim_lsp = require('lspconfig')
+  local nvim_lsp = require('lspconfig')
 
-nvim_lsp.ltex.language = "en-GB"
-nvim_lsp.ltex.disabledRules = {
-    "OXFORD_SPELLING_NOUNS",
-}
+  nvim_lsp.ltex.language = "en-GB"
+  nvim_lsp.ltex.disabledRules = {
+      "OXFORD_SPELLING_NOUNS",
+  }
 EOF
