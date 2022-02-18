@@ -104,7 +104,16 @@ elseif has('nvim') && has('unix')
     endif
 endif
 
-function! Sort_Spell_Highlights() abort
+" Highlight yanks
+augroup HighlightYanks
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
+
+" Change spell highlights by linking to some more basic highlights.
+" Also only enable spelling in buffers we are editing, rather
+" than globally.
+function! Change_Spell_Highlights() abort
         highlight clear SpellBad
         highlight clear SpellCap
         highlight clear SpellLocal
@@ -116,12 +125,9 @@ function! Sort_Spell_Highlights() abort
         highlight link SpellRare Question
 endfunction
 
-" Fix spell highlights by linking to some more basic highlights.
-" Also only enable spelling in buffers we are editing, rather
-" than globally.
 augroup FixSpelling
     autocmd!
-    autocmd BufEnter * call Sort_Spell_Highlights()
+    autocmd BufEnter * call Change_Spell_Highlights()
     autocmd InsertEnter * setlocal spell
 augroup END
 

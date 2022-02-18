@@ -58,7 +58,6 @@ Plug 'junegunn/fzf.vim'
 
 " Helpers
 Plug 'airblade/vim-rooter'
-Plug 'machakann/vim-highlightedyank'
 Plug 'artnez/vim-wipeout'
 Plug 'bronson/vim-trailing-whitespace'
 
