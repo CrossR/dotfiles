@@ -10,9 +10,9 @@ function! Gstatus_Wrapper() abort
         bd .git/index
     else
         if winwidth(0) >= 160
-            exec 'vertical topleft Gstatus'
+            exec 'vertical topleft Git'
         else
-            exec 'botright Gstatus'
+            exec 'botright Git'
         endif
     endif
 endfunction

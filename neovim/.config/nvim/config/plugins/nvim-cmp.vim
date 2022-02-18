@@ -9,10 +9,17 @@ lua <<EOF
   local cmp = require'cmp'
   local lspkind = require('lspkind')
 
+  -- Don't enable cmp in LaTeX math mode
+  local function not_in_math(...)
+    return not vim.fn["vimtex#syntax#in_mathzone"]
+  end
+
   cmp.setup({
+
+    enabled = not_in_math,
     snippet = {
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
     },
     mapping = {
@@ -38,7 +45,7 @@ lua <<EOF
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' },
+      { name = 'luasnip' },
       { name = 'latex-symbols' },
     }, {
       { name = 'buffer' },
