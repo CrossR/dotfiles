@@ -52,12 +52,11 @@ Plug 'dstein64/vim-startuptime'
 
 " UI
 Plug 'mhinz/vim-signify'
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Helpers
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'airblade/vim-rooter'
 Plug 'machakann/vim-highlightedyank'
 Plug 'artnez/vim-wipeout'
@@ -74,7 +73,6 @@ Plug 'wellle/targets.vim'
 " Writing notes/LaTeX plugins
 Plug 'lervag/wiki.vim', { 'on': ['WikiIndex', 'WikiJournal'] }
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-Plug 'CrossR/quicktex', { 'for': ['tex', 'markdown'] }
 Plug 'CrossR/vim-remarkjs', { 'on': 'RemarkPreview' }
 Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markdown' }
 
@@ -90,9 +88,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'hrsh7th/cmp-copilot'
 Plug 'onsails/lspkind-nvim'
 Plug 'kdheepak/cmp-latex-symbols'
