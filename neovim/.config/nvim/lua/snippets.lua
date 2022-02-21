@@ -79,19 +79,19 @@ ls.snippets = {
         ls.parser.parse_snippet({trig = "\\beg", name = "Environment"},
             "\\begin{$1}\n    $2\n\\end{$1}"
         ),
-        s({trig = "\\eq ", name = "Equation"},  {
+        s({trig = "\\eq", name = "Equation"},  {
             t({"\\begin{equation}",
             "    "}), i(1), t({"",
             "    \\label{eq:"}), i(2), t({"}",
             "\\end{equation}"})
         }),
-        s({trig = "\\eqa ", name = "Aligned Equation"},  {
+        s({trig = "\\eqa", name = "Aligned Equation"},  {
             t({"\\begin{align}",
             "    "}), i(1), t({"",
             "    \\label{eq:"}), i(2), t({"}",
             "\\end{align}"})
         }),
-        s({trig = "\\fig ", name = "Figure"},  {
+        s({trig = "\\fig", name = "Figure"},  {
             t({
             "\\begin{figure}[hbtp]",
             "    \\centering",
@@ -102,14 +102,14 @@ ls.snippets = {
             "    \\label{fig:"}), i(5), t({"}",
             "\\end{figure}"})
         }),
-        ls.parser.parse_snippet({trig =  "\\s ", hidden = true}, "\\acs{$1} $2"),
-        ls.parser.parse_snippet({trig =  "\\S ", hidden = true}, "\\Acs{$1 $2"),
-        ls.parser.parse_snippet({trig =  "\\f ", hidden = true}, "\\acf{$1} $2"),
-        ls.parser.parse_snippet({trig = "\\F ", hidden = true}, "\\Acf{$1} $2"),
-        ls.parser.parse_snippet({trig = "\\daS ", name = "Define Abbrev (Short)"},
+        ls.parser.parse_snippet({trig =  "\\s", hidden = true}, "\\acs{$1} $2"),
+        ls.parser.parse_snippet({trig =  "\\S", hidden = true}, "\\Acs{$1 $2"),
+        ls.parser.parse_snippet({trig =  "\\f", hidden = true}, "\\acf{$1} $2"),
+        ls.parser.parse_snippet({trig = "\\F", hidden = true}, "\\Acf{$1} $2"),
+        ls.parser.parse_snippet({trig = "\\daS", name = "Define Abbrev (Short)"},
             "\\DeclareAcronym{$1}{short = $2, long = $3}"
         ),
-        s({trig = "\\daL ", name = "Define Abbrev (Long)"},  {
+        s({trig = "\\daL", name = "Define Abbrev (Long)"},  {
             t("\\DeclareAcronym{"), i(1), t({"}{",
             "    short = "}), i(2), t({",",
             "    long = "}), i(3), t({"",
