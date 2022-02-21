@@ -6,13 +6,13 @@ endif
 
 " LuaSnip
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-imap <silent><expr> <C-e> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+imap <silent><expr> <C-w> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 
-inoremap <silent> <C-k> <cmd>lua require'luasnip'.jump(1)<Cr>
-inoremap <silent> <C-j> <cmd>lua require'luasnip'.jump(-1)<Cr>
+inoremap <silent> <C-e> <cmd>lua require'luasnip'.jump(1)<Cr>
+inoremap <silent> <C-q> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
-snoremap <silent> <C-k> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <C-j> <cmd>lua require('luasnip').jump(-1)<Cr>
+snoremap <silent> <C-e> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <C-q> <cmd>lua require('luasnip').jump(-1)<Cr>
 
 " Telescope
 nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Telescope find_files' : ':Telescope git_files') . "\<CR>"
