@@ -17,7 +17,6 @@ snoremap <silent> <C-j> <cmd>lua require('luasnip').jump(-1)<Cr>
 " Telescope
 nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Telescope find_files' : ':Telescope git_files') . "\<CR>"
 nnoremap <c-f> :Telescope live_grep<CR>
-nnoremap <silent> <c-w> :Projects<CR>
 nnoremap <silent> <leader>b :Telescope buffers<CR>
 
 " Load snippets lua file
