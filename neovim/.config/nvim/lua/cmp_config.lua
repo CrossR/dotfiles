@@ -5,6 +5,8 @@ local lspkind = require('lspkind')
 
 cmp.setup({
 
+    history = true,
+
     snippet = {
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
