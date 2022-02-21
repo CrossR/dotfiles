@@ -7,23 +7,21 @@ augroup END
 
 " Function to load multiple config files.
 function! LoadPluginConfig() abort
+
     let l:plugin_folder = g:config_folder . 'plugins'
     let s:plugins = split(globpath(l:plugin_folder, '*.vim'), '\n')
-    let l:loaded = 0
+
     for plugin in s:plugins
-        let s:inactive = match(plugin ,"inactive")
-        if s:inactive == -1
-            try
-                exe 'source ' . plugin
-                let l:loaded += 1
-            catch
-                echohl WarningMsg
-                echom 'Error: ----->' . v:exception
-                echom 'Could not load ' . plugin
-                echohl none
-            endtry
-        endif
+        try
+            exe 'source ' . plugin
+        catch
+            echohl WarningMsg
+            echom 'Error: ----->' . v:exception
+            echom 'Could not load ' . plugin
+            echohl none
+        endtry
     endfor
+
 endfunction
 
 " Function to source a vim file.

@@ -1,6 +1,5 @@
 -- nvim-cmp config
 
-
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 
