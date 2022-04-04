@@ -12,6 +12,9 @@ oni2/.config/oni2/*
 !oni2/.config/oni2/configuration.json
 !oni2/.config/oni2/keybindings.json
 
+# Ignore generated kb_ui files
+kb_ui/.config/state.json
+
 # Ignore log files and such.
 !mpd/.config/mpd/mpd.conf
 mpd/.config/mpd/*
@@ -22,3 +25,4 @@ mpd/.config/mpd/*
 
 # Ignore ROOT history file
 root_hist
+
