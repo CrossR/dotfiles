@@ -1,0 +1,29 @@
+{
+    "layers": [
+        {
+            "key": "1",
+            "mods": "ctrl-shift-win-alt",
+            "name": "Default",
+            "icon": "kb_light",
+            "alt_icon": "icons/gamepad-dark.ico"
+        },
+        {
+            "key": "2",
+            "mods": "ctrl-shift-win-alt",
+            "name": "Gaming",
+            "icon": "icons/gamepad-light.ico",
+            "alt_icon": "icons/gamepad-light.ico"
+        },
+        {
+            "key": "3",
+            "mods": "ctrl-shift-win-alt",
+            "name": "Gaming",
+            "icon": "icons/apple-light.ico",
+            "alt_icon": "icons/apple-light.ico"
+        }
+    ],
+    "infoMods": "ctrl-shift-win-alt",
+    "infoKey": "0",
+    "altMods": "ctrl-shift-win-alt",
+    "altKey": "9"
+}
