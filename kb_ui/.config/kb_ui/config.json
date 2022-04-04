@@ -5,21 +5,21 @@
             "mods": "ctrl-shift-win-alt",
             "name": "Default",
             "icon": "kb_light",
-            "alt_icon": "icons/gamepad-dark.ico"
+            "alt_icon": "icons/keyboard-alt.ico"
         },
         {
             "key": "2",
             "mods": "ctrl-shift-win-alt",
             "name": "Gaming",
             "icon": "icons/gamepad-light.ico",
-            "alt_icon": "icons/gamepad-light.ico"
+            "alt_icon": "icons/gamepad-alt.ico"
         },
         {
             "key": "3",
             "mods": "ctrl-shift-win-alt",
             "name": "Gaming",
             "icon": "icons/apple-light.ico",
-            "alt_icon": "icons/apple-light.ico"
+            "alt_icon": "icons/apple-alt.ico"
         }
     ],
     "infoMods": "ctrl-shift-win-alt",
