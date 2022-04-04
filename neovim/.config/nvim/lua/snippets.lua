@@ -103,7 +103,7 @@ ls.snippets = {
             "\\end{figure}"})
         }),
         ls.parser.parse_snippet({trig =  "\\s", hidden = true}, "\\acs{$1} $2"),
-        ls.parser.parse_snippet({trig =  "\\S", hidden = true}, "\\Acs{$1 $2"),
+        ls.parser.parse_snippet({trig =  "\\S", hidden = true}, "\\Acs{$1} $2"),
         ls.parser.parse_snippet({trig =  "\\f", hidden = true}, "\\acf{$1} $2"),
         ls.parser.parse_snippet({trig = "\\F", hidden = true}, "\\Acf{$1} $2"),
         ls.parser.parse_snippet({trig = "\\daS", name = "Define Abbrev (Short)"},

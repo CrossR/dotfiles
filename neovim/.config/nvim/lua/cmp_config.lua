@@ -5,6 +5,10 @@ local lspkind = require('lspkind')
 
 cmp.setup({
 
+    enabled = function()
+        return vim.bo.filetype ~= "tex" or
+            vim.fn["vimtex#syntax#in_mathzone"]() ~= 1
+    end,
     history = true,
 
     snippet = {
