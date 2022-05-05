@@ -22,6 +22,9 @@ end
 ls.add_snippets(nil, {
     tex = {
         tex_math_snip("frac",   {t("\\frac{"), i(1), t("}{"), i(2), t("}")}),
+        tex_math_snip("cal",    {t("\\mathcal{"), i(1), t("} "), i(2)}),
+        tex_math_snip("bf",     {t("\\mathbf{"), i(1), t("} "), i(2)}),
+        tex_math_snip("bb",     {t("\\mathbb{"), i(1), t("} "), i(2)}),
         tex_math_snip("x10",    {t("\\times 10^{"), i(1), t("}")}),
         tex_math_snip("sum",    {t("\\sum_{"), i(1), t("}")}),
         tex_math_snip("delta",  {t("\\Delta "), i(1)}),
@@ -103,8 +106,10 @@ ls.add_snippets(nil, {
             "\\end{figure}"})
         }),
         ls.parser.parse_snippet({trig =  "\\s", hidden = true}, "\\acs{$1} $2"),
-        ls.parser.parse_snippet({trig =  "\\S", hidden = true}, "\\Acs{$1} $2"),
+        ls.parser.parse_snippet({trig =  "\\sp", hidden = true}, "\\acsp{$1} $2"),
+        ls.parser.parse_snippet({trig =  "\\S", hidden = true}, "\\Acs{$1 $2"),
         ls.parser.parse_snippet({trig =  "\\f", hidden = true}, "\\acf{$1} $2"),
+        ls.parser.parse_snippet({trig =  "\\fp", hidden = true}, "\\acfp{$1} $2"),
         ls.parser.parse_snippet({trig = "\\F", hidden = true}, "\\Acf{$1} $2"),
         ls.parser.parse_snippet({trig = "\\daS", name = "Define Abbrev (Short)"},
             "\\DeclareAcronym{$1}{short = $2, long = $3}"
