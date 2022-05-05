@@ -5,25 +5,27 @@
             "mods": "ctrl-shift-win-alt",
             "name": "Default",
             "icon": "kb_light",
-            "alt_icon": "icons/keyboard-alt.ico"
+            "dark_icon": "icons/keyboard-dark.ico"
         },
         {
             "key": "2",
             "mods": "ctrl-shift-win-alt",
             "name": "Gaming",
             "icon": "icons/gamepad-light.ico",
-            "alt_icon": "icons/gamepad-alt.ico"
+            "dark_icon": "icons/gamepad-dark.ico"
         },
         {
             "key": "3",
             "mods": "ctrl-shift-win-alt",
             "name": "Mac",
             "icon": "icons/apple-light.ico",
-            "alt_icon": "icons/apple-alt.ico"
+            "dark_icon": "icons/apple-dark.ico"
         }
     ],
     "infoMods": "ctrl-shift-win-alt",
     "infoKey": "0",
-    "altMods": "ctrl-shift-win-alt",
-    "altKey": "9"
+    "connectMods": "ctrl-shift-win-alt",
+    "connectKey": "9",
+    "disconnectIcon": "disconnected",
+    "darkMode": "follow"
 }
