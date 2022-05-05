@@ -81,4 +81,5 @@ yabai -m rule --add title=".*Eve Main Window.*" manage=off
 
 # Graphics
 yabai -m rule --add app="^.*GIMP.*$" manage=off
+yabai -m rule --add app="^.*Inkscape.*$" manage=off
 
