@@ -19,7 +19,7 @@ local function tex_math_snip(trigger, expansion)
     )
 end
 
-ls.snippets = {
+ls.add_snippets(nil, {
     tex = {
         tex_math_snip("frac",   {t("\\frac{"), i(1), t("}{"), i(2), t("}")}),
         tex_math_snip("x10",    {t("\\times 10^{"), i(1), t("}")}),
@@ -116,5 +116,5 @@ ls.snippets = {
             "}"})
         })
     },
-}
+})
 
