@@ -20,6 +20,13 @@
             "name": "Mac",
             "icon": "icons/apple-light.ico",
             "dark_icon": "icons/apple-dark.ico"
+        },
+        {
+            "key": "4",
+            "mods": "ctrl-shift-win-alt",
+            "name": "Disabled",
+            "icon": "icons/power-light.ico",
+            "dark_icon": "icons/power-alt.ico"
         }
     ],
     "infoMods": "ctrl-shift-win-alt",
