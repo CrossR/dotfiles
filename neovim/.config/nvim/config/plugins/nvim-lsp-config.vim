@@ -21,6 +21,5 @@ nnoremap <silent> <leader>b :Telescope buffers<CR>
 
 " Load snippets lua file
 lua require('lsp_config')
-lua require('cmp_config')
 lua require('snippets')
 lua require('tele_config')
