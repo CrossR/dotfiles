@@ -48,49 +48,14 @@ set display+=lastline
 set formatoptions+=j
 set sessionoptions-=options
 
-if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-endif
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
-if !exists('g:gui_oni')
-    set laststatus=2
-    syntax on
-else
-    set laststatus=0
-    set noswapfile
-endif
+set laststatus=0
+set noswapfile
 
 if exists('&inccommand')
     set inccommand=nosplit
 endif
-
-" Set the Vim undo and spell file location after checking the relevant
-" folders exist first.
-function! Check_folder_exists(folder_name) abort
-    let full_folder_path = expand(a:folder_name)
-
-    if !isdirectory(full_folder_path)
-        call mkdir(full_folder_path)
-    endif
-endfunction
-
-if !has('win32')
-    if has('nvim')
-        let s:base_folder = $HOME . "/.config/nvim"
-    else
-        let s:base_folder = $HOME . "/.vim"
-    endif
-else
-    let s:base_folder = $HOME . "/AppData/Local/nvim"
-endif
-
-call Check_folder_exists(s:base_folder)
-call Check_folder_exists(s:base_folder . "/spell")
-call Check_folder_exists(s:base_folder . "/undodir")
-call Check_folder_exists(s:base_folder . "/sessions")
-
-let &spellfile = s:base_folder . "/spell/en.utf-8.add"
-let &undodir = s:base_folder . "/undodir"
 
 " Setup Python Env
 if has ('nvim') && has('win32')
@@ -143,26 +108,10 @@ augroup AutoChdirHack
     autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
 augroup END
 
-" Tidy up the colour scheme when on SSH.
-" desert seems to be similar to the default, without the awful dark blue
-" comments.
-if $SSH_CONNECTION
-    colorscheme desert
-endif
-
 " Remove line numbers from the terminal in neovim.
 if has ('nvim')
     augroup TerminalFix
         autocmd!
         autocmd TermOpen * setlocal nonumber norelativenumber nospell
     augroup END
-endif
-
-" Set the shell variable for vim, so that we can use the WSL terminal.
-" The other terminals can still be used with :term cmd etc.
-if has("win32") && ! has('nvim')
-    set shell=C:\\Windows\\Sysnative\\wsl.exe
-    set shellpipe=|
-    set shellredir=>
-    set shellcmdflag=
 endif
