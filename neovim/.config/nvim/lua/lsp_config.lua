@@ -1,6 +1,5 @@
 -- Neovim LSP config
 
-local nvim_lsp = require('lspconfig')
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 

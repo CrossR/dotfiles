@@ -2,6 +2,7 @@
 
 " Remaps
 let mapleader = ","  " Set leader to ,
+let maplocalleader = ","
 
 nmap j gj
 nmap k gk

@@ -42,8 +42,8 @@ endif
 
 " Additional language support
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'lervag/vimtex'
-Plug 'CrossR/vim-fhicl'
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'CrossR/vim-fhicl', {'for': 'fhicl'}
 
 " Tools
 Plug 'tpope/vim-fugitive'
@@ -90,8 +90,6 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
-Plug 'github/copilot.vim'
-Plug 'hrsh7th/cmp-copilot'
 
 " Treesitter + Colour scheme for it
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
