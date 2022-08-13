@@ -23,3 +23,4 @@ nnoremap <silent> <leader>b :Telescope buffers<CR>
 lua require('lsp_config')
 lua require('snippets')
 lua require('tele_config')
+lua require('treesitter')

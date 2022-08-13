@@ -47,7 +47,6 @@ Plug 'CrossR/vim-fhicl', {'for': 'fhicl'}
 
 " Tools
 Plug 'tpope/vim-fugitive'
-Plug 'Lenovsky/nuake'
 Plug 'dstein64/vim-startuptime'
 
 " UI
@@ -80,6 +79,7 @@ Plug 'CrossR/nvim_diary_template', { 'do': ':UpdateRemotePlugins', 'for': 'markd
 Plug 'mhinz/neovim-remote', { 'for': 'tex' }
 
 " LSP
+Plug 'lewis6991/impatient.nvim'
 Plug 'neovim/nvim-lspconfig'
 
 " Nvim-Cmp
@@ -99,3 +99,4 @@ Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
 
+lua require('impatient')

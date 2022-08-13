@@ -1,10 +1,5 @@
-" Treesitter Config
+-- Neovim treesitter config
 
-if !has('nvim')
-    finish
-endif
-
-lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
   sync_install = false,
@@ -21,4 +16,3 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 require('spellsitter').setup()
-EOF
