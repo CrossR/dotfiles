@@ -14,15 +14,15 @@ RED='\033[0;31m'
 NC='\033[0m' # No Colour
 
 LogMessage() {
-    echo -e "${GRN}$(date +'%d/%m/%Y %X') : INFO    : $*${NC}"
+    echo -e "${GRN}$(date +'%d/%m/%Y %T') : INFO    : $*${NC}"
 }
 
 LogWarning() {
-    echo -e "${YEL}$(date +'%d/%m/%Y %X') : WARN    : $*${NC}"
+    echo -e "${YEL}$(date +'%d/%m/%Y %T') : WARN    : $*${NC}"
 }
 
 LogError() {
-    echo -e "${RED}$(date +'%d/%m/%Y %X') : ERR     : $*${NC}"
+    echo -e "${RED}$(date +'%d/%m/%Y %T') : ERR     : $*${NC}"
 }
 
 RunAndCheck() {
