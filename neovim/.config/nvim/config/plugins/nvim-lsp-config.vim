@@ -19,7 +19,7 @@ nnoremap <silent><expr> <c-p> (len(system('git rev-parse')) ? ':Telescope find_f
 nnoremap <c-f> :Telescope live_grep<CR>
 nnoremap <silent> <leader>b :Telescope buffers<CR>
 
-" Load snippets lua file
+" Load required lua files
 lua require('lsp_config')
 lua require('snippets')
 lua require('tele_config')

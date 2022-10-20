@@ -50,7 +50,7 @@ set sessionoptions-=options
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
-set laststatus=0
+set laststatus=3
 set noswapfile
 
 if exists('&inccommand')

@@ -41,7 +41,6 @@ local on_attach = function(client, bufnr)
 
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', '<leader>l=', vim.lsp.buf.formatting, bufopts)
 
     vim.keymap.set('n', '<leader>dS', vim.lsp.buf.document_symbol, bufopts)
     vim.keymap.set('n', '<leader>wS', vim.lsp.buf.workspace_symbol, bufopts)
