@@ -31,75 +31,16 @@ sketchybar -m --add event window_focus \
               --add event mission_control_exit
 
 # 10 default spaces
-sketchybar -m --add space space1 left                              \
-              --set space1 associated_space=1                      \
-                           associated_display=1                    \
-                           icon=1                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 1" \
-                                                                   \
-              --add space space2 left                              \
-              --set space2 associated_display=1                    \
-                           associated_space=2                      \
-                           icon=2                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 2" \
-                                                                   \
-              --add space space3 left                              \
-              --set space3 associated_display=1                    \
-                           associated_space=3                      \
-                           icon=3                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 3" \
-                                                                   \
-              --add space space4 left                              \
-              --set space4 associated_display=1                    \
-                           associated_space=4                      \
-                           icon=4                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 4" \
-                                                                   \
-              --add space space5 left                              \
-              --set space5 associated_display=1                    \
-                           associated_space=5                      \
-                           icon=5                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 5" \
-                                                                   \
-              --add space space6 left                              \
-              --set space6 associated_display=1                    \
-                           associated_space=6                      \
-                           icon=6                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 6" \
-                                                                   \
-              --add space space7 left                              \
-              --set space7 associated_display=1                    \
-                           associated_space=7                      \
-                           icon=7                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 7" \
-                                                                   \
-              --add space space8 left                              \
-              --set space8 associated_display=1                    \
-                           associated_space=8                      \
-                           icon=8                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 8" \
-                                                                   \
-              --add space space9 left                              \
-              --set space9 associated_display=1                    \
-                           associated_space=9                      \
-                           icon=9                                  \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 9" \
-                                                                   \
-              --add space space10 left                             \
-              --set space10 associated_display=1                   \
-                           associated_space=10                     \
-                           icon=10                                 \
-                           icon.font='SF Pro:Semibold:14.0'        \
-                           click_script="yabai -m space --focus 10"\
+SPACE_IDS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+
+for i in "${!SPACE_IDS[@]}"; do
+    sid=$(($i+1))
+    sketchybar -m --add space space.$sid left                                \
+                  --set space.$sid associated_space=$sid                     \
+                                   icon=${SPACE_IDS[$i]}                     \
+                                   icon.font='SF Pro:Semibold:14.0'          \
+                                   click_script="yabai -m space --focus $sid"
+done
 
 # Add a ° symbol to any space with active windows on it
 sketchybar -m                                                                                 \

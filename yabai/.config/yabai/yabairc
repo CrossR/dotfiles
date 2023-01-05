@@ -75,6 +75,7 @@ yabai -m rule --add app="^.*Arduino.*$" manage=off
 yabai -m rule --add title="Picture-In-Picture$" manage=off topmost=on
 
 # Work
+yabai -m rule --add app="^.*Outlook.*$" manage=off
 yabai -m rule --add app="^.*root.exe.*$" manage=off
 yabai -m rule --add title=".*Mayavi.*" manage=off
 yabai -m rule --add title=".*Eve Main Window.*" manage=off
