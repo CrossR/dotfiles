@@ -1,18 +1,21 @@
 #!/bin/bash
 
 # Toggle app icons in the bar if they are running or not.
-# Filter is used to ignore any other matching processes from that app.
 
 PROCESSES=(
     "/Applications/Dropbox.app/Contents/MacOS/Dropbox"
-    "slack"
-    "discord"
+    "/Applications/Slack.app/Contents/MacOS/Slack"
+    "/Applications/Discord.app/Contents/MacOS/Discord"
+    "/Applications/Microsoft Teams.app/Contents/MacOS/Teams"
+    "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook"
 )
 
 ICONS=(
     ""
     ""
     "ﭮ"
+    ""
+    ""
 )
 
 ICON_STRING=""
