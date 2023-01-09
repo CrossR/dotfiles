@@ -2,7 +2,7 @@
 
 function! Gstatus_Wrapper() abort
 
-    if ! exists(':Gstatus')
+    if ! exists(':Git')
         return
     endif
 
