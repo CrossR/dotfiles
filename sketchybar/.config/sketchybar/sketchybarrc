@@ -86,7 +86,7 @@ sketchybar -m --add item time right                                             
                             icon=                                                 \
                                                                                    \
               --add item ical right                                                \
-              --set ical update_freq=30                                            \
+              --set ical update_freq=15                                            \
                          icon=􀉉                                                    \
                          popup.align=center                                        \
                          script="$PLUGIN_DIR/ical.sh"                              \

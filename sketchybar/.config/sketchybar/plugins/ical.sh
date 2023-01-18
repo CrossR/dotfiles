@@ -43,6 +43,10 @@ update() {
             LABEL_CHANGED=1
         fi
 
+        if [ "${time_colour}" != "${CURRENT_COLOUR}" ]; then
+            LABEL_CHANGED=1
+        fi
+
         args+=(--set $NAME icon.color=${time_colour} label=" ${event[1]}" label.color=${time_colour})
     else
         args+=(--set $NAME label="")
