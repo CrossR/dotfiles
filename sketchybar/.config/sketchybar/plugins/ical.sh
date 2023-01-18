@@ -5,7 +5,7 @@ urgency() {
     colour=""
 
     case ${time_difference} in
-        30|2[0-9]|1[0-9]|[0-9]) colour=0XFFFF0000 ;;
+        30|2[0-9]|1[0-9]|[1-9]) colour=0XFFFF0000 ;;
         3[1-9]|4[0-9]|5[0-9]) colour=0XFFFF8D00 ;;
         6[0-9]|7[0-9]|8[0-9]) colour=0XFFFEEF5D ;;
         9[0-9]|10[0-9]|11[0-9]) colour=0XFFBCFE5D ;;
