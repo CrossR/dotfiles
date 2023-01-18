@@ -27,8 +27,8 @@ update() {
     args+=(--remove '/ical.event\.*/')
 
     CURRENT_TIME=$(date +%s)
-    CURRENT_LABEL=$(sketchybar --query ical | jq .label.value)
-    CURRENT_COLOUR=$(sketchybar --query ical | jq .label.color | tr '[:lower:]' '[:upper:]')
+    CURRENT_LABEL=$(sketchybar --query ical | jq -r .label.value)
+    CURRENT_COLOUR=$(sketchybar --query ical | jq -r .label.color | tr '[:lower:]' '[:upper:]')
     LABEL_CHANGED=0
 
     # Comment this if-section out if you don't want the time of the next event next to the icon
@@ -39,11 +39,7 @@ update() {
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
         time_colour=$(urgency $time_difference)
 
-        if [ " ${event[1]}" != ${CURRENT_LABEL} ]; then
-            LABEL_CHANGED=1
-        fi
-
-        if [ "${time_colour}" != ${CURRENT_COLOUR} ]; then
+        if [ " ${event[1]}" != "${CURRENT_LABEL}" ]; then
             LABEL_CHANGED=1
         fi
 
