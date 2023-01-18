@@ -10,6 +10,7 @@ urgency() {
         6[0-9]|7[0-9]|8[0-9]) colour=0xFFFEEF5D ;;
         9[0-9]|10[0-9]|11[0-9]) colour=0xFFBCFE5D ;;
         12[0-9]|13[0-9]|14[0-9]) colour=0xFF5DFE67 ;;
+        0|-*) colour=0xFF91D2FF ;;
         *) colour=0xF0A8A8A8
     esac
 
@@ -18,12 +19,16 @@ urgency() {
 
 update() {
 
-    args=()
     SEP="%"
     COUNTER=0
     EVENTS="$(icalBuddy -eed -n -nc -nrd -ea -iep datetime,title -b '' -ps "|${SEP}|" eventsToday)"
+
+    args=()
     args+=(--remove '/ical.event\.*/')
+
     CURRENT_TIME=$(date +%s)
+    CURRENT_LABEL=$(sketchybar --query ical | jq .label.value)
+    LABEL_CHANGED=0
 
     # Comment this if-section out if you don't want the time of the next event next to the icon
     if [ "${EVENTS}" != "" ]; then
@@ -32,6 +37,10 @@ update() {
         event_time=$(date -j -f %H:%M ${event[1]} +%s)
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
         time_colour=$(urgency $time_difference)
+
+        if [ " ${event[1]}" != "${CURRENT_LABEL}" ]; then
+            LABEL_CHANGED=1
+        fi
 
         args+=(--set $NAME icon.color=${time_colour} label=" ${event[1]}" label.color=${time_colour})
     else
@@ -62,10 +71,14 @@ update() {
                icon="$time"                                            \
                icon.color=0xFFFE8019                                   \
                click_script="sketchybar --set $NAME popup.drawing=off" \
-               position=popup.ical
+               position=popup.ical                                     \
                drawing=on)
 
     done <<< "$(echo "$EVENTS")"
+
+    if [ $LABEL_CHANGED -eq 1 ]; then
+        args+=(--animate tanh 15 --set "$NAME" label.y_offset=5 label.y_offset=-5 label.y_offset=0)
+    fi
 
     sketchybar -m "${args[@]}" > /dev/null
 
