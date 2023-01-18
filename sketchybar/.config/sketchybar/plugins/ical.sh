@@ -5,13 +5,13 @@ urgency() {
     colour=""
 
     case ${time_difference} in
-        30|2[0-9]|1[0-9]|[0-9]) colour=0xFFFF0000 ;;
-        3[1-9]|4[0-9]|5[0-9]) colour=0xFFFF8D00 ;;
-        6[0-9]|7[0-9]|8[0-9]) colour=0xFFFEEF5D ;;
-        9[0-9]|10[0-9]|11[0-9]) colour=0xFFBCFE5D ;;
-        12[0-9]|13[0-9]|14[0-9]) colour=0xFF5DFE67 ;;
-        0|-*) colour=0xFF91D2FF ;;
-        *) colour=0xF0A8A8A8
+        30|2[0-9]|1[0-9]|[0-9]) colour=0XFFFF0000 ;;
+        3[1-9]|4[0-9]|5[0-9]) colour=0XFFFF8D00 ;;
+        6[0-9]|7[0-9]|8[0-9]) colour=0XFFFEEF5D ;;
+        9[0-9]|10[0-9]|11[0-9]) colour=0XFFBCFE5D ;;
+        12[0-9]|13[0-9]|14[0-9]) colour=0XFF5DFE67 ;;
+        0|-*) colour=0XFF91D2FF ;;
+        *) colour=0XF0A8A8A8
     esac
 
     echo $colour
@@ -28,6 +28,7 @@ update() {
 
     CURRENT_TIME=$(date +%s)
     CURRENT_LABEL=$(sketchybar --query ical | jq .label.value)
+    CURRENT_COLOUR=$(sketchybar --query ical | jq .label.color)
     LABEL_CHANGED=0
 
     # Comment this if-section out if you don't want the time of the next event next to the icon
@@ -38,7 +39,11 @@ update() {
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
         time_colour=$(urgency $time_difference)
 
-        if [ " ${event[1]}" != "${CURRENT_LABEL}" ]; then
+        if [ " ${event[1]}" != ${CURRENT_LABEL} ]; then
+            LABEL_CHANGED=1
+        fi
+
+        if [ "${time_colour^^}" != ${CURRENT_COLOUR} ]; then
             LABEL_CHANGED=1
         fi
 
