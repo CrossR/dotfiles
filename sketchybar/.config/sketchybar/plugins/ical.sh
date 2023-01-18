@@ -33,7 +33,7 @@ update() {
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
         time_colour=$(urgency $time_difference)
 
-        args+=(--set $NAME label=" ${event[1]}" label.color=${time_colour})
+        args+=(--set $NAME icon.color=${time_colour} label=" ${event[1]}" label.color=${time_colour})
     else
         args+=(--set $NAME label="")
     fi
