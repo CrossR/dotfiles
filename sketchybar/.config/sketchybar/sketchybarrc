@@ -7,15 +7,20 @@ sketchybar -m --bar height=25        \
                     color=0xF0202020
 
 # Global defaults
-sketchybar -m --default updates=when_shown                    \
-                        drawing=on                            \
-                        cache_scripts=on                      \
-                        icon.font="Hack Nerd Font:Bold:14.0"  \
-                        icon.color=0xF0A8A8A8                 \
-                        icon.highlight_color=0xFFFE8019       \
-                        label.font="SF Pro:Semibold:14"       \
-                        label.color=0xF0A8A8A8                \
-                        label.highlight_color=0xFFFE8019
+sketchybar -m --default updates=when_shown                       \
+                        drawing=on                               \
+                        cache_scripts=on                         \
+                        icon.font="Hack Nerd Font:Bold:14.0"     \
+                        icon.color=0xF0A8A8A8                    \
+                        icon.highlight_color=0xFFFE8019          \
+                        label.font="SF Pro:Semibold:14"          \
+                        label.color=0xF0A8A8A8                   \
+                        label.highlight_color=0xFFFE8019         \
+                        popup.background.color=0xF0202020        \
+                        popup.background.border_color=0xF0A8A8A8 \
+                        popup.background.border_width=2          \
+                        popup.background.corner_radius=2         \
+                        popup.background.shadow.drawing=on
 
 # Space Defaults
 sketchybar -m --default label.padding_left=2  \
@@ -24,10 +29,10 @@ sketchybar -m --default label.padding_left=2  \
                         label.padding_right=8
 
 # Custom events - triggered by Yabai (in yabairc)
-sketchybar -m --add event window_focus \
-              --add event title_changed \
-              --add event window_created \
-              --add event window_destroyed \
+sketchybar -m --add event window_focus         \
+              --add event title_changed        \
+              --add event window_created       \
+              --add event window_destroyed     \
               --add event mission_control_exit
 
 # 10 default spaces
@@ -42,14 +47,16 @@ for i in "${!SPACE_IDS[@]}"; do
                                    click_script="yabai -m space --focus $sid"
 done
 
+PLUGIN_DIR="~/.config/sketchybar/plugins"
+
 # Add a ° symbol to any space with active windows on it
 sketchybar -m                                                                                 \
   --add item dummy_windows left                                                               \
-  --set dummy_windows script="~/.config/sketchybar/plugins/space_in_use.sh"                   \
+  --set dummy_windows script="${PLUGIN_DIR}/space_in_use.sh"                                  \
   --subscribe dummy_windows space_change window_created window_destroyed mission_control_exit \
                                                                                               \
   --add item dummy_active left                                                                \
-  --set dummy_active script="~/.config/sketchybar/plugins/space_active.sh"                    \
+  --set dummy_active script="${PLUGIN_DIR}/space_active.sh"                                   \
   --subscribe dummy_active space_change mission_control_exit
 
 # Item defaults
@@ -59,38 +66,51 @@ sketchybar -m --default label.padding_left=2  \
                         label.padding_right=6
 
 # Right hand side items
-sketchybar -m --add item time right                                                 \
-              --set time update_freq=2                                              \
-                         icon.padding_right=0                                       \
-                         label.padding_left=0                                       \
-                         script="~/.config/sketchybar/plugins/time.sh"              \
-                                                                                    \
-              --add item date right                                                 \
-              --set date update_freq=60                                             \
-                         icon.padding_right=0                                       \
-                         label.padding_left=0                                       \
-                         script="~/.config/sketchybar/plugins/date.sh"              \
-                                                                                    \
-              --add item battery right                                              \
-              --set battery update_freq=3                                           \
-                            script="~/.config/sketchybar/plugins/battery.sh"        \
-                            label.font='SF Pro:Semibold:14.0'                       \
-                            label.padding_left=5                                    \
-                            icon.font="Hack Nerd Font:Bold:14.0"                    \
-                            icon=                                                  \
-                                                                                    \
-              --add event bluetooth_change "com.apple.bluetooth.status"             \
-                                                                                    \
-              --add item headphones right                                           \
-              --set headphones icon=                                               \
-                               script="~/.config/sketchybar/plugins/headphones.sh"  \
-              --subscribe headphones bluetooth_change                               \
-                                                                                    \
-              --add item apps right                                                 \
-              --set apps icon.font="Hack Nerd Font:Bold:14.0"                       \
-                            icon.drawing=off                                        \
-                            icon=""                                                 \
-                            script="~/.config/sketchybar/plugins/app_icons.sh"      \
+sketchybar -m --add item time right                                                \
+              --set time update_freq=2                                             \
+                         icon.padding_right=0                                      \
+                         label.padding_left=0                                      \
+                         script="${PLUGIN_DIR}/time.sh"                            \
+                                                                                   \
+              --add item date right                                                \
+              --set date update_freq=60                                            \
+                         icon.padding_right=0                                      \
+                         label.padding_left=0                                      \
+                         script="${PLUGIN_DIR}/date.sh"                            \
+                                                                                   \
+              --add item battery right                                             \
+              --set battery update_freq=3                                          \
+                            script="${PLUGIN_DIR}/battery.sh"                      \
+                            label.font='SF Pro:Semibold:14.0'                      \
+                            icon.font="Hack Nerd Font:Bold:14.0"                   \
+                            icon=                                                 \
+                                                                                   \
+              --add item ical right                                                \
+              --set ical update_freq=180                                           \
+                         icon=􀉉                                                    \
+                         popup.align=center                                        \
+                         script="$PLUGIN_DIR/ical.sh"                              \
+                         click_script="sketchybar --set ical popup.drawing=toggle" \
+                                                                                   \
+              --add item ical.template popup.ical                                  \
+              --set ical.template drawing=off                                      \
+                                  padding_left=2                                   \
+                                  padding_right=7                                  \
+                                  label.width=200                                  \
+                                  icon.width=50                                    \
+                                                                                   \
+              --add event bluetooth_change "com.apple.bluetooth.status"            \
+                                                                                   \
+              --add item headphones right                                          \
+              --set headphones icon=                                              \
+                               script="${PLUGIN_DIR}/headphones.sh"                \
+              --subscribe headphones bluetooth_change                              \
+                                                                                   \
+              --add item apps right                                                \
+              --set apps icon.font="Hack Nerd Font:Bold:14.0"                      \
+                            icon.drawing=off                                       \
+                            icon=""                                                \
+                            script="${PLUGIN_DIR}/app_icons.sh"                    \
               --subscribe apps front_app_switched
 
 # Central items
