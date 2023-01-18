@@ -33,7 +33,7 @@ update() {
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
         time_colour=$(urgency $time_difference)
 
-        args+=(--set $NAME icon.color=${time_colour} label=" ${event[1]}" label.color=${time_colour})
+        args+=(--set $NAME label=" ${event[1]}" label.color=${time_colour})
     else
         args+=(--set $NAME label="")
     fi
@@ -51,9 +51,14 @@ update() {
             title=":)"
         fi
 
+        event_time=$(date -j -f %H:%M ${time} +%s)
+        time_difference=$(( (event_time - CURRENT_TIME) / 60))
+        time_colour=$(urgency $time_difference)
+
         args+=(--clone ical.event.$COUNTER ical.template               \
                --set ical.event.$COUNTER                               \
                label="$title"                                          \
+               label.color=$time_colour                                \
                icon="$time"                                            \
                icon.color=0xFFFE8019                                   \
                click_script="sketchybar --set $NAME popup.drawing=off" \
