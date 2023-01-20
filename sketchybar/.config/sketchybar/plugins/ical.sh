@@ -29,9 +29,9 @@ update() {
     CURRENT_TIME=$(date +%s)
     CURRENT_LABEL=$(sketchybar --query ical | jq -r .label.value)
     CURRENT_COLOUR=$(sketchybar --query ical | jq -r .label.color | tr '[:lower:]' '[:upper:]')
+    DEFAULT_COLOUR="0xF0A8A8A8"
     LABEL_CHANGED=0
 
-    # Comment this if-section out if you don't want the time of the next event next to the icon
     if [ "${EVENTS}" != "" ]; then
         IFS="${SEP}" read -ra event <<< "$(echo "${EVENTS}" | head -n1)"
 
@@ -49,25 +49,26 @@ update() {
 
         args+=(--set $NAME icon.color=${time_colour} label=" ${event[1]}" label.color=${time_colour})
     else
-        args+=(--set $NAME label="")
+        args+=(--set $NAME label="" icon.color=${DEFAULT_COLOUR} label.color=${DEFAULT_COLOUR})
     fi
 
     while read -r line; do
 
         COUNTER=$((COUNTER + 1))
+        time_colour=${DEFAULT_COLOUR}
 
         if [ "${line}" != "" ]; then
             IFS="${SEP}" read -ra event_parts <<< "$line"
             time="${event_parts[1]}"
             title="${event_parts[0]}"
-        else
-            time="No events today"
-            title=":)"
-        fi
 
-        event_time=$(date -j -f %H:%M ${time} +%s)
-        time_difference=$(( (event_time - CURRENT_TIME) / 60))
-        time_colour=$(urgency $time_difference)
+            event_time=$(date -j -f %H:%M ${time} +%s)
+            time_difference=$(( (event_time - CURRENT_TIME) / 60))
+            time_colour=$(urgency $time_difference)
+        else
+            time=" "
+            title="No upcoming events today"
+        fi
 
         args+=(--clone ical.event.$COUNTER ical.template               \
                --set ical.event.$COUNTER                               \
