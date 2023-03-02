@@ -8,14 +8,16 @@ PROCESSES=(
     "/Applications/Discord.app/Contents/MacOS/Discord"
     "/Applications/Microsoft Teams.app/Contents/MacOS/Teams"
     "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook"
+    "/Applications/Mattermost.app/Contents/MacOS/Mattermost"
 )
 
 ICONS=(
     ""
     ""
     "ﭮ"
-    ""
-    ""
+    "󰊻"
+    "󰴢"
+    "󱧍"
 )
 
 ICON_STRING=""

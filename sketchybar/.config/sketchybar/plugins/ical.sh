@@ -57,7 +57,10 @@ update() {
         COUNTER=$((COUNTER + 1))
         time_colour=${DEFAULT_COLOUR}
 
-        if [ "${line}" != "" ]; then
+        if [ ${COUNTER} -gt 10 ]; then
+            time=""
+            title=$(printf "%23s" "...")
+        elif [ "${line}" != "" ]; then
             IFS="${SEP}" read -ra event_parts <<< "$line"
             time="${event_parts[1]}"
             title="${event_parts[0]}"
@@ -79,6 +82,10 @@ update() {
                click_script="sketchybar --set $NAME popup.drawing=off" \
                position=popup.ical                                     \
                drawing=on)
+
+        if [ ${COUNTER} -gt 10 ]; then
+            break;
+        fi
 
     done <<< "$(echo "$EVENTS")"
 
