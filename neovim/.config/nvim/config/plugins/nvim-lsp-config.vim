@@ -20,6 +20,10 @@ nnoremap <c-f> :Telescope live_grep<CR>
 nnoremap <silent> <leader>b :Telescope buffers<CR>
 
 " Load required lua files
+if $HOSTNAME =~ 'fnal' && empty($GCC_VERSION)
+    finish
+endif
+
 lua require('lsp_config')
 lua require('snippets')
 lua require('tele_config')
