@@ -63,6 +63,7 @@ yabai -m rule --add title="Preferences$" manage=off topmost=on
 
 # Social
 yabai -m rule --add app="^Slack$" manage=off
+yabai -m rule --add app="^.*Mattermost.*$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^.*Zoom.*$" manage=off
