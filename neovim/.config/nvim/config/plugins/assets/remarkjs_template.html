@@ -104,6 +104,10 @@
                 clear: both;
             }
 
+            .padding-25 {
+                padding-left: 25px;
+            }
+
             img,
             video,
             iframe {
@@ -113,6 +117,10 @@
             blockquote {
                 border-left: solid 5px lightgray;
                 padding-left: 1em;
+            }
+
+            ul {
+                padding-left: 15px;
             }
 
             .remark-slide table {
@@ -129,6 +137,9 @@
             td {
                 padding: 1px;
                 font-size: 1.2em;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-align: center;
             }
 
             .remark-slide thead,
@@ -157,7 +168,7 @@
             }
             .pull-right-40 {
                 float: right;
-                width: 38%;
+                width: 39%;
             }
             .pull-right-40 ~ * {
                 clear: both;
@@ -177,7 +188,7 @@
 
             .pull-left-40 {
                 float: left;
-                width: 38%;
+                width: 39%;
             }
             .pull-right-60 {
                 float: right;
@@ -301,6 +312,20 @@
                 color: gray;
             }
 
+            /* TODO Text */
+            .TODO {
+                color: red;
+                font-weight: bold;
+            }
+
+            .default {
+                opacity: 1;
+            }
+
+            .highlight {
+                font-weight: bold;
+            }
+
             /* code */
             .remark-inline-code {
                 border-radius: 1px;
@@ -310,6 +335,11 @@
 
             .inverse .remark-inline-code {
                 background: #333333;
+            }
+
+            pre {
+                margin-top: 10px;
+                margin-bottom: 10px;
             }
 
             .remark-code-line-highlighted {
@@ -366,6 +396,13 @@
                 top: 0px;
                 width: 110%;
                 left: 210px;
+            }
+
+            div.background_image_atlas {
+                position: absolute;
+                top: -30px;
+                width: 110%;
+                left: 280px;
             }
 
             /* Blocks */
@@ -484,6 +521,13 @@ REPLACE_ME
             href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
         />
 
+        <!-- hljs -->
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/vs.min.css"
+        />
+
         <script type="text/javascript">
             /* Set the page size dynamically */
             ;(function() {
@@ -502,10 +546,6 @@ REPLACE_ME
             })()
 
             var options = {
-                highlightLines: true,
-                highlightStyle: "github-gist",
-                highlightLanguage: "python",
-
                 countIncrementalSlides: false,
             }
 
@@ -520,9 +560,7 @@ REPLACE_ME
                 })
             }
 
-            /*
-        Image macro for scaling
-        */
+            // Image macro for scaling.
             remark.macros.img = function(altText, width) {
                 var url = this
                 return `<img alt="${altText}" src="${url}" style="width: ${width}" />`
@@ -530,9 +568,7 @@ REPLACE_ME
 
             var slideshow = remark.create(options, renderMath)
 
-            /**
-        Copy examples to clipboard on click
-         **/
+            // Copy examples to clipboard on click
             setTimeout(function() {
                 var xs = document.querySelectorAll("pre")
                 Array.prototype.forEach.call(xs, x => {
@@ -547,6 +583,7 @@ REPLACE_ME
                     })
                 })
             }, 500)
+
         </script>
     </body>
 </html>

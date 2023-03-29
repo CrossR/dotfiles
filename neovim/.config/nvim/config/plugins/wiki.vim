@@ -1,7 +1,11 @@
 " VimWiki
 
 if empty($GIT_DEFAULT_DIR)
-    echoerr "$GIT_DEFAULT_DIR isn't set."
+    if isdirectory($HOME . "/git")
+        let $GIT_DEFAULT_DIR = $HOME . "/git"
+    else
+        echoerr "$GIT_DEFAULT_DIR isn't set."
+    endif
 endif
 
 let g:wiki_root = $GIT_DEFAULT_DIR . "/wiki/docs"
