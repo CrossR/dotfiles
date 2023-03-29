@@ -16,7 +16,7 @@
         <style>
             @font-face {
                 font-family: "Oswald";
-                src: url('remark_cache/fonts/Oswald.ttf');
+                src: url('./remark_cache/fonts/Oswald.ttf');
             }
             @font-face {
                 font-family: "EB Garamond";
@@ -60,11 +60,17 @@
                 padding: 20px;
             }
 
-
             .footnote {
                 position: absolute;
                 bottom: 3em;
                 padding-right: 4em;
+                font-size: 60%;
+            }
+
+            .footnote-left {
+                position: absolute;
+                bottom: 3em;
+                left: 54em;
                 font-size: 60%;
             }
 
@@ -97,6 +103,11 @@
                 width: 23%;
             }
 
+            .pull-left-wide {
+                float: left;
+                width: 65%;
+            }
+
             .pull-right {
                 float: right;
                 width: 47%;
@@ -111,6 +122,10 @@
                 clear: both;
             }
 
+            .padding-25 {
+                padding-left: 25px;
+            }
+
             img,
             video,
             iframe {
@@ -120,6 +135,10 @@
             blockquote {
                 border-left: solid 5px lightgray;
                 padding-left: 1em;
+            }
+
+            ul {
+                padding-left: 15px;
             }
 
             .remark-slide table {
@@ -135,7 +154,10 @@
             th,
             td {
                 padding: 1px;
-                font-size: 0.6em;
+                font-size: 1.2em;
+                padding-left: 10px;
+                padding-right: 10px;
+                text-align: center;
             }
 
             .remark-slide thead,
@@ -164,7 +186,7 @@
             }
             .pull-right-40 {
                 float: right;
-                width: 38%;
+                width: 39%;
             }
             .pull-right-40 ~ * {
                 clear: both;
@@ -184,7 +206,7 @@
 
             .pull-left-40 {
                 float: left;
-                width: 38%;
+                width: 39%;
             }
             .pull-right-60 {
                 float: right;
@@ -241,7 +263,7 @@
             /* header colors are the same regardless of inverse or not*/
             .remark-slide-content h1,
             .inverse h1 {
-                color: #b5121b;
+                color: #00B2DD;
                 font-size: 35px;
             }
 
@@ -258,31 +280,33 @@
             }
 
             .title-slide h1 {
-                color: #b5121b;
-                font-size: 50px;
+                color: white;
+                font-size: 56px;
                 font-weight: 500;
                 text-align: left;
-                margin-left: 40px;
-                padding-top: 60px;
+                padding-top: 245px;
             }
             .title-slide h2 {
-                color: #555656;
-                font-size: 35px;
+                color: #c7d1d1;
+                font-size: 40px;
                 font-weight: 350;
                 text-align: left;
-                margin-left: 40px;
-                margin-top: -25px;
+                margin-top: -55px;
                 padding-top: 0px;
             }
             .title-slide h3 {
-                color: #555656;
+                color: #c7d1d1;
                 font-size: 25px;
                 font-weight: 300;
                 text-align: left;
-                margin-left: 40px;
-                margin-bottom: 0;
-                margin-top: -25px;
                 padding-top: 0px;
+            }
+            .title-slide h4 {
+                color: #c7d1d1;
+                font-size: 20px;
+                font-weight: 300;
+                text-align: left;
+                margin-top: -30px;
             }
 
             /* slide number */
@@ -301,6 +325,25 @@
                 height: 13px;
             }
 
+            /* Fade Text */
+            .fade {
+                color: gray;
+            }
+
+            /* TODO Text */
+            .TODO {
+                color: red;
+                font-weight: bold;
+            }
+
+            .default {
+                opacity: 1;
+            }
+
+            .highlight {
+                font-weight: bold;
+            }
+
             /* code */
             .remark-inline-code {
                 border-radius: 1px;
@@ -312,24 +355,28 @@
                 background: #333333;
             }
 
+            pre {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
             .remark-code-line-highlighted {
                 background-color: #ffead3;
             }
 
             /* Header / Footer */
             div.my-header {
-                background-color: #b5121b;
                 position: fixed;
-                top: 0px;
-                left: 0px;
+                top: 10px;
+                left: -5px;
                 height: 5px;
-                width: 100%;
+                width: 105%;
                 text-align: left;
                 z-index: 10;
             }
 
             div.my-footer {
-                border-top: 5px solid #b5121b;
+                border-top: 1.5px solid #00B2DD;
                 font-size: 10pt;
                 font-family: "Oswald";
                 text-align: center;
@@ -340,6 +387,97 @@
                 width: 100%;
                 display: table;
                 z-index: 10;
+            }
+
+            /* Title Slide Classes */
+
+            /* Drop things from the first slide */
+            .title-slide div.my-header {
+                display: none;
+            }
+            .title-slide div.my-footer {
+                display: none;
+            }
+            .title-slide .remark-slide-number {
+                display: none;
+            }
+
+            /* Background image */
+            div.background_image_uboone {
+                position: absolute;
+                top: 0px;
+                width: 110%;
+            }
+
+            div.background_image_dune {
+                position: absolute;
+                top: 0px;
+                width: 110%;
+                left: 210px;
+            }
+
+            div.background_image_atlas {
+                position: absolute;
+                top: -30px;
+                width: 110%;
+                left: 280px;
+            }
+
+            /* Blocks */
+            div.block_back {
+                width: 390px;
+                height: 685px;
+                background: #00B2DD;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            div.block_side {
+                width: 250px;
+                height: 685px;
+                background: #00B2DD;
+                position: absolute;
+                top: 0px;
+                left: 325px;
+                transform: skew(28.5deg);
+                box-shadow: 10px -5px 7px rgba(0, 0, 0, 0.33);
+            }
+
+            div.block_patch {
+                width: 150px;
+                height: 150px;
+                background: #00B2DD;
+                position: absolute;
+                bottom: 125px;
+                left: 325px;
+            }
+
+            /* Bottom Image */
+            div.bottom_image {
+                position: absolute;
+                width: 110%;
+                bottom: -20px;
+                left: -115px;
+            }
+
+            div.bottom_patch {
+                width: 50px;
+                height: 127.3px;
+                background: white;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+            }
+
+            div.title_headers {
+                position: absolute;
+                top: 0px;
+            }
+
+            img.center {
+                display: block;
+                margin: 0 auto;
             }
 
             div.my-footer p {
@@ -360,13 +498,12 @@
                 font-family: "EB Garamond", "Palatino Linotype", "Book Antiqua",
                     Palatino, "Microsoft YaHei", "Songti SC", serif;
             }
-
             h1,
             h2,
-            h3 {
+            h3,
+            h4 {
                 font-family: "Oswald";
             }
-
             .remark-code,
             .remark-inline-code {
                 font-family: "Source Code Pro", "Lucida Console", Monaco,
@@ -375,12 +512,15 @@
             }
         </style>
 
+
         <script src="remark_cache/remark-latest.min.js"></script>
     </head>
     <body>
         <textarea id="source">
 layout: true
-<div class="my-header"></div>
+<div class="my-header">
+    <img src="slide_assets/slide_top.png" />
+</div>
 <div class="my-footer"><p>Ryan Cross - REPLACE_DATE_HERE</p></div>
 
 
@@ -411,9 +551,6 @@ REPLACE_ME
             })()
 
             var options = {
-                highlightLines: true,
-                highlightStyle: "github",
-
                 countIncrementalSlides: false,
             }
 
@@ -428,9 +565,7 @@ REPLACE_ME
                 })
             }
 
-            /*
-        Image macro for scaling
-        */
+            // Image macro for scaling
             remark.macros.img = function(altText, width) {
                 var url = this
                 return `<img alt="${altText}" src="${url}" style="width: ${width}" />`
@@ -438,9 +573,7 @@ REPLACE_ME
 
             var slideshow = remark.create(options, renderMath)
 
-            /**
-        Copy examples to clipboard on click
-         **/
+            // Copy examples to clipboard on click
             setTimeout(function() {
                 var xs = document.querySelectorAll("pre")
                 Array.prototype.forEach.call(xs, x => {
@@ -455,6 +588,6 @@ REPLACE_ME
                     })
                 })
             }, 500)
-        </script>
+            </script>
     </body>
 </html>
