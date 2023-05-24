@@ -9,7 +9,6 @@ sketchybar -m --bar height=25        \
 # Global defaults
 sketchybar -m --default updates=when_shown                       \
                         drawing=on                               \
-                        cache_scripts=on                         \
                         icon.font="Hack Nerd Font:Bold:14.0"     \
                         icon.color=0xF0A8A8A8                    \
                         icon.highlight_color=0xFFFE8019          \
@@ -35,8 +34,8 @@ sketchybar -m --add event window_focus         \
               --add event window_destroyed     \
               --add event mission_control_exit
 
-# 10 default spaces
-SPACE_IDS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+# 6 default spaces
+SPACE_IDS=("1" "2" "3" "4" "5" "6")
 
 for i in "${!SPACE_IDS[@]}"; do
     sid=$(($i+1))
@@ -58,6 +57,15 @@ sketchybar -m                                                                   
   --add item dummy_active left                                                                \
   --set dummy_active script="${PLUGIN_DIR}/space_active.sh"                                   \
   --subscribe dummy_active space_change mission_control_exit
+
+# Add a toggl element on the left.
+# Easier to go over here, as the label can get pretty big.
+sketchybar -m                                 \
+    --add item toggl left                     \
+    --set toggl update_freq=15                \
+                icon=󰁫                        \
+                icon.padding_left=25          \
+                script="$PLUGIN_DIR/toggl.sh"
 
 # Item defaults
 sketchybar -m --default label.padding_left=2  \
@@ -108,9 +116,9 @@ sketchybar -m --add item time right                                             
                                                                                    \
               --add item apps right                                                \
               --set apps icon.font="Hack Nerd Font:Bold:14.0"                      \
-                            icon.drawing=off                                       \
-                            icon=""                                                \
-                            script="${PLUGIN_DIR}/app_icons.sh"                    \
+                         icon.drawing=off                                          \
+                         icon=""                                                   \
+                         script="${PLUGIN_DIR}/app_icons.sh"                       \
               --subscribe apps front_app_switched
 
 # Central items

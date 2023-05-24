@@ -29,8 +29,6 @@ for (( i=0; i<${#PROCESSES[@]}; i++ )); do
 
     process_num=$(ps aux | grep -v grep | grep -ci "${process}")
 
-    echo "$process, $process_num"
-
     if [ "${process_num}" -gt 0 ]; then
         ICON_STRING="${icon}  ${ICON_STRING}"
     fi
