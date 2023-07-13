@@ -2,6 +2,7 @@
 
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
+local builtin = require("telescope.builtin")
 
 local custom_actions = {}
 
@@ -98,3 +99,13 @@ require("telescope").setup {
 }
 
 require('telescope').load_extension('fzf')
+
+function fuzzyLiveGrep()
+    builtin.grep_string({
+        path_display = {'smart'},
+        only_sort_text = true,
+        word_match = "-w",
+        search = '',
+    })
+end
+vim.keymap.set('n', '<C-f>', '<cmd>lua fuzzyLiveGrep{}<cr>', {})
