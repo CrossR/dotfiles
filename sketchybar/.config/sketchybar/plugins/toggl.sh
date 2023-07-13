@@ -58,5 +58,8 @@ if [[ $(date +%H) -lt 9 ]] || [[ $(date +%H) -ge 17 ]]; then
 fi
 
 # Its not a weekend, or outside of work hours, so warn.
-sketchybar -m --set toggl icon.color="${WARN}" icon.drawing=on label="${MISSING}"
+sketchybar -m --set toggl icon.color="${WARN}" \
+                          icon.drawing=on \
+                          label.drawing=on \
+                          label="${MISSING}"
 exit 0
