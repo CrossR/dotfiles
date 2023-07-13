@@ -5,6 +5,7 @@
 set number
 set incsearch
 set hlsearch
+set spell
 
 set splitright
 set splitbelow

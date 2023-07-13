@@ -15,4 +15,3 @@ require'nvim-treesitter.configs'.setup {
     highlight_definitions = { enable = true },
   },
 }
-require('spellsitter').setup()

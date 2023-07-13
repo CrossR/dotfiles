@@ -94,7 +94,6 @@ Plug 'onsails/lspkind-nvim'
 " Treesitter + Colour scheme for it
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
-Plug 'lewis6991/spellsitter.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
