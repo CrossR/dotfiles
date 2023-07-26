@@ -2,49 +2,57 @@
 
 local actions = require("telescope.actions")
 local action_state = require("telescope.actions.state")
+local transform_mod = require("telescope.actions.mt").transform_mod
 local builtin = require("telescope.builtin")
 
 local custom_actions = {}
 
-function custom_actions._multiopen(prompt_bufnr, open_cmd)
+local function multiopen(prompt_bufnr, method)
+    local cmd_map = {
+        vertical = "vsplit",
+        horizontal = "split",
+        tab = "tabe",
+        default = "edit"
+    }
+
     local picker = action_state.get_current_picker(prompt_bufnr)
-    local num_selections = #picker:get_multi_selection()
-    if num_selections > 1 then
-        local cwd = picker.cwd
-        if cwd == nil then
-            cwd = ""
-        else
-            cwd = string.format("%s/", cwd)
+    local multi_selection = picker:get_multi_selection()
+
+    if #multi_selection > 1 then
+        require("telescope.pickers").on_close_prompt(prompt_bufnr)
+        pcall(vim.api.nvim_set_current_win, picker.original_win_id)
+
+        for i, entry in ipairs(multi_selection) do
+            local cmd = i == 1 and "edit" or cmd_map[method]
+            vim.cmd(string.format("%s %s", cmd, entry.value))
         end
-        vim.cmd("bw!")
-        for _, entry in ipairs(picker:get_multi_selection()) do
-            vim.cmd(string.format("%s %s%s", open_cmd, cwd, entry.value))
-        end
-        vim.cmd("stopinsert")
     else
-        if open_cmd == "vsplit" then
-            actions.file_vsplit(prompt_bufnr)
-        elseif open_cmd == "split" then
-            actions.file_split(prompt_bufnr)
-        elseif open_cmd == "tabe" then
-            actions.file_tab(prompt_bufnr)
-        else
-            actions.file_edit(prompt_bufnr)
-        end
+        actions["select_" .. method](prompt_bufnr)
     end
 end
 
-function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
-    custom_actions._multiopen(prompt_bufnr, "vsplit")
-end
-function custom_actions.multi_selection_open_split(prompt_bufnr)
-    custom_actions._multiopen(prompt_bufnr, "split")
-end
-function custom_actions.multi_selection_open_tab(prompt_bufnr)
-    custom_actions._multiopen(prompt_bufnr, "tabe")
-end
-function custom_actions.multi_selection_open(prompt_bufnr)
-    custom_actions._multiopen(prompt_bufnr, "edit")
+local custom_actions = transform_mod({
+    multi_selection_open_vsplit = function(prompt_bufnr)
+        multiopen(prompt_bufnr, "vertical")
+    end,
+    multi_selection_open_split = function(prompt_bufnr)
+        multiopen(prompt_bufnr, "horizontal")
+    end,
+    multi_selection_open_tab = function(prompt_bufnr)
+        multiopen(prompt_bufnr, "tab")
+    end,
+    multi_selection_open = function(prompt_bufnr)
+        multiopen(prompt_bufnr, "edit")
+    end,
+})
+
+local function stopinsert(callback)
+    return function(prompt_bufnr)
+        vim.cmd.stopinsert()
+        vim.schedule(function()
+            callback(prompt_bufnr)
+        end)
+    end
 end
 
 require("telescope").setup {
@@ -80,18 +88,19 @@ require("telescope").setup {
                 ["<esc>"] = actions.close,
                 ["<tab>"] = actions.toggle_selection + actions.move_selection_next,
                 ["<s-tab>"] = actions.toggle_selection + actions.move_selection_previous,
-                ["<cr>"] = custom_actions.multi_selection_open,
-                ["<c-v>"] = custom_actions.multi_selection_open_vsplit,
-                ["<c-s>"] = custom_actions.multi_selection_open_split,
-                ["<c-t>"] = custom_actions.multi_selection_open_tab
+                ["<cr>"] = stopinsert(custom_actions.multi_selection_open),
+                ["<c-v>"] = stopinsert(custom_actions.multi_selection_open_vsplit),
+                ["<c-s>"] = stopinsert(custom_actions.multi_selection_open_split),
+                ["<c-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
+                ["<c-f>"] = actions.to_fuzzy_refine
             },
             n = {
                 ["<tab>"] = actions.toggle_selection + actions.move_selection_next,
                 ["<s-tab>"] = actions.toggle_selection + actions.move_selection_previous,
-                ["<cr>"] = custom_actions.multi_selection_open,
-                ["<c-v>"] = custom_actions.multi_selection_open_vsplit,
-                ["<c-s>"] = custom_actions.multi_selection_open_split,
-                ["<c-t>"] = custom_actions.multi_selection_open_tab
+                ["<cr>"] = stopinsert(custom_actions.multi_selection_open),
+                ["<c-v>"] = stopinsert(custom_actions.multi_selection_open_vsplit),
+                ["<c-s>"] = stopinsert(custom_actions.multi_selection_open_split),
+                ["<c-t>"] = stopinsert(custom_actions.multi_selection_open_tab)
             }
         }
     },
@@ -100,12 +109,3 @@ require("telescope").setup {
 
 require('telescope').load_extension('fzf')
 
-function fuzzyLiveGrep()
-    builtin.grep_string({
-        path_display = {'smart'},
-        only_sort_text = true,
-        word_match = "-w",
-        search = '',
-    })
-end
-vim.keymap.set('n', '<C-f>', '<cmd>lua fuzzyLiveGrep{}<cr>', {})
