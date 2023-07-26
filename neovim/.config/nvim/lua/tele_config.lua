@@ -42,7 +42,7 @@ local custom_actions = transform_mod({
         multiopen(prompt_bufnr, "tab")
     end,
     multi_selection_open = function(prompt_bufnr)
-        multiopen(prompt_bufnr, "edit")
+        multiopen(prompt_bufnr, "default")
     end,
 })
 
