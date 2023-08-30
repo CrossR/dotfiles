@@ -20,7 +20,8 @@ while read -r index is_full windows; do
             yabai -m query --windows --space ${index} | \
                 jq -r '[.[] | select(
                     ."is-sticky" == false and
-                    ."is-minimized" == false
+                    ."is-minimized" == false and
+                    ."app" != "Stickies"
                 )] | length | @sh'
         )
     fi
