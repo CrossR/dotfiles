@@ -4,7 +4,6 @@
 
 PROCESSES=(
     "/Applications/Dropbox.app/Contents/MacOS/Dropbox"
-    "/Applications/Slack.app/Contents/MacOS/Slack"
     "/Applications/Discord.app/Contents/MacOS/Discord"
     "/Applications/Microsoft Teams.app/Contents/MacOS/Teams"
     "/Applications/Microsoft Outlook.app/Contents/MacOS/Microsoft Outlook"
@@ -13,7 +12,6 @@ PROCESSES=(
 
 ICONS=(
     ""
-    ""
     "ﭮ"
     "󰊻"
     "󰴢"

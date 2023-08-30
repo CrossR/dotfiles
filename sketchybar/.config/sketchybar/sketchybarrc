@@ -119,7 +119,14 @@ sketchybar -m --add item time right                                             
                          icon.drawing=off                                          \
                          icon=""                                                   \
                          script="${PLUGIN_DIR}/app_icons.sh"                       \
-              --subscribe apps front_app_switched
+              --subscribe apps front_app_switched                                  \
+                                                                                   \
+              --add item slack right                                               \
+              --set slack icon.font="Hack Nerd Font:Bold:14.0"                     \
+                          icon.drawing=off                                         \
+                          icon=""                                                  \
+                          script="${PLUGIN_DIR}/slack.sh"                          \
+              --subscribe slack front_app_switched
 
 # Central items
 sketchybar -m --add item title center                                        \
