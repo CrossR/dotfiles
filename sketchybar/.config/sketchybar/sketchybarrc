@@ -113,20 +113,21 @@ sketchybar -m --add item time right                                             
               --set headphones icon=                                              \
                                script="${PLUGIN_DIR}/headphones.sh"                \
               --subscribe headphones bluetooth_change                              \
-                                                                                   \
-              --add item apps right                                                \
-              --set apps icon.font="Hack Nerd Font:Bold:14.0"                      \
-                         icon.drawing=off                                          \
-                         icon=""                                                   \
-                         script="${PLUGIN_DIR}/app_icons.sh"                       \
-              --subscribe apps front_app_switched                                  \
-                                                                                   \
-              --add item slack right                                               \
-              --set slack icon.font="Hack Nerd Font:Bold:14.0"                     \
+
+
+# Show app icons, with notification counts.
+APPS=("Slack" "Dropbox" "Discord" "Teams" "Microsoft Outlook" "Mattermost")
+
+for app in "${APPS[@]}"; do
+
+    sketchybar -m --add item "$app" right                                            \
+              --set "$app" icon.font="Hack Nerd Font:Bold:14.0"                      \
                           icon.drawing=off                                         \
+                          label.font="SF Pro:Semibold:10"                          \
                           icon=""                                                  \
-                          script="${PLUGIN_DIR}/slack.sh"                          \
-              --subscribe slack front_app_switched
+                          script="${PLUGIN_DIR}/app_icons_notif.sh"                \
+              --subscribe "$app" front_app_switched
+done
 
 # Central items
 sketchybar -m --add item title center                                        \
