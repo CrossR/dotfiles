@@ -29,7 +29,7 @@ if [[ $STATUS_LABEL =~ \"label\"=\"([^\"]*)\" ]]; then
 fi
 
 if [ "${ICON_COLOR}" != "" ]; then
-    sketchybar -m --set "$NAME" icon.drawing=on icon="${ICON}" label="${LABEL}" icon.color="${ICON_COLOR}"
+    sketchybar -m --set "$NAME" icon.drawing=on label.drawing=on icon="${ICON}" label="${LABEL}" icon.color="${ICON_COLOR}"
 else
-    sketchybar -m --set "$NAME" drawing=off
+    sketchybar -m --set "$NAME" icon.drawing=off label.drawing=off
 fi
