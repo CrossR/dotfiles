@@ -2,6 +2,22 @@
 
 local cmp = require'cmp'
 local lspkind = require('lspkind')
+local luasnip = require('luasnip')
+
+-------------------------------------------------------------------------------
+-- CoPilot
+-------------------------------------------------------------------------------
+require('copilot').setup({
+    panel = {
+        enabled = true,
+        auto_refresh = true,
+    },
+    suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        accept = false,
+    },
+})
 
 -------------------------------------------------------------------------------
 -- Setup LSP First....
@@ -49,6 +65,13 @@ end
 -------------------------------------------------------------------------------
 -- Then cmp
 -------------------------------------------------------------------------------
+
+-- Only accept if there is words before the cursor...
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim.buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 cmp.setup({
 
@@ -108,7 +131,19 @@ cmp.setup({
             c = cmp.mapping.close(),
         }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+          elseif require("copilot.suggestion").is_visible() then
+            require("copilot.suggestion").accept()
+          elseif luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s"}),
     },
 
     formatting = {
@@ -123,6 +158,7 @@ cmp.setup({
 
     sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'path' },
     { name = 'luasnip' },
     { name = 'latex-symbols' },
     }, {

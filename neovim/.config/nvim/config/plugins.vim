@@ -90,6 +90,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
+Plug 'zbirenbaum/copilot.lua'
 
 " Treesitter + Colour scheme for it
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
