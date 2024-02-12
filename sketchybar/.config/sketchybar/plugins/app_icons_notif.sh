@@ -2,8 +2,8 @@
 
 declare -A ICONS=(
     ["Slack"]="󰒱"
-    ["Dropbox"]=""
-    ["Discord"]="ﭮ"
+    ["Dropbox"]=""
+    ["Discord"]="󰙯"
     ["Teams"]="󰊻"
     ["Microsoft Outlook"]="󰴢"
     ["Mattermost"]="󱧍"

@@ -120,13 +120,13 @@ APPS=("Slack" "Dropbox" "Discord" "Teams" "Microsoft Outlook" "Mattermost")
 
 for app in "${APPS[@]}"; do
 
-    sketchybar -m --add item "$app" right                                            \
-              --set "$app" icon.font="Hack Nerd Font:Bold:14.0"                      \
-                          icon.drawing=off                                         \
-                          label.font="SF Pro:Semibold:10"                          \
-                          icon=""                                                  \
-                          script="${PLUGIN_DIR}/app_icons_notif.sh"                \
-              --subscribe "$app" front_app_switched
+    sketchybar -m --add item "$app" right                                          \
+              --set "$app" icon.font="Hack Nerd Font:Bold:14.0"                    \
+                           icon.drawing=off                                        \
+                           label.font="SF Pro:Semibold:10"                         \
+                           icon=""                                                 \
+                           script="${PLUGIN_DIR}/app_icons_notif.sh"               \
+                           update_freq=30
 done
 
 # Central items
