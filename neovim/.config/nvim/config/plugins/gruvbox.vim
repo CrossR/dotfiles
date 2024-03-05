@@ -8,7 +8,7 @@ set termguicolors
 set background=dark
 
 lua << EOF
-  local colors = require("gruvbox.palette")
+  local colors = require("gruvbox").palette
   require("gruvbox").setup({
   overrides = {
       SignColumn = { bg = colors.dark0 },
