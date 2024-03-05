@@ -26,3 +26,5 @@ mpd/.config/mpd/*
 # Ignore ROOT history file
 root_hist
 
+# Ignore any plugins for tmux
+tmux/.config/tmux/plugins/*
