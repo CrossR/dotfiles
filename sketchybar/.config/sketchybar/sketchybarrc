@@ -34,8 +34,8 @@ sketchybar -m --add event window_focus         \
               --add event window_destroyed     \
               --add event mission_control_exit
 
-# 6 default spaces
-SPACE_IDS=("1" "2" "3" "4" "5" "6")
+# 9 default spaces
+SPACE_IDS=("1" "2" "3" "4" "5" "6" "7" "8" "9")
 
 for i in "${!SPACE_IDS[@]}"; do
     sid=$(($i+1))
@@ -43,6 +43,7 @@ for i in "${!SPACE_IDS[@]}"; do
                   --set space.$sid associated_space=$sid                     \
                                    icon=${SPACE_IDS[$i]}                     \
                                    icon.font='SF Pro:Semibold:14.0'          \
+                                   drawing=off                               \
                                    click_script="yabai -m space --focus $sid"
 done
 

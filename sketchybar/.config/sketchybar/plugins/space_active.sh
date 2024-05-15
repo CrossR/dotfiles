@@ -2,12 +2,12 @@
 
 ACTIVE_SPACES=$(yabai -m query --spaces | jq -r '.[] | [.index] | @sh')
 
-for i in {1..10}; do
+for i in {1..9}; do
 
     if [[ "${ACTIVE_SPACES[*]}" =~ "${i}" ]]; then
-        sketchybar -m --set "space.${i}" icon.drawing=on
+        sketchybar -m --set "space.${i}" drawing=on
     else
-        sketchybar -m --set "space.${i}" icon.drawing=off
+        sketchybar -m --set "space.${i}" drawing=off
     fi
 
 done

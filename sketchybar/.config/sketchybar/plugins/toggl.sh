@@ -46,13 +46,13 @@ if [ "${TOGGL_RESPONSE}" != "null" ]; then
 fi
 
 # Project not found...check if its a weekend?
-if [[ $(date +%u) -gt 5 ]]; then
+if [ $(date +%u) -gt 5 ]; then
     sketchybar -m --set toggl icon.drawing=off label.drawing=off
     exit 0
 fi
 
 # Or outside work hours?
-if [[ $(date +%H) -lt 9 ]] || [[ $(date +%H) -ge 17 ]]; then
+if [ $(date +%H) -lt 9 ] || [ $(date +%H) -ge 17 ]; then
     sketchybar -m --set toggl icon.drawing=off label.drawing=off
     exit 0
 fi
