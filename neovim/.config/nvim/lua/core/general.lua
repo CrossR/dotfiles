@@ -75,4 +75,3 @@ augroup TerminalFix
   autocmd TermOpen * setlocal nonumber norelativenumber nospell
 augroup END
 ]]
-

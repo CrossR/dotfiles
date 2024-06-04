@@ -29,7 +29,20 @@ return {{
                     fg = colors.orange,
                     bg = colors.dark0,
                     reverse = false
-                }
+                },
+                SpellBad = {
+                    link = "WarningMsg"
+                },
+                SpellCap = {
+                    link = "ModeMsg"
+                },
+                SpellLocal = {
+                    link = "ModeMsg"
+                },
+                SpellRare = {
+                    link = "Question"
+                },
+
             }
         })
         vim.cmd.colorscheme("gruvbox")

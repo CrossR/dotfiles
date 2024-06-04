@@ -20,16 +20,6 @@ return {{
                     require('luasnip').lsp_expand(args.body)
                 end
             },
-            window = {
-                completion = {
-                    border = "rounded",
-                    scrollbar = false
-                },
-                documentation = {
-                    border = "rounded",
-                    scrollbar = false
-                }
-            },
             completion = {
                 completeopt = "menu,menuone,noinsert"
             },
