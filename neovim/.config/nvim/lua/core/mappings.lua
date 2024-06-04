@@ -21,6 +21,24 @@ vim.keymap.set('n', '<leader>P', '"+P', {
     silent = true
 })
 
+-- Move between splits more easily
+vim.keymap.set('n', '<C-J>', '<C-W><C-J>', {
+    noremap = true,
+    silent = true
+})
+vim.keymap.set('n', '<C-K>', '<C-W><C-K>', {
+    noremap = true,
+    silent = true
+})
+vim.keymap.set('n', '<C-L>', '<C-W><C-L>', {
+    noremap = true,
+    silent = true
+})
+vim.keymap.set('n', '<C-H>', '<C-W><C-H>', {
+    noremap = true,
+    silent = true
+})
+
 -- Map j/k to gj/gk in normal mode
 vim.keymap.set('n', 'j', 'gj', {
     noremap = true,

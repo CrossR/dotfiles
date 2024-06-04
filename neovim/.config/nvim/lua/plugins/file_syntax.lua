@@ -1,5 +1,5 @@
 -- Neovim treesitter config
-return {
+return {{
     "nvim-treesitter/nvim-treesitter",
     enabled = function()
         -- Don't enable for GPVMs that lack a loaded GCC module
@@ -14,79 +14,79 @@ return {
     build = ":TSUpdate",
     event = {"BufReadPost", "BufNewFile"},
     dependencies = {"nvim-treesitter/nvim-treesitter-textobjects", "nvim-treesitter/nvim-treesitter-refactor"},
-    opts = {
-        ensure_installed = "all",
-        sync_install = false,
-        ignore_install = {"markdown", "markdown_inline"},
-        auto_install = false,
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = true
-        },
-        indent = {
-            enable = true
-        },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<C-space>",
-                node_incremental = "<C-space>",
-                scope_incremental = false,
-                node_decremental = "<bs>"
-            }
-        },
-        refactor = {
-            highlight_definitions = {
+    config = function()
+        opts = {
+            ensure_installed = "all",
+            sync_install = false,
+            ignore_install = {"markdown", "markdown_inline"},
+            auto_install = true,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = true
+            },
+            indent = {
                 enable = true
-            }
-        },
-        textobjects = {
-            move = {
-                enable = true,
-                goto_next_start = {
-                    ["]f"] = "@function.outer",
-                    ["]o"] = "@class.outer"
-                },
-                goto_next_end = {
-                    ["]F"] = "@function.outer",
-                    ["]O"] = "@class.outer"
-                },
-                goto_previous_start = {
-                    ["[f"] = "@function.outer",
-                    ["[o"] = "@class.outer"
-                },
-                goto_previous_end = {
-                    ["[F"] = "@function.outer",
-                    ["[O"] = "@class.outer"
-                }
             },
-            select = {
+            incremental_selection = {
                 enable = true,
-                lookahead = true,
-                include_surrounding_whitespace = true,
                 keymaps = {
-                    ["af"] = "@function.outer",
-                    ["if"] = "@function.inner",
-                    ["ao"] = "@class.outer",
-                    ["io"] = "@class.inner"
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
+                    scope_incremental = false,
+                    node_decremental = "<bs>"
                 }
             },
-            swap = {
-                enable = true,
-                swap_next = {
-                    ["<leader>a"] = "@parameter.inner"
+            refactor = {
+                highlight_definitions = {
+                    enable = true
+                }
+            },
+            textobjects = {
+                move = {
+                    enable = true,
+                    goto_next_start = {
+                        ["]f"] = "@function.outer",
+                        ["]o"] = "@class.outer"
+                    },
+                    goto_next_end = {
+                        ["]F"] = "@function.outer",
+                        ["]O"] = "@class.outer"
+                    },
+                    goto_previous_start = {
+                        ["[f"] = "@function.outer",
+                        ["[o"] = "@class.outer"
+                    },
+                    goto_previous_end = {
+                        ["[F"] = "@function.outer",
+                        ["[O"] = "@class.outer"
+                    }
                 },
-                swap_previous = {
-                    ["<leader>A"] = "@parameter.inner"
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    include_surrounding_whitespace = true,
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ao"] = "@class.outer",
+                        ["io"] = "@class.inner"
+                    }
+                },
+                swap = {
+                    enable = true,
+                    swap_next = {
+                        ["<leader>a"] = "@parameter.inner"
+                    },
+                    swap_previous = {
+                        ["<leader>A"] = "@parameter.inner"
+                    }
                 }
             }
         }
-    },
-    config = function(_, opts)
+
         require("nvim-treesitter.configs").setup(opts)
-    end,
-    {
-        "chrisbra/csv.vim",
-        ft = "csv"
-    },
-}
+    end
+}, {
+    "chrisbra/csv.vim",
+    ft = "csv"
+}}

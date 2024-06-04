@@ -46,7 +46,9 @@ return {{
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-            callback = function(ev)
+            callback = function(args)
+                local bufnr = args.buf
+
                 -- Enable completion triggered by <c-x><c-o>
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -87,6 +89,16 @@ return {{
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-        require("copilot").setup({})
+        require("copilot").setup({
+            panel = {
+                enabled = true,
+                auto_refresh = true
+            },
+            suggestion = {
+                enabled = true,
+                auto_trigger = true,
+                accept = false
+            }
+        })
     end
 }}
