@@ -31,5 +31,10 @@ return {{
         vim.g.rooter_silent_chdir = 1
         vim.g.rooter_change_directory_for_non_project_files = 'current'
     end
-}, {"tpope/vim-surround"}, {"tpope/vim-repeat"}, {"tpope/vim-commentary"}, {"artnez/vim-wipeout"},
-        {"bronson/vim-trailing-whitespace"}, {"wellle/targets.vim"}}
+}, {"tpope/vim-surround"}, {"tpope/vim-repeat"}, {
+    "artnez/vim-wipeout",
+    on = "Wipeout"
+}, {
+    "bronson/vim-trailing-whitespace",
+    on = "Trim"
+}, {"wellle/targets.vim"}}

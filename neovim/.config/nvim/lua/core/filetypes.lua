@@ -16,3 +16,11 @@ augroup Skeleton_Loading
     autocmd BufNewFile *.sh call v:lua.add_template('sh')
 augroup END
 ]])
+
+-- For the C-style languages, set the commentstring to // rather than /* */
+vim.cmd([[
+augroup CStyleComment
+    autocmd!
+    autocmd FileType c,cpp,cuda setlocal commentstring=//\ %s
+augroup END
+]])
