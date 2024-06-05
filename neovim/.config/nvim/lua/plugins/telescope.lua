@@ -1,12 +1,14 @@
 -- Telescope config
 return {
     "nvim-telescope/telescope.nvim",
-    dependencies = {{"nvim-lua/plenary.nvim"}, {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make"
-    }},
+    dependencies = {
+        { "nvim-lua/plenary.nvim" },
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = "make",
+        },
+    },
     config = function()
-
         local actions = require("telescope.actions")
         local action_state = require("telescope.actions.state")
         local transform_mod = require("telescope.actions.mt").transform_mod
@@ -19,7 +21,7 @@ return {
                 vertical = "vsplit",
                 horizontal = "split",
                 tab = "tabe",
-                default = "edit"
+                default = "edit",
             }
 
             local picker = action_state.get_current_picker(prompt_bufnr)
@@ -50,7 +52,7 @@ return {
             end,
             multi_selection_open = function(prompt_bufnr)
                 multiopen(prompt_bufnr, "default")
-            end
+            end,
         })
 
         local function stopinsert(callback)
@@ -80,51 +82,76 @@ return {
             end
         end
 
-        require("telescope").setup {
+        require("telescope").setup({
             defaults = {
-                vimgrep_arguments = {"rg", "--color=never", "--no-heading", "--with-filename", "--line-number",
-                                     "--column", "--hidden", "--smart-case"},
+                vimgrep_arguments = {
+                    "rg",
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--hidden",
+                    "--smart-case",
+                },
                 selection_strategy = "reset",
                 sorting_strategy = "ascending",
-                file_ignore_patterns = {"%.git/.*", "%.vim/.*", "node_modules/.*", "%.vscode/.*"},
+                file_ignore_patterns = {
+                    "%.git/.*",
+                    "%.vim/.*",
+                    "node_modules/.*",
+                    "%.vscode/.*",
+                },
                 layout_config = {
                     vertical = {
-                        mirror = true
+                        mirror = true,
                     },
                     width = 0.93,
-                    prompt_position = "top"
+                    prompt_position = "top",
                 },
                 mappings = {
                     i = {
                         -- close on escape
                         ["<esc>"] = actions.close,
-                        ["<tab>"] = actions.toggle_selection + actions.move_selection_next,
-                        ["<s-tab>"] = actions.toggle_selection + actions.move_selection_previous,
+                        ["<tab>"] = actions.toggle_selection
+                            + actions.move_selection_next,
+                        ["<s-tab>"] = actions.toggle_selection
+                            + actions.move_selection_previous,
                         ["<cr>"] = stopinsert(custom_actions.multi_selection_open),
-                        ["<c-v>"] = stopinsert(custom_actions.multi_selection_open_vsplit),
-                        ["<c-s>"] = stopinsert(custom_actions.multi_selection_open_split),
+                        ["<c-v>"] = stopinsert(
+                            custom_actions.multi_selection_open_vsplit
+                        ),
+                        ["<c-s>"] = stopinsert(
+                            custom_actions.multi_selection_open_split
+                        ),
                         ["<c-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
-                        ["<c-f>"] = actions.to_fuzzy_refine
+                        ["<c-f>"] = actions.to_fuzzy_refine,
                     },
                     n = {
-                        ["<tab>"] = actions.toggle_selection + actions.move_selection_next,
-                        ["<s-tab>"] = actions.toggle_selection + actions.move_selection_previous,
+                        ["<tab>"] = actions.toggle_selection
+                            + actions.move_selection_next,
+                        ["<s-tab>"] = actions.toggle_selection
+                            + actions.move_selection_previous,
                         ["<cr>"] = stopinsert(custom_actions.multi_selection_open),
-                        ["<c-v>"] = stopinsert(custom_actions.multi_selection_open_vsplit),
-                        ["<c-s>"] = stopinsert(custom_actions.multi_selection_open_split),
-                        ["<c-t>"] = stopinsert(custom_actions.multi_selection_open_tab)
-                    }
-                }
+                        ["<c-v>"] = stopinsert(
+                            custom_actions.multi_selection_open_vsplit
+                        ),
+                        ["<c-s>"] = stopinsert(
+                            custom_actions.multi_selection_open_split
+                        ),
+                        ["<c-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
+                    },
+                },
             },
-            extensions = {}
-        }
+            extensions = {},
+        })
     end,
     setup = function()
         require("telescope").load_extension("fzf")
     end,
     keys = {
-        {"<c-p>", "<CMD>lua project_files()<CR>"},
-        {"<c-f>", "<CMD>Telescope live_grep<CR>"},
-        {"<leader>b", "<CMD>Telescope buffers<CR>"}
-    }
+        { "<c-p>", "<CMD>lua project_files()<CR>" },
+        { "<c-f>", "<CMD>Telescope live_grep<CR>" },
+        { "<leader>b", "<CMD>Telescope buffers<CR>" },
+    },
 }

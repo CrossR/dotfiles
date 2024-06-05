@@ -1,64 +1,64 @@
 -- Mappings
 -- Remap comma as leader key
-vim.g.mapleader = ','
-vim.g.maplocalleader = ','
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
 -- Clipboard Mappings
-vim.keymap.set('v', '<leader>y', '"+y', {
+vim.keymap.set("v", "<leader>y", '"+y', {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('v', '<leader>Y', '"+yg_', {
+vim.keymap.set("v", "<leader>Y", '"+yg_', {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', '<leader>p', '"+p', {
+vim.keymap.set("n", "<leader>p", '"+p', {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', '<leader>P', '"+P', {
+vim.keymap.set("n", "<leader>P", '"+P', {
     noremap = true,
-    silent = true
+    silent = true,
 })
 
 -- Move between splits more easily
-vim.keymap.set('n', '<C-J>', '<C-W><C-J>', {
+vim.keymap.set("n", "<C-J>", "<C-W><C-J>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', '<C-K>', '<C-W><C-K>', {
+vim.keymap.set("n", "<C-K>", "<C-W><C-K>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', '<C-L>', '<C-W><C-L>', {
+vim.keymap.set("n", "<C-L>", "<C-W><C-L>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', '<C-H>', '<C-W><C-H>', {
+vim.keymap.set("n", "<C-H>", "<C-W><C-H>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
 
 -- Map j/k to gj/gk in normal mode
-vim.keymap.set('n', 'j', 'gj', {
+vim.keymap.set("n", "j", "gj", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-vim.keymap.set('n', 'k', 'gk', {
+vim.keymap.set("n", "k", "gk", {
     noremap = true,
-    silent = true
+    silent = true,
 })
 
 -- Make . repeat work in visual mode
-vim.keymap.set('v', '.', ':norm.<CR>', {
+vim.keymap.set("v", ".", ":norm.<CR>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
 
 -- Leave terminal mode with ESC
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {
     noremap = true,
-    silent = true
+    silent = true,
 })
 
 -- Clumsy typing corrections to quit / save
@@ -75,8 +75,7 @@ vim.cmd([[
 ]])
 
 -- Use Ctrl-L in insert mode to fix the previous typo
-vim.keymap.set('i', '<C-l>', '<C-G>u<Esc>[s1z=`]a<C-G>u', {
+vim.keymap.set("i", "<C-l>", "<C-G>u<Esc>[s1z=`]a<C-G>u", {
     noremap = true,
-    silent = true
+    silent = true,
 })
-
