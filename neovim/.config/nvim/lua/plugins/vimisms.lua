@@ -35,15 +35,21 @@ return {
             vim.g.rooter_change_directory_for_non_project_files = "current"
         end,
     },
-    { "tpope/vim-surround" },
+    {
+        "echasnovski/mini.nvim",
+        version = false,
+        config = function()
+            require("mini.surround").setup()
+        end,
+    },
     { "tpope/vim-repeat" },
     {
         "artnez/vim-wipeout",
-        on = "Wipeout",
+        cmd = "Wipeout",
     },
     {
         "bronson/vim-trailing-whitespace",
-        on = "Trim",
+        cmd = "FixWhitespace",
     },
     { "wellle/targets.vim" },
 }
