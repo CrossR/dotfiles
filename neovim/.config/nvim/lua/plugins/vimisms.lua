@@ -1,3 +1,4 @@
+-- Basic Vim-isms config
 return {
     {
         "justinmk/vim-sneak",
@@ -52,4 +53,8 @@ return {
         cmd = "FixWhitespace",
     },
     { "wellle/targets.vim" },
+    {
+        "chrisbra/csv.vim",
+        ft = "csv",
+    },
 }

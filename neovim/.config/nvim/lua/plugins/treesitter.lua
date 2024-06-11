@@ -1,4 +1,4 @@
--- Neovim treesitter config
+-- Neovim treesitter Config
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -90,9 +90,5 @@ return {
 
             require("nvim-treesitter.configs").setup(opts)
         end,
-    },
-    {
-        "chrisbra/csv.vim",
-        ft = "csv",
     },
 }

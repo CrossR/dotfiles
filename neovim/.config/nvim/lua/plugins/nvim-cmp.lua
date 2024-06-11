@@ -1,4 +1,4 @@
--- In Editor Auto-Completion
+-- nvim-cmp Config
 
 -- Only accept if there is words before the cursor...
 local has_words_before = function()
