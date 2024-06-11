@@ -13,9 +13,8 @@ yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger win
 
 yabai -m signal --add event=mission_control_exit action="sketchybar -m --trigger mission_control_exit &> /dev/null"
 
-# Disable status bar, and add space for top bar
-yabai -m config status_bar                   off
-yabai -m config top_padding                  26
+# Define the height of sketchybar
+yabai -m config external_bar all:33:0
 
 # Global settings
 yabai -m config mouse_follows_focus          off
@@ -71,7 +70,7 @@ yabai -m rule --add app="^.*zoom.*$" manage=off
 yabai -m rule --add app="^Microsoft Teams$" manage=off
 
 # Utility
-yabai -m rule --add app="^KeePassXC$" manage=off
+yabai -m rule --add title="^.*KeePassXC.*$" manage=off
 yabai -m rule --add app="^Installer$" manage=off
 yabai -m rule --add app="^.*Arduino.*$" manage=off
 yabai -m rule --add app="^.*Stick.*$" manage=off
@@ -87,4 +86,4 @@ yabai -m rule --add title=".*Eve Main Window.*" manage=off
 yabai -m rule --add app="^.*GIMP.*$" manage=off
 yabai -m rule --add app="^.*Inkscape.*$" manage=off
 
-yabai -m rule --add app=".*" layer=normal
+yabai -m rule --add app=".*" sub-layer=normal
