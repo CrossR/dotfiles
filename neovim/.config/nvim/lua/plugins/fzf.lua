@@ -14,10 +14,10 @@ return {
                 end
             end
 
-            require"fzf-lua".setup({
+            require("fzf-lua").setup({
                 "telescope",
-                winopts = { preview = {default = "bat" } },
-                files = { path_shorten=1 },
+                winopts = { preview = { default = "bat" } },
+                files = { path_shorten = 1 },
                 actions = {
                     files = {
                         ["default"] = file_edit_or_tab,
@@ -25,8 +25,8 @@ return {
                         ["ctrl-v"] = actions.file_vsplit,
                         ["ctrl-t"] = actions.file_tabedit,
                         ["alt-q"] = actions.file_sel_to_qf,
-                    }
-                }
+                    },
+                },
             })
         end,
         keys = {
@@ -34,5 +34,5 @@ return {
             { "<c-f>", "<CMD>FzfLua grep_project<CR>" },
             { "<leader>b", "<CMD>FzfLua buffers<CR>" },
         },
-    }
+    },
 }

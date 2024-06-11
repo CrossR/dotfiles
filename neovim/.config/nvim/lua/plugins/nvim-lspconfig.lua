@@ -14,14 +14,6 @@ return {
         end,
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
-            {
-                "williamboman/mason.nvim",
-                opts = {},
-            },
-            {
-                "williamboman/mason-lspconfig.nvim",
-                opts = {},
-            },
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-cmdline",
@@ -120,5 +112,5 @@ return {
                 end,
             })
         end,
-    }
+    },
 }
