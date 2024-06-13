@@ -25,6 +25,11 @@ return {
 
             return true
         end,
+        lazy = true,
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
+        },
         event = "InsertEnter",
         opts = function()
             local cmp = require("cmp")
@@ -38,7 +43,7 @@ return {
                     end,
                 },
                 completion = {
-                    completeopt = "menu,menuone",
+                    completeopt = "menu,menuone,noinsert,noselect",
                 },
                 mapping = {
                     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
@@ -113,7 +118,7 @@ return {
                         select = true,
                     }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
+                        if cmp.visible() and cmp.get_active_entry() then
                             cmp.confirm({
                                 behavior = cmp.ConfirmBehavior.Insert,
                                 select = true,

@@ -15,8 +15,6 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-cmdline",
             "onsails/lspkind-nvim",
         },
         config = function()
