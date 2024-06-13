@@ -27,7 +27,6 @@ return {
                 noremap = false,
             })
         end,
-        cmd = "EasyAlign",
     },
     {
         "airblade/vim-rooter",
