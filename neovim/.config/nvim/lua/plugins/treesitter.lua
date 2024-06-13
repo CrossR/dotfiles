@@ -12,7 +12,7 @@ return {
 
             return true
         end,
-        build = ":TSUpdate",
+        build = ":TSUpdate all",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
@@ -20,7 +20,6 @@ return {
         },
         config = function()
             opts = {
-                ensure_installed = "all",
                 sync_install = false,
                 ignore_install = { "markdown", "markdown_inline" },
                 auto_install = true,
