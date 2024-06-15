@@ -111,7 +111,7 @@ sketchybar -m --add item time right                                             
               --add event bluetooth_change "com.apple.bluetooth.status"            \
                                                                                    \
               --add item headphones right                                          \
-              --set headphones icon=                                              \
+              --set headphones icon=                                              \
                                script="${PLUGIN_DIR}/headphones.sh"                \
               --subscribe headphones bluetooth_change                              \
 
