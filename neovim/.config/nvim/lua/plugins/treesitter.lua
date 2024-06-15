@@ -15,7 +15,6 @@ return {
         build = ":TSUpdate all",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
             "nvim-treesitter/nvim-treesitter-refactor",
         },
         config = function()
