@@ -3,7 +3,6 @@ cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d
 
 # Open Firefox
 cmd + shift - return : ~/.config/yabai/startBrowser.sh
-cmd + ctrl - return : ~/.config/yabai/startBrowser.sh -p
 
 # Toggle yabai
 ctrl + cmd - c : ~/.config/yabai/toggleYabai.sh

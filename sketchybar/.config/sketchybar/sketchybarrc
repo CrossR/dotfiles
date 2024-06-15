@@ -130,11 +130,6 @@ for app in "${APPS[@]}"; do
                            update_freq=30
 done
 
-# Central items
-sketchybar -m --add item title center                                        \
-              --set title script="$HOME/.config/sketchybar/plugins/title.sh" \
-              --subscribe title title_changed window_focus front_app_switched space_change window_created window_destroyed mission_control_exit
-
 ############## FINALIZING THE SETUP ##############
 sketchybar -m --update
 
