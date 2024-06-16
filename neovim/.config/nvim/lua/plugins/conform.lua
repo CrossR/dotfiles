@@ -16,14 +16,9 @@ return {
     opts = {
         formatters_by_ft = {
             lua = { "stylua" },
-            python = { "isort", "black" },
+            python = { "ruff" },
             javascript = { { "prettierd", "prettier" } },
             cpp = { "clang-format" },
-        },
-        formatters = {
-            shfmt = {
-                prepend_args = { "-i", "2" },
-            },
         },
     },
 }

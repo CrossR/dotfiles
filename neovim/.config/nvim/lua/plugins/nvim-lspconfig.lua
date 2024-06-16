@@ -21,7 +21,7 @@ return {
             local lsp = require("lspconfig")
             local lspkind = require("lspkind")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local servers = { "pyright", "clangd" }
+            local servers = { "basedpyright", "clangd" }
 
             for _, lsp in ipairs(servers) do
                 require("lspconfig")[lsp].setup({
