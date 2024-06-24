@@ -13,7 +13,7 @@ return {
                 suggestion = {
                     enabled = true,
                     auto_trigger = true,
-                    accept = false,
+                    hide_during_completion = false,
                 },
             })
         end,
