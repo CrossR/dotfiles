@@ -22,6 +22,7 @@ update() {
     SEP="%"
     COUNTER=0
     EVENTS="$(icalBuddy -eed -n -nc -nrd -ea -iep datetime,title -b '' -ps "|${SEP}|" eventsToday)"
+    EVENTS_WITH_TIME="$(echo "${EVENTS}" | sed '/\.\.\./d')"
 
     args=()
     args+=(--remove '/ical.event\.*/')
@@ -32,8 +33,8 @@ update() {
     DEFAULT_COLOUR="0xF0A8A8A8"
     LABEL_CHANGED=0
 
-    if [ "${EVENTS}" != "" ]; then
-        IFS="${SEP}" read -ra event <<< "$(echo "${EVENTS}" | head -n1)"
+    if [ "${EVENTS_WITH_TIME}" != "" ]; then
+        IFS="${SEP}" read -ra event <<< "$(echo "${EVENTS_WITH_TIME}" | head -n1)"
 
         event_time=$(date -j -f %H:%M ${event[1]} +%s)
         time_difference=$(( (event_time - CURRENT_TIME) / 60))
