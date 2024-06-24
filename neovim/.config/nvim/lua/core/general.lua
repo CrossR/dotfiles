@@ -38,7 +38,7 @@ vim.opt.wrap = false
 vim.opt.spelllang = "en_gb"
 
 vim.opt.list = true
-vim.opt.listchars = "tab:»\\ ,extends:›,precedes:‹,nbsp:·,trail:·"
+vim.opt.listchars = "tab:» ,extends:›,precedes:‹,nbsp:·,trail:·"
 vim.opt.fillchars =
     "vert:│,fold:·,eob: ,msgsep:‾,foldopen:▾,foldsep:│,foldclose:▸"
 vim.opt.display = "lastline"
