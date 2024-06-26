@@ -45,4 +45,13 @@ return {
             }
         end,
     },
+    {
+        "dhruvasagar/vim-table-mode",
+        cmd = { "TableModeToggle" },
+        config = function()
+            vim.keymap.set("n", "<leader>wt", ":TableModeToggle<CR>", {
+                silent = true,
+            })
+        end,
+    },
 }
