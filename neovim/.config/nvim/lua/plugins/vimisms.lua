@@ -1,22 +1,14 @@
 -- Basic Vim-isms config
 return {
     {
-        "justinmk/vim-sneak",
+        "folke/flash.nvim",
         event = "VeryLazy",
-        config = function()
-            vim.keymap.set("", "f", "<Plug>Sneak_f", {
-                silent = true,
-            })
-            vim.keymap.set("", "F", "<Plug>Sneak_F", {
-                silent = true,
-            })
-            vim.keymap.set("", "t", "<Plug>Sneak_t", {
-                silent = true,
-            })
-            vim.keymap.set("", "T", "<Plug>Sneak_T", {
-                silent = true,
-            })
-        end,
+        opts = {},
+        -- stylua: ignore
+        keys = {
+          { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+          { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+        },
     },
     {
         "airblade/vim-rooter",
@@ -28,6 +20,7 @@ return {
     },
     {
         "echasnovski/mini.nvim",
+        event = "VeryLazy",
         version = false,
         config = function()
             require("mini.surround").setup()
@@ -35,7 +28,9 @@ return {
             require("mini.trailspace").setup()
 
             -- Create an alias for MiniTrailspace.trim()
-            vim.cmd("command! -nargs=0 FixWhitespace :lua require('mini.trailspace').trim()")
+            vim.cmd(
+                "command! -nargs=0 FixWhitespace :lua require('mini.trailspace').trim()"
+            )
         end,
     },
     {
@@ -46,7 +41,7 @@ return {
         "artnez/vim-wipeout",
         cmd = "Wipeout",
     },
-    { 
+    {
         "wellle/targets.vim",
         event = "VeryLazy",
     },

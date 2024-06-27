@@ -12,7 +12,7 @@ return {
 
             return true
         end,
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind-nvim",

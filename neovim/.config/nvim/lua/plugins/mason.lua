@@ -2,7 +2,7 @@
 return {
     {
         "williamboman/mason.nvim",
-        event = "BufReadPre",
+        event = "VeryLazy",
         config = function()
             require("mason").setup({
                 ui = {
