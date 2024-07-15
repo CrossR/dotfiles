@@ -17,7 +17,6 @@ return {
             require("fzf-lua").setup({
                 "telescope",
                 winopts = { preview = { default = "bat" } },
-                files = { path_shorten = 1 },
                 actions = {
                     files = {
                         ["default"] = file_edit_or_tab,
