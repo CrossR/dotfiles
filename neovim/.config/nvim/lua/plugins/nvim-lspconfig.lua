@@ -12,7 +12,6 @@ return {
 
             return true
         end,
-        event = "VeryLazy",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind-nvim",
