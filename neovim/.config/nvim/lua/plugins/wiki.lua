@@ -26,12 +26,6 @@ return {
                 return string.lower(target):gsub("\\s+", "_")
             end
 
-            -- Set textwidth to 88 for markdown files
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "markdown",
-                command = "setlocal textwidth=88",
-            })
-
             vim.g.wiki_export = {
                 args = {
                     "-V geometry:margin=0.5in",

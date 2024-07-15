@@ -34,8 +34,6 @@ return {
                 "You have requested package `acro2'",
             }
 
-            -- Set textwidth to 80 for tex files
-            vim.api.nvim_create_autocmd("FileType", { "tex", "setlocal textwidth=80" })
         end,
         keys = {
             { "<F8>", ":VimtexCountWords<CR>" },
