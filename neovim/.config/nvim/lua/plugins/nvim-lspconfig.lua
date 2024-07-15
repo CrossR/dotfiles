@@ -13,6 +13,7 @@ return {
             return true
         end,
         dependencies = {
+            "williamboman/mason.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "onsails/lspkind-nvim",
         },
