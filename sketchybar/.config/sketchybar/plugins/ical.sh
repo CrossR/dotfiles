@@ -21,7 +21,7 @@ update() {
 
     SEP="%"
     COUNTER=0
-    EVENTS="$(icalBuddy -eed -n -nc -nrd -ea -iep datetime,title -b '' -ps "|${SEP}|" eventsToday)"
+    EVENTS="$(icalBuddy -eed -n -nc -nrd -ea -ec "Outlook Export" -iep datetime,title -b '' -ps "|${SEP}|" eventsToday)"
     EVENTS_WITH_TIME="$(echo "${EVENTS}" | sed '/\.\.\./d')"
 
     args=()
