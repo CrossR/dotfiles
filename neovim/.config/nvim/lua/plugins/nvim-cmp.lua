@@ -123,8 +123,8 @@ return {
                                 behavior = cmp.ConfirmBehavior.Insert,
                                 select = true,
                             })
-                        -- elseif require("copilot.suggestion").is_visible() then
-                        --     require("copilot.suggestion").accept()
+                        elseif require("copilot.suggestion").is_visible() then
+                            require("copilot.suggestion").accept()
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif has_words_before() then
