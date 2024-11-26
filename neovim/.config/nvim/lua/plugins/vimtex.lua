@@ -33,7 +33,6 @@ return {
                 "Package svg Warning: Since the encountered filedate of file*",
                 "You have requested package `acro2'",
             }
-
         end,
         keys = {
             { "<F8>", ":VimtexCountWords<CR>" },
