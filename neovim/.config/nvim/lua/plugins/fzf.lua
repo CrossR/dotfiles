@@ -6,20 +6,11 @@ return {
         config = function()
             local actions = require("fzf-lua.actions")
 
-            local function file_edit_or_tab(selected, opts)
-                if #selected > 1 then
-                    return actions.file_tabedit(selected, opts)
-                else
-                    return actions.file_edit(selected, opts)
-                end
-            end
-
             require("fzf-lua").setup({
                 "telescope",
                 winopts = { preview = { default = "bat" } },
                 actions = {
                     files = {
-                        ["default"] = file_edit_or_tab,
                         ["ctrl-s"] = actions.file_split,
                         ["ctrl-v"] = actions.file_vsplit,
                         ["ctrl-t"] = actions.file_tabedit,
