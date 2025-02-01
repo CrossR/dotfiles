@@ -26,17 +26,6 @@ return {
                 return string.lower(target):gsub("\\s+", "_")
             end
 
-            vim.g.wiki_export = {
-                args = {
-                    "-V geometry:margin=0.5in",
-                    "-H " .. git_default_dir .. "/wiki/pandoc/listings-setup.tex",
-                    "--listings",
-                },
-                from_format = "markdown",
-                ext = "pdf",
-                view = true,
-                output = "pdfs/",
-            }
         end,
     },
     {
