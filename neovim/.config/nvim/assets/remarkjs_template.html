@@ -250,7 +250,7 @@
             /* header colors are the same regardless of inverse or not*/
             .remark-slide-content h1,
             .inverse h1 {
-                color: #3C1053;
+                color: #00B2DD;
                 font-size: 35px;
             }
 
@@ -367,15 +367,10 @@
                 width: 105%;
                 text-align: left;
                 z-index: 10;
-
-                /* In place CSS update to "fix" the colour of the header image */
-                filter: brightness(0) saturate(100%)
-                        invert(8%) sepia(72%) saturate(3574%) hue-rotate(272deg)
-                        brightness(87%) contrast(98%);
             }
 
             div.my-footer {
-                border-top: 1.5px solid #3C1053;
+                border-top: 1.5px solid #00B2DD;
                 font-size: 10pt;
                 font-family: "Oswald";
                 text-align: center;
@@ -407,11 +402,6 @@
                 top: 0px;
                 width: 110%;
             }
-            div.background_image_uboone_wide {
-                width: 135%;
-                margin-top: -80px;
-                margin-left: -170px;
-            }
 
             div.background_image_dune {
                 position: absolute;
@@ -436,22 +426,6 @@
                 background-color: #605050;
             }
 
-            div.background_image_traccc_wide {
-                position: absolute;
-                top: 0px;
-                width: 130%;
-                height: 130%;
-                left: 160px;
-                background-color: #605050;
-            }
-
-            div.white_warwick_logo_wide {
-                width: 14%;
-                position: absolute;
-                top: 68px;
-                left: 43px;
-            }
-
             /* Blocks */
             div.block_back {
                 width: 695px;
@@ -463,16 +437,6 @@
                 transform: skew(28.4deg);
                 box-shadow: 10px -5px 7px rgba(0, 0, 0, 0.33);
             }
-            div.block_back_wide {
-                width: 760px;
-                height: 685px;
-                background: #3C1053;
-                position: absolute;
-                top: 0px;
-                left: -260px;
-                transform: skew(29deg);
-                box-shadow: 10px -5px 7px rgba(0, 0, 0, 0.33);
-            }
 
             div.block_side {
                 width: 250px;
@@ -482,16 +446,6 @@
                 top: 0px;
                 left: 325px;
                 transform: skew(28.4deg);
-                box-shadow: 10px -5px 7px rgba(0, 0, 0, 0.33);
-            }
-            div.block_side_wide {
-                width: 250px;
-                height: 685px;
-                background: #3C1053;
-                position: absolute;
-                top: 0px;
-                left: 250px;
-                transform: skew(29deg);
                 box-shadow: 10px -5px 7px rgba(0, 0, 0, 0.33);
             }
 
@@ -508,8 +462,8 @@
             div.bottom_image {
                 position: absolute;
                 width: 110%;
-                bottom: -21px;
-                left: -114px;
+                bottom: -20px;
+                left: -115px;
             }
 
             div.bottom_patch {
@@ -524,13 +478,6 @@
             div.title_headers {
                 position: absolute;
                 top: 0px;
-            }
-            div.title_headers_wide {
-                position: absolute;
-                top: 55px;
-            }
-            div.title_gap {
-                height: 25px;
             }
 
             img.center {
@@ -622,11 +569,9 @@ REPLACE_ME
                 d.head.appendChild(s)
             })()
 
-            const ratio = REPLACE_RATIO_HERE;
-
             var options = {
                 countIncrementalSlides: false,
-                ratio: ratio
+                ratio: '4:3'
             }
 
             var renderMath = function() {
