@@ -9,11 +9,6 @@
             @import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,700,700i");
             @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700");
 
-            @page {
-                size: 1022px 681px;
-                margin: 0;
-            }
-
             @media print {
                 .remark-slide-scaler {
                     width: 100% !important;
@@ -413,10 +408,9 @@
                 width: 110%;
             }
             div.background_image_uboone_wide {
-                width: 120%;
-                height: 120%;
-                margin-top: -57px;
-                margin-left: -20px;
+                width: 135%;
+                margin-top: -80px;
+                margin-left: -170px;
             }
 
             div.background_image_dune {
@@ -445,9 +439,9 @@
             div.background_image_traccc_wide {
                 position: absolute;
                 top: 0px;
-                width: 120%;
-                height: 120%;
-                left: 215px;
+                width: 130%;
+                height: 130%;
+                left: 160px;
                 background-color: #605050;
             }
 
@@ -613,20 +607,20 @@ REPLACE_ME
 
         <script type="text/javascript">
             /* Set the page size dynamically */
-            //;(function() {
-            //    var d = document,
-            //        s = d.createElement("style"),
-            //        r = d.querySelector(".remark-slide-scaler")
-            //    if (!r) return
-            //    s.type = "text/css"
-            //    s.innerHTML =
-            //        "@page { size: " +
-            //        r.style.width +
-            //        " " +
-            //        r.style.height +
-            //        "; }"
-            //    d.head.appendChild(s)
-            //})()
+            ;(function() {
+                var d = document,
+                    s = d.createElement("style"),
+                    r = d.querySelector(".remark-slide-scaler")
+                if (!r) return
+                s.type = "text/css"
+                s.innerHTML =
+                    "@page { size: " +
+                    r.style.width +
+                    " " +
+                    r.style.height +
+                    "; }"
+                d.head.appendChild(s)
+            })()
 
             const ratio = REPLACE_RATIO_HERE;
 
