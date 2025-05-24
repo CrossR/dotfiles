@@ -51,40 +51,40 @@ yabai -m config window_gap                   0
 # Program specific settings
 
 # System
-yabai -m rule --apply app="^System Settings$" manage=off
-yabai -m rule --apply app="^Archive Utility$" manage=off
-yabai -m rule --apply app="^Finder$" manage=off
-yabai -m rule --apply app="^Calculator$" manage=off
-yabai -m rule --apply app="^Calendar$" manage=off
-yabai -m rule --apply title="^Opening .*$" manage=off
-yabai -m rule --apply title="^Copy$" manage=off
-yabai -m rule --apply title="Preferences$" manage=off topmost=on
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add title="^Opening .*$" manage=off
+yabai -m rule --add title="^Copy$" manage=off
+yabai -m rule --add title="Preferences$" manage=off topmost=on
 
 # Social
-yabai -m rule --apply app="^Slack$" manage=off
-yabai -m rule --apply app="^.*Mattermost.*$" manage=off
-yabai -m rule --apply app="^Discord$" manage=off
-yabai -m rule --apply app="^Spotify$" manage=off
-yabai -m rule --apply app="^.*Zoom.*$" manage=off
-yabai -m rule --apply app="^.*zoom.*$" manage=off
-yabai -m rule --apply app="^Microsoft Teams$" manage=off
+yabai -m rule --add app="^Slack$" manage=off
+yabai -m rule --add app="^.*Mattermost.*$" manage=off
+yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^.*Zoom.*$" manage=off
+yabai -m rule --add app="^.*zoom.*$" manage=off
+yabai -m rule --add app="^Microsoft Teams$" manage=off
 
 # Utility
 yabai -m rule --apply title="^.*KeePassXC.*$" manage=off
-yabai -m rule --apply app="^Installer$" manage=off
-yabai -m rule --apply app="^.*Arduino.*$" manage=off
-yabai -m rule --apply app="^.*Stick.*$" manage=off
-yabai -m rule --apply title="Picture-In-Picture$" manage=off topmost=on
+yabai -m rule --add app="^Installer$" manage=off
+yabai -m rule --add app="^.*Arduino.*$" manage=off
+yabai -m rule --add app="^.*Stick.*$" manage=off
+yabai -m rule --add title="Picture-In-Picture$" manage=off topmost=on
 
 # Work
-yabai -m rule --apply app="^.*Outlook.*$" manage=off
-yabai -m rule --apply app="^.*root.exe.*$" manage=off
-yabai -m rule --apply title=".*Mayavi.*" manage=off
-yabai -m rule --apply title=".*Eve Main Window.*" manage=off
-yabai -m rule --apply app="^.*python.*$" manage=off grid=1:1:0:0:1:1
+yabai -m rule --add app="^.*Outlook.*$" manage=off
+yabai -m rule --add app="^.*root.exe.*$" manage=off
+yabai -m rule --add title=".*Mayavi.*" manage=off
+yabai -m rule --add title=".*Eve Main Window.*" manage=off
+yabai -m rule --add app="^.*python.*$" manage=off grid=1:1:0:0:1:1
 
 # Graphics
-yabai -m rule --apply app="^.*GIMP.*$" manage=off
-yabai -m rule --apply app="^.*Inkscape.*$" manage=off
+yabai -m rule --add app="^.*GIMP.*$" manage=off
+yabai -m rule --add app="^.*Inkscape.*$" manage=off
 
-yabai -m rule --apply app=".*" sub-layer=normal
+yabai -m rule --add app=".*" sub-layer=normal
