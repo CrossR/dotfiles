@@ -63,7 +63,7 @@ sketchybar -m                                                                   
 # Easier to go over here, as the label can get pretty big.
 sketchybar -m                                 \
     --add item toggl left                     \
-    --set toggl update_freq=15                \
+    --set toggl update_freq=120               \
                 icon=󰁫                        \
                 icon.padding_left=25          \
                 script="$PLUGIN_DIR/toggl.sh"
