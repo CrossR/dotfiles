@@ -6,33 +6,57 @@ WARN="0xFFFF8D00"
 OK="0xFF5DFE67"
 MISSING="Log your time!"
 
-if [ -f ${HOME}/.config/toggl ]; then
-    export $(xargs < ${HOME}/.config/toggl)
+# Use osascript to pull the info we need
+# from the toggle menu bar app.
+#
+# This avoids any API rate limits, and is much faster.
+DURATION=$(osascript -e '
+tell application "System Events" to tell process "Toggl Track"
+    try
+        get name of menu bar item 1 of menu bar 2
+    on error errMsg
+        return "Error: Timer text not found (" & errMsg & ")"
+    end try
+end tell
+')
+DURATION_RESPONSE=$?
+
+# Fetch the project name (3rd item from the dropdown menu)
+PROJECT=$(osascript -e '
+tell application "System Events" to tell process "Toggl Track"
+    try
+        set theStatusIcon to menu bar item 1 of menu bar 2
+        set allMenuItems to menu items of menu 1 of theStatusIcon
+
+        if (count of allMenuItems) < 3 then
+            return "Error: Project name not found (menu has less than 3 items)."
+        end if
+
+        return name of item 3 of allMenuItems
+    on error errMsg
+        return "Error: Could not get project name (" & errMsg & ")"
+    end try
+end tell
+')
+PROJECT_RESPONSE=$?
+
+# If either of the above commands failed, we can't proceed.
+if [ ${DURATION_RESPONSE} -ne 0 ] || [ ${PROJECT_RESPONSE} -ne 0 ]; then
+    sketchybar -m --set toggl icon.color="${WARN}" \
+                              icon.drawing=on \
+                              label.drawing=on \
+                              label="Script Error!"
+    exit 0
 fi
 
-AUTH="$TOGGL_API:api_token"
-JSON="Content-Type: application/json"
-
-URL="https://api.track.toggl.com/api/v9"
-CURRENT_ENTRY="${URL}/me/time_entries/current"
-
-TOGGL_RESPONSE=$(curl --silent ${CURRENT_ENTRY} -H "${JSON}" -u ${AUTH})
-
-# If we have a response, do something with it.
+# If we have at least some timer text, proceed...
 if [ "${TOGGL_RESPONSE}" != "null" ]; then
 
-    PROJECT=$(echo $TOGGL_RESPONSE | jq -r ".description")
+    # Strip any leading/trailing whitespace from the strings.
+    DURATION=$(echo "${DURATION}" | xargs)
+    PROJECT=$(echo "${PROJECT}" | xargs)
 
-    # Parse out the duration of the current entry.
-    # Get the start datetime (UTC), then use that
-    # to calculate the duration.
-    START_TIME_STR=$(echo $TOGGL_RESPONSE | jq -r ".start")
-    START_TIME=$(gdate -d "$START_TIME_STR" +%s)
-    CURRENT_TIME=$(gdate -u +%s)
-    ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
-    DURATION=$(gdate -u -d "@$ELAPSED_TIME" +%H:%M)
-
-    # Project found, show in bar.
+    # Project not found, add a placeholder.
     if [ "${PROJECT}" == "" ]; then
         PROJECT="…"
     fi
