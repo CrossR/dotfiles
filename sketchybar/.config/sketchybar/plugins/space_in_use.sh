@@ -26,8 +26,6 @@ while read -r index is_full windows; do
         )
 
         raw=$(yabai -m query --windows --space ${index})
-        echo "Space ${index} has ${windows} windows, ${filtered_window_num} filtered"
-        echo "Raw: ${raw}"
     fi
 
     if [ "${filtered_window_num}" -gt 0 ]; then

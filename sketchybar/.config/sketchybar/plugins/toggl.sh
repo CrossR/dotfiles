@@ -50,14 +50,18 @@ if [ ${DURATION_RESPONSE} -ne 0 ] || [ ${PROJECT_RESPONSE} -ne 0 ]; then
 fi
 
 # If we have at least some timer text, proceed...
-if [ "${TOGGL_RESPONSE}" != "null" ]; then
+if [ "${DURATION}" != "missing value" ]; then
 
     # Strip any leading/trailing whitespace from the strings.
     DURATION=$(echo "${DURATION}" | xargs)
     PROJECT=$(echo "${PROJECT}" | xargs)
 
     # Project not found, add a placeholder.
-    if [ "${PROJECT}" == "" ]; then
+    if [[ "${PROJECT}" =~ "Last synced" ]]; then
+        PROJECT="…"
+    fi
+
+    if [[ "${PROJECT}" =~ "Error:" ]]; then
         PROJECT="…"
     fi
 
