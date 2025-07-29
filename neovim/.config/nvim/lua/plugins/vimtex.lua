@@ -2,7 +2,8 @@
 return {
     {
         "lervag/vimtex",
-        config = function()
+        lazy = false,
+        init = function()
             vim.g.tex_flavor = "latex"
             vim.g.tex_conceal = ""
             vim.g.vimtex_syntax_enabled = true
