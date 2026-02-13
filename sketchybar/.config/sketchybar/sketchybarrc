@@ -59,14 +59,14 @@ sketchybar -m                                                                   
   --set dummy_active script="${PLUGIN_DIR}/space_active.sh"                                   \
   --subscribe dummy_active space_change mission_control_exit
 
-# Add a toggl element on the left.
-# Easier to go over here, as the label can get pretty big.
-sketchybar -m                                 \
-    --add item toggl left                     \
-    --set toggl update_freq=15                \
-                icon=󰁫                        \
-                icon.padding_left=25          \
-                script="$PLUGIN_DIR/toggl.sh"
+# # Add a toggl element on the left.
+# # Easier to go over here, as the label can get pretty big.
+# sketchybar -m                                 \
+#     --add item toggl left                     \
+#     --set toggl update_freq=0                 \
+#                 icon=󰁫                        \
+#                 icon.padding_left=25          \
+#                 script="$PLUGIN_DIR/toggl.sh"
 
 # Item defaults
 sketchybar -m --default label.padding_left=2  \

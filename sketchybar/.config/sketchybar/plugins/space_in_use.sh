@@ -21,6 +21,7 @@ while read -r index is_full windows; do
                 jq -r '[.[] | select(
                     ."is-sticky" == false and
                     ."is-minimized" == false and
+                    ."opacity" != 0 and
                     (."role" != "" and ."subrole" != "")
                 )] | length | @sh'
         )
