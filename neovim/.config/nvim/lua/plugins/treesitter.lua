@@ -14,9 +14,6 @@ return {
         end,
         build = ":TSUpdate all",
         event = { "BufReadPost", "BufNewFile" },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-refactor",
-        },
         config = function()
             opts = {
                 sync_install = false,
@@ -36,11 +33,6 @@ return {
                         node_incremental = "<C-space>",
                         scope_incremental = false,
                         node_decremental = "<bs>",
-                    },
-                },
-                refactor = {
-                    highlight_definitions = {
-                        enable = true,
                     },
                 },
                 textobjects = {
@@ -89,4 +81,10 @@ return {
             require("nvim-treesitter.configs").setup(opts)
         end,
     },
+    {
+        "RRethy/vim-illuminate",
+        config = function()
+            require('illuminate').configure()
+        end
+    }
 }

@@ -1,4 +1,4 @@
--- Mason Bridge Config
+-- Mason Config
 return {
     {
         "williamboman/mason.nvim",
@@ -13,23 +13,6 @@ return {
                     },
                     border = "rounded",
                 },
-            })
-        end,
-    },
-    {
-        "frostplexx/mason-bridge.nvim",
-        lazy = true,
-        dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "stevearc/conform.nvim",
-        },
-        config = function()
-            require("mason").setup()
-            require("mason-bridge").setup()
-
-            require("conform").setup({
-                formatters_by_ft = require("mason-bridge").get_formatters(),
             })
         end,
     },
