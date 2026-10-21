@@ -103,6 +103,7 @@ sketchybar -m --add item time right                                             
                                                                                    \
               --add item headphones right                                          \
               --set headphones icon=                                              \
+                               drawing=off                                         \
                                script="${PLUGIN_DIR}/headphones.sh"                \
               --subscribe headphones bluetooth_change                              \
 
